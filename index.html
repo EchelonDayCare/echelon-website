@@ -5,31 +5,54 @@
     <meta charset="UTF-8">
     <title>Echelon Day Care</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f8ff; }
-        header { background-color: #007FFF; color: white; padding: 20px; text-align: center; }
-        nav { background-color: #005BBB; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        section { padding: 20px; }
-        footer { background-color: #007FFF; color: white; text-align: center; padding: 10px; position: fixed; width: 100%; bottom: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            width: 100%;
+            height: 288px;
+            background-image: url('images/header.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .nav {
+            background-color: #007FFF;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .vision {
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Echelon Day Care</h1>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
+    <div class="header">Echelon Day Care</div>
+    <div class="nav">
         <a href="about.html">About Us</a>
-        <a href="programs.html">Programs</a>
-        <a href="enrollment.html">Enrollment</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <section>
-        <h2>Welcome to Echelon Day Care</h2>
-        <p>We provide a nurturing and educational environment for young children to grow and thrive. Our dedicated staff ensures every child receives personalized attention and care.</p>
-    </section>
-    <footer>
-        &copy; 2024 Echelon Day Care
-    </footer>
+        <a href="programs.html">Programs Offered</a>
+        <a href="enrollment.html">Enrollment Info</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="vision">
+        <h2>Our Vision</h2>
+        <p>
+            At Echelon Day Care, our vision is to nurture young minds in a safe, inclusive, and stimulating environment.
+            We believe in fostering creativity, curiosity, and compassion through play-based learning and personalized care.
+            Our dedicated staff is committed to supporting each child's unique developmental journey and preparing them for lifelong success.
+        </p>
+    </div>
 </body>
 </html>
