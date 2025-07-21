@@ -3,28 +3,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Little Wonders ELCC</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Echelon Day Care</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f0ff;
+            margin: 0;
+            padding: 0;
+            color: #003366;
+        }
+        header {
+            background-color: #007FFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2em;
+        }
+        nav {
+            background-color: #cce0ff;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .hero {
+            background-color: #b3d1ff;
+            padding: 60px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .features, .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .feature-box, .stat-box {
+            background-color: #cce0ff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            width: 250px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+        .gallery-grid img {
+            width: 576px;
+            height: 384px;
+            object-fit: cover;
+            border: 4px solid #007FFF;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Little Wonders ELCC</h1>
+        Echelon Day Care
     </header>
-    
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="programs.html">Programs</a>
-    <a href="enrollment.html">Enrollment</a>
-    <a href="contact.html">Contact</a>
-</nav>
-
-    <section>
-        <img src="images/home.jpg" alt="Welcome to Little Wonders ELCC">
-        <h2>Welcome to Little Wonders Early Learning Child Care</h2><p>We provide a nurturing environment where children can grow, learn, and thrive. Our programs are designed to support early childhood development through play-based learning and caring guidance.</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#whyus">Why Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section class="hero">
+        <h1>Where Little Steps Make Big Leaps</h1>
+        <p>Providing a nurturing and safe environment for your child to grow, learn, and thrive.</p>
+        <div class="features">
+            <div class="feature-box">Safe & Secure</div>
+            <div class="feature-box">Loving Care</div>
+            <div class="feature-box">Quality Education</div>
+        </div>
     </section>
-    <footer>
-        <p>&copy; 2024 Little Wonders ELCC</p>
-    </footer>
+    <section class="gallery">
+        <h2>Gallery Preview</h2>
+        <div class="gallery-grid">
+            <img src="1.jpg" alt="Gallery Image 1">
+            <img src="2.jpg" alt="Gallery Image 2">
+            <img src="3.jpg" alt="Gallery Image 3">
+            <img src="4.jpg" alt="Gallery Image 4">
+            <img src="5.jpg" alt="Gallery Image 5">
+            <img src="6.jpg" alt="Gallery Image 6">
+        </div>
+    </section>
+    <section class="stats">
+        <div class="stat-box">150+ Happy Families</div>
+        <div class="stat-box">15+ Years Experience</div>
+        <div class="stat-box">5★ Parent Rating</div>
+    </section>
 </body>
 </html>
