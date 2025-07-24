@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Echelon Day Care</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile scaling -->
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -131,9 +130,53 @@
             object-fit: cover;
             border: 4px solid #007FFF;
             border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        /* Mobile specific tweaks */
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 9999;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .logo-container h1 {
                 font-size: 2em;
@@ -158,10 +201,17 @@
             .stat-box, .feature-box {
                 width: 90%;
             }
+
+            .close {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="logo-container">
             <img src="logoMod.png" alt="Echelon Logo" class="logo">
@@ -184,12 +234,12 @@
     <section class="gallery">
         <h2>Gallery Preview</h2>
         <div class="gallery-grid">
-            <img src="1.jpg" alt="Gallery Image 1">
-            <img src="2.jpg" alt="Gallery Image 2">
-            <img src="3.jpg" alt="Gallery Image 3">
-            <img src="4.jpg" alt="Gallery Image 4">
-            <img src="5.jpg" alt="Gallery Image 5">
-            <img src="6.jpg" alt="Gallery Image 6">
+            <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(this.src)">
+            <img src="2.jpg" alt="Gallery Image 2" onclick="openModal(this.src)">
+            <img src="3.jpg" alt="Gallery Image 3" onclick="openModal(this.src)">
+            <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(this.src)">
+            <img src="5.jpg" alt="Gallery Image 5" onclick="openModal(this.src)">
+            <img src="6.jpg" alt="Gallery Image 6" onclick="openModal(this.src)">
         </div>
     </section>
 
@@ -198,5 +248,33 @@
         <div class="stat-box">30+ Years Experience</div>
         <div class="stat-box">5★ Parent Rating</div>
     </section>
+
+    <!-- Modal for enlarged image -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Close modal on background click
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 </html>
