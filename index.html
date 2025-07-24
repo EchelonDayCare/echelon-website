@@ -34,10 +34,20 @@
             padding: 40px 20px;
             text-align: center;
         }
-        .hero {
-            background-color: #b3d1ff;
-            padding: 60px 20px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Adjust darkness */
+            z-index: 0;
         }
+
+.hero h1, .hero p, .features {
+    position: relative;
+    z-index: 1;
+}
+
         .hero h1 {
             font-size: 2em;
             margin-bottom: 10px;
