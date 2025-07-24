@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Echelon Day Care</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile scaling -->
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,58 +13,59 @@
             padding: 0;
             color: #003366;
         }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-                .logo {
-            width: 80px; /* or whatever looks balanced */
-            height: auto;
-        }
-        
-        .logo-container h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-                header {
+
+        header {
             background-color: #007FFF;
             color: white;
             padding: 20px;
         }
-        
+
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 60px;
+            height: auto;
+        }
+
+        .logo-container h1 {
+            font-size: 2.5em;
+            margin: 0;
         }
 
         nav {
             background-color: #cce0ff;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             padding: 10px 0;
         }
+
         nav a {
-            margin: 0 15px;
+            margin: 5px 15px;
             color: #003366;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
+
         section {
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
         }
-                .hero {
+
+        .hero {
             position: relative;
-            background-image: url('hero-bg.jpg'); /* use your image name */
+            background-image: url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             color: white;
-            height: 500px; /* Adjust this to match your image proportions */
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -71,69 +73,100 @@
             text-align: center;
             padding: 20px;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay for readability */
+            background-color: rgba(0, 0, 0, 0.4);
             z-index: 0;
         }
-        
-        .hero h1, .hero p, .features {
+
+        .hero h1, .hero p {
             position: relative;
             z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3em;
+            font-size: 2em;
             margin-bottom: 10px;
         }
-        
+
         .hero p {
-            font-size: 1.4em;
+            font-size: 1.2em;
             line-height: 1.5;
-            max-width: 800px;
+            max-width: 90%;
             margin: 0 auto;
         }
 
         .features, .stats {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
+            gap: 20px;
             margin-top: 20px;
         }
+
         .feature-box, .stat-box {
             background-color: #cce0ff;
             padding: 20px;
-            margin: 20px;
+            margin: 10px;
             border-radius: 8px;
             width: 250px;
             font-size: 1rem;
         }
+
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
             justify-items: center;
         }
+
         .gallery-grid img {
-            width: 580px;
-            height: 384px;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
             object-fit: cover;
             border: 4px solid #007FFF;
             border-radius: 8px;
         }
+
+        /* Mobile specific tweaks */
+        @media (max-width: 768px) {
+            .logo-container h1 {
+                font-size: 2em;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 1.5em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .stat-box, .feature-box {
+                width: 90%;
+            }
+        }
     </style>
-    </head>
+</head>
 <body>
     <header>
-    <div class="logo-container">
-        <img src="logoMod.png" alt="Echelon Logo" class="logo">
-        <h1>Echelon Day Care</h1>
-        
-    </div>
+        <div class="logo-container">
+            <img src="logoMod.png" alt="Echelon Logo" class="logo">
+            <h1>Echelon Day Care</h1>
+        </div>
     </header>
 
     <nav>
@@ -142,11 +175,12 @@
         <a href="#whyus">Why Us</a>
         <a href="#contact">Contact</a>
     </nav>
+
     <section class="hero">
         <h1>Guiding Young Minds Through Play and Structure</h1>
         <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for learning.</p>
-        
     </section>
+
     <section class="gallery">
         <h2>Gallery Preview</h2>
         <div class="gallery-grid">
@@ -158,6 +192,7 @@
             <img src="6.jpg" alt="Gallery Image 6">
         </div>
     </section>
+
     <section class="stats">
         <div class="stat-box">1000+ Happy Families</div>
         <div class="stat-box">30+ Years Experience</div>
