@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,6 @@
             padding: 0;
             color: #003366;
         }
-
         header {
             background-color: #007FFF;
             color: white;
@@ -19,78 +19,49 @@
             text-align: center;
             font-size: 6em;
         }
-
         nav {
             background-color: #cce0ff;
             display: flex;
             justify-content: center;
             padding: 10px 0;
         }
-
         nav a {
             margin: 0 15px;
             color: #003366;
             text-decoration: none;
             font-weight: bold;
         }
-
         section {
             padding: 40px 20px;
             text-align: center;
         }
-
         .hero {
-            position: relative;
-            background-image: url('hero-bg.jpg'); /* Replace with your image file */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
+            background-color: #b3d1ff;
             padding: 60px 20px;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for readability */
-            z-index: 0;
-        }
-
-        .hero h1, .hero p, .features {
-            position: relative;
-            z-index: 1;
-        }
-
         .hero h1 {
             font-size: 2em;
             margin-bottom: 10px;
         }
-
         .features, .stats {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 20px;
         }
-
         .feature-box, .stat-box {
             background-color: #cce0ff;
-            color: #003366;
             padding: 20px;
             margin: 10px;
             border-radius: 8px;
             width: 250px;
         }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             justify-items: center;
         }
-
         .gallery-grid img {
             width: 550px;
             height: 384px;
@@ -108,4 +79,32 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#whyus">Why Us</a>
-        <a href="#conta
+        <a href="#contact">Contact</a>
+    </nav>
+    <section class="hero">
+        <h1>Guiding Young Minds Through Play and Structure</h1>
+        <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for learning.</p>
+        <div class="features">
+            <div class="feature-box">Safe & Secure</div>
+            <div class="feature-box">Loving Care</div>
+            <div class="feature-box">Quality Education</div>
+        </div>
+    </section>
+    <section class="gallery">
+        <h2>Gallery Preview</h2>
+        <div class="gallery-grid">
+            <img src="1.jpg" alt="Gallery Image 1">
+            <img src="2.jpg" alt="Gallery Image 2">
+            <img src="3.jpg" alt="Gallery Image 3">
+            <img src="4.jpg" alt="Gallery Image 4">
+            <img src="5.jpg" alt="Gallery Image 5">
+            <img src="6.jpg" alt="Gallery Image 6">
+        </div>
+    </section>
+    <section class="stats">
+        <div class="stat-box">1000+ Happy Families</div>
+        <div class="stat-box">30+ Years Experience</div>
+        <div class="stat-box">5★ Parent Rating</div>
+    </section>
+</body>
+</html>
