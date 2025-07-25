@@ -1,210 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Echelon Day Care</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f0ff;
-      margin: 0;
-      padding: 0;
-      color: #003366;
-    }
+    <meta charset="UTF-8">
+    <title>Echelon Day Care</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f0ff;
+            margin: 0;
+            padding: 0;
+            color: #003366;
+        }
 
-    header {
-      background-color: #003366;
-      padding: 10px 20px;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #cce0ff;
+        }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
+        .logo-container img {
+            height: 60px;
+            margin-right: 15px;
+        }
 
-    .logo-container img {
-      height: 50px;
-      margin-right: 10px;
-    }
+        .logo-container h1 {
+            margin: 0;
+            font-size: 28px;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
+        nav {
+            background-color: #99ccff;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
 
-    h1, h2 {
-      text-align: center;
-    }
+        nav a {
+            color: #003366;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 20px;
-    }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    .gallery img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.2s;
-    }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+        .gallery img {
+            height: 200px;
+            width: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
 
-    /* Lightbox Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      padding-top: 60px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.9);
-    }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
 
-    .modal-content {
-      margin: auto;
-      display: block;
-      max-width: 80%;
-      max-height: 80%;
-      border-radius: 10px;
-    }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
 
-    .close, .prev, .next {
-      position: absolute;
-      top: 30px;
-      color: white;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      user-select: none;
-    }
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .close {
-      right: 30px;
-    }
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+        }
 
-    .prev {
-      left: 30px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+        .close, .prev, .next {
+            position: absolute;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
 
-    .next {
-      right: 30px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+        .close {
+            top: 10px;
+            right: 20px;
+        }
 
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
+        .prev {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
 
-    @media (max-width: 768px) {
-      .gallery img {
-        width: 90%;
-        height: auto;
-      }
-
-      .modal-content {
-        width: 95%;
-      }
-    }
-  </style>
+        .next {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-container">
-    <img src="logomod.png" alt="Echelon Logo">
-    <h1>Echelon Day Care</h1>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </nav>
-</header>
+    <div class="logo-container">
+        <img src="logomod.png" alt="Echelon Day Care Logo">
+        <h1>Echelon Day Care</h1>
+    </div>
 
-<h2>Welcome to Our Day Care</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a> <!-- ✅ Updated link -->
+    </nav>
 
-<div class="gallery">
-  <img src="1.jpg" alt="Photo 1" onclick="openModal(0)">
-  <img src="2.jpg" alt="Photo 2" onclick="openModal(1)">
-  <img src="3.jpg" alt="Photo 3" onclick="openModal(2)">
-  <img src="4.jpg" alt="Photo 4" onclick="openModal(3)">
-  <img src="5.jpg" alt="Photo 5" onclick="openModal(4)">
-  <img src="6.jpg" alt="Photo 6" onclick="openModal(5)">
-</div>
+    <div class="gallery">
+        <img src="1.jpg" alt="Image 1" onclick="openLightbox(0)">
+        <img src="2.jpg" alt="Image 2" onclick="openLightbox(1)">
+        <img src="3.jpg" alt="Image 3" onclick="openLightbox(2)">
+        <img src="4.jpg" alt="Image 4" onclick="openLightbox(3)">
+        <img src="5.jpg" alt="Image 5" onclick="openLightbox(4)">
+        <img src="6.jpg" alt="Image 6" onclick="openLightbox(5)">
+    </div>
 
-<div id="lightboxModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
-  <span class="next" onclick="changeSlide(1)">&#10095;</span>
-  <img class="modal-content" id="modalImage">
-</div>
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Enlarged Image">
+        </div>
+        <span class="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
 
-<footer>
-  <p>&copy; 2025 Echelon Day Care. All rights reserved.</p>
-</footer>
+    <script>
+        const images = [
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            '5.jpg',
+            '6.jpg'
+        ];
+        let currentIndex = 0;
 
-<script>
-  const images = [
-    '1.jpg', '2.jpg', '3.jpg',
-    '4.jpg', '5.jpg', '6.jpg'
-  ];
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox').style.display = 'block';
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
 
-  let currentIndex = 0;
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
 
-  function openModal(index) {
-    currentIndex = index;
-    const modal = document.getElementById("lightboxModal");
-    const modalImg = document.getElementById("modalImage");
-    modal.style.display = "block";
-    modalImg.src = images[currentIndex];
-  }
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
 
-  function closeModal() {
-    document.getElementById("lightboxModal").style.display = "none";
-  }
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightboxOpen = document.getElementById('lightbox').style.display === 'block';
+            if (!lightboxOpen) return;
 
-  function changeSlide(step) {
-    currentIndex += step;
-    if (currentIndex < 0) currentIndex = images.length - 1;
-    if (currentIndex >= images.length) currentIndex = 0;
-    document.getElementById("modalImage").src = images[currentIndex];
-  }
-
-  // Allow keyboard navigation
-  document.addEventListener("keydown", function(event) {
-    const modal = document.getElementById("lightboxModal");
-    if (modal.style.display === "block") {
-      if (event.key === "ArrowLeft") changeSlide(-1);
-      if (event.key === "ArrowRight") changeSlide(1);
-      if (event.key === "Escape") closeModal();
-    }
-  });
-</script>
-
+            if (e.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);
+            } else if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
