@@ -52,6 +52,59 @@
       font-size: 1.2rem;
     }
 
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .service {
+      margin-bottom: 30px;
+    }
+
+    .service img {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    .form-section {
+      margin-top: 40px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #007FFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #cce0ff;
+      color: #003366;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
     @media (max-width: 768px) {
       .logo-container {
         flex-wrap: nowrap;
@@ -89,6 +142,43 @@
   <a href="whyus.html">Why Us</a>
   <a href="contact.html">Contact</a>
 </nav>
+
+<div class="container">
+  <h2>Our Services</h2>
+
+  <div class="service">
+    <img src="placeholder1.jpg" alt="Infant Care" />
+    <h3>Infant Care</h3>
+    <p>We provide a warm, nurturing environment for infants aged 6 months and above, focusing on sensory development, safety, and personalized attention.</p>
+  </div>
+
+  <div class="service">
+    <img src="placeholder2.jpg" alt="Toddler Program" />
+    <h3>Toddler Program</h3>
+    <p>Our toddler program encourages exploration and social interaction, offering age-appropriate learning activities to boost motor skills and early communication.</p>
+  </div>
+
+  <div class="service">
+    <img src="placeholder3.jpg" alt="Preschool Readiness" />
+    <h3>Preschool Readiness</h3>
+    <p>We help children get ready for school with structured learning through play, focusing on early literacy, math, creative arts, and emotional development.</p>
+  </div>
+
+  <div class="form-section">
+    <h2>Enquiry Form</h2>
+    <form action="https://formsubmit.co/echelondaycare@hotmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" />
+      <textarea name="message" rows="5" placeholder="Your Message or Questions" required></textarea>
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Echelon Day Care. All rights reserved.
+</footer>
 
 </body>
 </html>
