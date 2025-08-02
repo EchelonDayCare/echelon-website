@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About Us - Echelon Day Care</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Echelon Day Care</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      font-size: 1.2rem; /* scalable font */
       margin: 0;
-      padding: 0;
-      background-color: #f4f7f9;
+      font-family: Arial, sans-serif;
+      background-color: #f5faff;
       color: #003366;
     }
 
@@ -18,156 +16,117 @@
       background-color: #007FFF;
       color: white;
       padding: 20px;
+      display: flex;
+      align-items: center;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
     }
 
-    .logo {
+    .logo-container img {
       width: 110px;
       height: auto;
+      margin-right: 20px;
     }
 
     .logo-container h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       margin: 0;
     }
 
     nav {
       background-color: #cce0ff;
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       padding: 10px 0;
     }
 
     nav a {
       margin: 5px 15px;
-      color: #003366;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
+      color: #003366;
+      font-size: 1.2rem;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 30px;
+    .content {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
       background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
 
-    h2, h3 {
-      color: #007FFF;
+    .content h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
     }
 
-    .highlight {
-      font-weight: bold;
-      color: #005bb5;
+    .content p {
+      font-size: 1.1em;
+      line-height: 1.6;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    .gallery-grid {
+    .gallery {
       display: flex;
-      justify-content: center;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 15px;
       margin-top: 30px;
+      justify-content: center;
     }
 
-    .gallery-grid img {
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 4px solid #007FFF;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    .gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
 
-    .gallery-grid img:hover {
+    .gallery img:hover {
       transform: scale(1.05);
     }
 
-    .modal {
-      display: none;
+    /* Lightbox styles */
+    .lightbox {
       position: fixed;
-      z-index: 1000;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.9);
+      display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 1000;
+      display: none;
     }
 
-    .modal img {
+    .lightbox img {
       max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #000;
-    }
-
-    footer {
-      text-align: center;
-      background-color: #007FFF;
-      color: white;
-      padding: 20px 10px;
-      margin-top: 50px;
+      max-height: 90%;
     }
 
     @media (max-width: 768px) {
-      body {
-        font-size: 1rem;
-      }
-
-      .logo-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .logo {
-        width: 70px;
+      .logo-container img {
+        width: 40px;
+        margin-right: 10px;
       }
 
       .logo-container h1 {
-        font-size: 2em;
-        text-align: left;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
+        font-size: 1.6em;
       }
 
       nav a {
-        font-size: 1.4rem;
-        margin: 8px 0;
+        font-size: 1rem;
       }
 
-      main {
-        padding: 20px;
-        margin: 20px 10px;
-      }
-
-      .gallery-grid img {
+      .gallery img {
         width: 100%;
-        max-width: 100%;
-        height: auto;
       }
     }
   </style>
@@ -176,95 +135,71 @@
 
   <header>
     <div class="logo-container">
-      <img class="logo" src="logoMod.png" alt="Echelon Logo" />
+      <img src="logoMod.png" alt="Logo" />
       <h1>Echelon Day Care</h1>
     </div>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#whyus">Why Us</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
 
-  <main>
+  <div class="content">
     <h2>About Echelon Day Care</h2>
     <p>
-      Welcome to <span class="highlight">Echelon Day Care</span> — where nurturing care meets joyful learning!
-      We are a dedicated team of early childhood educators passionate about creating a safe, stimulating,
-      and inclusive environment for children to grow and thrive.
+      At Echelon Day Care, we believe in nurturing young minds through compassion, creativity, and care.
+      Our goal is to provide a safe and stimulating environment where children can learn, play, and grow.
     </p>
-
-    <h3>Our Vision</h3>
     <p>
-      To build a foundation of lifelong learning by fostering creativity, confidence, and kindness
-      in every child we care for.
+      Our experienced staff is dedicated to fostering early development and helping each child reach their full potential.
+      We offer engaging programs tailored to age-appropriate learning, emotional well-being, and joyful discovery.
     </p>
 
-    <h3>Our Mission</h3>
-    <ul>
-      <li>Provide a secure and loving environment for all children.</li>
-      <li>Encourage curiosity through hands-on learning and play.</li>
-      <li>Support each child’s social, emotional, physical, and cognitive development.</li>
-    </ul>
-
-    <h3>Our Team</h3>
-    <p>
-      Led by experienced educators and caregivers, our staff is trained in child safety, CPR,
-      early childhood development, and emotional intelligence. We take pride in forming strong
-      partnerships with parents and guardians.
-    </p>
-
-    <h3>Why Choose Us?</h3>
-    <ul>
-      <li>Bright, clean, and engaging facilities.</li>
-      <li>Daily learning through stories, music, art, and play.</li>
-      <li>Balanced nutrition and outdoor time.</li>
-      <li>Regular updates and photo sharing with parents.</li>
-    </ul>
-
-    <div class="gallery-grid">
-      <img src="photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-      <img src="photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-      <img src="photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
+    <div class="gallery">
+      <img src="img1.jpg" alt="Daycare Image 1" onclick="openLightbox(0)">
+      <img src="img2.jpg" alt="Daycare Image 2" onclick="openLightbox(1)">
+      <img src="img3.jpg" alt="Daycare Image 3" onclick="openLightbox(2)">
+      <img src="img4.jpg" alt="Daycare Image 4" onclick="openLightbox(3)">
     </div>
+  </div>
 
-    <div class="modal" id="imageModal" onclick="closeModal()">
-      <img id="modalImage" src="" alt="Full View">
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2025 Echelon Day Care | All rights reserved
-  </footer>
+  <!-- Lightbox for image preview -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <img id="lightboxImage" src="" alt="Preview">
+  </div>
 
   <script>
-    const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
-    let currentImageIndex = 0;
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const images = Array.from(document.querySelectorAll('.gallery img'));
+    let currentIndex = 0;
 
-    function openModal(index) {
-      currentImageIndex = index;
-      modal.style.display = "flex";
-      modalImg.src = images[currentImageIndex];
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImage.src = images[currentIndex].src;
+      lightbox.style.display = 'flex';
     }
 
-    function closeModal() {
-      modal.style.display = "none";
+    function closeLightbox(event) {
+      if (event.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
     }
 
-    document.addEventListener("keydown", function(event) {
-      if (modal.style.display === "flex") {
-        if (event.key === "ArrowRight") {
-          currentImageIndex = (currentImageIndex + 1) % images.length;
-          modalImg.src = images[currentImageIndex];
-        } else if (event.key === "ArrowLeft") {
-          currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-          modalImg.src = images[currentImageIndex];
-        } else if (event.key === "Escape") {
-          closeModal();
+    document.addEventListener('keydown', function(e) {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % images.length;
+          lightboxImage.src = images[currentIndex].src;
+        } else if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          lightboxImage.src = images[currentIndex].src;
+        } else if (e.key === 'Escape') {
+          lightbox.style.display = 'none';
         }
       }
     });
