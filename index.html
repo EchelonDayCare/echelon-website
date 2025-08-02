@@ -170,8 +170,18 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
     @media (max-width: 768px) {
+      .logo-container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+      }
+      .logo {
+        width: 40px;
+      }
+      
       .logo-container h1 {
-        font-size: 2em;
+        font-size: 1.6em;
       }
       nav a {
         font-size: 1rem;
