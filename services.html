@@ -12,9 +12,9 @@
       color: #003366;
     }
 
-    /* Header styles */
+    /* ✅ Banner and Logo styles (copied from index.html) */
     header {
-      background-color: #007FFF;
+      background: linear-gradient(90deg, #005eb8, #00a4e4);
       padding: 10px 20px;
       display: flex;
       align-items: center;
@@ -38,21 +38,23 @@
     }
 
     nav {
-      background-color: #cce0ff;
-      padding: 10px 20px;
+      background-color: #ffffff;
+      padding: 12px 20px;
       text-align: center;
+      border-bottom: 2px solid #007FFF;
     }
 
     nav a {
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
-      color: #003366;
-      font-size: 1.2rem;
+      color: #005eb8;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #003366;
     }
 
     main {
@@ -64,13 +66,15 @@
     h1 {
       font-size: 2em;
       color: #003366;
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     .service-section {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-      margin-top: 20px;
+      justify-content: center;
     }
 
     .service-card {
@@ -79,7 +83,7 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .service-card h3 {
@@ -134,12 +138,17 @@
         display: block;
         margin: 10px 0;
       }
+
+      .service-section {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ HEADER + LOGO + NAV from index.html -->
+  <!-- ✅ Final header and navigation replicated from index.html -->
   <header>
     <div class="logo-container">
       <img src="logoMod.png" alt="Echelon Daycare Logo">
