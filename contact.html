@@ -4,16 +4,10 @@
   <meta charset="UTF-8" />
   <title>Contact - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Font Awesome CDN -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-oBw5c3U7Q3H7Mfp6IuDZQ9WDXvq+6h2GrbdXwNUzB7qRyE3qME5kN8mX5RzyKbJXUm1D65xv08tcEVoX1xFcbA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
   />
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -62,55 +56,49 @@
       font-size: 1.2rem;
     }
 
-    main {
+    .contact-section {
       padding: 40px 20px;
       max-width: 900px;
-      margin: auto;
-    }
-
-    .contact-info {
+      margin: 0 auto;
       background-color: #ffffff;
-      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 51, 102, 0.2);
+      margin-top: 30px;
     }
 
-    .contact-info h2 {
-      font-size: 2em;
+    .contact-section h2 {
+      font-size: 2.5em;
       margin-bottom: 20px;
+      text-align: center;
     }
 
-    .contact-item {
-      margin-bottom: 20px;
-      font-size: 1.1em;
+    .contact-details {
+      font-size: 1.2em;
+      line-height: 2;
+      padding: 20px;
     }
 
-    .contact-item i {
+    .contact-details i {
       margin-right: 10px;
       color: #007FFF;
     }
 
     .social-icons {
+      display: flex;
+      justify-content: center;
       margin-top: 20px;
+      gap: 20px;
     }
 
     .social-icons a {
-      margin-right: 15px;
-      font-size: 1.5em;
-      color: #003366;
-      text-decoration: none;
+      font-size: 1.8em;
+      color: #007FFF;
+      transition: transform 0.3s ease;
     }
 
     .social-icons a:hover {
-      color: #007FFF;
-    }
-
-    footer {
-      background-color: #cce0ff;
-      color: #003366;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      transform: scale(1.2);
+      color: #0056b3;
     }
 
     @media (max-width: 768px) {
@@ -132,6 +120,18 @@
       nav a {
         font-size: 1rem;
       }
+
+      .contact-section {
+        padding: 20px;
+      }
+
+      .contact-section h2 {
+        font-size: 2em;
+      }
+
+      .contact-details {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -151,30 +151,21 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<main>
-  <div class="contact-info">
-    <h2>Contact Us</h2>
-    <div class="contact-item">
-      <i class="fas fa-map-marker-alt"></i> 575 W 8th Ave, Vancouver, BC V5Z 1M9, Canada
-    </div>
-    <div class="contact-item">
-      <i class="fas fa-phone"></i> +1 604-874-4010
-    </div>
-    <div class="contact-item">
-      <i class="fas fa-globe"></i> Province: British Columbia
-    </div>
-
-    <div class="social-icons">
-      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
-    </div>
+<section class="contact-section">
+  <h2>Contact Us</h2>
+  <div class="contact-details">
+    <p><i class="fas fa-map-marker-alt"></i>575 W 8th Ave, Vancouver, BC V5Z 1M9, Canada</p>
+    <p><i class="fas fa-phone"></i>+1 604-874-4010</p>
+    <p><i class="fas fa-globe-americas"></i>British Columbia, Canada</p>
+    <p><i class="fas fa-envelope"></i><a href="mailto:info@echelondaycare.ca">info@echelondaycare.ca</a></p>
   </div>
-</main>
 
-<footer>
-  &copy; 2025 Echelon Day Care. All rights reserved.
-</footer>
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  </div>
+</section>
 
 </body>
 </html>
