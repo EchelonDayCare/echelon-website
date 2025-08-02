@@ -2,222 +2,228 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Our Services | Echelon Day Care</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" /> <!-- Link to shared CSS if separated -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - Echelon Day Care</title>
   <style>
-    /* Reusing styles from index.html */
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #e6f0ff;
-      margin: 0;
-      padding: 0;
-      color: #003366;
+      background: #f8f9fa;
     }
+
     header {
-      background-color: #007FFF;
+      background-color: #0066cc;
       color: white;
-      padding: 20px;
-    }
-    .logo-container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      padding: 10px 40px;
     }
+
     .logo {
-      width: 110px;
-      height: auto;
+      height: 60px;
     }
-    .logo-container h1 {
-      font-size: 3.5em;
-      margin: 0;
-    }
-    nav {
-      background-color: #cce0ff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
-    }
+
     nav a {
-      margin: 5px 15px;
-      color: #003366;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    section {
-      padding: 30px 20px;
-      text-align: center;
-    }
-    .hero {
-      position: relative;
-      background-image: url('hero-bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       color: white;
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1, h2 {
       text-align: center;
+      color: #333;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service {
+      background: white;
       padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      z-index: 0;
-    }
-    .hero h1, .hero p {
-      position: relative;
-      z-index: 1;
-    }
-    .hero h1 {
-      font-size: 2em;
+
+    .service h3 {
+      color: #0066cc;
       margin-bottom: 10px;
     }
-    .hero p {
-      font-size: 1.2em;
-      line-height: 1.5;
-      max-width: 90%;
-      margin: 0 auto;
-    }
-    .services-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .service-box {
-      background-color: #cce0ff;
-      padding: 20px;
+
+    .enquiry-form {
+      margin-top: 60px;
+      background: white;
+      padding: 30px;
       border-radius: 10px;
-      width: 280px;
-      text-align: left;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
-    .service-box h3 {
-      color: #003366;
-      margin-top: 0;
+
+    .enquiry-form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
     }
-    .service-box p {
-      font-size: 0.95rem;
-    }
-    form {
-      max-width: 500px;
-      margin: 40px auto;
-      background-color: #cce0ff;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    input, textarea {
+
+    .enquiry-form input,
+    .enquiry-form textarea {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
+      border: 1px solid #ccc;
       border-radius: 5px;
-      border: none;
     }
-    button {
-      background-color: #007FFF;
+
+    .enquiry-form button {
+      margin-top: 20px;
+      background-color: #0066cc;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
       border-radius: 5px;
-      font-size: 1rem;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #005fcc;
+
+    .enquiry-form button:hover {
+      background-color: #004999;
     }
-    @media (max-width: 768px) {
-      .logo-container h1 {
-        font-size: 1.6em;
+
+    .testimonials {
+      margin-top: 60px;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 20px;
+      border-left: 5px solid #0066cc;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    .testimonial p {
+      margin: 0;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-top: 10px;
+      text-align: right;
+      color: #333;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
       }
+
+      nav {
+        margin-top: 10px;
+      }
+
       nav a {
-        font-size: 1rem;
-      }
-      .hero {
-        height: 300px;
-      }
-      .hero h1 {
-        font-size: 1.5em;
-      }
-      .hero p {
-        font-size: 1em;
-      }
-      .service-box {
-        width: 90%;
+        display: inline-block;
+        margin: 5px 10px 0 0;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-container">
-    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
-    <h1>Echelon Day Care</h1>
+  <header>
+    <img src="logo.png" alt="Echelon Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h1>Our Services</h1>
+
+    <div class="services-grid">
+      <div class="service">
+        <h3>Infant Care</h3>
+        <p>Warm, attentive care in a safe and nurturing environment for infants 6 weeks and older.</p>
+      </div>
+      <div class="service">
+        <h3>Toddler Program</h3>
+        <p>Encouraging exploration, early communication, and motor development through play.</p>
+      </div>
+      <div class="service">
+        <h3>Preschool Readiness</h3>
+        <p>Structured activities that promote learning, creativity, and school readiness skills.</p>
+      </div>
+      <div class="service">
+        <h3>After School Program</h3>
+        <p>Homework help, recreational activities, and social engagement for school-age children.</p>
+      </div>
+    </div>
+
+    <div class="enquiry-form">
+      <h2>Enquiry Form</h2>
+      <form>
+        <label for="name">Parent's Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="childName">Child's Name</label>
+        <input type="text" id="childName" name="childName" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="service">Interested Service</label>
+        <input type="text" id="service" name="service" />
+
+        <label for="message">Additional Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="testimonials">
+      <h2>What Parents Say</h2>
+
+      <div class="testimonial">
+        <p>“Echelon Day Care has been a blessing. My child loves coming here and always has a smile.”</p>
+        <strong>- Priya S.</strong>
+      </div>
+
+      <div class="testimonial">
+        <p>“Caring staff and a wonderful curriculum. I feel safe leaving my daughter here every day.”</p>
+        <strong>- Arjun M.</strong>
+      </div>
+    </div>
   </div>
-</header>
 
-<nav>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="whyus.html">Why Us</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<section class="hero">
-  <h1>Our Services</h1>
-  <p>Flexible, nurturing, and enriching programs tailored to your child’s growth and happiness.</p>
-</section>
-
-<section>
-  <h2>Programs We Offer</h2>
-  <div class="services-grid">
-    <div class="service-box">
-      <h3>Infant Care (0-18 months)</h3>
-      <p>Safe, cozy spaces with attentive caregivers ensuring your baby’s comfort and development.</p>
-    </div>
-    <div class="service-box">
-      <h3>Toddler Program (18 months – 3 yrs)</h3>
-      <p>Fun-filled days of exploration, language building, music, and basic structure.</p>
-    </div>
-    <div class="service-box">
-      <h3>Preschool (3 – 5 yrs)</h3>
-      <p>Play-based learning, creativity, motor development, early literacy, and social skills.</p>
-    </div>
-    <div class="service-box">
-      <h3>After School & Enrichment</h3>
-      <p>Homework help, games, snacks, and time for kids to socialize and unwind after school.</p>
-    </div>
-    <div class="service-box">
-      <h3>Summer Camps</h3>
-      <p>Outdoor adventures, hands-on experiments, sports, arts, and unforgettable fun!</p>
-    </div>
-    <div class="service-box">
-      <h3>Parent Workshops</h3>
-      <p>Monthly sessions to support parenting, learning strategies, and child behavior insights.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Interested in Joining?</h2>
-  <form action="#" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Tell us more or ask a question..." rows="4"></textarea>
-    <button type="submit">Send Inquiry</button>
-  </form>
-</section>
+  <footer>
+    &copy; 2025 Echelon Day Care. All rights reserved.
+  </footer>
 
 </body>
 </html>
