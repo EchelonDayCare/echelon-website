@@ -2,208 +2,199 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services - Echelon Daycare</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background-color: #e6f0ff;
+      color: #003366;
     }
 
-    /* --- Top Blue Banner and Logo --- */
-    .top-banner {
-      background-color: #0078d4;
-      padding: 10px 0;
-      color: white;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
+    /* Header styles */
     header {
-      background-color: white;
+      background-color: #007FFF;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 30px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .logo {
-      height: 60px;
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo-container span {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav {
+      background-color: #cce0ff;
+      padding: 10px 20px;
+      text-align: center;
     }
 
     nav a {
       text-decoration: none;
-      color: #333;
       margin: 0 15px;
       font-weight: bold;
+      color: #003366;
+      font-size: 1.2rem;
     }
 
     nav a:hover {
-      color: #0078d4;
+      text-decoration: underline;
     }
 
     main {
-      padding: 40px 20px;
+      padding: 20px;
       max-width: 1200px;
       margin: auto;
     }
 
-    .services-section {
-      margin-bottom: 50px;
+    h1 {
+      font-size: 2em;
+      color: #003366;
     }
 
-    .services-section h2 {
-      text-align: center;
-      color: #0078d4;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-
-    .service-cards {
+    .service-section {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-      justify-content: center;
+      margin-top: 20px;
     }
 
-    .card {
+    .service-card {
+      flex: 1 1 300px;
       background-color: white;
+      border: 1px solid #ccc;
       border-radius: 10px;
       padding: 20px;
-      flex: 1 1 280px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .card h3 {
+    .service-card h3 {
       margin-top: 0;
-      color: #333;
+      color: #007FFF;
     }
 
-    .card p {
-      color: #555;
-    }
-
-    /* --- Enquiry Form --- */
-    .enquiry-form {
-      background-color: white;
-      padding: 30px;
+    .form-section {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f5faff;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      margin: auto;
+      border: 1px solid #b3d9ff;
     }
 
-    .enquiry-form h3 {
+    .form-section h2 {
       margin-top: 0;
-      color: #0078d4;
     }
 
-    .enquiry-form label {
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
+      margin-bottom: 5px;
     }
 
-    .enquiry-form input,
-    .enquiry-form textarea {
+    .form-group input,
+    .form-group textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 8px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 6px;
     }
 
-    .enquiry-form button {
-      margin-top: 20px;
-      background-color: #0078d4;
-      color: white;
+    button {
       padding: 10px 20px;
+      background-color: #007FFF;
+      color: white;
       border: none;
       border-radius: 5px;
-      font-size: 1rem;
       cursor: pointer;
     }
 
-    .enquiry-form button:hover {
-      background-color: #005fa3;
+    button:hover {
+      background-color: #005bb5;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        margin-top: 10px;
-      }
-
-      .service-cards {
-        flex-direction: column;
+      nav a {
+        display: block;
+        margin: 10px 0;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 🔵 Blue Top Banner -->
-  <div class="top-banner">
-    Enroll now for our upcoming preschool batch! Limited seats available.
-  </div>
 
-  <!-- 🏫 Header with Logo and Nav -->
+  <!-- ✅ HEADER + LOGO + NAV from index.html -->
   <header>
-    <img src="logo.png" alt="Echelon Day Care Logo" class="logo" />
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="logo-container">
+      <img src="logoMod.png" alt="Echelon Daycare Logo">
+      <span>Echelon Daycare</span>
+    </div>
   </header>
 
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <main>
-    <!-- 🧸 Services Section -->
-    <section class="services-section">
-      <h2>Our Services</h2>
-      <div class="service-cards">
-        <div class="card">
-          <h3>Infant Care</h3>
-          <p>Warm, nurturing, and safe environment for infants aged 3 to 18 months. Includes tummy time, sensory activities, and naps.</p>
-        </div>
-        <div class="card">
-          <h3>Toddler Program</h3>
-          <p>Exploration-based learning for toddlers aged 18 months to 3 years with music, movement, and creative play.</p>
-        </div>
-        <div class="card">
-          <h3>Preschool Education</h3>
-          <p>Structured curriculum to promote literacy, numeracy, and social development for children aged 3 to 5 years.</p>
-        </div>
-        <div class="card">
-          <h3>After School Program</h3>
-          <p>Homework help, snacks, recreational activities, and creative sessions for school-going children up to age 10.</p>
-        </div>
+    <h1>Our Services</h1>
+
+    <div class="service-section">
+      <div class="service-card">
+        <h3>Infant Care (0-18 months)</h3>
+        <p>Warm, nurturing care focused on developmental milestones with a 1:3 caregiver ratio.</p>
       </div>
-    </section>
+      <div class="service-card">
+        <h3>Toddler Program (18 months - 3 years)</h3>
+        <p>Play-based learning, motor skill development, and language-building in a safe environment.</p>
+      </div>
+      <div class="service-card">
+        <h3>Preschool Program (3 - 5 years)</h3>
+        <p>Structured curriculum including early math, science, reading readiness, and arts & crafts.</p>
+      </div>
+      <div class="service-card">
+        <h3>After School Care (5 - 12 years)</h3>
+        <p>Homework support, snack time, and fun recreational activities until pick-up.</p>
+      </div>
+    </div>
 
-    <!-- ✉️ Enquiry Form -->
-    <section class="enquiry-form">
-      <h3>Send Us an Enquiry</h3>
-      <form>
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Submit</button>
+    <div class="form-section">
+      <h2>Enquire About Enrollment</h2>
+      <form action="mailto:echelondaycare@hotmail.com" method="POST" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="Name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="Email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="Message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Enquiry</button>
       </form>
-    </section>
+    </div>
+
   </main>
 </body>
 </html>
