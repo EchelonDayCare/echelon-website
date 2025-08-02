@@ -3,210 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Image Gallery</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    header {
-      background-color: #333;
-      color: white;
-      padding: 10px 20px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo {
-      width: 50px;
-      height: auto;
-    }
-
-    .logo-container h1 {
-      font-size: 1.8em;
-      margin: 0;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-      font-size: 1em;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    /* Lightbox Styles */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      flex-direction: column;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-    }
-
-    .close, .prev, .next {
-      position: absolute;
-      color: white;
-      font-size: 2em;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .close {
-      top: 20px;
-      right: 30px;
-    }
-
-    .prev, .next {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .prev {
-      left: 20px;
-    }
-
-    .next {
-      right: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .logo-container {
-        flex-wrap: nowrap;
-        justify-content: center;
-        text-align: center;
-        flex-direction: row;
-      }
-
-      .logo {
-        width: 40px;
-      }
-
-      .logo-container h1 {
-        font-size: 1.6em;
-      }
-
-      .gallery img {
-        width: 90vw;
-        height: auto;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .logo-container h1 {
-        font-size: 1.4em;
-      }
-    }
-  </style>
+  <title>Gallery - Echelon Daycare</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo-container">
-        <img src="logomod.png" alt="Logo" class="logo" />
-        <h1>My Image Gallery</h1>
-      </div>
-      <div class="nav-links">
-        <a href="about.html">About</a>
-      </div>
+
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="logo.png" alt="Echelon Daycare Logo" class="logo"/>
+      <h1>My Image Gallery</h1>
+    </div>
+    <nav class="nav-right">
+      <a href="about.html">About</a>
     </nav>
   </header>
 
-  <section class="gallery">
-    <img src="1.jpg" alt="Image 1" onclick="openLightbox(0)">
-    <img src="2.jpg" alt="Image 2" onclick="openLightbox(1)">
-    <img src="3.jpg" alt="Image 3" onclick="openLightbox(2)">
-    <img src="4.jpg" alt="Image 4" onclick="openLightbox(3)">
-    <img src="5.jpg" alt="Image 5" onclick="openLightbox(4)">
-    <img src="6.jpg" alt="Image 6" onclick="openLightbox(5)">
-  </section>
+  <main class="gallery-container">
+    <div class="image-grid">
+      <img src="images/img1.jpg" alt="Daycare Classroom 1">
+      <img src="images/img2.jpg" alt="Daycare Classroom 2">
+      <img src="images/img3.jpg" alt="Daycare Cubbies">
+      <img src="images/img4.jpg" alt="Round Table Classroom">
+      <img src="images/img5.jpg" alt="Main Room">
+      <img src="images/img6.jpg" alt="Carpeted Activity Area">
+      <img src="images/img7.jpg" alt="Reading Area">
+    </div>
+  </main>
 
-  <div class="lightbox" id="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
-    <img id="lightbox-img" src="" alt="Expanded view">
-    <span class="next" onclick="changeImage(1)">&#10095;</span>
-  </div>
-
-  <script>
-    const images = [
-      '1.jpg', '2.jpg', '3.jpg',
-      '4.jpg', '5.jpg', '6.jpg'
-    ];
-    let currentImageIndex = 0;
-
-    function openLightbox(index) {
-      currentImageIndex = index;
-      document.getElementById("lightbox-img").src = images[index];
-      document.getElementById("lightbox").style.display = "flex";
-    }
-
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-
-    function changeImage(direction) {
-      currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
-      document.getElementById("lightbox-img").src = images[currentImageIndex];
-    }
-
-    // Allow arrow key navigation
-    document.addEventListener('keydown', function(event) {
-      const lightbox = document.getElementById("lightbox");
-      if (lightbox.style.display === "flex") {
-        if (event.key === 'ArrowRight') changeImage(1);
-        if (event.key === 'ArrowLeft') changeImage(-1);
-        if (event.key === 'Escape') closeLightbox();
-      }
-    });
-  </script>
 </body>
 </html>
