@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallery - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+    }
+
+    header {
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 110px;
+      height: auto;
+    }
+
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Responsive tweaks for header/nav */
+    @media (max-width: 768px) {
+      .logo-container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+      }
+
+      .logo {
+        width: 40px;
+      }
+
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+    }
+
+    /* Gallery styles */
+    main {
+      max-width: 1200px;
+      margin: 30px auto 60px auto;
+      padding: 0 15px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #0059b3;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .caption {
+      padding: 10px;
+      font-size: 1rem;
+      color: #004080;
+      text-align: center;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-item img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
+  </div>
+</header>
+
+<nav>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="whyus.html">Why Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="gallery.html" style="text-decoration: underline; font-weight: bolder;">Gallery</a>
+</nav>
+
+<main>
+  <h2>Photo Gallery</h2>
+  <div class="gallery" id="gallery">
+    <!-- Gallery items inserted by JS -->
+  </div>
+</main>
+
+<script>
+  const gallery = document.getElementById('gallery');
+  for(let i = 1; i <= 50; i++) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+
+    const img = document.createElement('img');
+    img.src = `images/photo${i}.jpg`;  // Put your actual images here
+    img.alt = `Photo ${i}`;
+
+    const caption = document.createElement('div');
+    caption.className = 'caption';
+    caption.textContent = `Photo ${i}`;
+
+    item.appendChild(img);
+    item.appendChild(caption);
+    gallery.appendChild(item);
+  }
+</script>
+
+</body>
+</html>
