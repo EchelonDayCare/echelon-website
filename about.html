@@ -2,255 +2,247 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About Us - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Echelon Day Care</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f0ff;
       margin: 0;
-      padding: 0;
-      color: #003366;
+      font-family: Arial, sans-serif;
     }
-
     header {
-      background-color: #007FFF;
+      background-color: #007bff;
       color: white;
-      padding: 20px;
-    }
-
-    .logo-container {
+      padding: 1rem;
       display: flex;
       align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
     }
-
-    .logo {
-      width: 110px;
-      height: auto;
+    header img {
+      height: 60px;
+      margin-right: 1rem;
     }
-
-    .logo-container h1 {
-      font-size: 3.5em;
+    header h1 {
+      font-size: 1.5rem;
       margin: 0;
     }
-
     nav {
-      background-color: #cce0ff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
+      background-color: #0056b3;
+      padding: 0.5rem;
+      text-align: center;
     }
-
     nav a {
-      margin: 5px 15px;
-      color: #003366;
+      color: white;
+      margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     main {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
     }
-
-    h2, h3 {
-      color: #007FFF;
+    section {
+      max-width: 1000px;
+      margin: 1rem auto;
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
     }
-
-    .highlight {
-      font-weight: bold;
-      color: #005bb5;
+    section h2 {
+      font-size: 1.6rem;
+      color: #007bff;
     }
-
-    ul {
-      padding-left: 20px;
+    section p {
+      font-size: 1rem;
+      line-height: 1.6;
     }
-
-    .gallery-grid {
+    .gallery {
       display: flex;
-      justify-content: center;
-      gap: 20px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      gap: 10px;
+      margin-top: 1rem;
     }
-
-    .gallery-grid img {
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 4px solid #007FFF;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    .gallery img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
-
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
-
     .modal {
       display: none;
       position: fixed;
       z-index: 1000;
       left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
       align-items: center;
+      justify-content: center;
     }
-
-    .modal img {
+    .modal-content {
       max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #000;
+      max-height: 80vh;
+      border-radius: 8px;
     }
-
-    footer {
-      text-align: center;
-      background-color: #007FFF;
+    .modal button {
+      position: absolute;
+      top: 10px;
+      background: none;
+      border: none;
       color: white;
-      padding: 20px 10px;
-      margin-top: 50px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .prev, .next {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .prev {
+      left: 20px;
+    }
+    .next {
+      right: 20px;
+    }
+    .close {
+      right: 20px;
+    }
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
-    @media (max-width: 768px) {
-      .logo-container h1 {
-        font-size: 1.6em;
+    @media (max-width: 600px) {
+      .gallery {
+        justify-content: center;
       }
-
-      .logo {
-        width: 40px;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-
-      .gallery-grid img {
-        width: 90%;
-        height: auto;
+      header h1 {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo-container">
-      <img class="logo" src="logoMod.png" alt="Echelon Logo" />
-      <h1>Echelon Day Care</h1>
-    </div>
+    <img src="logomod.png" alt="Echelon Day Care Logo" />
+    <h1>Echelon Day Care</h1>
   </header>
-
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
   </nav>
-
   <main>
-    <h2>About Echelon Day Care</h2>
-    <p>
-      Welcome to <span class="highlight">Echelon Day Care</span> — where nurturing care meets joyful learning!
-      We are a dedicated team of early childhood educators passionate about creating a safe, stimulating,
-      and inclusive environment for children to grow and thrive.
-    </p>
-
-    <h3>Our Vision</h3>
-    <p>
-      To build a foundation of lifelong learning by fostering creativity, confidence, and kindness
-      in every child we care for.
-    </p>
-
-    <h3>Our Mission</h3>
-    <ul>
-      <li>Provide a secure and loving environment for all children.</li>
-      <li>Encourage curiosity through hands-on learning and play.</li>
-      <li>Support each child’s social, emotional, physical, and cognitive development.</li>
-    </ul>
-
-    <h3>Our Team</h3>
-    <p>
-      Led by experienced educators and caregivers, our staff is trained in child safety, CPR,
-      early childhood development, and emotional intelligence. We take pride in forming strong
-      partnerships with parents and guardians.
-    </p>
-
-    <h3>Why Choose Us?</h3>
-    <ul>
-      <li>Bright, clean, and engaging facilities.</li>
-      <li>Daily learning through stories, music, art, and play.</li>
-      <li>Balanced nutrition and outdoor time.</li>
-      <li>Regular updates and photo sharing with parents.</li>
-    </ul>
-
-    <div class="gallery-grid">
-      <img src="photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-      <img src="photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-      <img src="photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
-    </div>
-
-    <div class="modal" id="imageModal" onclick="closeModal()">
-      <img id="modalImage" src="" alt="Full View">
-    </div>
-
+    <section>
+      <h2>About Echelon Day Care</h2>
+      <p>
+        At Echelon Day Care, we are dedicated to providing a nurturing and stimulating environment where children can grow, learn, and thrive. Our experienced caregivers and educators work closely with families to ensure each child's individual needs are met.
+      </p>
+    </section>
+    <section>
+      <h2>Our Mission</h2>
+      <p>
+        To foster a safe, inclusive, and engaging atmosphere that promotes the physical, emotional, social, and cognitive development of every child.
+      </p>
+    </section>
+    <section>
+      <h2>Our Vision</h2>
+      <p>
+        To be a leading day care center recognized for excellence in early childhood education and care, preparing children for lifelong success.
+      </p>
+    </section>
+    <section>
+      <h2>Why Choose Us</h2>
+      <ul>
+        <li>Qualified and caring staff</li>
+        <li>Safe and hygienic environment</li>
+        <li>Age-appropriate learning activities</li>
+        <li>Nutritious meals and snacks</li>
+        <li>Regular parent-teacher communication</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="image1.jpg" alt="Classroom" tabindex="0" />
+        <img src="image2.jpg" alt="Play Area" tabindex="0" />
+        <img src="image3.jpg" alt="Activity Time" tabindex="0" />
+        <img src="image4.jpg" alt="Group Learning" tabindex="0" />
+      </div>
+    </section>
   </main>
 
+  <!-- Modal -->
+  <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="prev" aria-label="Previous image">&#10094;</button>
+    <img class="modal-content" id="modalImg" alt="Enlarged Image" />
+    <button class="next" aria-label="Next image">&#10095;</button>
+    <button class="close" aria-label="Close viewer">&times;</button>
+  </div>
+
   <footer>
-    &copy; 2025 Echelon Day Care | All rights reserved
+    &copy; 2025 Echelon Day Care. All rights reserved.
   </footer>
 
-  <script>
-    const images = [
-      "photo1.jpg",
-      "photo2.jpg",
-      "photo3.jpg"
-    ];
-    let currentImageIndex = 0;
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
+  <script defer>
+    const images = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.querySelector('.close');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let currentIndex = 0;
+    let focusableEls = [];
 
     function openModal(index) {
-      currentImageIndex = index;
-      modal.style.display = "flex";
-      modalImg.src = images[currentImageIndex];
+      currentIndex = index;
+      modal.style.display = 'flex';
+      modalImg.src = images[currentIndex].src;
+      modalImg.alt = images[currentIndex].alt;
+      document.body.style.overflow = 'hidden';
+      modal.setAttribute('tabindex', '-1');
+      modal.focus();
     }
 
     function closeModal() {
-      modal.style.display = "none";
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
 
-    document.addEventListener("keydown", function(event) {
-      if (modal.style.display === "flex") {
-        if (event.key === "ArrowRight") {
-          currentImageIndex = (currentImageIndex + 1) % images.length;
-          modalImg.src = images[currentImageIndex];
-        } else if (event.key === "ArrowLeft") {
-          currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-          modalImg.src = images[currentImageIndex];
-        } else if (event.key === "Escape") {
-          closeModal();
-        }
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+      modalImg.alt = images[currentIndex].alt;
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+      modalImg.alt = images[currentIndex].alt;
+    }
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => openModal(index));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') openModal(index);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    document.addEventListener('keydown', (e) => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'Escape') closeModal();
       }
     });
   </script>
-
 </body>
 </html>
