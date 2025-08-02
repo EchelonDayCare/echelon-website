@@ -52,7 +52,6 @@
       font-size: 1.2rem;
     }
 
-    /* Responsive tweaks for header/nav */
     @media (max-width: 768px) {
       .logo-container {
         flex-wrap: nowrap;
@@ -74,7 +73,6 @@
       }
     }
 
-    /* Gallery styles */
     main {
       max-width: 1200px;
       margin: 30px auto 60px auto;
@@ -131,6 +129,88 @@
         height: 120px;
       }
     }
+
+    /* Modal styles */
+    #modal {
+      position: fixed;
+      display: none;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #modal.active {
+      display: flex;
+    }
+
+    #modal img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      user-select: none;
+    }
+
+    #modal .caption {
+      margin-top: 15px;
+      color: #fff;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    /* Navigation arrows */
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: white;
+      background: rgba(0,0,0,0.4);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1001;
+      transition: background 0.3s;
+    }
+    .nav-arrow:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    #prev-arrow {
+      left: 20px;
+    }
+    #next-arrow {
+      right: 20px;
+    }
+
+    /* Close button */
+    #close-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 2.5rem;
+      color: white;
+      background: rgba(0,0,0,0.4);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1001;
+      transition: background 0.3s;
+    }
+    #close-btn:hover {
+      background: rgba(0,0,0,0.7);
+    }
   </style>
 </head>
 <body>
@@ -157,15 +237,36 @@
   </div>
 </main>
 
+<!-- Modal Structure -->
+<div id="modal" tabindex="-1" aria-modal="true" role="dialog">
+  <div id="close-btn" title="Close">&times;</div>
+  <div id="prev-arrow" class="nav-arrow" title="Previous">&#8592;</div>
+  <img id="modal-img" src="" alt="" />
+  <div class="caption" id="modal-caption"></div>
+  <div id="next-arrow" class="nav-arrow" title="Next">&#8594;</div>
+</div>
+
 <script>
   const gallery = document.getElementById('gallery');
-  for(let i = 1; i <= 50; i++) {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalCaption = document.getElementById('modal-caption');
+  const closeBtn = document.getElementById('close-btn');
+  const prevArrow = document.getElementById('prev-arrow');
+  const nextArrow = document.getElementById('next-arrow');
+
+  const totalImages = 50;
+  let currentIndex = 0;
+
+  // Create gallery items
+  for(let i = 1; i <= totalImages; i++) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
 
     const img = document.createElement('img');
     img.src = `images/photo${i}.jpg`;  // Put your actual images here
     img.alt = `Photo ${i}`;
+    img.dataset.index = i - 1;
 
     const caption = document.createElement('div');
     caption.className = 'caption';
@@ -175,6 +276,78 @@
     item.appendChild(caption);
     gallery.appendChild(item);
   }
+
+  // Open modal with clicked image
+  function openModal(index) {
+    currentIndex = index;
+    modal.classList.add('active');
+    updateModal();
+    modal.focus();
+  }
+
+  // Update modal image and caption
+  function updateModal() {
+    const imgNum = currentIndex + 1;
+    modalImg.src = `images/photo${imgNum}.jpg`;
+    modalImg.alt = `Photo ${imgNum}`;
+    modalCaption.textContent = `Photo ${imgNum}`;
+  }
+
+  // Close modal
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+
+  // Show next image
+  function showNext() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateModal();
+  }
+
+  // Show previous image
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateModal();
+  }
+
+  // Click on gallery image
+  gallery.addEventListener('click', (e) => {
+    if(e.target.tagName === 'IMG') {
+      const idx = parseInt(e.target.dataset.index, 10);
+      openModal(idx);
+    }
+  });
+
+  // Close button click
+  closeBtn.addEventListener('click', closeModal);
+
+  // Arrow navigation clicks
+  nextArrow.addEventListener('click', showNext);
+  prevArrow.addEventListener('click', showPrev);
+
+  // Keyboard navigation and close modal on ESC
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('active')) return;
+
+    switch(e.key) {
+      case 'ArrowRight':
+        showNext();
+        break;
+      case 'ArrowLeft':
+        showPrev();
+        break;
+      case 'Escape':
+        closeModal();
+        break;
+    }
+  });
+
+  // Close modal when clicking outside the image
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) {
+      closeModal();
+    }
+  });
 </script>
 
 </body>
