@@ -1,48 +1,73 @@
-
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f8ff;
-    color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
 }
-header {
-    background-color: #007fff;
-    color: white;
-    padding: 20px;
-    text-align: center;
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 30px;
+  color: white;
 }
-nav {
-    background-color: #005fbb;
-    overflow: hidden;
+.nav-left {
+  display: flex;
+  align-items: center;
 }
-nav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+.logo {
+  height: 40px;
+  margin-right: 15px;
 }
-nav a:hover {
-    background-color: #003f7f;
+.nav-left h1 {
+  font-size: 24px;
 }
-section {
-    padding: 20px;
-    animation: fadeIn 1s ease-in;
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
 }
-footer {
-    background-color: #007fff;
-    color: white;
-    text-align: center;
-    padding: 10px;
+.nav-right a:hover {
+  text-decoration: underline;
 }
-img {
-    max-width: 100%;
-    height: auto;
+
+/* Gallery Styles */
+.gallery-container {
+  padding: 20px 40px;
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.image-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.image-grid img:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-left h1 {
+    font-size: 20px;
+  }
 }
