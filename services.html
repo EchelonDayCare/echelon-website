@@ -2,153 +2,222 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Our Services | Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Services - Echelon Day Care</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" /> <!-- Link to shared CSS if separated -->
   <style>
+    /* Reusing styles from index.html */
     body {
       font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
       margin: 0;
       padding: 0;
+      color: #003366;
     }
     header {
-      background-color: #f8b400;
-      padding: 10px 20px;
+      background-color: #007FFF;
       color: white;
+      padding: 20px;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      width: 110px;
+      height: auto;
+    }
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
     }
     nav {
+      background-color: #cce0ff;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
     }
     nav a {
-      margin-left: 20px;
-      color: white;
+      margin: 5px 15px;
+      color: #003366;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.2rem;
     }
-    .banner {
-      background: url('images/services-banner.jpg') center/cover no-repeat;
+    section {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .hero {
+      position: relative;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .service-card {
-      background: #fff8e1;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-    .testimonial {
-      background-color: #e3f2fd;
-      font-style: italic;
-      padding: 15px;
-      margin: 20px;
-      border-left: 4px solid #1976d2;
-    }
-    form {
+      height: 400px;
       display: flex;
       flex-direction: column;
-      max-width: 600px;
-      margin: auto;
-    }
-    form input, form textarea, form select, form button {
-      margin-bottom: 15px;
-      padding: 10px;
-      font-size: 1em;
-    }
-    footer {
-      background-color: #f8b400;
-      color: white;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .service-box {
+      background-color: #cce0ff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .service-box h3 {
+      color: #003366;
+      margin-top: 0;
+    }
+    .service-box p {
+      font-size: 0.95rem;
+    }
+    form {
+      max-width: 500px;
+      margin: 40px auto;
+      background-color: #cce0ff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: #007FFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fcc;
+    }
+    @media (max-width: 768px) {
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+      nav a {
+        font-size: 1rem;
+      }
+      .hero {
+        height: 300px;
+      }
+      .hero h1 {
+        font-size: 1.5em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+      .service-box {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div><strong>Echelon Day Care</strong></div>
-      <div>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
 
-  <div class="banner">
-    <h1>Our Services</h1>
-    <p>Safe, educational, and nurturing environment for every child</p>
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
   </div>
+</header>
 
-  <section class="section">
-    <h2>What We Offer</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <h3>Infant Care (3-18 months)</h3>
-        <p>Personalized attention, nap schedules, feeding routines, and cuddles in a safe, sanitized environment.</p>
-      </div>
-      <div class="service-card">
-        <h3>Toddler Program (18 months - 3 years)</h3>
-        <p>Structured play, early language skills, music & movement, and potty training support.</p>
-      </div>
-      <div class="service-card">
-        <h3>Preschool Prep (3-5 years)</h3>
-        <p>Hands-on learning, phonics, storytelling, social skills, and school readiness focus.</p>
-      </div>
-      <div class="service-card">
-        <h3>After School Care (5-10 years)</h3>
-        <p>Homework help, arts & crafts, outdoor play, and supervised quiet time.</p>
-      </div>
+<nav>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="whyus.html">Why Us</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+  <h1>Our Services</h1>
+  <p>Flexible, nurturing, and enriching programs tailored to your child’s growth and happiness.</p>
+</section>
+
+<section>
+  <h2>Programs We Offer</h2>
+  <div class="services-grid">
+    <div class="service-box">
+      <h3>Infant Care (0-18 months)</h3>
+      <p>Safe, cozy spaces with attentive caregivers ensuring your baby’s comfort and development.</p>
     </div>
-  </section>
-
-  <section class="section" style="background:#fff3e0">
-    <h2>What Parents Say</h2>
-    <div class="testimonial">
-      "My daughter has been attending Echelon for 6 months and I’ve seen such growth in her confidence and vocabulary!"
+    <div class="service-box">
+      <h3>Toddler Program (18 months – 3 yrs)</h3>
+      <p>Fun-filled days of exploration, language building, music, and basic structure.</p>
     </div>
-    <div class="testimonial">
-      "The teachers are so warm and caring – they truly treat my child like their own."
+    <div class="service-box">
+      <h3>Preschool (3 – 5 yrs)</h3>
+      <p>Play-based learning, creativity, motor development, early literacy, and social skills.</p>
     </div>
-  </section>
+    <div class="service-box">
+      <h3>After School & Enrichment</h3>
+      <p>Homework help, games, snacks, and time for kids to socialize and unwind after school.</p>
+    </div>
+    <div class="service-box">
+      <h3>Summer Camps</h3>
+      <p>Outdoor adventures, hands-on experiments, sports, arts, and unforgettable fun!</p>
+    </div>
+    <div class="service-box">
+      <h3>Parent Workshops</h3>
+      <p>Monthly sessions to support parenting, learning strategies, and child behavior insights.</p>
+    </div>
+  </div>
+</section>
 
-  <section class="section">
-    <h2>Enquiry Form</h2>
-    <form action="#" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <select name="service">
-        <option selected disabled>Select a Service</option>
-        <option>Infant Care</option>
-        <option>Toddler Program</option>
-        <option>Preschool Prep</option>
-        <option>After School Care</option>
-      </select>
-      <textarea name="message" placeholder="Your Message"></textarea>
-      <button type="submit">Send Enquiry</button>
-    </form>
-  </section>
+<section>
+  <h2>Interested in Joining?</h2>
+  <form action="#" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Tell us more or ask a question..." rows="4"></textarea>
+    <button type="submit">Send Inquiry</button>
+  </form>
+</section>
 
-  <footer>
-    &copy; 2025 Echelon Day Care. All Rights Reserved.
-  </footer>
 </body>
 </html>
