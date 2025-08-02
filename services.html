@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - Echelon Day Care</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+    }
+
+    header {
+      background-color: #007BFF;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .service-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .service-box img {
+      max-width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .service-box img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Floating Testimonials */
+    .floating-testimonial {
+      position: fixed;
+      width: 200px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      font-size: 14px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .left-floating {
+      top: 200px;
+      left: 10px;
+    }
+
+    .right-floating {
+      top: 350px;
+      right: 10px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 80%;
+      outline: none;
+    }
+
+    /* Arrows */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1100;
+    }
+
+    .arrow.left {
+      left: 20px;
+    }
+
+    .arrow.right {
+      right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+
+      .floating-testimonial {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner -->
+  <header>
+    <img src="logo.png" alt="Echelon Day Care Logo">
+    <h1>Echelon Day Care</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <div class="content">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-box">
+        <h3>Infant Care</h3>
+        <img src="infant.jpg" alt="Infant Care Service" class="clickable-img">
+        <p>Specialized care for infants aged 3-18 months, with trained staff and warm surroundings.</p>
+      </div>
+      <div class="service-box">
+        <h3>Preschool Program</h3>
+        <img src="preschool.jpg" alt="Preschool Program" class="clickable-img">
+        <p>Interactive learning with focus on social, cognitive, and emotional development.</p>
+      </div>
+      <div class="service-box">
+        <h3>After-School Care</h3>
+        <img src="afterschool.jpg" alt="After School" class="clickable-img">
+        <p>Safe and structured environment with creative activities for school-going kids.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Testimonials -->
+  <div class="floating-testimonial left-floating">
+    “Echelon gave my daughter a second home. The staff is amazing!” — Priya M.
+  </div>
+  <div class="floating-testimonial right-floating">
+    “Clean, caring, and focused on real learning. Highly recommend.” — Daniel R.
+  </div>
+
+  <!-- Modal Viewer -->
+  <div id="imgModal" class="modal" role="dialog" aria-modal="true">
+    <span class="arrow left" id="prevBtn">&#10094;</span>
+    <img class="modal-content" id="modalImage" tabindex="0" />
+    <span class="arrow right" id="nextBtn">&#10095;</span>
+  </div>
+
+  <script defer>
+    const images = Array.from(document.querySelectorAll(".clickable-img"));
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImage");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        openModal();
+      });
+    });
+
+    function openModal() {
+      modal.style.display = "flex";
+      modalImg.src = images[currentIndex].src;
+      modalImg.focus();
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+    }
+
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
+
+    window.addEventListener("keydown", (e) => {
+      if (modal.style.display === "flex") {
+        if (e.key === "ArrowRight") showNext();
+        if (e.key === "ArrowLeft") showPrev();
+        if (e.key === "Escape") closeModal();
+      }
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  </script>
+
+</body>
+</html>
