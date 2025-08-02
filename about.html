@@ -2,160 +2,255 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>About Us - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - Echelon Day Care</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
     }
 
     header {
-      background-color: #005a9c;
+      background-color: #007FFF;
       color: white;
-      padding: 10px 20px;
+      padding: 20px;
+    }
+
+    .logo-container {
       display: flex;
       align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    header img {
-      height: 50px;
-      margin-right: 15px;
+    .logo {
+      width: 110px;
+      height: auto;
     }
 
-    header h1 {
-      font-size: 24px;
+    .logo-container h1 {
+      font-size: 3.5em;
       margin: 0;
     }
 
-    main {
+    nav {
+      background-color: #cce0ff;
       display: flex;
       justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
+      flex-wrap: wrap;
+      padding: 10px 0;
     }
 
-    .content-container {
-      max-width: 1200px;
-      display: flex;
-      gap: 20px;
-      width: 100%;
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
 
-    .main-content {
-      flex: 2;
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 30px;
       background-color: white;
-      padding: 20px;
-      box-sizing: border-box;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
 
-    .main-content h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
+    h2, h3 {
+      color: #007FFF;
     }
 
-    .main-content p {
-      font-size: 15px;
-      line-height: 1.6;
+    .highlight {
+      font-weight: bold;
+      color: #005bb5;
     }
 
-    /* ✅ Floating Testimonials on Left and Right */
-    .side-testimonials {
-      flex: 1;
+    ul {
+      padding-left: 20px;
+    }
+
+    .gallery-grid {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
 
-    .testimonial {
-      background-color: #e3f2fd;
-      padding: 15px;
-      border-radius: 8px;
-      font-size: 14px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    .gallery-grid img {
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 4px solid #007FFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .testimonial strong {
-      display: block;
-      margin-bottom: 5px;
-      color: #004080;
+    .gallery-grid img:hover {
+      transform: scale(1.05);
     }
 
-    @media (max-width: 900px) {
-      .content-container {
-        flex-direction: column;
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #007FFF;
+      color: white;
+      padding: 20px 10px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container h1 {
+        font-size: 1.6em;
       }
 
-      .side-testimonials {
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
+      .logo {
+        width: 40px;
       }
 
-      .testimonial {
-        flex: 1 1 45%;
+      nav a {
+        font-size: 1rem;
       }
-    }
 
-    @media (max-width: 600px) {
-      .testimonial {
-        flex: 1 1 100%;
+      .gallery-grid img {
+        width: 90%;
+        height: auto;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="logomod.png" alt="Echelon Logo" />
-    <h1>Echelon Day Care</h1>
+    <div class="logo-container">
+      <img class="logo" src="logoMod.png" alt="Echelon Logo" />
+      <h1>Echelon Day Care</h1>
+    </div>
   </header>
 
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <main>
-    <div class="content-container">
+    <h2>About Echelon Day Care</h2>
+    <p>
+      Welcome to <span class="highlight">Echelon Day Care</span> — where nurturing care meets joyful learning!
+      We are a dedicated team of early childhood educators passionate about creating a safe, stimulating,
+      and inclusive environment for children to grow and thrive.
+    </p>
 
-      <!-- ✅ Left Side Testimonials -->
-      <div class="side-testimonials">
-        <div class="testimonial">
-          <strong>Priya Sharma</strong>
-          “The caregivers are incredibly attentive. My son loves coming here every day!”
-        </div>
-        <div class="testimonial">
-          <strong>Rahul Mehta</strong>
-          “Very clean, organized, and professional. Highly recommended to all parents!”
-        </div>
-      </div>
+    <h3>Our Vision</h3>
+    <p>
+      To build a foundation of lifelong learning by fostering creativity, confidence, and kindness
+      in every child we care for.
+    </p>
 
-      <!-- 🎯 Main About Content (Unchanged) -->
-      <div class="main-content">
-        <h2>About Echelon Day Care</h2>
-        <p>
-          Echelon Day Care is committed to nurturing young minds in a safe, vibrant, and engaging environment. Our philosophy is rooted in empathy, exploration, and early education through play-based learning. We understand how crucial the early years are in shaping a child’s growth, which is why we provide personalized attention and care tailored to each child’s needs.
-        </p>
-        <p>
-          Our caregivers are trained professionals who foster creativity, confidence, and curiosity. We ensure a balanced schedule of indoor learning, outdoor play, and rest. Echelon is more than just day care – it’s a home away from home.
-        </p>
-        <p>
-          Located in the heart of the community, we welcome children from all backgrounds and strive to build lasting relationships with families through transparent communication and consistent care.
-        </p>
-      </div>
+    <h3>Our Mission</h3>
+    <ul>
+      <li>Provide a secure and loving environment for all children.</li>
+      <li>Encourage curiosity through hands-on learning and play.</li>
+      <li>Support each child’s social, emotional, physical, and cognitive development.</li>
+    </ul>
 
-      <!-- ✅ Right Side Testimonials -->
-      <div class="side-testimonials">
-        <div class="testimonial">
-          <strong>Anita Kapoor</strong>
-          “My daughter’s language skills and confidence have blossomed since joining Echelon.”
-        </div>
-        <div class="testimonial">
-          <strong>Mohit Verma</strong>
-          “I always feel at peace dropping off my child, knowing he is in safe hands.”
-        </div>
-      </div>
+    <h3>Our Team</h3>
+    <p>
+      Led by experienced educators and caregivers, our staff is trained in child safety, CPR,
+      early childhood development, and emotional intelligence. We take pride in forming strong
+      partnerships with parents and guardians.
+    </p>
 
+    <h3>Why Choose Us?</h3>
+    <ul>
+      <li>Bright, clean, and engaging facilities.</li>
+      <li>Daily learning through stories, music, art, and play.</li>
+      <li>Balanced nutrition and outdoor time.</li>
+      <li>Regular updates and photo sharing with parents.</li>
+    </ul>
+
+    <div class="gallery-grid">
+      <img src="photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
+      <img src="photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
+      <img src="photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
     </div>
+
+    <div class="modal" id="imageModal" onclick="closeModal()">
+      <img id="modalImage" src="" alt="Full View">
+    </div>
+
   </main>
+
+  <footer>
+    &copy; 2025 Echelon Day Care | All rights reserved
+  </footer>
+
+  <script>
+    const images = [
+      "photo1.jpg",
+      "photo2.jpg",
+      "photo3.jpg"
+    ];
+    let currentImageIndex = 0;
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    function openModal(index) {
+      currentImageIndex = index;
+      modal.style.display = "flex";
+      modalImg.src = images[currentImageIndex];
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (modal.style.display === "flex") {
+        if (event.key === "ArrowRight") {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          modalImg.src = images[currentImageIndex];
+        } else if (event.key === "ArrowLeft") {
+          currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+          modalImg.src = images[currentImageIndex];
+        } else if (event.key === "Escape") {
+          closeModal();
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>
