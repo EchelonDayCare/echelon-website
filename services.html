@@ -12,13 +12,14 @@
       color: #003366;
     }
 
-    /* ✅ Banner and Logo styles (copied from index.html) */
+    /* Header styles (copied exactly from index.html) */
     header {
-      background: linear-gradient(90deg, #005eb8, #00a4e4);
+      background-color: #007FFF;
       padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .logo-container {
@@ -38,27 +39,28 @@
     }
 
     nav {
-      background-color: #ffffff;
-      padding: 12px 20px;
+      background-color: #cce0ff;
+      padding: 10px 0;
       text-align: center;
-      border-bottom: 2px solid #007FFF;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     nav a {
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 20px;
       font-weight: bold;
-      color: #005eb8;
+      color: #003366;
       font-size: 1.1rem;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #003366;
+      color: #005bb5;
+      text-decoration: underline;
     }
 
     main {
-      padding: 20px;
+      padding: 30px 20px;
       max-width: 1200px;
       margin: auto;
     }
@@ -66,15 +68,13 @@
     h1 {
       font-size: 2em;
       color: #003366;
-      text-align: center;
-      margin-bottom: 30px;
     }
 
     .service-section {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-      justify-content: center;
+      margin-top: 20px;
     }
 
     .service-card {
@@ -83,7 +83,7 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .service-card h3 {
@@ -139,16 +139,19 @@
         margin: 10px 0;
       }
 
-      .service-section {
+      header {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+      }
+
+      .logo-container {
+        margin-bottom: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Final header and navigation replicated from index.html -->
   <header>
     <div class="logo-container">
       <img src="logoMod.png" alt="Echelon Daycare Logo">
@@ -203,7 +206,6 @@
         <button type="submit">Send Enquiry</button>
       </form>
     </div>
-
   </main>
 </body>
 </html>
