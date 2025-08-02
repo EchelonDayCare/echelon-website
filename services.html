@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Services - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
@@ -53,109 +54,132 @@
       font-size: 1.2rem;
     }
 
+    /* Service Section */
     .services-section {
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
+      animation: fadeIn 1s ease;
     }
 
-    .service {
-      margin-bottom: 40px;
+    .services-section h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .service-box {
+      background: #ffffff;
+      border-radius: 10px;
       padding: 20px;
-      background-color: #ffffff;
-      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      animation: fadeInUp 1s ease forwards;
+      transition: transform 0.3s ease;
+      text-align: center;
     }
 
-    .service h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #004080;
+    .service-box:hover {
+      transform: translateY(-8px);
     }
 
-    .service i {
-      margin-right: 10px;
+    .service-box i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
       color: #007FFF;
     }
 
-    .service img {
-      width: 100%;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-top: 15px;
+    .service-box h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
     }
 
-    form {
-      background-color: #f0f8ff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-top: 50px;
-    }
-
-    form h3 {
-      margin-top: 0;
-    }
-
-    form label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #aaa;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
-
-    form button {
-      background-color: #007FFF;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    .service-box p {
       font-size: 1rem;
     }
 
-    form button:hover {
+    /* Image Section */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Enquiry Form */
+    .enquiry-form {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 600px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease;
+    }
+
+    .enquiry-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .enquiry-form input,
+    .enquiry-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .enquiry-form button {
+      background-color: #007FFF;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .enquiry-form button:hover {
       background-color: #005fcc;
     }
 
-    .map-container {
-      margin: 60px auto;
-      max-width: 1000px;
-      padding: 0 20px;
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 12px;
-    }
-
     footer {
-      text-align: center;
-      padding: 20px;
       background-color: #cce0ff;
-      color: #003366;
-      margin-top: 60px;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 1rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
@@ -178,8 +202,9 @@
         font-size: 1rem;
       }
 
-      .service img {
-        max-height: 180px;
+      .gallery img {
+        width: 90%;
+        height: auto;
       }
     }
   </style>
@@ -200,48 +225,42 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<div class="services-section">
-  <div class="service">
-    <h2><i class="fas fa-baby"></i> Toddler Program</h2>
-    <p>Our Toddler Program is designed to provide a safe and stimulating environment for young children to explore and grow. We focus on building motor skills, communication, and social interaction.</p>
-    <img src="toddler.jpg" alt="Toddler Program">
+<section class="services-section">
+  <h2>Our Programs</h2>
+  <div class="service-grid">
+    <div class="service-box">
+      <i class="fas fa-baby"></i>
+      <h3>Toddler Program</h3>
+      <p>Fun-filled activities for toddlers aged 1-3 years focusing on exploration, creativity, and early development.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-school"></i>
+      <h3>Preschool Program</h3>
+      <p>A structured learning environment for 3-5 years old with storytelling, numbers, and basic literacy.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-clock"></i>
+      <h3>After School</h3>
+      <p>Supervised activities, homework help, and snacks for school-aged children till pickup time.</p>
+    </div>
   </div>
+</section>
 
-  <div class="service">
-    <h2><i class="fas fa-paint-brush"></i> Creative Activities</h2>
-    <p>We offer a variety of creative sessions including arts & crafts, storytelling, and music. These help develop imagination, coordination, and expression.</p>
-    <img src="creative.jpg" alt="Creative Activities">
-  </div>
+<section class="gallery">
+  <img src="placeholder1.jpg" alt="Activity Image 1">
+  <img src="placeholder2.jpg" alt="Activity Image 2">
+  <img src="placeholder3.jpg" alt="Activity Image 3">
+</section>
 
-  <div class="service">
-    <h2><i class="fas fa-book-reader"></i> Learning & Development</h2>
-    <p>Our curriculum incorporates early learning in literacy, numeracy, and problem-solving using play-based approaches to nurture curiosity and knowledge.</p>
-    <img src="learning.jpg" alt="Learning and Development">
-  </div>
-
-  <form action="https://formspree.io/f/mleyvgrk" method="POST">
-    <h3>Enquire Now</h3>
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" required />
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required />
-
-    <label for="message">Message:</label>
-    <textarea name="message" id="message" rows="5" required></textarea>
-
-    <button type="submit">Send</button>
+<section class="enquiry-form">
+  <h2>Enquire About Our Services</h2>
+  <form action="https://formsubmit.co/echelondaycare@hotmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Enquiry</button>
   </form>
-</div>
-
-<div class="map-container">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.462682169106!2d-123.12369708407361!3d49.28007477933006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717980c48b07%3A0x8a8ffb6b318f042a!2sDowntown%20Vancouver!5e0!3m2!1sen!2sca!4v1660000000000" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
+</section>
 
 <footer>
   &copy; 2025 Echelon Day Care. All rights reserved.
