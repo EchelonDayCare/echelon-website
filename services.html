@@ -4,13 +4,7 @@
   <meta charset="UTF-8" />
   <title>Services - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-papNM4T+K1D+h3B1UpMUKc2xkXwT2CKjP4vdb3fP0yB74J3bqvn7wC8qM2dz7q7sAgzCTm+7kl4WqpbR7YV7Wg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -59,103 +53,46 @@
       font-size: 1.2rem;
     }
 
-    .services {
-      padding: 40px 20px;
-      text-align: center;
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
     }
 
-    .services h2 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .service {
-      background: white;
-      border-radius: 10px;
+    .service-card {
+      background-color: white;
       padding: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
       transition: transform 0.3s ease;
     }
 
-    .service:hover {
-      transform: translateY(-10px);
+    .service-card:hover {
+      transform: scale(1.02);
     }
 
-    .service i {
+    .service-card i {
       font-size: 2.5em;
-      color: #007FFF;
       margin-bottom: 10px;
+      color: #007FFF;
     }
 
-    .image-gallery {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 40px 0;
+    .service-card h2 {
+      margin-top: 0;
+      font-size: 1.8em;
     }
 
-    .image-gallery img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .enquiry-form {
-      background: white;
-      padding: 30px;
-      margin: 30px auto;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .enquiry-form h3 {
-      margin-bottom: 20px;
-    }
-
-    .enquiry-form input,
-    .enquiry-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .enquiry-form button {
-      background-color: #007FFF;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    .map-container {
-      margin: 50px auto;
-      max-width: 90%;
-      border: 5px solid #007FFF;
-      border-radius: 10px;
-      overflow: hidden;
+    .service-card p {
+      font-size: 1.1em;
+      line-height: 1.6;
     }
 
     footer {
       background-color: #cce0ff;
-      color: #003366;
       text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
+      padding: 15px;
+      margin-top: 30px;
     }
 
     @media (max-width: 768px) {
@@ -178,9 +115,8 @@
         font-size: 1rem;
       }
 
-      .image-gallery img {
-        width: 100%;
-        height: auto;
+      main {
+        padding: 20px;
       }
     }
   </style>
@@ -201,48 +137,28 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<section class="services">
-  <h2>Our Programs</h2>
-  <div class="service-grid">
-    <div class="service">
-      <i class="fas fa-baby"></i>
-      <h3>Infant Program</h3>
-      <p>Warm and nurturing care for infants aged 0–18 months. Safe sleep, play, and learning routines.</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-child"></i>
-      <h3>Toddler Program</h3>
-      <p>Designed for curious toddlers aged 18 months–3 years. Focus on independence, motor skills, and play-based learning.</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-school"></i>
-      <h3>Preschool Program</h3>
-      <p>Preparation for kindergarten with early literacy, numeracy, and social-emotional development.</p>
-    </div>
+<main>
+  <div class="service-card">
+    <i class="fas fa-child"></i>
+    <h2>Preschool Program (Age 3 to 5)</h2>
+    <p>
+      Our Preschool Program is designed to ignite a love for learning in your child. Through a blend of play-based and structured activities, children explore literacy, numeracy, science, music, and creative arts.
+    </p>
+    <p>
+      Children in this program benefit from:
+      <ul>
+        <li>Daily circle time and themed activities</li>
+        <li>Hands-on exploration and sensory play</li>
+        <li>Outdoor play and physical development sessions</li>
+        <li>Social and emotional skill building</li>
+        <li>Individualized attention with low teacher-to-child ratios</li>
+      </ul>
+    </p>
+    <p>
+      Our qualified educators create a nurturing environment that prepares children for a successful transition to kindergarten while fostering independence, confidence, and curiosity.
+    </p>
   </div>
-
-  <div class="image-gallery">
-    <img src="placeholder1.jpg" alt="Kids Playing">
-    <img src="placeholder2.jpg" alt="Classroom Activity">
-    <img src="placeholder3.jpg" alt="Outdoor Fun">
-  </div>
-
-  <div class="enquiry-form">
-    <h3>Send Us an Enquiry</h3>
-    <form action="https://formsubmit.co/echelondaycare@hotmail.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <div class="map-container">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019872975663!2d-122.41941508468154!3d37.77492927975959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808f4f4e4b1f%3A0x8d85e0b88cfc61b6!2sDaycare!5e0!3m2!1sen!2sus!4v1625184911994!5m2!1sen!2sus"
-      width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </div>
-</section>
+</main>
 
 <footer>
   &copy; 2025 Echelon Day Care. All rights reserved.
