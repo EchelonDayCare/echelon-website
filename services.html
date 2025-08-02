@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Services - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -53,46 +53,108 @@
       font-size: 1.2rem;
     }
 
-    main {
-      padding: 30px;
-      max-width: 900px;
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    .service-card {
-      background-color: white;
+    .program {
+      background-color: #ffffff;
+      border-left: 5px solid #007FFF;
       padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin-bottom: 30px;
-      transition: transform 0.3s ease;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease-in-out;
     }
 
-    .service-card:hover {
-      transform: scale(1.02);
-    }
-
-    .service-card i {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #007FFF;
-    }
-
-    .service-card h2 {
+    .program h2 {
       margin-top: 0;
+      display: flex;
+      align-items: center;
       font-size: 1.8em;
     }
 
-    .service-card p {
+    .program h2 i {
+      margin-right: 12px;
+      color: #007FFF;
+    }
+
+    .program p {
       font-size: 1.1em;
       line-height: 1.6;
     }
 
-    footer {
-      background-color: #cce0ff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
+    .pdf-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #007FFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .pdf-link:hover {
+      background-color: #005fcc;
+    }
+
+    .form-section {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    .form-section h3 {
+      margin-top: 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      margin-top: 15px;
+      padding: 10px;
+      font-size: 1em;
+      background-color: #007FFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #005fcc;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 768px) {
@@ -114,10 +176,6 @@
       nav a {
         font-size: 1rem;
       }
-
-      main {
-        padding: 20px;
-      }
     }
   </style>
 </head>
@@ -137,32 +195,41 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<main>
-  <div class="service-card">
-    <i class="fas fa-child"></i>
-    <h2>Preschool Program (Age 3 to 5)</h2>
+<div class="content">
+  <div class="program">
+    <h2><i class="fas fa-child"></i> Preschool Program (Ages 3–5)</h2>
     <p>
-      Our Preschool Program is designed to ignite a love for learning in your child. Through a blend of play-based and structured activities, children explore literacy, numeracy, science, music, and creative arts.
+      Our preschool program nurtures the curiosity and creativity of children aged 3 to 5.
+      We focus on structured learning through play-based activities that prepare kids
+      for kindergarten. The program encourages early literacy, numeracy, problem-solving,
+      and social-emotional development. Our experienced educators ensure a warm, inclusive,
+      and engaging environment that fosters confidence and independence in every child.
     </p>
     <p>
-      Children in this program benefit from:
-      <ul>
-        <li>Daily circle time and themed activities</li>
-        <li>Hands-on exploration and sensory play</li>
-        <li>Outdoor play and physical development sessions</li>
-        <li>Social and emotional skill building</li>
-        <li>Individualized attention with low teacher-to-child ratios</li>
-      </ul>
+      Children enjoy music, art, outdoor play, and story time every day. Small group sizes allow
+      for personalized attention and a calm, supportive setting. Meals and rest time are included.
     </p>
-    <p>
-      Our qualified educators create a nurturing environment that prepares children for a successful transition to kindergarten while fostering independence, confidence, and curiosity.
-    </p>
+    <a class="pdf-link" href="https://yourgithubusername.github.io/path/to/Echelon_Preschool_Brochure.pdf" target="_blank">
+      📄 Download Program Brochure (PDF)
+    </a>
   </div>
-</main>
 
-<footer>
-  &copy; 2025 Echelon Day Care. All rights reserved.
-</footer>
+  <div class="form-section">
+    <h3>Enquire About Enrollment</h3>
+    <form name="enquiryForm" method="post" action="https://formspree.io/f/YOUR_FORM_ID">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Ask about availability, tours, or the curriculum..." required></textarea>
+
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>
