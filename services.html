@@ -52,84 +52,95 @@
       font-size: 1.2rem;
     }
 
-    main {
+    .services {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-top: 0;
+      font-size: 1.4em;
+      color: #003366;
+    }
+
+    .testimonials {
+      background: #f2f8ff;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .testimonials p {
+      font-style: italic;
+      margin: 10px auto;
+      max-width: 700px;
+    }
+
+    .enquiry-form {
+      background-color: #d9eaff;
       padding: 30px;
     }
 
-    h2 {
-      text-align: center;
-      color: #003366;
-    }
-
-    .services-section {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .services-section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .images {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin: 30px 0;
-    }
-
-    .images img {
-      width: 250px;
-      height: 180px;
-      object-fit: cover;
-      background-color: #ccc;
-      margin: 10px;
+    .enquiry-form h2 {
+      margin-top: 0;
     }
 
     form {
-      background-color: #ffffff;
-      padding: 20px;
-      max-width: 600px;
+      display: grid;
+      gap: 15px;
+      max-width: 500px;
       margin: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    form label {
-      display: block;
-      margin-top: 10px;
-    }
-
-    form input, form textarea {
-      width: 100%;
+    form input, form textarea, form select {
       padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #999;
     }
 
     form button {
-      margin-top: 15px;
-      padding: 10px 20px;
       background-color: #007FFF;
       color: white;
+      padding: 12px;
+      font-size: 1rem;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
     }
 
-    footer {
-      background-color: #cce0ff;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
+    form button:hover {
+      background-color: #005fcc;
     }
 
-    footer a {
-      margin: 0 15px;
-      color: #003366;
-      text-decoration: none;
-      font-weight: bold;
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {
@@ -151,16 +162,10 @@
       nav a {
         font-size: 1rem;
       }
-
-      .images img {
-        width: 90%;
-        height: auto;
-      }
     }
   </style>
 </head>
 <body>
-
 <header>
   <div class="logo-container">
     <img src="logoMod.png" alt="Echelon Logo" class="logo" />
@@ -175,52 +180,49 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<main>
-  <h2>Our Services</h2>
-  <div class="services-section">
-    <p>
-      At Echelon Day Care, we provide a nurturing and stimulating environment where children grow through play, learning, and social interaction.
-    </p>
-    <p>
-      Our services include:
-      <ul>
-        <li><strong>Infant & Toddler Care:</strong> Safe and responsive care for ages 6 months to 2 years.</li>
-        <li><strong>Preschool Program:</strong> Engaging curriculum for ages 2 to 5 years to foster early learning and development.</li>
-        <li><strong>After-School Program:</strong> Homework help, activities, and fun for children up to 10 years old.</li>
-      </ul>
-    </p>
+<section class="services">
+  <div class="service-card">
+    <img src="placeholder1.jpg" alt="Toddler Program">
+    <h3>Play & Learn Program</h3>
+    <p>Designed for toddlers to learn through guided play, fostering curiosity and social skills.</p>
   </div>
-
-  <div class="images">
-    <img src="placeholder1.jpg" alt="Classroom">
-    <img src="placeholder2.jpg" alt="Outdoor play">
-    <img src="placeholder3.jpg" alt="Learning activity">
+  <div class="service-card">
+    <img src="placeholder2.jpg" alt="Pre-K Program">
+    <h3>Preschool Readiness</h3>
+    <p>Our curriculum builds early literacy, numeracy, and creativity preparing kids for school.</p>
   </div>
+  <div class="service-card">
+    <img src="placeholder3.jpg" alt="After School">
+    <h3>After School Activities</h3>
+    <p>Fun and engaging programs post-school hours with arts, music, and outdoor play.</p>
+  </div>
+</section>
 
-  <h2>Enquire Now</h2>
-  <form action="https://formsubmit.co/echelondaycare@hotmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="New Enquiry from Echelon Day Care!">
-    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+<section class="testimonials">
+  <h2>What Parents Say</h2>
+  <p>“The staff are wonderful! My son absolutely loves going to Echelon. He’s learning so much while having fun.”</p>
+</section>
 
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <button type="submit">Send Enquiry</button>
+<section class="enquiry-form">
+  <h2>Have a Question or Want to Visit?</h2>
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <select name="contact_time">
+      <option value="">Preferred Contact Time</option>
+      <option value="morning">Morning</option>
+      <option value="afternoon">Afternoon</option>
+      <option value="evening">Evening</option>
+    </select>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Enquiry ✉️</button>
+    <small>We’ll get in touch within 24 hours to answer your questions or schedule a tour!</small>
   </form>
-</main>
+</section>
 
 <footer>
-  <a href="about.html">About</a> |
-  <a href="services.html">Services</a> |
-  <a href="whyus.html">Why Us</a> |
-  <a href="contact.html">Contact</a>
+  <p>&copy; 2025 Echelon Day Care. All rights reserved.</p>
 </footer>
 
 </body>
