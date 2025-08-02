@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>Services - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-sV1fI1pNy0JDBcZ0uLwXKTx7x+5V5PnFZGE7pZ+R3gP1ZTxhzIlkYXJ6ZpQ5CQQFdT9F88CV5r4Xtu4YdxG15g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -52,97 +56,6 @@
       font-size: 1.2rem;
     }
 
-    .services {
-      padding: 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    }
-
-    .service-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .service-card h3 {
-      margin-top: 0;
-      font-size: 1.4em;
-      color: #003366;
-    }
-
-    .testimonials {
-      background: #f2f8ff;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .testimonials p {
-      font-style: italic;
-      margin: 10px auto;
-      max-width: 700px;
-    }
-
-    .enquiry-form {
-      background-color: #d9eaff;
-      padding: 30px;
-    }
-
-    .enquiry-form h2 {
-      margin-top: 0;
-    }
-
-    form {
-      display: grid;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    form input, form textarea, form select {
-      padding: 10px;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #999;
-    }
-
-    form button {
-      background-color: #007FFF;
-      color: white;
-      padding: 12px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background-color: #005fcc;
-    }
-
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
     @media (max-width: 768px) {
       .logo-container {
         flex-wrap: nowrap;
@@ -163,67 +76,154 @@
         font-size: 1rem;
       }
     }
+
+    /* Services Section */
+    .services-section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .services-section h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      width: 300px;
+      text-align: center;
+    }
+
+    .service-card i {
+      font-size: 50px;
+      color: #007FFF;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin: 10px 0;
+      font-size: 1.5em;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+    }
+
+    /* Enquiry Form */
+    .enquiry-section {
+      padding: 40px 20px;
+      background-color: #f0f8ff;
+      max-width: 800px;
+      margin: 50px auto;
+      border-radius: 10px;
+    }
+
+    .enquiry-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #007FFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fcc;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #cce0ff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #003366;
+      margin-top: 60px;
+    }
   </style>
 </head>
 <body>
-<header>
-  <div class="logo-container">
-    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
-    <h1>Echelon Day Care</h1>
-  </div>
-</header>
 
-<nav>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="whyus.html">Why Us</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <header>
+    <div class="logo-container">
+      <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+      <h1>Echelon Day Care</h1>
+    </div>
+  </header>
 
-<section class="services">
-  <div class="service-card">
-    <img src="placeholder1.jpg" alt="Toddler Program">
-    <h3>Play & Learn Program</h3>
-    <p>Designed for toddlers to learn through guided play, fostering curiosity and social skills.</p>
-  </div>
-  <div class="service-card">
-    <img src="placeholder2.jpg" alt="Pre-K Program">
-    <h3>Preschool Readiness</h3>
-    <p>Our curriculum builds early literacy, numeracy, and creativity preparing kids for school.</p>
-  </div>
-  <div class="service-card">
-    <img src="placeholder3.jpg" alt="After School">
-    <h3>After School Activities</h3>
-    <p>Fun and engaging programs post-school hours with arts, music, and outdoor play.</p>
-  </div>
-</section>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="whyus.html">Why Us</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<section class="testimonials">
-  <h2>What Parents Say</h2>
-  <p>“The staff are wonderful! My son absolutely loves going to Echelon. He’s learning so much while having fun.”</p>
-</section>
+  <section class="services-section">
+    <h2>Our Programs</h2>
+    <div class="service-cards">
+      <div class="service-card">
+        <i class="fas fa-baby"></i>
+        <h3>Toddler Program</h3>
+        <p>For ages 1.5 to 3 years. We provide a nurturing and engaging environment for your little ones to explore and grow.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>Preschool Program</h3>
+        <p>For ages 3 to 5 years. Preparing children with foundational skills through structured learning and fun activities.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-school"></i>
+        <h3>After-School Program</h3>
+        <p>For school-aged children. A safe and fun place to engage in creative, academic, and recreational activities after school.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="enquiry-form">
-  <h2>Have a Question or Want to Visit?</h2>
-  <form action="#" method="post">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <input type="tel" name="phone" placeholder="Phone Number" required />
-    <select name="contact_time">
-      <option value="">Preferred Contact Time</option>
-      <option value="morning">Morning</option>
-      <option value="afternoon">Afternoon</option>
-      <option value="evening">Evening</option>
-    </select>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Enquiry ✉️</button>
-    <small>We’ll get in touch within 24 hours to answer your questions or schedule a tour!</small>
-  </form>
-</section>
+  <section class="enquiry-section">
+    <h2>Enquire Now</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Full Name" required />
+      <input type="email" name="email" placeholder="Your Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <textarea name="message" placeholder="Tell us what you're looking for..." rows="4" required></textarea>
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Echelon Day Care. All rights reserved.</p>
-</footer>
+  <footer>
+    &copy; 2025 Echelon Day Care. All rights reserved.
+  </footer>
 
 </body>
 </html>
