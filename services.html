@@ -2,129 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services - Echelon Day Care</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Our Services - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
     }
-    .top-banner {
-      background-color: #007BFF;
+    header {
+      background-color: #007FFF;
       color: white;
-      padding: 10px 20px;
+      padding: 20px;
+    }
+    .logo-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
     }
     .logo {
-      height: 60px;
+      width: 110px;
+      height: auto;
     }
-    .site-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-left: 10px;
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
     }
     nav {
-      margin-right: 10px;
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
     }
     nav a {
-      color: white;
+      margin: 5px 15px;
+      color: #003366;
       text-decoration: none;
-      margin-left: 15px;
-      font-size: 16px;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .content {
-      padding: 30px 5%;
-      max-width: 1200px;
+    section {
+      padding: 40px 20px;
+      max-width: 960px;
       margin: 0 auto;
-      background: white;
     }
-    .content h2 {
-      font-size: 26px;
-      color: #007BFF;
-      margin-bottom: 15px;
+    h2 {
+      text-align: center;
+      color: #007FFF;
+      font-size: 2em;
     }
-    .service-item {
-      margin-bottom: 20px;
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
     }
-    .service-item h3 {
-      font-size: 20px;
-      margin-bottom: 5px;
+    .service-box {
+      background-color: #cce0ff;
+      border-radius: 8px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: left;
     }
-    .service-item p {
-      font-size: 16px;
+    .service-box h3 {
+      margin-top: 0;
+      color: #003366;
+    }
+    .service-box p {
+      font-size: 1rem;
       line-height: 1.6;
     }
-
-    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .top-banner {
-        flex-direction: column;
-        align-items: flex-start;
+      .logo-container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
       }
-      .site-title {
-        margin-left: 0;
-        margin-top: 10px;
+      .logo {
+        width: 40px;
       }
-      nav {
-        margin: 10px 0 0;
+      .logo-container h1 {
+        font-size: 1.6em;
       }
       nav a {
-        display: inline-block;
-        margin: 5px 10px 0 0;
+        font-size: 1rem;
+      }
+      .service-box {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
 
-  <header class="top-banner">
-    <div style="display: flex; align-items: center;">
-      <img src="logomod.png" alt="Echelon Day Care Logo" class="logo" />
-      <div class="site-title">Echelon Day Care</div>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
+  </div>
+</header>
 
-  <main class="content">
-    <h2>Our Services</h2>
+<nav>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="whyus.html">Why Us</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-    <div class="service-item">
-      <h3>Infant Care (0-18 months)</h3>
-      <p>We provide a safe, nurturing environment with personalized attention to your infant’s needs, including feeding, sleeping, and sensory development activities.</p>
+<section>
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div class="service-box">
+      <h3>Infant Care</h3>
+      <p>Specialized attention for newborns and infants in a safe, nurturing setting that promotes early bonding and developmental growth.</p>
     </div>
-
-    <div class="service-item">
-      <h3>Toddler Program (18 months - 3 years)</h3>
-      <p>Our toddler program focuses on language development, motor skills, and social interaction through structured play and guided exploration.</p>
+    <div class="service-box">
+      <h3>Toddler Program</h3>
+      <p>Structured learning through songs, games, and hands-on exploration. We focus on communication, motor skills, and emotional development.</p>
     </div>
-
-    <div class="service-item">
-      <h3>Preschool Readiness (3-5 years)</h3>
-      <p>Prepares your child for kindergarten with a focus on literacy, numeracy, creative expression, and socio-emotional learning in a fun and stimulating environment.</p>
+    <div class="service-box">
+      <h3>Preschool Prep</h3>
+      <p>A dynamic program that builds pre-reading, math, and social skills through playful interaction and project-based learning.</p>
     </div>
-
-    <div class="service-item">
-      <h3>After-School Enrichment</h3>
-      <p>Provides engaging activities for older children including arts & crafts, outdoor play, storytelling, and basic homework support in a relaxed setting.</p>
+    <div class="service-box">
+      <h3>After School Enrichment</h3>
+      <p>Homework help, creative arts, physical activity, and social development for school-age children in a supportive environment.</p>
     </div>
-
-    <div class="service-item">
-      <h3>Weekend Programs</h3>
-      <p>Optional weekend programs include music and dance classes, language immersion, and parent-child bonding activities.</p>
+    <div class="service-box">
+      <h3>Summer Camps</h3>
+      <p>Exciting themed weeks with crafts, science experiments, water play, and field days—keeping kids engaged all summer long!</p>
     </div>
-  </main>
+    <div class="service-box">
+      <h3>Parent Support</h3>
+      <p>Workshops and events to build stronger parent-child relationships, promote parenting skills, and connect with our community.</p>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
