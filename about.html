@@ -146,6 +146,45 @@
         width: 90%;
         height: auto;
       }
+      .floating-box {
+  position: fixed;
+  top: 30%;
+  width: 200px;
+  padding: 12px;
+  background: #f0f8ff;
+  border: 2px solid #4fa3d1;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 14px;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.left-floating {
+  left: 10px;
+}
+
+.right-floating {
+  right: 10px;
+}
+
+.floating-box h4 {
+  margin-top: 0;
+  font-size: 15px;
+  color: #004080;
+}
+
+.floating-box p {
+  margin: 0;
+}
+
+/* Hide floating boxes on small screens */
+@media (max-width: 768px) {
+  .floating-box {
+    display: none;
+  }
+}
+
     }
   </style>
 </head>
@@ -209,6 +248,15 @@
 
     <div class="modal" id="imageModal" onclick="closeModal()">
       <img id="modalImage" src="" alt="Full View">
+    </div>
+    <div class="floating-box left-floating">
+      <h4>Parent Voices</h4>
+      <p>“Such a caring environment!”<br><em>– R. Sharma</em></p>
+    </div>
+    
+    <div class="floating-box right-floating">
+      <h4>Why We Love Echelon</h4>
+      <p>“My child looks forward to going every day.”<br><em>– M. Kaur</em></p>
     </div>
 
   </main>
