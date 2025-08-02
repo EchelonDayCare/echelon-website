@@ -1,157 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About Us - Echelon Day Care</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e6f0ff;
-            margin: 0;
-            padding: 0;
-            color: #003366;
-        }
+  <meta charset="UTF-8" />
+  <title>About Us - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+    }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #007FFF;
-            padding: 15px 30px;
-        }
+    header {
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
+    }
 
-        header img {
-            height: 60px;
-        }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        header h1 {
-            font-size: 32px;
-            font-weight: bold;
-            margin: 0;
-            color: white;
-            flex-grow: 1;
-            padding-left: 20px;
-        }
+    .logo {
+      width: 110px;
+      height: auto;
+    }
 
-        nav {
-            background-color: #005bb5;
-            padding: 12px 30px;
-        }
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
 
-        nav a {
-            color: white;
-            margin-right: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-        }
+    nav {
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-        h2 {
-            color: #007FFF;
-            font-size: 26px;
-        }
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
 
-        h3 {
-            color: #005bb5;
-            margin-top: 30px;
-        }
+    h2, h3 {
+      color: #007FFF;
+    }
 
-        .highlight {
-            font-weight: bold;
-            color: #005bb5;
-        }
+    .highlight {
+      font-weight: bold;
+      color: #005bb5;
+    }
 
-        ul {
-            padding-left: 20px;
-        }
+    ul {
+      padding-left: 20px;
+    }
 
-        .image-gallery {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+    .image-gallery {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        .image-gallery img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
-        }
+    .image-gallery img {
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 4px solid #007FFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-        footer {
-            text-align: center;
-            background-color: #007FFF;
-            color: white;
-            padding: 20px 10px;
-            margin-top: 50px;
-        }
-    </style>
+    footer {
+      text-align: center;
+      background-color: #007FFF;
+      color: white;
+      padding: 20px 10px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      .logo {
+        width: 40px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .image-gallery img {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <img src="logomod.png" alt="Echelon Logo">
-    <h1>Echelon Day Care</h1>
-</header>
+  <header>
+    <div class="logo-container">
+      <img class="logo" src="logoMod.png" alt="Echelon Logo" />
+      <h1>Echelon Day Care</h1>
+    </div>
+  </header>
 
-<nav>
+  <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
-</nav>
+  </nav>
 
-<main>
+  <main>
     <h2>About Echelon Day Care</h2>
-    <p>Welcome to <span class="highlight">Echelon Day Care</span> — where nurturing care meets joyful learning! We are a dedicated team of early childhood educators passionate about creating a safe, stimulating, and inclusive environment for children to grow and thrive.</p>
+    <p>
+      Welcome to <span class="highlight">Echelon Day Care</span> — where nurturing care meets joyful learning!
+      We are a dedicated team of early childhood educators passionate about creating a safe, stimulating,
+      and inclusive environment for children to grow and thrive.
+    </p>
 
     <h3>Our Vision</h3>
-    <p>To build a foundation of lifelong learning by fostering creativity, confidence, and kindness in every child we care for.</p>
+    <p>
+      To build a foundation of lifelong learning by fostering creativity, confidence, and kindness
+      in every child we care for.
+    </p>
 
     <h3>Our Mission</h3>
     <ul>
-        <li>Provide a secure and loving environment for all children.</li>
-        <li>Encourage curiosity through hands-on learning and play.</li>
-        <li>Support each child’s social, emotional, physical, and cognitive development.</li>
+      <li>Provide a secure and loving environment for all children.</li>
+      <li>Encourage curiosity through hands-on learning and play.</li>
+      <li>Support each child’s social, emotional, physical, and cognitive development.</li>
     </ul>
 
     <h3>Our Team</h3>
-    <p>Led by experienced educators and caregivers, our staff is trained in child safety, CPR, early childhood development, and emotional intelligence. We take pride in forming strong partnerships with parents and guardians.</p>
+    <p>
+      Led by experienced educators and caregivers, our staff is trained in child safety, CPR,
+      early childhood development, and emotional intelligence. We take pride in forming strong
+      partnerships with parents and guardians.
+    </p>
 
     <h3>Why Choose Us?</h3>
     <ul>
-        <li>Bright, clean, and engaging facilities.</li>
-        <li>Daily learning through stories, music, art, and play.</li>
-        <li>Balanced nutrition and outdoor time.</li>
-        <li>Regular updates and photo sharing with parents.</li>
+      <li>Bright, clean, and engaging facilities.</li>
+      <li>Daily learning through stories, music, art, and play.</li>
+      <li>Balanced nutrition and outdoor time.</li>
+      <li>Regular updates and photo sharing with parents.</li>
     </ul>
 
     <div class="image-gallery">
-        <img src="photo1.jpg" alt="Children playing">
-        <img src="photo2.jpg" alt="Classroom activity">
-        <img src="photo3.jpg" alt="Outdoor fun">
+      <img src="photo1.jpg" alt="Children playing">
+      <img src="photo2.jpg" alt="Learning time">
+      <img src="photo3.jpg" alt="Outdoor fun">
     </div>
-</main>
+  </main>
 
-<footer>
+  <footer>
     &copy; 2025 Echelon Day Care | All rights reserved
-</footer>
+  </footer>
 
 </body>
 </html>
