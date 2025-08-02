@@ -2,126 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About - Echelon Day Care</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
+
     header {
-      background-color: #007bff;
+      background-color: #005bac;
       color: white;
-      padding: 1rem;
+      padding: 20px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
+
     header img {
       height: 60px;
-      margin-right: 1rem;
     }
+
     header h1 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       margin: 0;
     }
-    nav {
-      background-color: #0056b3;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      padding: 1rem;
-    }
-    section {
+
+    .about-section {
+      padding: 40px;
       max-width: 1000px;
-      margin: 1rem auto;
-      background-color: #f9f9f9;
-      padding: 1rem;
-      border-radius: 8px;
+      margin: auto;
     }
-    section h2 {
-      font-size: 1.6rem;
-      color: #007bff;
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
-    section p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 1rem;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
     }
+
     .gallery img {
-      width: 100%;
-      max-width: 200px;
+      max-width: 250px;
+      height: auto;
       border-radius: 8px;
       cursor: pointer;
+      transition: transform 0.2s;
     }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
     .modal {
       display: none;
       position: fixed;
       z-index: 1000;
       left: 0;
       top: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
-      align-items: center;
-      justify-content: center;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.8);
     }
+
     .modal-content {
       max-width: 90%;
-      max-height: 80vh;
+      max-height: 90%;
+      margin: auto;
+      display: block;
       border-radius: 8px;
     }
-    .modal button {
+
+    .close, .arrow {
       position: absolute;
-      top: 10px;
-      background: none;
-      border: none;
+      top: 15px;
       color: white;
-      font-size: 2rem;
+      font-size: 30px;
+      font-weight: bold;
       cursor: pointer;
+      z-index: 1001;
     }
-    .prev, .next {
+
+    .close {
+      right: 25px;
+    }
+
+    .arrow.left {
+      left: 20px;
       top: 50%;
       transform: translateY(-50%);
     }
-    .prev {
-      left: 20px;
-    }
-    .next {
+
+    .arrow.right {
       right: 20px;
-    }
-    .close {
-      right: 20px;
-    }
-    footer {
-      background-color: #007bff;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     @media (max-width: 600px) {
-      .gallery {
-        justify-content: center;
+      header {
+        flex-direction: column;
+        text-align: center;
       }
-      header h1 {
-        font-size: 1.2rem;
+
+      .gallery img {
+        max-width: 90%;
       }
     }
   </style>
@@ -131,116 +125,81 @@
     <img src="logomod.png" alt="Echelon Day Care Logo" />
     <h1>Echelon Day Care</h1>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </nav>
-  <main>
-    <section>
-      <h2>About Echelon Day Care</h2>
-      <p>
-        At Echelon Day Care, we are dedicated to providing a nurturing and stimulating environment where children can grow, learn, and thrive. Our experienced caregivers and educators work closely with families to ensure each child's individual needs are met.
-      </p>
-    </section>
-    <section>
-      <h2>Our Mission</h2>
-      <p>
-        To foster a safe, inclusive, and engaging atmosphere that promotes the physical, emotional, social, and cognitive development of every child.
-      </p>
-    </section>
-    <section>
-      <h2>Our Vision</h2>
-      <p>
-        To be a leading day care center recognized for excellence in early childhood education and care, preparing children for lifelong success.
-      </p>
-    </section>
-    <section>
-      <h2>Why Choose Us</h2>
-      <ul>
-        <li>Qualified and caring staff</li>
-        <li>Safe and hygienic environment</li>
-        <li>Age-appropriate learning activities</li>
-        <li>Nutritious meals and snacks</li>
-        <li>Regular parent-teacher communication</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <img src="image1.jpg" alt="Classroom" tabindex="0" />
-        <img src="image2.jpg" alt="Play Area" tabindex="0" />
-        <img src="image3.jpg" alt="Activity Time" tabindex="0" />
-        <img src="image4.jpg" alt="Group Learning" tabindex="0" />
-      </div>
-    </section>
-  </main>
 
-  <!-- Modal -->
-  <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="prev" aria-label="Previous image">&#10094;</button>
-    <img class="modal-content" id="modalImg" alt="Enlarged Image" />
-    <button class="next" aria-label="Next image">&#10095;</button>
-    <button class="close" aria-label="Close viewer">&times;</button>
+  <div class="about-section">
+    <h2>About Echelon Day Care</h2>
+    <p>
+      Welcome to Echelon Day Care! We are committed to providing a nurturing environment
+      for your child's growth and development. With a team of dedicated caregivers and a
+      safe, stimulating space, your little ones are in good hands.
+    </p>
+
+    <div class="gallery" id="gallery">
+      <img src="pic1.jpg" alt="Gallery Image 1" />
+      <img src="pic2.jpg" alt="Gallery Image 2" />
+      <img src="pic3.jpg" alt="Gallery Image 3" />
+      <img src="pic4.jpg" alt="Gallery Image 4" />
+      <img src="pic5.jpg" alt="Gallery Image 5" />
+    </div>
   </div>
 
-  <footer>
-    &copy; 2025 Echelon Day Care. All rights reserved.
-  </footer>
+  <!-- Modal for images -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <span class="close" id="closeBtn">&times;</span>
+    <span class="arrow left" id="prevBtn">&#10094;</span>
+    <span class="arrow right" id="nextBtn">&#10095;</span>
+    <img class="modal-content" id="modalImg" alt="Expanded Gallery Image"/>
+  </div>
 
   <script defer>
-    const images = document.querySelectorAll('.gallery img');
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImg');
-    const closeBtn = document.querySelector('.close');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.getElementById("closeBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const galleryImages = [...document.querySelectorAll("#gallery img")];
 
-    let currentIndex = 0;
-    let focusableEls = [];
+    let currentImgIndex = 0;
 
-    function openModal(index) {
-      currentIndex = index;
-      modal.style.display = 'flex';
-      modalImg.src = images[currentIndex].src;
-      modalImg.alt = images[currentIndex].alt;
-      document.body.style.overflow = 'hidden';
-      modal.setAttribute('tabindex', '-1');
-      modal.focus();
+    function showModal(index) {
+      currentImgIndex = index;
+      modal.style.display = "block";
+      modalImg.src = galleryImages[currentImgIndex].src;
+      modalImg.focus();
     }
 
     function closeModal() {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+      modal.style.display = "none";
     }
 
-    function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-      modalImg.src = images[currentIndex].src;
-      modalImg.alt = images[currentIndex].alt;
+    function showNextImage() {
+      currentImgIndex = (currentImgIndex + 1) % galleryImages.length;
+      modalImg.src = galleryImages[currentImgIndex].src;
     }
 
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      modalImg.src = images[currentIndex].src;
-      modalImg.alt = images[currentIndex].alt;
+    function showPrevImage() {
+      currentImgIndex = (currentImgIndex - 1 + galleryImages.length) % galleryImages.length;
+      modalImg.src = galleryImages[currentImgIndex].src;
     }
 
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => openModal(index));
-      img.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') openModal(index);
-      });
+    galleryImages.forEach((img, i) => {
+      img.addEventListener("click", () => showModal(i));
     });
 
-    closeBtn.addEventListener('click', closeModal);
-    nextBtn.addEventListener('click', showNext);
-    prevBtn.addEventListener('click', showPrev);
+    closeBtn.addEventListener("click", closeModal);
+    nextBtn.addEventListener("click", showNextImage);
+    prevBtn.addEventListener("click", showPrevImage);
 
-    document.addEventListener('keydown', (e) => {
-      if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowRight') showNext();
-        if (e.key === 'ArrowLeft') showPrev();
-        if (e.key === 'Escape') closeModal();
+    // Accessibility: Trap focus inside modal
+    modal.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      } else if (e.key === "ArrowRight") {
+        showNextImage();
+      } else if (e.key === "ArrowLeft") {
+        showPrevImage();
+      } else if (e.key === "Tab") {
+        e.preventDefault(); // Keep focus on modal only
       }
     });
   </script>
