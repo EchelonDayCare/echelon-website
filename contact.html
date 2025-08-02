@@ -4,13 +4,16 @@
   <meta charset="UTF-8" />
   <title>Contact - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome CDN -->
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pVpjZ9AB+Z7q8+b3FZkufPjoHEtLVAlD9qKm9CZdQFeFV++F1FF51jqf+UOn0uEvN2yKzA9xozV6zrS3c1pC2g=="
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-oBw5c3U7Q3H7Mfp6IuDZQ9WDXvq+6h2GrbdXwNUzB7qRyE3qME5kN8mX5RzyKbJXUm1D65xv08tcEVoX1xFcbA=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -59,58 +62,60 @@
       font-size: 1.2rem;
     }
 
-    .contact-section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
-    .contact-section h2 {
-      text-align: center;
-      font-size: 2.5rem;
+    .contact-info {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h2 {
+      font-size: 2em;
       margin-bottom: 20px;
     }
 
-    .contact-details {
-      font-size: 1.2rem;
-      line-height: 2;
+    .contact-item {
+      margin-bottom: 20px;
+      font-size: 1.1em;
     }
 
-    .contact-details i {
+    .contact-item i {
       margin-right: 10px;
       color: #007FFF;
     }
 
     .social-icons {
-      margin-top: 30px;
-      text-align: center;
+      margin-top: 20px;
     }
 
     .social-icons a {
-      color: #007FFF;
-      margin: 0 15px;
-      font-size: 2rem;
-      transition: transform 0.3s;
+      margin-right: 15px;
+      font-size: 1.5em;
+      color: #003366;
+      text-decoration: none;
     }
 
     .social-icons a:hover {
-      transform: scale(1.2);
+      color: #007FFF;
     }
 
     footer {
-      background-color: #003366;
-      color: white;
+      background-color: #cce0ff;
+      color: #003366;
       text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9rem;
+      padding: 20px;
       margin-top: 40px;
     }
 
     @media (max-width: 768px) {
       .logo-container {
+        flex-wrap: nowrap;
         justify-content: center;
         text-align: center;
         flex-direction: row;
@@ -125,14 +130,6 @@
       }
 
       nav a {
-        font-size: 1rem;
-      }
-
-      .contact-section h2 {
-        font-size: 2rem;
-      }
-
-      .contact-details {
         font-size: 1rem;
       }
     }
@@ -154,21 +151,26 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<section class="contact-section">
-  <h2>Contact Us</h2>
-  <div class="contact-details">
-    <p><i class="fas fa-map-marker-alt"></i> 575 W 8th Ave, Vancouver, BC V5Z 1M9, Canada</p>
-    <p><i class="fas fa-phone"></i> +1 604-874-4010</p>
-    <p><i class="fas fa-envelope"></i> echelondaycare@hotmail.com</p>
-    <p><i class="fas fa-globe-americas"></i> Province: British Columbia</p>
-    <p><i class="fas fa-clock"></i> Mon to Fri: 8:00 AM – 6:00 PM</p>
+<main>
+  <div class="contact-info">
+    <h2>Contact Us</h2>
+    <div class="contact-item">
+      <i class="fas fa-map-marker-alt"></i> 575 W 8th Ave, Vancouver, BC V5Z 1M9, Canada
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-phone"></i> +1 604-874-4010
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-globe"></i> Province: British Columbia
+    </div>
+
+    <div class="social-icons">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+    </div>
   </div>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-square"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-</section>
+</main>
 
 <footer>
   &copy; 2025 Echelon Day Care. All rights reserved.
