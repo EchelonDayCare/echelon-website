@@ -2,256 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Services - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - Little Steps Daycare</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papNM4T+K1D+h3B1UpMUKc2xkXwT2CKjP4vdb3fP0yB74J3bqvn7wC8qM2dz7q7sAgzCTm+7kl4WqpbR7YV7Wg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fffdf8;
-      color: #333;
+      padding: 0;
+      color: #003366;
     }
 
     header {
-      background-color: #ffcc70;
-      color: #2d2d2d;
-      padding: 20px 40px;
-      text-align: center;
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 110px;
+      height: auto;
+    }
+
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
     }
 
     nav {
-      background-color: #ffd39f;
+      background-color: #cce0ff;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       padding: 10px 0;
     }
 
     nav a {
-      margin: 0 15px;
+      margin: 5px 15px;
+      color: #003366;
       text-decoration: none;
-      color: #2d2d2d;
       font-weight: bold;
+      font-size: 1.2rem;
     }
 
-    .banner {
-      background-color: #ffe0b2;
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .banner h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    .services-section {
-      padding: 50px 20px;
+    .services {
+      padding: 40px 20px;
       text-align: center;
     }
 
-    .services-section h2 {
-      font-size: 2rem;
-      margin-bottom: 40px;
-    }
-
-    .side-gallery-layout {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .side-gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .side-gallery img {
-      width: 120px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    .services h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      max-width: 800px;
+      margin-top: 30px;
     }
 
-    .service-box {
-      background-color: #fff6e5;
-      padding: 20px;
+    .service {
+      background: white;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
 
-    .service-box:hover {
-      transform: translateY(-5px);
+    .service:hover {
+      transform: translateY(-10px);
     }
 
-    .service-box i {
-      font-size: 2.5rem;
-      color: #ff9900;
+    .service i {
+      font-size: 2.5em;
+      color: #007FFF;
       margin-bottom: 10px;
     }
 
-    .service-box h3 {
-      margin-bottom: 10px;
+    .image-gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px 0;
     }
 
-    .service-box p {
-      font-size: 0.95rem;
+    .image-gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .enquiry-section {
-      padding: 40px 20px;
-      background-color: #fff0d4;
+    .enquiry-form {
+      background: white;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .enquiry-section h2 {
+    .enquiry-form h3 {
       margin-bottom: 20px;
     }
 
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    form input, form textarea {
+    .enquiry-form input,
+    .enquiry-form textarea {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
+      padding: 12px;
+      margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-family: inherit;
     }
 
-    form button {
-      background-color: #ffa500;
+    .enquiry-form button {
+      background-color: #007FFF;
       color: white;
       border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
+      padding: 12px 20px;
       border-radius: 5px;
+      font-size: 1em;
       cursor: pointer;
     }
 
     .map-container {
-      padding: 40px 20px;
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
+      margin: 50px auto;
+      max-width: 90%;
+      border: 5px solid #007FFF;
       border-radius: 10px;
+      overflow: hidden;
     }
 
     footer {
-      background-color: #ffcc70;
-      color: #2d2d2d;
+      background-color: #cce0ff;
+      color: #003366;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
+      padding: 15px 0;
+      margin-top: 40px;
     }
 
-    @media (max-width: 1000px) {
-      .side-gallery-layout {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .side-gallery {
-        flex-direction: row;
-        flex-wrap: wrap;
+    @media (max-width: 768px) {
+      .logo-container {
+        flex-wrap: nowrap;
         justify-content: center;
+        text-align: center;
+        flex-direction: row;
       }
 
-      .side-gallery img {
-        width: 100px;
-        height: 70px;
+      .logo {
+        width: 40px;
+      }
+
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .image-gallery img {
+        width: 100%;
+        height: auto;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Little Steps Daycare</h1>
-  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
+  </div>
+</header>
 
-  <div class="banner">
-    <h1>Our Services</h1>
+<nav>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="whyus.html">Why Us</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="services">
+  <h2>Our Programs</h2>
+  <div class="service-grid">
+    <div class="service">
+      <i class="fas fa-baby"></i>
+      <h3>Infant Program</h3>
+      <p>Warm and nurturing care for infants aged 0–18 months. Safe sleep, play, and learning routines.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-child"></i>
+      <h3>Toddler Program</h3>
+      <p>Designed for curious toddlers aged 18 months–3 years. Focus on independence, motor skills, and play-based learning.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-school"></i>
+      <h3>Preschool Program</h3>
+      <p>Preparation for kindergarten with early literacy, numeracy, and social-emotional development.</p>
+    </div>
   </div>
 
-  <section class="services-section">
-    <h2>Our Programs</h2>
-    <div class="side-gallery-layout">
-      <div class="side-gallery">
-        <img src="placeholder1.jpg" alt="Activity Image 1" class="animate__animated animate__fadeInLeft" />
-        <img src="placeholder2.jpg" alt="Activity Image 2" class="animate__animated animate__fadeInLeft" />
-        <img src="placeholder3.jpg" alt="Activity Image 3" class="animate__animated animate__fadeInLeft" />
-      </div>
+  <div class="image-gallery">
+    <img src="placeholder1.jpg" alt="Kids Playing">
+    <img src="placeholder2.jpg" alt="Classroom Activity">
+    <img src="placeholder3.jpg" alt="Outdoor Fun">
+  </div>
 
-      <div class="service-grid animate__animated animate__fadeInUp">
-        <div class="service-box">
-          <i class="fas fa-baby"></i>
-          <h3>Toddler Program</h3>
-          <p>Fun-filled activities for toddlers aged 1-3 years focusing on exploration, creativity, and early development.</p>
-        </div>
-        <div class="service-box">
-          <i class="fas fa-school"></i>
-          <h3>Preschool Program</h3>
-          <p>A structured learning environment for 3-5 years old with storytelling, numbers, and basic literacy.</p>
-        </div>
-        <div class="service-box">
-          <i class="fas fa-clock"></i>
-          <h3>After School</h3>
-          <p>Supervised activities, homework help, and snacks for school-aged children till pickup time.</p>
-        </div>
-      </div>
-
-      <div class="side-gallery">
-        <img src="placeholder4.jpg" alt="Activity Image 4" class="animate__animated animate__fadeInRight" />
-        <img src="placeholder5.jpg" alt="Activity Image 5" class="animate__animated animate__fadeInRight" />
-        <img src="placeholder6.jpg" alt="Activity Image 6" class="animate__animated animate__fadeInRight" />
-      </div>
-    </div>
-  </section>
-
-  <section class="enquiry-section">
-    <h2>Enquire Now</h2>
-    <form action="#" method="post">
+  <div class="enquiry-form">
+    <h3>Send Us an Enquiry</h3>
+    <form action="https://formsubmit.co/echelondaycare@hotmail.com" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Submit</button>
     </form>
-  </section>
+  </div>
 
   <div class="map-container">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.964726409713!2d-73.98761468458663!3d40.74881707932713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8f53e6a09e9b2d84!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1615905108329!5m2!1sen!2sus"
-      allowfullscreen=""
-      loading="lazy">
-    </iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019872975663!2d-122.41941508468154!3d37.77492927975959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808f4f4e4b1f%3A0x8d85e0b88cfc61b6!2sDaycare!5e0!3m2!1sen!2sus!4v1625184911994!5m2!1sen!2sus"
+      width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Little Steps Daycare. All rights reserved.</p>
-  </footer>
+<footer>
+  &copy; 2025 Echelon Day Care. All rights reserved.
+</footer>
+
 </body>
 </html>
