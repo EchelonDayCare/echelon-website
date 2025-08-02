@@ -2,22 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services - Echelon Day Care</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f8f9fa;
+      background: #f2f2f2;
+    }
+
+    /* --- Top Blue Banner and Logo --- */
+    .top-banner {
+      background-color: #0078d4;
+      padding: 10px 0;
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
     }
 
     header {
-      background-color: #0066cc;
-      color: white;
+      background-color: white;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 10px 40px;
+      justify-content: space-between;
+      padding: 10px 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .logo {
@@ -25,58 +34,75 @@
     }
 
     nav a {
-      color: white;
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 16px;
+      color: #333;
+      margin: 0 15px;
+      font-weight: bold;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #0078d4;
     }
 
-    .content {
+    main {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
 
-    h1, h2 {
+    .services-section {
+      margin-bottom: 50px;
+    }
+
+    .services-section h2 {
       text-align: center;
+      color: #0078d4;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1 1 280px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
       color: #333;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+    .card p {
+      color: #555;
     }
 
-    .service {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-
-    .service h3 {
-      color: #0066cc;
-      margin-bottom: 10px;
-    }
-
+    /* --- Enquiry Form --- */
     .enquiry-form {
-      margin-top: 60px;
-      background: white;
+      background-color: white;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .enquiry-form h3 {
+      margin-top: 0;
+      color: #0078d4;
     }
 
     .enquiry-form label {
       display: block;
       margin-top: 15px;
-      margin-bottom: 5px;
       font-weight: bold;
     }
 
@@ -84,56 +110,28 @@
     .enquiry-form textarea {
       width: 100%;
       padding: 10px;
+      margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
 
     .enquiry-form button {
       margin-top: 20px;
-      background-color: #0066cc;
+      background-color: #0078d4;
       color: white;
-      padding: 12px 20px;
+      padding: 10px 20px;
       border: none;
       border-radius: 5px;
+      font-size: 1rem;
       cursor: pointer;
     }
 
     .enquiry-form button:hover {
-      background-color: #004999;
+      background-color: #005fa3;
     }
 
-    .testimonials {
-      margin-top: 60px;
-    }
-
-    .testimonial {
-      background: white;
-      padding: 20px;
-      border-left: 5px solid #0066cc;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-
-    .testimonial p {
-      margin: 0;
-    }
-
-    .testimonial strong {
-      display: block;
-      margin-top: 10px;
-      text-align: right;
-      color: #333;
-    }
-
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 60px;
-    }
-
-    @media (max-width: 600px) {
+    /* Responsive */
+    @media (max-width: 768px) {
       header {
         flex-direction: column;
         align-items: flex-start;
@@ -143,17 +141,21 @@
         margin-top: 10px;
       }
 
-      nav a {
-        display: inline-block;
-        margin: 5px 10px 0 0;
+      .service-cards {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
+  <!-- 🔵 Blue Top Banner -->
+  <div class="top-banner">
+    Enroll now for our upcoming preschool batch! Limited seats available.
+  </div>
 
+  <!-- 🏫 Header with Logo and Nav -->
   <header>
-    <img src="logo.png" alt="Echelon Logo" class="logo" />
+    <img src="logo.png" alt="Echelon Day Care Logo" class="logo" />
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -162,68 +164,46 @@
     </nav>
   </header>
 
-  <div class="content">
-    <h1>Our Services</h1>
+  <main>
+    <!-- 🧸 Services Section -->
+    <section class="services-section">
+      <h2>Our Services</h2>
+      <div class="service-cards">
+        <div class="card">
+          <h3>Infant Care</h3>
+          <p>Warm, nurturing, and safe environment for infants aged 3 to 18 months. Includes tummy time, sensory activities, and naps.</p>
+        </div>
+        <div class="card">
+          <h3>Toddler Program</h3>
+          <p>Exploration-based learning for toddlers aged 18 months to 3 years with music, movement, and creative play.</p>
+        </div>
+        <div class="card">
+          <h3>Preschool Education</h3>
+          <p>Structured curriculum to promote literacy, numeracy, and social development for children aged 3 to 5 years.</p>
+        </div>
+        <div class="card">
+          <h3>After School Program</h3>
+          <p>Homework help, snacks, recreational activities, and creative sessions for school-going children up to age 10.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="services-grid">
-      <div class="service">
-        <h3>Infant Care</h3>
-        <p>Warm, attentive care in a safe and nurturing environment for infants 6 weeks and older.</p>
-      </div>
-      <div class="service">
-        <h3>Toddler Program</h3>
-        <p>Encouraging exploration, early communication, and motor development through play.</p>
-      </div>
-      <div class="service">
-        <h3>Preschool Readiness</h3>
-        <p>Structured activities that promote learning, creativity, and school readiness skills.</p>
-      </div>
-      <div class="service">
-        <h3>After School Program</h3>
-        <p>Homework help, recreational activities, and social engagement for school-age children.</p>
-      </div>
-    </div>
-
-    <div class="enquiry-form">
-      <h2>Enquiry Form</h2>
+    <!-- ✉️ Enquiry Form -->
+    <section class="enquiry-form">
+      <h3>Send Us an Enquiry</h3>
       <form>
-        <label for="name">Parent's Name</label>
+        <label for="name">Your Name</label>
         <input type="text" id="name" name="name" required />
 
-        <label for="childName">Child's Name</label>
-        <input type="text" id="childName" name="childName" required />
-
-        <label for="email">Email</label>
+        <label for="email">Your Email</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="service">Interested Service</label>
-        <input type="text" id="service" name="service" />
-
-        <label for="message">Additional Message</label>
-        <textarea id="message" name="message" rows="4"></textarea>
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
         <button type="submit">Submit</button>
       </form>
-    </div>
-
-    <div class="testimonials">
-      <h2>What Parents Say</h2>
-
-      <div class="testimonial">
-        <p>“Echelon Day Care has been a blessing. My child loves coming here and always has a smile.”</p>
-        <strong>- Priya S.</strong>
-      </div>
-
-      <div class="testimonial">
-        <p>“Caring staff and a wonderful curriculum. I feel safe leaving my daughter here every day.”</p>
-        <strong>- Arjun M.</strong>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Echelon Day Care. All rights reserved.
-  </footer>
-
+    </section>
+  </main>
 </body>
 </html>
