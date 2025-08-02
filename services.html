@@ -3,193 +3,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Services - Echelon Daycare</title>
+  <title>Our Services - Echelon Day Care</title>
+  <link rel="stylesheet" href="style.css"/>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #e6f0ff;
-      margin: 0;
-      padding: 0;
-      color: #003366;
     }
 
+    /* Banner and navigation (copied from index.html) */
     header {
-      background-color: #007FFF;
-      color: white;
-      padding: 20px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .logo {
-      width: 110px;
-      height: auto;
-    }
-    .logo-container h1 {
-      font-size: 3.5em;
-      margin: 0;
-    }
-
-    nav {
-      background-color: #cce0ff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      background-color: #007bff;
       padding: 10px 0;
-    }
-    nav a {
-      margin: 5px 15px;
-      color: #003366;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    section {
-      padding: 30px 20px;
-      text-align: center;
     }
 
     .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     h1 {
       text-align: center;
-      color: #333;
+      color: #007bff;
     }
 
     .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
       margin-top: 30px;
+      justify-content: center;
     }
 
-    .service-card {
-      background-color: white;
+    .service-box {
+      flex: 1 1 250px;
       padding: 20px;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
     }
 
-    .service-card h3 {
-      color: #007FFF;
+    .service-box h3 {
       margin-top: 0;
+      color: #333;
     }
 
-    .enquiry-form {
-      margin-top: 40px;
-      background-color: #eef6ff;
+    .service-box p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .enquiry {
+      margin-top: 60px;
       padding: 20px;
-      border-radius: 8px;
+      border-top: 1px solid #ccc;
     }
 
-    .enquiry-form input, .enquiry-form textarea {
-      width: 100%;
+    .enquiry h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
       padding: 10px;
-      margin: 10px 0;
       border-radius: 4px;
       border: 1px solid #ccc;
-      font-size: 1rem;
     }
 
-    .enquiry-form button {
-      background-color: #007FFF;
+    form button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #007bff;
       color: white;
       border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
+      font-size: 16px;
       border-radius: 4px;
       cursor: pointer;
     }
 
-    .testimonials {
-      margin-top: 60px;
-    }
-
-    .testimonial {
-      background-color: #ffffff;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-left: 5px solid #007FFF;
-      font-style: italic;
+    form button:hover {
+      background-color: #0056b3;
     }
 
     footer {
-      background-color: #007FFF;
-      color: white;
+      background: #f8f8f8;
       text-align: center;
-      padding: 15px 0;
-      margin-top: 50px;
+      padding: 20px 10px;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo-container">
-      <span>Echelon Daycare</span>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="index.html"><img src="logo.png" alt="Echelon Day Care Logo" /></a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="container">
+  <main>
     <h1>Our Services</h1>
-
     <div class="services">
-      <div class="service-card">
-        <h3>Infant Care (0-2 yrs)</h3>
-        <p>Warm and nurturing environment with sensory play, music, and age-appropriate learning milestones.</p>
+      <div class="service-box">
+        <h3>Infant Care (6 weeks – 18 months)</h3>
+        <p>Specialized attention in a nurturing environment to help infants thrive and feel secure.</p>
       </div>
-
-      <div class="service-card">
-        <h3>Toddler Program (2-3 yrs)</h3>
-        <p>Guided activities encouraging independence, social skills, and early language development.</p>
+      <div class="service-box">
+        <h3>Toddler Program (18 months – 3 years)</h3>
+        <p>Encourages independence and learning through play, exploration, and daily routines.</p>
       </div>
-
-      <div class="service-card">
-        <h3>Preschool (3-5 yrs)</h3>
-        <p>Structured curriculum with early literacy, numeracy, science exploration, and creative arts.</p>
+      <div class="service-box">
+        <h3>Preschool Program (3 – 5 years)</h3>
+        <p>Hands-on experiences in literacy, math, science, and social skills to prepare for kindergarten.</p>
       </div>
-
-      <div class="service-card">
-        <h3>After-School Care</h3>
-        <p>Homework help, enrichment games, physical activities, and safe supervision until evening hours.</p>
+      <div class="service-box">
+        <h3>After School Care</h3>
+        <p>Homework support, recreational activities, and safe environment until parents pick up.</p>
+      </div>
+      <div class="service-box">
+        <h3>Summer Camps</h3>
+        <p>Exciting seasonal programs with outdoor fun, creativity, and field trips.</p>
       </div>
     </div>
 
-    <div class="enquiry-form">
-      <h2>Send us an Enquiry</h2>
-      <form action="https://formspree.io/f/xdoqvwdw" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message or Service Enquiry..." required></textarea>
-        <button type="submit">Submit</button>
+    <section class="enquiry">
+      <h2>Enquire Now</h2>
+      <form action="mailto:echelondaycare@hotmail.com" method="POST" enctype="text/plain">
+        <label for="name">Name</label>
+        <input type="text" name="Name" id="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" name="Email" id="email" required />
+
+        <label for="message">Message</label>
+        <textarea name="Message" id="message" rows="5" required></textarea>
+
+        <button type="submit">Send Enquiry</button>
       </form>
-    </div>
-
-    <div class="testimonials">
-      <h2>What Parents Say</h2>
-      <div class="testimonial">“The toddler program helped my child build confidence and communication skills in just a few weeks!” – Priya M.</div>
-      <div class="testimonial">“I felt secure knowing the infant team was caring and responsive. Highly recommend Echelon!” – Robert A.</div>
-      <div class="testimonial">“My daughter can’t wait to go back every morning – that says it all!” – Meena K.</div>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Echelon Daycare. All rights reserved.
+    &copy; 2025 Echelon Day Care. All rights reserved.
   </footer>
 </body>
 </html>
