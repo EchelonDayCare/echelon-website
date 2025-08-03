@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <title>Gallery - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #e6f0ff, #ffffff);
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
       margin: 0;
       padding: 0;
       color: #003366;
@@ -18,7 +17,6 @@
       background-color: #007FFF;
       color: white;
       padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .logo-container {
@@ -34,7 +32,7 @@
     }
 
     .logo-container h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       margin: 0;
     }
 
@@ -44,7 +42,6 @@
       justify-content: center;
       flex-wrap: wrap;
       padding: 10px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     nav a {
@@ -52,19 +49,34 @@
       color: #003366;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
-      transition: color 0.3s;
+      font-size: 1.2rem;
     }
 
-    nav a:hover {
-      color: #007FFF;
+    @media (max-width: 768px) {
+      .logo-container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+      }
+
+      .logo {
+        width: 40px;
+      }
+
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
     }
 
     main {
       max-width: 1200px;
       margin: 30px auto 60px auto;
       padding: 0 15px;
-      animation: fadeIn 1s ease-in-out;
     }
 
     h2 {
@@ -82,39 +94,39 @@
 
     .gallery-item {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .gallery-item:hover {
-      transform: translateY(-5px);
+      transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     .gallery-item img {
       width: 100%;
-      height: 160px;
+      height: 150px;
       object-fit: cover;
+      display: block;
     }
 
     .caption {
-      padding: 12px;
+      padding: 10px;
       font-size: 1rem;
       color: #004080;
       text-align: center;
+      user-select: none;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media (max-width: 600px) {
+      .gallery-item img {
+        height: 120px;
       }
     }
 
@@ -125,11 +137,10 @@
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      flex-direction: column;
     }
 
     #modal.active {
@@ -140,21 +151,53 @@
       max-width: 90vw;
       max-height: 80vh;
       border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      user-select: none;
     }
 
     #modal .caption {
+      margin-top: 15px;
       color: #fff;
       font-size: 1.2rem;
-      margin-top: 10px;
+      text-align: center;
     }
 
-    .nav-arrow, #close-btn {
+    /* Navigation arrows */
+    .nav-arrow {
       position: fixed;
       top: 50%;
       transform: translateY(-50%);
+      font-size: 3rem;
+      color: white;
+      background: rgba(0,0,0,0.4);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1001;
+      transition: background 0.3s;
+    }
+    .nav-arrow:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    #prev-arrow {
+      left: 20px;
+    }
+    #next-arrow {
+      right: 20px;
+    }
+
+    /* Close button */
+    #close-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
       font-size: 2.5rem;
       color: white;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.4);
       border-radius: 50%;
       width: 40px;
       height: 40px;
@@ -163,16 +206,11 @@
       cursor: pointer;
       user-select: none;
       z-index: 1001;
+      transition: background 0.3s;
     }
-
-    #close-btn {
-      top: 20px;
-      right: 20px;
-      transform: none;
+    #close-btn:hover {
+      background: rgba(0,0,0,0.7);
     }
-
-    #prev-arrow { left: 20px; }
-    #next-arrow { right: 20px; }
   </style>
 </head>
 <body>
@@ -184,25 +222,29 @@
   </div>
 </header>
 
+
 <nav>
   <a href="home.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
+  <a href="Gallery.html">Gallery</a>
   <a href="contact.html">Contact</a>
 </nav>
 
 <main>
-  <h2><i class="fas fa-image"></i> Photo Gallery</h2>
-  <div class="gallery" id="gallery"></div>
+  <h2>Photo Gallery</h2>
+  <div class="gallery" id="gallery">
+    <!-- Gallery items inserted by JS -->
+  </div>
 </main>
 
-<div id="modal" tabindex="-1">
+<!-- Modal Structure -->
+<div id="modal" tabindex="-1" aria-modal="true" role="dialog">
   <div id="close-btn" title="Close">&times;</div>
-  <div id="prev-arrow" class="nav-arrow">&#8592;</div>
+  <div id="prev-arrow" class="nav-arrow" title="Previous">&#8592;</div>
   <img id="modal-img" src="" alt="" />
   <div class="caption" id="modal-caption"></div>
-  <div id="next-arrow" class="nav-arrow">&#8594;</div>
+  <div id="next-arrow" class="nav-arrow" title="Next">&#8594;</div>
 </div>
 
 <script>
@@ -214,27 +256,29 @@
   const prevArrow = document.getElementById('prev-arrow');
   const nextArrow = document.getElementById('next-arrow');
 
-  const totalImages = 12;
+  const totalImages = 50;
   let currentIndex = 0;
 
+  // Create gallery items
   for(let i = 1; i <= totalImages; i++) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
 
     const img = document.createElement('img');
-    img.src = `images/photo${i}.jpg`;
-    img.alt = `Photo ${i}`;
+    img.src = images/photo${i}.jpg;  // Put your actual images here
+    img.alt = Photo ${i};
     img.dataset.index = i - 1;
 
     const caption = document.createElement('div');
     caption.className = 'caption';
-    caption.textContent = `Fun Moment ${i}`;
+    caption.textContent = Photo ${i};
 
     item.appendChild(img);
     item.appendChild(caption);
     gallery.appendChild(item);
   }
 
+  // Open modal with clicked image
   function openModal(index) {
     currentIndex = index;
     modal.classList.add('active');
@@ -242,27 +286,32 @@
     modal.focus();
   }
 
+  // Update modal image and caption
   function updateModal() {
     const imgNum = currentIndex + 1;
-    modalImg.src = `images/photo${imgNum}.jpg`;
-    modalImg.alt = `Photo ${imgNum}`;
-    modalCaption.textContent = `Fun Moment ${imgNum}`;
+    modalImg.src = images/photo${imgNum}.jpg;
+    modalImg.alt = Photo ${imgNum};
+    modalCaption.textContent = Photo ${imgNum};
   }
 
+  // Close modal
   function closeModal() {
     modal.classList.remove('active');
   }
 
+  // Show next image
   function showNext() {
     currentIndex = (currentIndex + 1) % totalImages;
     updateModal();
   }
 
+  // Show previous image
   function showPrev() {
     currentIndex = (currentIndex - 1 + totalImages) % totalImages;
     updateModal();
   }
 
+  // Click on gallery image
   gallery.addEventListener('click', (e) => {
     if(e.target.tagName === 'IMG') {
       const idx = parseInt(e.target.dataset.index, 10);
@@ -270,21 +319,35 @@
     }
   });
 
+  // Close button click
   closeBtn.addEventListener('click', closeModal);
+
+  // Arrow navigation clicks
   nextArrow.addEventListener('click', showNext);
   prevArrow.addEventListener('click', showPrev);
 
+  // Keyboard navigation and close modal on ESC
   document.addEventListener('keydown', (e) => {
     if (!modal.classList.contains('active')) return;
+
     switch(e.key) {
-      case 'ArrowRight': showNext(); break;
-      case 'ArrowLeft': showPrev(); break;
-      case 'Escape': closeModal(); break;
+      case 'ArrowRight':
+        showNext();
+        break;
+      case 'ArrowLeft':
+        showPrev();
+        break;
+      case 'Escape':
+        closeModal();
+        break;
     }
   });
 
+  // Close modal when clicking outside the image
   modal.addEventListener('click', (e) => {
-    if(e.target === modal) closeModal();
+    if(e.target === modal) {
+      closeModal();
+    }
   });
 </script>
 
