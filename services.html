@@ -215,65 +215,71 @@
     </a>
   </div>
 
- <h2>WAITING LIST</h2>
+<section id="waiting-list">
+  <h2>WAITING LIST</h2>
+  
+  <form>
+    <!-- Submission Date -->
+    <label for="date"><strong>Date</strong></label>
+    <input type="date" id="date" name="date" value="<?php echo date('Y-m-d'); ?>" required>
 
-<form>
-  <!-- Date -->
-  <label for="date"><strong>Date:</strong></label><br>
-  <input type="date" id="date" name="date"><br><br>
+    <!-- Child Name -->
+    <label for="childName"><strong>Child’s Name</strong></label>
+    <input type="text" id="childName" name="childName" required>
 
-  <!-- Child's Name -->
-  <label for="child-name"><strong>Child’s Name:</strong></label><br>
-  <input type="text" id="child-name" name="child-name"><br><br>
+    <!-- Birthday -->
+    <label for="birthday"><strong>Birthday (DD/MM/YYYY)</strong></label>
+    <input type="date" id="birthday" name="birthday" required>
 
-  <!-- Birthday -->
-  <label for="birthday"><strong>Birthday (DD/MM/YYYY):</strong></label><br>
-  <input type="date" id="birthday" name="birthday"><br><br>
+    <!-- Gender -->
+    <label><strong>Gender</strong></label>
+    <select name="gender" required>
+      <option value="">Select</option>
+      <option value="B">Boy</option>
+      <option value="G">Girl</option>
+    </select>
 
-  <!-- Parent Name -->
-  <label for="parent-name"><strong>Parent Name:</strong></label><br>
-  <input type="text" id="parent-name" name="parent-name"><br><br>
+    <!-- Parent Name -->
+    <label for="parentName"><strong>Parent’s Name</strong></label>
+    <input type="text" id="parentName" name="parentName" required>
 
-  <!-- Gender -->
-  <label><strong>Gender:</strong></label><br>
-  <input type="radio" id="boy" name="gender" value="B">
-  <label for="boy">Boy</label>
-  <input type="radio" id="girl" name="gender" value="G">
-  <label for="girl">Girl</label><br><br>
+    <!-- Home Phone -->
+    <label for="homePhone"><strong>Home Phone</strong></label>
+    <input type="tel" id="homePhone" name="homePhone">
 
-  <!-- Home Phone -->
-  <label for="home-phone"><strong>Home Phone:</strong></label><br>
-  <input type="tel" id="home-phone" name="home-phone"><br><br>
+    <!-- Student Start Date -->
+    <label for="startDate"><strong>Student’s Starting Date</strong></label>
+    <input type="date" id="startDate" name="startDate" required>
 
-  <!-- Email -->
-  <label for="email"><strong>Email:</strong></label><br>
-  <input type="email" id="email" name="email"><br><br>
+    <!-- Email -->
+    <label for="email"><strong>Email</strong></label>
+    <input type="email" id="email" name="email" required>
 
-  <!-- Starting Date -->
-  <label for="starting-date"><strong>Student’s Starting Date:</strong></label><br>
-  <input type="date" id="starting-date" name="starting-date"><br><br>
+    <!-- Toilet Trained -->
+    <label><strong>Is your child fully toilet trained?</strong></label>
+    <select name="toiletTrained" required>
+      <option value="">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
 
-  <!-- Toilet Trained -->
-  <label><strong>Is your child fully toilet trained?</strong></label><br>
-  <input type="radio" id="toilet-yes" name="toilet-trained" value="Yes">
-  <label for="toilet-yes">Yes</label>
-  <input type="radio" id="toilet-no" name="toilet-trained" value="No">
-  <label for="toilet-no">No</label><br><br>
+    <!-- Works in Building -->
+    <label><strong>Do you work in the same building as Echelon Daycare?</strong></label>
+    <select name="worksInBuilding" required>
+      <option value="">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
 
-  <!-- Work in Building -->
-  <label><strong>Do you work in the same building as Echelon Daycare?</strong></label><br>
-  <input type="radio" id="work-yes" name="work-building" value="Yes">
-  <label for="work-yes">Yes</label>
-  <input type="radio" id="work-no" name="work-building" value="No">
-  <label for="work-no">No</label><br><br>
+    <!-- Allergies/Needs -->
+    <label for="careNeeds"><strong>Allergies / Extra Support Needs / Other Care Needs</strong></label>
+    <textarea id="careNeeds" name="careNeeds" rows="4" placeholder="Let us know so we can provide the best care"></textarea>
 
-  <!-- Allergies / Special Needs -->
-  <label for="allergies"><strong>Does your child have any allergies, extra support needs, or other care needs we should be aware of?</strong></label><br>
-  <textarea id="allergies" name="allergies" rows="4" cols="50"></textarea><br><br>
+    <!-- Submit -->
+    <button type="submit">Submit</button>
+  </form>
+</section>
 
-  <!-- Submit -->
-  <button type="submit">Submit</button>
-</form>
 
 <script>
   // Auto-fill today's date in the "Date" field
