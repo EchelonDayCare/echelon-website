@@ -226,6 +226,59 @@
 
       <label for="message">Your Message</label>
       <textarea id="message" name="message" rows="5" placeholder="Ask about availability, tours, or the curriculum..." required></textarea>
+<section id="enquiry-form">
+    <h2>WAITING LIST</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <!-- Child's Name & Date -->
+        <label for="childName">Child’s Name:</label>
+        <input type="text" id="childName" name="childName" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <!-- Birthday & Parent Name -->
+        <label for="birthday">Birthday (DD/MM/YYYY):</label>
+        <input type="text" id="birthday" name="birthday" placeholder="DD/MM/YYYY" required>
+
+        <label for="parentName">Parent Name:</label>
+        <input type="text" id="parentName" name="parentName" required>
+
+        <!-- Gender -->
+        <label>Gender:</label>
+        <label><input type="radio" name="gender" value="B" required> B</label>
+        <label><input type="radio" name="gender" value="G"> G</label>
+
+        <!-- Home Phone -->
+        <label for="homePhone">Home Phone:</label>
+        <input type="tel" id="homePhone" name="homePhone" required>
+
+        <!-- Starting Date -->
+        <label for="startDate">Student’s Starting Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Toilet Trained -->
+        <label>Is your child fully toilet trained?</label>
+        <label><input type="radio" name="toiletTrained" value="Yes" required> Yes</label>
+        <label><input type="radio" name="toiletTrained" value="No"> No</label>
+
+        <!-- Work in building -->
+        <label>Do you work in the building?</label>
+        <label><input type="radio" name="workInBuilding" value="Yes" required> Yes</label>
+        <label><input type="radio" name="workInBuilding" value="No"> No</label>
+
+        <!-- Allergies / Special Needs -->
+        <label for="careNeeds">Does your child have any allergies, extra support needs, or other care needs we should be aware of to provide our best care?</label>
+        <textarea id="careNeeds" name="careNeeds" rows="4"></textarea>
+
+        <!-- Submit -->
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
 
       <button type="submit">Submit Enquiry</button>
     </form>
