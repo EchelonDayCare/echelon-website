@@ -216,99 +216,78 @@
   </div>
 
   <section id="enquiry-form">
-    <h2>WAITING LIST</h2>
-    <form action="#" method="post">
-        
-        <!-- Child's Name and Date -->
-        <label for="childName">Child’s Name:</label>
-        <input type="text" id="childName" name="childName" required>
-        
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
-        
-        <!-- Birthday -->
-        <label for="birthday">Birthday (DD/MM/YYYY):</label>
-        <input type="date" id="birthday" name="birthday" required>
-        
-        <!-- Parent Name -->
-        <label for="parentName">Parent Name:</label>
-        <input type="text" id="parentName" name="parentName" required>
-        
-        <!-- Gender -->
-        <label>Gender:</label>
-        <input type="radio" id="boy" name="gender" value="Boy" required>
-        <label for="boy">B</label>
-        <input type="radio" id="girl" name="gender" value="Girl">
-        <label for="girl">G</label>
-        
-        <!-- Home Phone -->
-        <label for="homePhone">Home Phone:</label>
-        <input type="tel" id="homePhone" name="homePhone" required>
-        
-        <!-- Student's Starting Date -->
-        <label for="startingDate">Student’s Starting Date:</label>
-        <input type="date" id="startingDate" name="startingDate" required>
-        
-        <!-- Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <!-- Fully Toilet Trained -->
-        <label>Is your child fully toilet trained?</label>
-        <select id="toiletTrained" name="toiletTrained" required>
-            <option value="">--Select--</option>
+  <section id="waiting-list" style="max-width: 800px; margin: auto; padding: 20px; background: #fdfdfd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; color: #4CAF50;">Waiting List Enquiry Form</h2>
+  <form>
+    
+    <!-- Section 1: Child & Parent Info -->
+    <fieldset style="border: none; margin-bottom: 20px;">
+      <legend style="font-weight: bold; font-size: 1.1em;">Child & Parent Information</legend>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <input type="text" name="childName" placeholder="Child's Name" required>
+        <input type="date" name="date" required>
+        <input type="date" name="birthday" placeholder="Birthday" required>
+        <select name="gender" required>
+          <option value="">Gender</option>
+          <option value="B">Boy</option>
+          <option value="G">Girl</option>
+        </select>
+        <input type="text" name="parentName" placeholder="Parent's Name" required>
+        <input type="tel" name="homePhone" placeholder="Home Phone">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="date" name="startDate" placeholder="Student's Starting Date" required>
+      </div>
+    </fieldset>
+
+    <!-- Section 2: Additional Details -->
+    <fieldset style="border: none; margin-bottom: 20px;">
+      <legend style="font-weight: bold; font-size: 1.1em;">Additional Information</legend>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <label>
+          Is your child fully toilet trained?
+          <select name="toiletTrained" required>
+            <option value="">Select</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
-        </select>
-        
-        <!-- Work in Building -->
-        <label>Do you work in the building?</label>
-        <select id="workInBuilding" name="workInBuilding" required>
-            <option value="">--Select--</option>
+          </select>
+        </label>
+        <label>
+          Do you work in the building?
+          <select name="workInBuilding" required>
+            <option value="">Select</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
-        </select>
-        
-        <!-- Allergies / Special Needs -->
-        <label for="allergies">Does your child have any allergies, extra support needs, or other care needs we should be aware of to provide our best care?</label>
-        <textarea id="allergies" name="allergies" rows="4"></textarea>
-        
-        <!-- Submit Button -->
-        <button type="submit">Submit</button>
-    </form>
+          </select>
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Section 3: Notes -->
+    <fieldset style="border: none; margin-bottom: 20px;">
+      <legend style="font-weight: bold; font-size: 1.1em;">Care Notes</legend>
+      <textarea name="careNeeds" rows="4" placeholder="Does your child have any allergies, extra support needs, or other care requirements we should know about?"></textarea>
+    </fieldset>
+
+    <!-- Submit Button -->
+    <div style="text-align: center;">
+      <button type="submit" style="background: #4CAF50; color: white; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em;">Submit</button>
+    </div>
+  </form>
 </section>
 
+<style>
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95em;
+  }
+  textarea {
+    resize: vertical;
+  }
+</style>
 
-        <!-- Home Phone -->
-        <label for="homePhone">Home Phone:</label>
-        <input type="tel" id="homePhone" name="homePhone" required>
-
-        <!-- Starting Date -->
-        <label for="startDate">Student’s Starting Date:</label>
-        <input type="date" id="startDate" name="startDate" required>
-
-        <!-- Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <!-- Toilet Trained -->
-        <label>Is your child fully toilet trained?</label>
-        <label><input type="radio" name="toiletTrained" value="Yes" required> Yes</label>
-        <label><input type="radio" name="toiletTrained" value="No"> No</label>
-
-        <!-- Work in building -->
-        <label>Do you work in the building?</label>
-        <label><input type="radio" name="workInBuilding" value="Yes" required> Yes</label>
-        <label><input type="radio" name="workInBuilding" value="No"> No</label>
-
-        <!-- Allergies / Special Needs -->
-        <label for="careNeeds">Does your child have any allergies, extra support needs, or other care needs we should be aware of to provide our best care?</label>
-        <textarea id="careNeeds" name="careNeeds" rows="4"></textarea>
-
-        <!-- Submit -->
-        <button type="submit">Submit</button>
-    </form>
-  </div>
 </div>
 
 </body>
