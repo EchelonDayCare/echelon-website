@@ -215,27 +215,69 @@
     </a>
   </div>
 
-  <div class="form-section">
-       <h2>WAITING LIST</h2>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <!-- Child's Name & Date -->
+  <section id="enquiry-form">
+    <h2>WAITING LIST</h2>
+    <form action="#" method="post">
+        
+        <!-- Child's Name and Date -->
         <label for="childName">Child’s Name:</label>
         <input type="text" id="childName" name="childName" required>
-
+        
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
-
-        <!-- Birthday & Parent Name -->
+        
+        <!-- Birthday -->
         <label for="birthday">Birthday (DD/MM/YYYY):</label>
-        <input type="text" id="birthday" name="birthday" placeholder="DD/MM/YYYY" required>
-
+        <input type="date" id="birthday" name="birthday" required>
+        
+        <!-- Parent Name -->
         <label for="parentName">Parent Name:</label>
         <input type="text" id="parentName" name="parentName" required>
-
+        
         <!-- Gender -->
         <label>Gender:</label>
-        <label><input type="radio" name="gender" value="B" required> B</label>
-        <label><input type="radio" name="gender" value="G"> G</label>
+        <input type="radio" id="boy" name="gender" value="Boy" required>
+        <label for="boy">B</label>
+        <input type="radio" id="girl" name="gender" value="Girl">
+        <label for="girl">G</label>
+        
+        <!-- Home Phone -->
+        <label for="homePhone">Home Phone:</label>
+        <input type="tel" id="homePhone" name="homePhone" required>
+        
+        <!-- Student's Starting Date -->
+        <label for="startingDate">Student’s Starting Date:</label>
+        <input type="date" id="startingDate" name="startingDate" required>
+        
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <!-- Fully Toilet Trained -->
+        <label>Is your child fully toilet trained?</label>
+        <select id="toiletTrained" name="toiletTrained" required>
+            <option value="">--Select--</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+        <!-- Work in Building -->
+        <label>Do you work in the building?</label>
+        <select id="workInBuilding" name="workInBuilding" required>
+            <option value="">--Select--</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+        <!-- Allergies / Special Needs -->
+        <label for="allergies">Does your child have any allergies, extra support needs, or other care needs we should be aware of to provide our best care?</label>
+        <textarea id="allergies" name="allergies" rows="4"></textarea>
+        
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
 
         <!-- Home Phone -->
         <label for="homePhone">Home Phone:</label>
