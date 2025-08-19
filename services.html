@@ -101,60 +101,41 @@
       background-color: #005fcc;
     }
 
-    .form-section {
-      background-color: #ffffff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Waiting list container */
+    #waiting-list {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      margin-top: 40px;
       animation: fadeInUp 1.2s ease-in-out;
     }
 
-    .form-section h3 {
-      margin-top: 0;
+    /* Title */
+    #waiting-list h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #003366;
+      border-bottom: 3px solid #007FFF;
+      display: inline-block;
+      padding-bottom: 6px;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
+    /* Iframe wrapper */
+    .form-wrapper {
+      border: 3px solid #007FFF;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f8fbff;
     }
 
-    form label {
-      margin: 10px 0 5px;
-      font-weight: bold;
-    }
-
-    form input, form textarea {
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    form button {
-      margin-top: 15px;
-      padding: 10px;
-      font-size: 1em;
-      background-color: #007FFF;
-      color: white;
+    /* Force iframe to behave nicely */
+    #waiting-list iframe {
+      display: block;
+      width: 100%;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #005fcc;
-    }
-
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      height: 1400px;
     }
 
     @media (max-width: 768px) {
@@ -166,7 +147,7 @@
       }
 
       .logo {
-        width: 40px;
+        width: 70px;
       }
 
       .logo-container h1 {
@@ -175,6 +156,21 @@
 
       nav a {
         font-size: 1rem;
+      }
+
+      #waiting-list iframe {
+        height: 1200px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -197,6 +193,7 @@
 </nav>
 
 <div class="content">
+  <!-- Daycare Program Section -->
   <div class="program">
     <h2><i class="fas fa-child"></i> Daycare Program (Ages 30 months to 5 years)</h2>
     <p>
@@ -215,90 +212,24 @@
     </a>
   </div>
 
-<section id="waiting-list">
-  <h2>WAITING LIST</h2>
-  
-  <form>
-    <!-- Submission Date -->
-    <label for="date"><strong>Date</strong></label>
-    <input type="date" id="date" name="date" value="<?php echo date('Y-m-d'); ?>" required>
-
-    <!-- Child Name -->
-    <label for="childName"><strong>Child’s Name</strong></label>
-    <input type="text" id="childName" name="childName" required>
-
-    <!-- Birthday -->
-    <label for="birthday"><strong>Birthday (DD/MM/YYYY)</strong></label>
-    <input type="date" id="birthday" name="birthday" required>
-
-    <!-- Gender -->
-    <label><strong>Gender</strong></label>
-    <select name="gender" required>
-      <option value="">Select</option>
-      <option value="B">Boy</option>
-      <option value="G">Girl</option>
-    </select>
-
-    <!-- Parent Name -->
-    <label for="parentName"><strong>Parent’s Name</strong></label>
-    <input type="text" id="parentName" name="parentName" required>
-
-    <!-- Home Phone -->
-    <label for="homePhone"><strong>Home Phone</strong></label>
-    <input type="tel" id="homePhone" name="homePhone">
-
-    <!-- Student Start Date -->
-    <label for="startDate"><strong>Student’s Starting Date</strong></label>
-    <input type="date" id="startDate" name="startDate" required>
-
-    <!-- Email -->
-    <label for="email"><strong>Email</strong></label>
-    <input type="email" id="email" name="email" required>
-
-    <!-- Toilet Trained -->
-    <label><strong>Is your child fully toilet trained?</strong></label>
-    <select name="toiletTrained" required>
-      <option value="">Select</option>
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    </select>
-
-    <!-- Works in Building -->
-    <label><strong>Do you work in the same building as Echelon Daycare?</strong></label>
-    <select name="worksInBuilding" required>
-      <option value="">Select</option>
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    </select>
-
-    <!-- Allergies/Needs -->
-    <label for="careNeeds"><strong>Allergies / Extra Support Needs / Other Care Needs</strong></label>
-    <textarea id="careNeeds" name="careNeeds" rows="4" placeholder="Let us know so we can provide the best care"></textarea>
-
-    <!-- Submit -->
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-
-<script>
-  // Auto-fill today's date in the "Date" field
-  document.getElementById('date').valueAsDate = new Date();
-</script>
-
-
-<style>
-  input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.95em;
-  }
-  textarea {
-    resize: vertical;
-  }
-</style>
+  <!-- Waiting List Section -->
+  <section id="waiting-list">
+    <h2>WAITING LIST</h2>
+    <div class="form-wrapper">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSciq7seUngH91eAjrwOtO3NUf_IgbYi6Cu8LH4b32SANCewoQ/viewform?embedded=true&usp=pp_url&rm=embedded"
+        width="100%" 
+        height="1400" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        loading="lazy"
+        allow="fullscreen"
+      >
+        Loading…
+      </iframe>
+    </div>
+  </section>
 
 </div>
 
