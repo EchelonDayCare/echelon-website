@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <title>Echelon Day Care</title>
@@ -8,10 +7,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #001d33;
+            background-color: #e6f0ff;
             margin: 0;
             padding: 0;
-            color: #fff;
+            color: #003366;
             overflow-x: hidden;
         }
 
@@ -20,7 +19,7 @@
             color: white;
             padding: 20px;
             position: relative;
-            z-index: 1001;
+            z-index: 1;
         }
 
         .logo-container {
@@ -47,7 +46,7 @@
             flex-wrap: wrap;
             padding: 10px 0;
             position: relative;
-            z-index: 1001;
+            z-index: 1;
         }
 
         nav a {
@@ -62,7 +61,7 @@
             padding: 30px 20px;
             text-align: center;
             position: relative;
-            z-index: 1001;
+            z-index: 1;
         }
 
         .hero {
@@ -79,7 +78,7 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            z-index: 1001;
+            z-index: 1;
         }
 
         .hero::before {
@@ -99,35 +98,35 @@
             z-index: 1;
         }
 
-        .hero h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 34px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #003366;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
+            border: 2px solid #003366;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 2;
+            margin-top: 60px;
+            animation: pulse 1s infinite;
         }
 
-        .hero p {
-            font-size: 1.2em;
-            line-height: 1.5;
-            max-width: 90%;
-            margin: 0 auto;
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #fad390, #fbc2eb, #a6c0fe);
+            color: #000;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
 
-        .features,
-        .stats {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .feature-box,
-        .stat-box {
-            background-color: #cce0ff;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 8px;
-            width: 250px;
-            font-size: 1rem;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .gallery-grid {
@@ -151,106 +150,21 @@
             transform: scale(1.02);
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+        .stats {
+            display: flex;
             justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .modal-content {
-            max-width: 90%;
-            max-height: 80%;
+        .stat-box {
+            background-color: #cce0ff;
+            padding: 20px;
+            margin: 10px;
             border-radius: 8px;
-        }
-
-        .close,
-        .prev,
-        .next {
-            position: absolute;
-            top: 50%;
-            color: white;
-            font-size: 36px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            transform: translateY(-50%);
-            z-index: 10000;
-        }
-
-        .close {
-            top: 20px;
-            right: 30px;
-            font-size: 40px;
-            transform: none;
-        }
-
-        .prev {
-            left: 30px;
-        }
-
-        .next {
-            right: 30px;
-        }
-
-        .close:hover,
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Elegant Enroll Now Button */
-        .cta-btn {
-            display: inline-block;
-            padding: 14px 34px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            color: #003366;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
-            border: 2px solid #003366;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            z-index: 1001;
-            margin-top: 60px;
-            animation: pulse 1s infinite;
-        }
-
-        .cta-btn:hover {
-            background: linear-gradient(135deg, #fad390, #fbc2eb, #a6c0fe);
-            color: #000;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            width: 250px;
+            font-size: 1rem;
         }
 
         /* Stars Animation */
@@ -262,195 +176,72 @@
             height: 100%;
             pointer-events: none;
             overflow: hidden;
-            z-index: 1000;
+            z-index: 0;
         }
 
         .star {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.8;
+            opacity: 0.9;
             animation: fall linear infinite;
         }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-10px) translateX(0);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(100vh) translateX(20px);
-                opacity: 0;
-            }
+            0% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
 
-        /* Sun */
-        .sun {
+        /* Sun & Moon & Planets */
+        .celestial {
             position: fixed;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, #FFD700, #FFA500);
             border-radius: 50%;
+            z-index: 10;
+        }
+
+        .sun {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1000;
         }
 
-        /* Planets */
-        .planets-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            z-index: 1000;
+        .moon {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #EEE, #AAA);
+            top: 10%;
+            left: 10%;
+            animation: moonMove 30s linear infinite alternate;
         }
 
-        .orbit {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            transform-origin: 50% 50%;
-            animation: rotate linear infinite;
+        @keyframes moonMove {
+            0% { left: 10%; top: 10%; }
+            50% { left: 70%; top: 20%; }
+            100% { left: 10%; top: 10%; }
         }
 
         .planet {
-            position: absolute;
-            top: 0;
-            left: 100px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-        }
-
-        /* Different planet colors and sizes */
-        .planet.mercury {
-            width: 8px;
-            height: 8px;
-            background-color: #b1b1b1;
-            left: 50px;
-        }
-
-        .planet.venus {
-            width: 16px;
-            height: 16px;
-            background-color: #e0c068;
-            left: 80px;
-        }
-
-        .planet.earth {
-            width: 16px;
-            height: 16px;
-            background-color: #4da6ff;
-            left: 110px;
-        }
-
-        .planet.mars {
-            width: 12px;
-            height: 12px;
-            background-color: #ff4d4d;
-            left: 140px;
-        }
-
-        .planet.jupiter {
             width: 40px;
             height: 40px;
-            background-color: #ffcc99;
-            left: 180px;
+            transform-origin: -250px center; /* orbit radius */
+            animation: orbit 10s linear infinite;
         }
 
-        .planet.saturn {
-            width: 36px;
-            height: 36px;
-            background-color: #ffddaa;
-            left: 230px;
-        }
-
-        .planet.uranus {
-            width: 24px;
-            height: 24px;
-            background-color: #66ffff;
-            left: 280px;
-        }
-
-        .planet.neptune {
-            width: 24px;
-            height: 24px;
-            background-color: #3399ff;
-            left: 330px;
-        }
-
-        .planet.pluto {
-            width: 6px;
-            height: 6px;
-            background-color: #999999;
-            left: 380px;
-        }
-
-        /* Planet orbit animation durations */
-        .orbit.mercury {
-            animation-duration: 4s;
-        }
-
-        .orbit.venus {
-            animation-duration: 7s;
-        }
-
-        .orbit.earth {
-            animation-duration: 10s;
-        }
-
-        .orbit.mars {
-            animation-duration: 15s;
-        }
-
-        .orbit.jupiter {
-            animation-duration: 20s;
-        }
-
-        .orbit.saturn {
-            animation-duration: 25s;
-        }
-
-        .orbit.uranus {
-            animation-duration: 30s;
-        }
-
-        .orbit.neptune {
-            animation-duration: 35s;
-        }
-
-        .orbit.pluto {
-            animation-duration: 40s;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
         }
 
         @media (max-width: 768px) {
-            .star {
-                width: 1.5px;
-                height: 1.5px;
-            }
-
-            .sun {
-                width: 60px;
-                height: 60px;
-            }
+            .star { width: 2px; height: 2px; }
+            .sun { width: 80px; height: 80px; }
+            .moon { width: 50px; height: 50px; }
+            .planet { width: 25px; height: 25px; transform-origin: -150px center; }
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo-container">
@@ -459,20 +250,21 @@
         </div>
     </header>
 
-    <!-- Animated Sky -->
+    <!-- Celestial Animations -->
     <div class="stars-container" id="starsContainer"></div>
-    <div class="sun"></div>
-    <div class="planets-container">
-        <div class="orbit mercury"><div class="planet mercury"></div></div>
-        <div class="orbit venus"><div class="planet venus"></div></div>
-        <div class="orbit earth"><div class="planet earth"></div></div>
-        <div class="orbit mars"><div class="planet mars"></div></div>
-        <div class="orbit jupiter"><div class="planet jupiter"></div></div>
-        <div class="orbit saturn"><div class="planet saturn"></div></div>
-        <div class="orbit uranus"><div class="planet uranus"></div></div>
-        <div class="orbit neptune"><div class="planet neptune"></div></div>
-        <div class="orbit pluto"><div class="planet pluto"></div></div>
-    </div>
+    <div class="sun celestial"></div>
+    <div class="moon celestial"></div>
+
+    <!-- Planets -->
+    <div class="planet celestial" style="background: #FF6347; animation-duration: 8s;"></div>
+    <div class="planet celestial" style="background: #1E90FF; animation-duration: 12s;"></div>
+    <div class="planet celestial" style="background: #32CD32; animation-duration: 16s;"></div>
+    <div class="planet celestial" style="background: #FFD700; animation-duration: 20s;"></div>
+    <div class="planet celestial" style="background: #FF69B4; animation-duration: 24s;"></div>
+    <div class="planet celestial" style="background: #8A2BE2; animation-duration: 28s;"></div>
+    <div class="planet celestial" style="background: #00CED1; animation-duration: 32s;"></div>
+    <div class="planet celestial" style="background: #FF8C00; animation-duration: 36s;"></div>
+    <div class="planet celestial" style="background: #A52A2A; animation-duration: 40s;"></div>
 
     <nav>
         <a href="home.html">Home</a>
@@ -515,7 +307,24 @@
     </div>
 
     <script>
-        // Gallery modal
+        // Stars
+        const starsContainer = document.getElementById('starsContainer');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            const size = 2 + Math.random() * 3;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            const colors = ['#fff', '#f0f8ff', '#fffacd', '#ffe4e1'];
+            star.style.background = colors[Math.floor(Math.random() * colors.length)];
+            star.style.animationDuration = (3 + Math.random() * 4) + 's';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Modal
         const imageList = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
         let currentIndex = 0;
 
@@ -538,10 +347,12 @@
 
         function clickOutside(event) {
             const modal = document.getElementById("imageModal");
-            if (event.target === modal) closeModal();
+            if (event.target === modal) {
+                closeModal();
+            }
         }
 
-        document.addEventListener("keydown", function (event) {
+        document.addEventListener("keydown", function(event) {
             const modal = document.getElementById("imageModal");
             if (modal.style.display === "flex") {
                 if (event.key === "ArrowLeft") changeImage(-1);
@@ -549,22 +360,6 @@
                 else if (event.key === "Escape") closeModal();
             }
         });
-
-        // Generate stars dynamically
-        const starsContainer = document.getElementById('starsContainer');
-        const colors = ["#ffffff", "#ffcc66", "#99ccff", "#ff99cc"];
-        for (let i = 0; i < 80; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.width = star.style.height = (2 + Math.random() * 3) + 'px';
-            star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            star.style.animationDuration = (5 + Math.random() * 5) + 's';
-            star.style.animationDelay = Math.random() * 5 + 's';
-            starsContainer.appendChild(star);
-        }
     </script>
 </body>
-
 </html>
