@@ -427,6 +427,48 @@
             }
         }
 
+        /* ------------------ Logo Arc Animation ------------------ */
+        .moving-logo {
+            position: fixed;
+            width: 80px;
+            height: auto;
+            z-index: 1001;
+            animation: logoArc 30s linear infinite, logoGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoArc {
+            0% {
+                transform: translate(-10vw, 0) translateY(0);
+            }
+
+            25% {
+                transform: translate(25vw, 0) translateY(-50px);
+            }
+
+            50% {
+                transform: translate(50vw, 0) translateY(-100px);
+            }
+
+            75% {
+                transform: translate(75vw, 0) translateY(-50px);
+            }
+
+            100% {
+                transform: translate(110vw, 0) translateY(0);
+            }
+        }
+
+        @keyframes logoGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 5px 2px rgba(0, 127, 255, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 15px 6px rgba(0, 127, 255, 0.8);
+            }
+        }
+
         /* ------------------ Responsive ------------------ */
         @media (max-width: 768px) {
             .logo-container {
@@ -492,7 +534,7 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+            <img src="logoMod.png" alt="Echelon Logo" class="logo moving-logo" />
             <h1>Echelon Day Care</h1>
         </div>
     </header>
@@ -585,35 +627,35 @@
             }
         });
 
-        // ------------------ Stars & Shooting Stars ------------------
-        const starsContainer = document.getElementById('starsContainer');
-        const starColors = ['#fffdd0', '#ffe4e1', '#b0e0e6', '#fffacd', '#f0e68c'];
+        // ------------------ Stars Generation ------------------
+        const starsContainer = document.getElementById("starsContainer");
+        const numStars = 80;
 
-        for (let i = 0; i < 60; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
-            const size = 3 + Math.random() * 6;
-            star.style.width = star.style.height = size + 'px';
-            const color = starColors[Math.floor(Math.random() * starColors.length)];
-            star.style.backgroundColor = color;
-            star.style.boxShadow = `0 0 ${size * 2}px ${size}px ${color}`;
-            star.style.animationDuration = (2 + Math.random() * 3) + 's';
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            star.style.width = Math.random() * 2 + 1 + "px";
+            star.style.height = star.style.width;
+            star.style.top = Math.random() * 100 + "%";
+            star.style.left = Math.random() * 100 + "%";
+            star.style.animationDuration = 1 + Math.random() * 3 + "s";
             starsContainer.appendChild(star);
         }
-setInterval(() => {
-    for (let i = 0; i < 3; i++) { // create 3 shooting stars at a time
-        const shootingStar = document.createElement('div');
-        shootingStar.className = 'shooting-star';
-        shootingStar.style.left = Math.random() * 100 + 'vw';
-        shootingStar.style.top = Math.random() * 50 + 'vh';
-        shootingStar.style.animationDuration = 0.8 + Math.random() * 1.2 + 's';
-        starsContainer.appendChild(shootingStar);
-        setTimeout(() => shootingStar.remove(), 1500);
-    }
-}, 1000); // every 1 second
 
+        // ------------------ Shooting Stars ------------------
+        function createShootingStar() {
+            const shootingStar = document.createElement("div");
+            shootingStar.classList.add("shooting-star");
+            shootingStar.style.top = Math.random() * 50 + "vh";
+            shootingStar.style.left = "-50px";
+            shootingStar.style.animationDuration = 1 + Math.random() * 2 + "s";
+            starsContainer.appendChild(shootingStar);
+            setTimeout(() => {
+                starsContainer.removeChild(shootingStar);
+            }, 2000);
+        }
+
+        setInterval(createShootingStar, 3000);
     </script>
 </body>
 
