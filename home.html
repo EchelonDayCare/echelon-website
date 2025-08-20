@@ -6,13 +6,13 @@
     <title>Echelon Day Care</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        /* ------------------ Base Styles ------------------ */
+        /* Base Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #e6f0ff;
+            background-color: #001d3d; /* night sky */
             margin: 0;
             padding: 0;
-            color: #003366;
+            color: #ffffff;
             overflow-x: hidden;
         }
 
@@ -74,6 +74,7 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            z-index: 1;
         }
 
         .hero::before {
@@ -145,7 +146,7 @@
             transform: scale(1.02);
         }
 
-        /* Modal Styles */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -207,7 +208,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Elegant Enroll Now Button */
+        /* Enroll Button */
         .cta-btn {
             display: inline-block;
             padding: 14px 34px;
@@ -247,7 +248,7 @@
             }
         }
 
-        /* ------------------ Stars & Sky Animation ------------------ */
+        /* Stars */
         .stars-container {
             position: fixed;
             top: 0;
@@ -256,236 +257,97 @@
             height: 100%;
             pointer-events: none;
             overflow: hidden;
-            z-index: 500; /* behind sun & moon */
+            z-index: 1;
         }
 
         .star {
             position: absolute;
             border-radius: 50%;
             opacity: 0.8;
-            animation: twinkle linear infinite;
+            animation: fall linear infinite;
         }
 
-        @keyframes twinkle {
-            0%,
-            100% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.4);
-            }
-        }
-
-        .shooting-star {
-            position: absolute;
-            width: 2px;
-            height: 80px;
-            background: linear-gradient(white, transparent);
-            opacity: 0.8;
-            transform: rotate(-45deg);
-            animation: shoot linear forwards;
-        }
-
-        @keyframes shoot {
+        @keyframes fall {
             0% {
-                transform: translateX(0) translateY(0) rotate(-45deg);
+                transform: translateY(-10px);
                 opacity: 1;
             }
 
             100% {
-                transform: translateX(800px) translateY(400px) rotate(-45deg);
+                transform: translateY(100vh);
                 opacity: 0;
             }
         }
 
         /* Sun & Moon */
-        .sun {
+        .sun,
+        .moon {
             position: fixed;
+            border-radius: 50%;
+            z-index: 5;
+        }
+
+        .sun {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: sunMove 30s linear infinite alternate;
+        }
+
+        .moon {
             width: 60px;
             height: 60px;
-            background: radial-gradient(circle, #FFD700 60%, #FFA500 100%);
-            border-radius: 50%;
-            z-index: 1000;
-            animation: sunMove 30s linear infinite alternate, sunGlow 2s ease-in-out infinite alternate;
-        }
-
-        .sun::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120px;
-            height: 120px;
-            margin-left: -60px;
-            margin-top: -60px;
-            border-radius: 50%;
-            box-shadow:
-                0 -70px 20px 2px rgba(255, 223, 0, 0.6),
-                50px -50px 20px 2px rgba(255, 223, 0, 0.6),
-                70px 0 20px 2px rgba(255, 223, 0, 0.6),
-                50px 50px 20px 2px rgba(255, 223, 0, 0.6),
-                0 70px 20px 2px rgba(255, 223, 0, 0.6),
-                -50px 50px 20px 2px rgba(255, 223, 0, 0.6),
-                -70px 0 20px 2px rgba(255, 223, 0, 0.6),
-                -50px -50px 20px 2px rgba(255, 223, 0, 0.6);
-            animation: rotateRays 6s linear infinite;
-        }
-
-        @keyframes rotateRays {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes sunGlow {
-            0% {
-                box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.6);
-            }
-
-            50% {
-                box-shadow: 0 0 40px 15px rgba(255, 223, 0, 0.8);
-            }
-
-            100% {
-                box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.6);
-            }
+            background: radial-gradient(circle, #EEE, #AAA);
+            top: 30%;
+            left: 80%;
+            animation: moonMove 40s linear infinite alternate;
         }
 
         @keyframes sunMove {
             0% {
                 left: -10%;
-                top: 10%;
             }
 
             50% {
                 left: 50%;
-                top: 20%;
             }
 
             100% {
                 left: 110%;
-                top: 10%;
-            }
-        }
-
-        .moon {
-            position: fixed;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle at 20% 50%, transparent 45%, #EEE 45%, #EEE 100%);
-            border-radius: 50%;
-            z-index: 1000;
-            animation: moonMove 30s linear infinite alternate, moonGlow 3s ease-in-out infinite alternate;
-        }
-
-        .moon::before {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle at 30% 50%, #EEE 40%, #AAA 100%);
-            border-radius: 50%;
-            top: 0;
-            left: 0;
-        }
-
-        @keyframes moonGlow {
-            0% {
-                box-shadow: 0 0 15px 5px rgba(238, 238, 238, 0.6);
-            }
-
-            50% {
-                box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.8);
-            }
-
-            100% {
-                box-shadow: 0 0 15px 5px rgba(238, 238, 238, 0.6);
             }
         }
 
         @keyframes moonMove {
             0% {
                 left: 110%;
-                top: 30%;
             }
 
             50% {
                 left: 50%;
-                top: 15%;
             }
 
             100% {
                 left: -10%;
-                top: 30%;
             }
         }
 
-        /* ------------------ Responsive ------------------ */
-        @media (max-width: 768px) {
-            .logo-container {
-                flex-wrap: nowrap;
-                justify-content: center;
-                text-align: center;
-                flex-direction: row;
-            }
-
-            .logo {
-                width: 40px;
-            }
-
-            .logo-container h1 {
-                font-size: 1.6em;
-            }
-
-            nav a {
-                font-size: 1rem;
-            }
-
-            .hero {
-                height: 300px;
-            }
-
-            .hero h1 {
-                font-size: 1.5em;
-            }
-
-            .hero p {
-                font-size: 1em;
-            }
-
-            .stat-box,
-            .feature-box {
-                width: 90%;
-            }
-
-            .gallery-grid img {
-                height: 180px;
-            }
-
-            .close,
-            .prev,
-            .next {
-                font-size: 28px;
-            }
-
-            .star {
-                width: 2px;
-                height: 2px;
-            }
-
-            .sun,
-            .moon {
-                width: 40px;
-                height: 40px;
-            }
+        /* Planets Orbit */
+        .orbit-container {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform-origin: center center;
         }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        /* Orbit animation will be added via JS */
     </style>
 </head>
 
@@ -497,10 +359,11 @@
         </div>
     </header>
 
-    <!-- Animated Sky Elements -->
+    <!-- Animated Sky -->
     <div class="stars-container" id="starsContainer"></div>
     <div class="sun"></div>
     <div class="moon"></div>
+    <div id="planetsContainer"></div>
 
     <nav>
         <a href="home.html">Home</a>
@@ -512,7 +375,8 @@
 
     <section class="hero">
         <h1>Guiding Young Minds Through Play and Structure</h1>
-        <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for learning.</p>
+        <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for
+            learning.</p>
         <a href="services.html#waiting-list" class="cta-btn">Enroll Now</a>
     </section>
 
@@ -542,9 +406,56 @@
         <span class="next" onclick="changeImage(1)">&#10095;</span>
     </div>
 
-    <!-- ------------------ Scripts ------------------ -->
     <script>
-        // ------------------ Gallery Modal ------------------
+        // Stars
+        const starsContainer = document.getElementById('starsContainer');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDuration = (3 + Math.random() * 4) + 's';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            let size = 2 + Math.random() * 3;
+            star.style.width = star.style.height = size + 'px';
+            star.style.backgroundColor = `hsl(${Math.random() * 60 + 180}, 80%, 90%)`; // colored stars
+            starsContainer.appendChild(star);
+        }
+
+        // Planets
+        const planetsData = [
+            { name: 'Mercury', color: '#b3b3b3', size: 6, radius: 50, speed: 5 },
+            { name: 'Venus', color: '#f5e1a4', size: 10, radius: 80, speed: 8 },
+            { name: 'Earth', color: '#4da6ff', size: 12, radius: 120, speed: 12 },
+            { name: 'Mars', color: '#ff4d4d', size: 10, radius: 160, speed: 15 },
+            { name: 'Jupiter', color: '#cc9966', size: 25, radius: 210, speed: 20 },
+            { name: 'Saturn', color: '#e6d8a4', size: 22, radius: 260, speed: 25 },
+            { name: 'Uranus', color: '#66ccff', size: 14, radius: 310, speed: 30 },
+            { name: 'Neptune', color: '#0066ff', size: 14, radius: 360, speed: 35 },
+            { name: 'Pluto', color: '#cccccc', size: 6, radius: 410, speed: 40 }
+        ];
+
+        const planetsContainer = document.getElementById('planetsContainer');
+
+        planetsData.forEach(planet => {
+            const orbit = document.createElement('div');
+            orbit.className = 'orbit-container';
+            const planetEl = document.createElement('div');
+            planetEl.className = 'planet';
+            planetEl.style.width = planetEl.style.height = planet.size + 'px';
+            planetEl.style.backgroundColor = planet.color;
+            planetEl.style.top = -planet.size / 2 + 'px';
+            planetEl.style.left = planet.radius + 'px';
+            orbit.appendChild(planetEl);
+            planetsContainer.appendChild(orbit);
+
+            let angle = Math.random() * 360;
+            setInterval(() => {
+                angle += 0.2 * (50 / planet.speed);
+                orbit.style.transform = `rotate(${angle}deg) translateX(${planet.radius}px)`;
+            }, 20);
+        });
+
+        // Modal functions
         const imageList = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
         let currentIndex = 0;
 
@@ -575,43 +486,11 @@
         document.addEventListener("keydown", function (event) {
             const modal = document.getElementById("imageModal");
             if (modal.style.display === "flex") {
-                if (event.key === "ArrowLeft") {
-                    changeImage(-1);
-                } else if (event.key === "ArrowRight") {
-                    changeImage(1);
-                } else if (event.key === "Escape") {
-                    closeModal();
-                }
+                if (event.key === "ArrowLeft") changeImage(-1);
+                else if (event.key === "ArrowRight") changeImage(1);
+                else if (event.key === "Escape") closeModal();
             }
         });
-
-        // ------------------ Stars & Shooting Stars ------------------
-        const starsContainer = document.getElementById('starsContainer');
-        const starColors = ['#fffdd0', '#ffe4e1', '#b0e0e6', '#fffacd', '#f0e68c'];
-
-        for (let i = 0; i < 60; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
-            const size = 3 + Math.random() * 6;
-            star.style.width = star.style.height = size + 'px';
-            const color = starColors[Math.floor(Math.random() * starColors.length)];
-            star.style.backgroundColor = color;
-            star.style.boxShadow = `0 0 ${size * 2}px ${size}px ${color}`;
-            star.style.animationDuration = (2 + Math.random() * 3) + 's';
-            starsContainer.appendChild(star);
-        }
-
-        setInterval(() => {
-            const shootingStar = document.createElement('div');
-            shootingStar.className = 'shooting-star';
-            shootingStar.style.left = Math.random() * 100 + 'vw';
-            shootingStar.style.top = Math.random() * 50 + 'vh';
-            shootingStar.style.animationDuration = 1 + Math.random() * 1 + 's';
-            starsContainer.appendChild(shootingStar);
-            setTimeout(() => shootingStar.remove(), 1500);
-        }, 2000);
     </script>
 </body>
 
