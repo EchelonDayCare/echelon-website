@@ -6,10 +6,10 @@
     <title>Echelon Day Care</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        /* --- Basic Page Styles --- */
+        /* --- Page Styles --- */
         body {
             font-family: Arial, sans-serif;
-            background-color: #001d3d; /* darker night background for stars */
+            background-color: #e6f0ff;
             margin: 0;
             padding: 0;
             color: #003366;
@@ -20,8 +20,6 @@
             background-color: #007FFF;
             color: white;
             padding: 20px;
-            z-index: 10;
-            position: relative;
         }
 
         .logo-container {
@@ -47,8 +45,6 @@
             justify-content: center;
             flex-wrap: wrap;
             padding: 10px 0;
-            position: relative;
-            z-index: 10;
         }
 
         nav a {
@@ -78,7 +74,7 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero::before {
@@ -150,7 +146,7 @@
             transform: scale(1.02);
         }
 
-        /* --- Modal --- */
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -212,7 +208,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- Enroll Button --- */
+        /* Elegant Enroll Now Button */
         .cta-btn {
             display: inline-block;
             padding: 14px 34px;
@@ -226,7 +222,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease-in-out;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             margin-top: 60px;
             animation: pulse 1s infinite;
         }
@@ -252,8 +248,8 @@
             }
         }
 
-        /* --- Stars --- */
-        .stars-container {
+        /* --- Sky Animations --- */
+        .sky-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -261,26 +257,26 @@
             height: 100%;
             pointer-events: none;
             overflow: hidden;
-            z-index: 0;
+            z-index: 0; /* behind content */
         }
 
         .star {
             position: absolute;
-            background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, 0) 70%);
+            background: radial-gradient(circle, #fffdd0 0%, rgba(255, 255, 255, 0) 70%);
             border-radius: 50%;
             opacity: 0.9;
             animation: fall linear infinite, twinkle 2s infinite;
-            box-shadow: 0 0 6px 2px #fff;
+            box-shadow: 0 0 6px 2px #fffdd0;
         }
 
         @keyframes fall {
             0% {
-                transform: translateY(-10px) translateX(0);
+                transform: translateY(-10px);
                 opacity: 1;
             }
 
             100% {
-                transform: translateY(100vh) translateX(20px);
+                transform: translateY(100vh);
                 opacity: 0;
             }
         }
@@ -292,34 +288,32 @@
             }
 
             50% {
-                opacity: 0.3;
+                opacity: 1;
             }
         }
 
-        /* --- Sun & Moon --- */
-        .sun,
-        .moon {
-            position: fixed;
-            border-radius: 50%;
-            z-index: 0;
-        }
-
         .sun {
+            position: absolute;
             width: 80px;
             height: 80px;
             background: radial-gradient(circle, #FFD700 0%, #FFA500 70%);
             box-shadow: 0 0 50px 15px #FFD700;
             top: 10%;
             animation: sunMove 30s linear infinite alternate;
+            z-index: 1;
+            border-radius: 50%;
         }
 
         .moon {
+            position: absolute;
             width: 60px;
             height: 60px;
             background: radial-gradient(circle, #EEE 0%, #AAA 80%);
             box-shadow: 0 0 30px 5px #FFF;
             top: 30%;
             animation: moonMove 30s linear infinite alternate;
+            z-index: 1;
+            border-radius: 50%;
         }
 
         @keyframes sunMove {
@@ -358,15 +352,11 @@
 
         @media (max-width: 768px) {
             .star {
-                width: 1.5px !important;
-                height: 1.5px !important;
+                width: 1.5px;
+                height: 1.5px;
             }
 
-            .sun {
-                width: 50px;
-                height: 50px;
-            }
-
+            .sun,
             .moon {
                 width: 40px;
                 height: 40px;
@@ -423,42 +413,34 @@
 
 <body>
     <header>
-        <div class="logo-container">
-            <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+        <div class="logo-container"> <img src="logoMod.png" alt="Echelon Logo" class="logo" />
             <h1>Echelon Day Care</h1>
         </div>
     </header>
 
-    <!-- Animated Sky Elements -->
-    <div class="stars-container" id="starsContainer"></div>
-    <div class="sun"></div>
-    <div class="moon"></div>
+    <!-- Sky Animations -->
+    <div class="sky-container">
+        <div class="stars-container" id="starsContainer"></div>
+        <div class="sun"></div>
+        <div class="moon"></div>
+    </div>
 
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+    <nav> <a href="home.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a
+            href="Gallery.html">Gallery</a> <a href="contact.html">Contact</a> </nav>
 
     <section class="hero">
         <h1>Guiding Young Minds Through Play and Structure</h1>
         <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for
-            learning.</p>
-        <a href="services.html#waiting-list" class="cta-btn">Enroll Now</a>
+            learning.</p> <a href="services.html#waiting-list" class="cta-btn">Enroll Now</a>
     </section>
 
     <section class="gallery">
         <h2>Gallery Preview</h2>
-        <div class="gallery-grid">
-            <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-            <img src="2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-            <img src="3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
-            <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(3)" />
-            <img src="5.jpg" alt="Gallery Image 5" onclick="openModal(4)" />
-            <img src="6.jpg" alt="Gallery Image 6" onclick="openModal(5)" />
-        </div>
+        <div class="gallery-grid"> <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(0)" /> <img src="2.jpg"
+                alt="Gallery Image 2" onclick="openModal(1)" /> <img src="3.jpg" alt="Gallery Image 3"
+                onclick="openModal(2)" /> <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(3)" /> <img
+                src="5.jpg" alt="Gallery Image 5" onclick="openModal(4)" /> <img src="6.jpg" alt="Gallery Image 6"
+                onclick="openModal(5)" /> </div>
     </section>
 
     <section class="stats">
@@ -468,28 +450,12 @@
     </section>
 
     <!-- Modal -->
-    <div id="imageModal" class="modal" onclick="clickOutside(event)">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
-        <img class="modal-content" id="modalImg" />
-        <span class="next" onclick="changeImage(1)">&#10095;</span>
-    </div>
+    <div id="imageModal" class="modal" onclick="clickOutside(event)"> <span class="close" onclick="closeModal()">&times;</span>
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span> <img class="modal-content" id="modalImg" /> <span
+            class="next" onclick="changeImage(1)">&#10095;</span> </div>
 
-    <!-- Scripts -->
     <script>
-        // Stars Animation
-        const starsContainer = document.getElementById('starsContainer');
-        for (let i = 0; i < 50; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.animationDuration = (3 + Math.random() * 4) + 's';
-            star.style.animationDelay = Math.random() * 5 + 's';
-            star.style.width = star.style.height = (2 + Math.random() * 4) + 'px';
-            starsContainer.appendChild(star);
-        }
-
-        // Modal Gallery JS
+        // Image Modal
         const imageList = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
         let currentIndex = 0;
 
@@ -523,6 +489,19 @@
                 else if (event.key === "Escape") closeModal();
             }
         });
+
+        // Stars
+        const starsContainer = document.getElementById('starsContainer');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDuration = (3 + Math.random() * 4) + 's';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.width = star.style.height = (3 + Math.random() * 5) + 'px';
+            starsContainer.appendChild(star);
+        }
     </script>
 </body>
 
