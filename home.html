@@ -602,16 +602,18 @@
             star.style.animationDuration = (2 + Math.random() * 3) + 's';
             starsContainer.appendChild(star);
         }
+setInterval(() => {
+    for (let i = 0; i < 3; i++) { // create 3 shooting stars at a time
+        const shootingStar = document.createElement('div');
+        shootingStar.className = 'shooting-star';
+        shootingStar.style.left = Math.random() * 100 + 'vw';
+        shootingStar.style.top = Math.random() * 50 + 'vh';
+        shootingStar.style.animationDuration = 0.8 + Math.random() * 1.2 + 's';
+        starsContainer.appendChild(shootingStar);
+        setTimeout(() => shootingStar.remove(), 1500);
+    }
+}, 1000); // every 1 second
 
-        setInterval(() => {
-            const shootingStar = document.createElement('div');
-            shootingStar.className = 'shooting-star';
-            shootingStar.style.left = Math.random() * 100 + 'vw';
-            shootingStar.style.top = Math.random() * 50 + 'vh';
-            shootingStar.style.animationDuration = 1 + Math.random() * 1 + 's';
-            starsContainer.appendChild(shootingStar);
-            setTimeout(() => shootingStar.remove(), 1500);
-        }, 2000);
     </script>
 </body>
 
