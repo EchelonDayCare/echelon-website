@@ -203,41 +203,154 @@
         }
 
         html {
-          scroll-behavior: smooth;
+            scroll-behavior: smooth;
         }
 
         /* Elegant Enroll Now Button */
         .cta-btn {
-          display: inline-block;
-          padding: 14px 34px;
-          font-size: 1.2rem;
-          font-weight: 600;
-          border-radius: 50px;
-          text-decoration: none;
-          color: #003366;
-          background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
-          border: 2px solid #003366;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-          transition: all 0.3s ease-in-out;
-          position: relative;
-          z-index: 1;
-          margin-top: 60px;   /* ✅ instead of 1cm */
-          animation: pulse 1s infinite;
-        }
-        
-        .cta-btn:hover {
-          background: linear-gradient(135deg, #fad390, #fbc2eb, #a6c0fe);
-          color: #000;
-          transform: translateY(-3px) scale(1.05);
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-        }
-        
-        @keyframes pulse {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-          100% { transform: scale(1); }
+            display: inline-block;
+            padding: 14px 34px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #003366;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
+            border: 2px solid #003366;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
+            margin-top: 60px;
+            animation: pulse 1s infinite;
         }
 
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #fad390, #fbc2eb, #a6c0fe);
+            color: #000;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Stars Animation */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 999;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        /* Sun & Moon Animation */
+        .sun,
+        .moon {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            z-index: 998;
+        }
+
+        .sun {
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            top: 10%;
+            animation: sunMove 30s linear infinite alternate;
+        }
+
+        .moon {
+            background: radial-gradient(circle, #EEE, #AAA);
+            top: 30%;
+            animation: moonMove 30s linear infinite alternate;
+        }
+
+        @keyframes sunMove {
+            0% {
+                left: -10%;
+                top: 10%;
+            }
+
+            50% {
+                left: 50%;
+                top: 20%;
+            }
+
+            100% {
+                left: 110%;
+                top: 10%;
+            }
+        }
+
+        @keyframes moonMove {
+            0% {
+                left: 110%;
+                top: 30%;
+            }
+
+            50% {
+                left: 50%;
+                top: 15%;
+            }
+
+            100% {
+                left: -10%;
+                top: 30%;
+            }
+        }
+
+        /* Optional: Make stars smaller on mobile */
+        @media (max-width: 768px) {
+            .star {
+                width: 1.5px;
+                height: 1.5px;
+            }
+
+            .sun,
+            .moon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .logo-container {
                 flex-wrap: nowrap;
@@ -290,26 +403,73 @@
 
 <body>
     <header>
-        <div class="logo-container"> <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+        <div class="logo-container">
+            <img src="logoMod.png" alt="Echelon Logo" class="logo" />
             <h1>Echelon Day Care</h1>
         </div>
     </header>
-    <nav> <a href="home.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="Gallery.html">Gallery</a> <a href="contact.html">Contact</a> </nav>
+
+    <!-- Animated Sky Elements -->
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="sun"></div>
+    <div class="moon"></div>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
     <section class="hero">
         <h1>Guiding Young Minds Through Play and Structure</h1>
-        <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for learning.</p> <a href="services.html#waiting-list" class="cta-btn">Enroll Now</a>
+        <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for
+            learning.</p>
+        <a href="services.html#waiting-list" class="cta-btn">Enroll Now</a>
     </section>
+
     <section class="gallery">
         <h2>Gallery Preview</h2>
-        <div class="gallery-grid"> <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(0)" /> <img src="2.jpg" alt="Gallery Image 2" onclick="openModal(1)" /> <img src="3.jpg" alt="Gallery Image 3" onclick="openModal(2)" /> <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(3)" /> <img src="5.jpg" alt="Gallery Image 5" onclick="openModal(4)" /> <img src="6.jpg" alt="Gallery Image 6" onclick="openModal(5)" /> </div>
+        <div class="gallery-grid">
+            <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
+            <img src="2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
+            <img src="3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
+            <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(3)" />
+            <img src="5.jpg" alt="Gallery Image 5" onclick="openModal(4)" />
+            <img src="6.jpg" alt="Gallery Image 6" onclick="openModal(5)" />
+        </div>
     </section>
+
     <section class="stats">
         <div class="stat-box">1000+ Happy Families</div>
         <div class="stat-box">30+ Years Experience</div>
         <div class="stat-box">4.9★ Parent Rating</div>
-    </section> <!-- Modal -->
-    <div id="imageModal" class="modal" onclick="clickOutside(event)"> <span class="close" onclick="closeModal()">&times;</span> <span class="prev" onclick="changeImage(-1)">&#10094;</span> <img class="modal-content" id="modalImg" /> <span class="next" onclick="changeImage(1)">&#10095;</span> </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="clickOutside(event)">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+        <img class="modal-content" id="modalImg" />
+        <span class="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <!-- Scripts -->
     <script>
+        // Stars Animation
+        const starsContainer = document.getElementById('starsContainer');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDuration = (3 + Math.random() * 4) + 's';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.width = star.style.height = (1 + Math.random() * 3) + 'px';
+            starsContainer.appendChild(star);
+        }
+
+        // Modal Gallery JS
         const imageList = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
         let currentIndex = 0;
 
@@ -336,7 +496,8 @@
                 closeModal();
             }
         }
-        document.addEventListener("keydown", function(event) {
+
+        document.addEventListener("keydown", function (event) {
             const modal = document.getElementById("imageModal");
             if (modal.style.display === "flex") {
                 if (event.key === "ArrowLeft") {
