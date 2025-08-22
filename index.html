@@ -143,6 +143,50 @@
         .gallery-grid img:hover {
             transform: scale(1.02);
         }
+                /* Falling stars layer */
+        .hero { overflow: hidden; } /* keep stars inside the hero */
+        .starfield {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;   /* don't block clicks */
+          z-index: 1;
+        }
+        
+        /* Make hero text sit above the stars */
+        .hero h1, .hero p, .cta-btn { position: relative; z-index: 2; }
+        
+        .star {
+          position: absolute;
+          top: -60px;                         /* start just above the hero */
+          width: var(--size);
+          height: var(--size);
+          border-radius: 50%;
+          background:
+            radial-gradient(circle at 30% 30%, #ffffff, #ffe29a 45%, rgba(255,255,255,0) 60%);
+          filter: drop-shadow(0 0 8px #ffffff);
+          opacity: 0.9;
+          transform: translateY(0) translateX(0);
+          animation:
+            fall var(--dur) linear var(--delay) infinite,
+            twinkle 2.2s ease-in-out var(--delay) infinite;
+        }
+        
+        @keyframes fall {
+          to {
+            transform: translateY(120%) translateX(var(--drift)) rotate(360deg);
+          }
+        }
+        
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.75; }
+          50%      { opacity: 1; }
+        }
+        
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          .star { animation: none; opacity: 0.8; }
+        }
+
 
         /* Modal Styles */
         .modal {
@@ -294,6 +338,8 @@
             <h1>Echelon Day Care</h1>
         </div>
     </header>
+    <div class="starfield" aria-hidden="true"></div>
+
     <nav> <a href="home.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="Gallery.html">Gallery</a> <a href="contact.html">Contact</a> </nav>
     <section class="hero">
         <h1>Guiding Young Minds Through Play and Structure</h1>
@@ -349,6 +395,77 @@
             }
         });
     </script>
+    <script>
+  (function () {
+    const container = document.querySelector('.starfield');
+    if (!container) return;
+
+    // Tune these:
+    const STAR_COUNT_DESKTOP = 50;   // more stars for desktop
+    const STAR_COUNT_MOBILE  = 28;   // fewer stars for mobile
+    const MIN_SIZE = 14;             // px (large stars)
+    const MAX_SIZE = 28;             // px
+    const MIN_DUR  = 6;              // seconds
+    const MAX_DUR  = 12;             // seconds
+    const MAX_DRIFT = 120;           // px horizontal drift while falling
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const count = isMobile ? STAR_COUNT_MOBILE : STAR_COUNT_DESKTOP;
+
+    const heroRect = container.getBoundingClientRect();
+
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+
+      const size = rand(MIN_SIZE, MAX_SIZE);
+      const left = Math.random() * 100;                 // % across hero width
+      const delay = -(Math.random() * MAX_DUR);         // negative = already mid-fall
+      const dur = rand(MIN_DUR, MAX_DUR);
+      const drift = (Math.random() * 2 - 1) * MAX_DRIFT; // left/right
+
+      star.style.setProperty('--size', size + 'px');
+      star.style.left = left + '%';
+      star.style.setProperty('--delay', `${delay}s`);
+      star.style.setProperty('--dur', `${dur}s`);
+      star.style.setProperty('--drift', `${drift}px`);
+
+      container.appendChild(star);
+    }
+
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Rebuild stars on resize (debounced) to fit new hero size
+    let t;
+    window.addEventListener('resize', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        container.innerHTML = '';
+        (function rebuild(){ // simple rebuild with same settings
+          const isMobile = window.matchMedia('(max-width: 768px)').matches;
+          const count = isMobile ? STAR_COUNT_MOBILE : STAR_COUNT_DESKTOP;
+          for (let i = 0; i < count; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = rand(MIN_SIZE, MAX_SIZE);
+            const left = Math.random() * 100;
+            const delay = -(Math.random() * MAX_DUR);
+            const dur = rand(MIN_DUR, MAX_DUR);
+            const drift = (Math.random() * 2 - 1) * MAX_DRIFT;
+            star.style.setProperty('--size', size + 'px');
+            star.style.left = left + '%';
+            star.style.setProperty('--delay', `${delay}s`);
+            star.style.setProperty('--dur', `${dur}s`);
+            star.style.setProperty('--drift', `${drift}px`);
+            container.appendChild(star);
+          }
+        })();
+      }, 200);
+    });
+  })();
+</script>
 </body>
 
 </html>
