@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       color: #003366;
+      overflow-x: hidden; /* prevent horizontal scroll due to falling flowers */
     }
 
     header {
@@ -251,6 +252,21 @@
     #close-btn:hover {
       background: rgba(0,0,0,0.7);
     }
+
+    /* Flower animation */
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 2rem;
+      animation: fall linear infinite;
+      z-index: 500; /* behind modal and nav */
+      pointer-events: none; /* doesn't block clicks */
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -298,6 +314,9 @@
 </div>
 
 <script>
+  // ---------------------------
+  // GALLERY SCRIPT
+  // ---------------------------
   const gallery = document.getElementById('gallery');
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
@@ -309,13 +328,12 @@
   const totalImages = 50;
   let currentIndex = 0;
 
-  // Create gallery items
   for (let i = 1; i <= totalImages; i++) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
 
     const img = document.createElement('img');
-    img.src = "images/Photo (" + i + ").jpg";  // Corrected image path
+    img.src = "images/Photo (" + i + ").jpg";
     img.alt = "Photo " + i;
     img.dataset.index = i - 1;
 
@@ -328,7 +346,6 @@
     gallery.appendChild(item);
   }
 
-  // Open modal with clicked image
   function openModal(index) {
     currentIndex = index;
     modal.classList.add('active');
@@ -336,7 +353,6 @@
     modal.focus();
   }
 
-  // Update modal image and caption
   function updateModal() {
     const imgNum = currentIndex + 1;
     modalImg.src = "images/Photo (" + imgNum + ").jpg";
@@ -344,24 +360,20 @@
     modalCaption.textContent = "Photo " + imgNum;
   }
 
-  // Close modal
   function closeModal() {
     modal.classList.remove('active');
   }
 
-  // Show next image
   function showNext() {
     currentIndex = (currentIndex + 1) % totalImages;
     updateModal();
   }
 
-  // Show previous image
   function showPrev() {
     currentIndex = (currentIndex - 1 + totalImages) % totalImages;
     updateModal();
   }
 
-  // Click on gallery image
   gallery.addEventListener('click', (e) => {
     if (e.target.tagName === 'IMG') {
       const idx = parseInt(e.target.dataset.index, 10);
@@ -369,36 +381,41 @@
     }
   });
 
-  // Close button click
   closeBtn.addEventListener('click', closeModal);
-
-  // Arrow navigation clicks
   nextArrow.addEventListener('click', showNext);
   prevArrow.addEventListener('click', showPrev);
 
-  // Keyboard navigation and close modal on ESC
   document.addEventListener('keydown', (e) => {
     if (!modal.classList.contains('active')) return;
-
-    switch (e.key) {
-      case 'ArrowRight':
-        showNext();
-        break;
-      case 'ArrowLeft':
-        showPrev();
-        break;
-      case 'Escape':
-        closeModal();
-        break;
-    }
+    if (e.key === 'ArrowRight') showNext();
+    else if (e.key === 'ArrowLeft') showPrev();
+    else if (e.key === 'Escape') closeModal();
   });
 
-  // Close modal when clicking outside the image
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
+    if (e.target === modal) closeModal();
   });
+
+  // ---------------------------
+  // FALLING FLOWERS SCRIPT
+  // ---------------------------
+  const flowers = ["🌸","🌼","🌻","🌺","🌷","💐","🌹"];
+
+  function createFlower() {
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+    
+    flower.style.left = Math.random() * 100 + "vw";
+    const duration = Math.random() * 3 + 3; // 3 to 6 seconds
+    flower.style.animationDuration = duration + "s";
+    
+    document.body.appendChild(flower);
+    
+    setTimeout(() => flower.remove(), duration * 1000);
+  }
+
+  setInterval(createFlower, 300);
 </script>
 
 </body>
