@@ -315,7 +315,7 @@
     item.className = 'gallery-item';
 
     const img = document.createElement('img');
-    img.src = "images/photo (" + i + ").jpg";  // Corrected image path
+    img.src = "images/Photo (" + i + ").jpg";  // Corrected image path
     img.alt = "Photo " + i;
     img.dataset.index = i - 1;
 
@@ -339,7 +339,7 @@
   // Update modal image and caption
   function updateModal() {
     const imgNum = currentIndex + 1;
-    modalImg.src = "images/photo (" + imgNum + ").jpg";
+    modalImg.src = "images/Photo (" + imgNum + ").jpg";
     modalImg.alt = "Photo " + imgNum;
     modalCaption.textContent = "Photo " + imgNum;
   }
