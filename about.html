@@ -1,248 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>About Us - Echelon Day Care</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echelon Daycare</title>
+<style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f0ff;
-      margin: 0;
-      padding: 0;
-      color: #003366;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Arial', sans-serif;
+        animation: gradientBackground 10s ease infinite;
+        background: linear-gradient(45deg, #0d1b2a, #1b263b, #415a77);
+        background-size: 400% 400%;
+        color: white;
     }
 
-    header {
-      background-color: #007FFF;
-      color: white;
-      padding: 20px;
+    @keyframes gradientBackground {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 3em;
+        color: #ffcc00;
+        text-shadow: 0 0 20px #ffcc00;
+        animation: glow 2s ease-in-out infinite alternate;
     }
 
-    .logo {
-      width: 110px;
-      height: auto;
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #ffcc00; }
+        to { text-shadow: 0 0 30px #ffe066; }
     }
 
-    .logo-container h1 {
-      font-size: 3.5em;
-      margin: 0;
+    /* Falling Stars */
+    .star {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 15px white;
+        animation: fall linear infinite;
+        opacity: 0.9;
     }
 
-    nav {
-      background-color: #cce0ff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
+    @keyframes fall {
+        0% {
+            transform: translateY(-10px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) translateX(50px);
+            opacity: 0;
+        }
     }
 
-    nav a {
-      margin: 5px 15px;
-      color: #003366;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
+    /* Clouds */
+    .cloud {
+        position: absolute;
+        top: 10%;
+        width: 200px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 100px;
+        filter: blur(8px);
+        animation: cloudMove 60s linear infinite;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .cloud::before, .cloud::after {
+        content: '';
+        position: absolute;
+        background: inherit;
+        width: 150px;
+        height: 150px;
+        top: -40px;
+        border-radius: 50%;
     }
 
-    main {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    .cloud::before {
+        left: 20px;
     }
 
-    h2, h3 {
-      color: #007FFF;
+    .cloud::after {
+        right: 20px;
     }
 
-    .highlight {
-      font-weight: bold;
-      color: #005bb5;
+    @keyframes cloudMove {
+        0% { left: -250px; }
+        100% { left: 100vw; }
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    .gallery-grid {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .gallery-grid img {
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 4px solid #007FFF;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #000;
-    }
-
+    /* Footer */
     footer {
-      text-align: center;
-      background-color: #007FFF;
-      color: white;
-      padding: 20px 10px;
-      margin-top: 50px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 14px;
     }
 
-    @media (max-width: 768px) {
-      .logo-container h1 {
-        font-size: 1.6em;
-      }
-
-      .logo {
-        width: 40px;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-
-      .gallery-grid img {
-        width: 90%;
-        height: auto;
-      }
+    footer a {
+        color: #ffcc00;
+        margin: 0 10px;
+        text-decoration: none;
     }
-  </style>
+</style>
 </head>
 <body>
+<h1>Echelon Daycare</h1>
 
-  <header>
-    <div class="logo-container">
-      <img class="logo" src="logoMod.png" alt="Echelon Logo" />
-      <h1>Echelon Day Care</h1>
-    </div>
-  </header>
+<!-- Clouds -->
+<div class="cloud" style="top:20%;"></div>
+<div class="cloud" style="top:40%; animation-delay: 20s;"></div>
 
-  <nav>
-      <a href="/home.html">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/services.html">Services</a>
-      <a href="/Gallery.html">Gallery</a>
-      <a href="/contact.html">Contact</a>
-  </nav>
-  
-  <main>
-    <h2>About Echelon Day Care</h2>
-    <p>
-      Welcome to <span class="highlight">Echelon Day Care</span> — where nurturing care meets joyful learning!
-      We are a dedicated team of early childhood educators passionate about creating a safe, stimulating,
-      and inclusive environment for children to grow and thrive.
-    </p>
+<!-- Footer -->
+<footer>
+    📞 +1 (123) 456-7890 | ✉ info@echelondaycare.com
+    <br>
+    <a href="#">Facebook</a> | <a href="#">Instagram</a>
+</footer>
 
-    <h3>Our Vision</h3>
-    <p>
-      To build a foundation of lifelong learning by fostering creativity, confidence, and kindness
-      in every child we care for.
-    </p>
-
-    <h3>Our Mission</h3>
-    <ul>
-      <li>Provide a secure and loving environment for all children.</li>
-      <li>Encourage curiosity through hands-on learning and play.</li>
-      <li>Support each child’s social, emotional, physical, and cognitive development.</li>
-    </ul>
-
-    <h3>Our Team</h3>
-    <p>
-      Led by experienced educators and caregivers, our staff is trained in child safety, CPR,
-      early childhood development, and emotional intelligence. We take pride in forming strong
-      partnerships with parents and guardians.
-    </p>
-
-    <h3>Why Choose Us?</h3>
-    <ul>
-      <li>Bright, clean, and engaging facilities.</li>
-      <li>Daily learning through stories, music, art, and play.</li>
-      <li>Balanced indoor, outdoor and nap time.</li>
-      <li>Regular updates and photo sharing with parents.</li>
-    </ul>
-
-    <div class="gallery-grid">
-      <img src="photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-      <img src="photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-      <img src="photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
-    </div>
-
-    <div class="modal" id="imageModal" onclick="closeModal()">
-      <img id="modalImage" src="" alt="Full View">
-    </div>
-  </main>
-
-  <script>
-    const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
-    let currentImageIndex = 0;
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-
-    function openModal(index) {
-      currentImageIndex = index;
-      modal.style.display = "flex";
-      modalImg.src = images[currentImageIndex];
+<script>
+    // Generate falling stars
+    const starCount = 30; // Increase number for more stars
+    for (let i = 0; i < starCount; i++) {
+        let star = document.createElement('div');
+        star.classList.add('star');
+        document.body.appendChild(star);
+        star.style.left = Math.random() * window.innerWidth + 'px';
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        star.style.top = '-10px';
+        star.style.width = star.style.height = (Math.random() * 10 + 8) + 'px';
     }
-
-    function closeModal() {
-      modal.style.display = "none";
-    }
-
-    document.addEventListener("keydown", function(event) {
-      if (modal.style.display === "flex") {
-        if (event.key === "ArrowRight") {
-          currentImageIndex = (currentImageIndex + 1) % images.length;
-          modalImg.src = images[currentImageIndex];
-        } else if (event.key === "ArrowLeft") {
-          currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-          modalImg.src = images[currentImageIndex];
-        } else if (event.key === "Escape") {
-          closeModal();
-        }
-      }
-    });
-  </script>
-
+</script>
 </body>
 </html>
