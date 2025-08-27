@@ -1,95 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echelon Day Care</title>
-    <style>
-        /* Reset */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background: linear-gradient(to top, #0d1b2a, #1b263b);
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <title>About Us - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+    }
 
-        /* Content Styling */
-        .content {
-            position: relative;
-            z-index: 10;
-            top: 40%;
-            transform: translateY(-50%);
-        }
+    header {
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
+    }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        p {
-            font-size: 1.3rem;
-        }
+    .logo {
+      width: 110px;
+      height: auto;
+    }
 
-        /* Stars */
-        .star {
-            position: absolute;
-            top: -10%;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            box-shadow: 0 0 10px white, 0 0 20px white;
-            animation: fall linear infinite;
-        }
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(0) translateX(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) translateX(20vw) scale(0.8);
-                opacity: 0;
-            }
-        }
-    </style>
+    nav {
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+      color: #007FFF;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #005bb5;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .gallery-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .gallery-grid img {
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 4px solid #007FFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #007FFF;
+      color: white;
+      padding: 20px 10px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      .logo {
+        width: 40px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .gallery-grid img {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Welcome to Echelon Day Care</h1>
-        <p>Where little stars shine the brightest!</p>
+
+  <header>
+    <div class="logo-container">
+      <img class="logo" src="logoMod.png" alt="Echelon Logo" />
+      <h1>Echelon Day Care</h1>
+    </div>
+  </header>
+
+  <nav>
+      <a href="/home.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/Gallery.html">Gallery</a>
+      <a href="/contact.html">Contact</a>
+  </nav>
+  
+  <main>
+    <h2>About Echelon Day Care</h2>
+    <p>
+      Welcome to <span class="highlight">Echelon Day Care</span> — where nurturing care meets joyful learning!
+      We are a dedicated team of early childhood educators passionate about creating a safe, stimulating,
+      and inclusive environment for children to grow and thrive.
+    </p>
+
+    <h3>Our Vision</h3>
+    <p>
+      To build a foundation of lifelong learning by fostering creativity, confidence, and kindness
+      in every child we care for.
+    </p>
+
+    <h3>Our Mission</h3>
+    <ul>
+      <li>Provide a secure and loving environment for all children.</li>
+      <li>Encourage curiosity through hands-on learning and play.</li>
+      <li>Support each child’s social, emotional, physical, and cognitive development.</li>
+    </ul>
+
+    <h3>Our Team</h3>
+    <p>
+      Led by experienced educators and caregivers, our staff is trained in child safety, CPR,
+      early childhood development, and emotional intelligence. We take pride in forming strong
+      partnerships with parents and guardians.
+    </p>
+
+    <h3>Why Choose Us?</h3>
+    <ul>
+      <li>Bright, clean, and engaging facilities.</li>
+      <li>Daily learning through stories, music, art, and play.</li>
+      <li>Balanced indoor, outdoor and nap time.</li>
+      <li>Regular updates and photo sharing with parents.</li>
+    </ul>
+
+    <div class="gallery-grid">
+      <img src="photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
+      <img src="photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
+      <img src="photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
     </div>
 
-    <script>
-        function createStar() {
-            const star = document.createElement("div");
-            star.classList.add("star");
+    <div class="modal" id="imageModal" onclick="closeModal()">
+      <img id="modalImage" src="" alt="Full View">
+    </div>
+  </main>
 
-            // Random size (large stars)
-            const size = Math.random() * 8 + 6; // 6px to 14px
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
+  <script>
+    const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+    let currentImageIndex = 0;
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
 
-            // Random position across width
-            star.style.left = `${Math.random() * window.innerWidth}px`;
+    function openModal(index) {
+      currentImageIndex = index;
+      modal.style.display = "flex";
+      modalImg.src = images[currentImageIndex];
+    }
 
-            // Random animation duration
-            const duration = Math.random() * 3 + 4; // 4s to 7s
-            star.style.animationDuration = `${duration}s`;
+    function closeModal() {
+      modal.style.display = "none";
+    }
 
-            document.body.appendChild(star);
-
-            // Remove star after animation
-            setTimeout(() => {
-                star.remove();
-            }, duration * 1000);
+    document.addEventListener("keydown", function(event) {
+      if (modal.style.display === "flex") {
+        if (event.key === "ArrowRight") {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          modalImg.src = images[currentImageIndex];
+        } else if (event.key === "ArrowLeft") {
+          currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+          modalImg.src = images[currentImageIndex];
+        } else if (event.key === "Escape") {
+          closeModal();
         }
+      }
+    });
+  </script>
 
-        // Create multiple stars continuously
-        setInterval(createStar, 200); // One every 0.2s
-    </script>
 </body>
 </html>
