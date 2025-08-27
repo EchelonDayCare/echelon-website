@@ -6,14 +6,13 @@
     <title>Echelon Day Care</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        /* ------------------ Base Styles ------------------ */
+        /* All your previous CSS from before */
         body {
             font-family: Arial, sans-serif;
             background-color: #e6f0ff;
             margin: 0;
             padding: 0;
             color: #003366;
-            overflow-x: hidden;
         }
 
         header {
@@ -144,6 +143,50 @@
         .gallery-grid img:hover {
             transform: scale(1.02);
         }
+                /* Falling stars layer */
+        .hero { overflow: hidden; } /* keep stars inside the hero */
+        .starfield {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;   /* don't block clicks */
+          z-index: 1;
+        }
+        
+        /* Make hero text sit above the stars */
+        .hero h1, .hero p, .cta-btn { position: relative; z-index: 2; }
+        
+        .star {
+          position: absolute;
+          top: -60px;                         /* start just above the hero */
+          width: var(--size);
+          height: var(--size);
+          border-radius: 50%;
+          background:
+            radial-gradient(circle at 30% 30%, #ffffff, #ffe29a 45%, rgba(255,255,255,0) 60%);
+          filter: drop-shadow(0 0 8px #ffffff);
+          opacity: 0.9;
+          transform: translateY(0) translateX(0);
+          animation:
+            fall var(--dur) linear var(--delay) infinite,
+            twinkle 2.2s ease-in-out var(--delay) infinite;
+        }
+        
+        @keyframes fall {
+          to {
+            transform: translateY(120%) translateX(var(--drift)) rotate(360deg);
+          }
+        }
+        
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.75; }
+          50%      { opacity: 1; }
+        }
+        
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          .star { animation: none; opacity: 0.8; }
+        }
+
 
         /* Modal Styles */
         .modal {
@@ -204,272 +247,41 @@
         }
 
         html {
-            scroll-behavior: smooth;
+          scroll-behavior: smooth;
         }
 
         /* Elegant Enroll Now Button */
         .cta-btn {
-            display: inline-block;
-            padding: 14px 34px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            color: #003366;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
-            border: 2px solid #003366;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            z-index: 1;
-            margin-top: 60px;
-            animation: pulse 1s infinite;
+          display: inline-block;
+          padding: 14px 34px;
+          font-size: 1.2rem;
+          font-weight: 600;
+          border-radius: 50px;
+          text-decoration: none;
+          color: #003366;
+          background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
+          border: 2px solid #003366;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+          transition: all 0.3s ease-in-out;
+          position: relative;
+          z-index: 1;
+          margin-top: 60px;   /* ✅ instead of 1cm */
+          animation: pulse 1s infinite;
         }
-
+        
         .cta-btn:hover {
-            background: linear-gradient(135deg, #fad390, #fbc2eb, #a6c0fe);
-            color: #000;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+          background: linear-gradient(135deg, #fad390, #fbc2eb, #a6c0fe);
+          color: #000;
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
-
+        
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+          0% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(1); }
         }
 
-        /* ------------------ Stars & Sky Animation ------------------ */
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 500; /* behind sun & moon */
-        }
-
-        .star {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: twinkle linear infinite;
-        }
-
-        @keyframes twinkle {
-            0%,
-            100% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.4);
-            }
-        }
-
-        .shooting-star {
-            position: absolute;
-            width: 2px;
-            height: 80px;
-            background: linear-gradient(white, transparent);
-            opacity: 0.8;
-            transform: rotate(-45deg);
-            animation: shoot linear forwards;
-        }
-
-        @keyframes shoot {
-            0% {
-                transform: translateX(0) translateY(0) rotate(-45deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(800px) translateY(400px) rotate(-45deg);
-                opacity: 0;
-            }
-        }
-
-        /* Sun & Moon */
-        .sun {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, #FFD700 60%, #FFA500 100%);
-            border-radius: 50%;
-            z-index: 1000;
-            animation: sunMove 30s linear infinite alternate, sunGlow 2s ease-in-out infinite alternate;
-        }
-
-        .sun::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120px;
-            height: 120px;
-            margin-left: -60px;
-            margin-top: -60px;
-            border-radius: 50%;
-            box-shadow:
-                0 -70px 20px 2px rgba(255, 223, 0, 0.6),
-                50px -50px 20px 2px rgba(255, 223, 0, 0.6),
-                70px 0 20px 2px rgba(255, 223, 0, 0.6),
-                50px 50px 20px 2px rgba(255, 223, 0, 0.6),
-                0 70px 20px 2px rgba(255, 223, 0, 0.6),
-                -50px 50px 20px 2px rgba(255, 223, 0, 0.6),
-                -70px 0 20px 2px rgba(255, 223, 0, 0.6),
-                -50px -50px 20px 2px rgba(255, 223, 0, 0.6);
-            animation: rotateRays 6s linear infinite;
-        }
-
-        @keyframes rotateRays {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes sunGlow {
-            0% {
-                box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.6);
-            }
-
-            50% {
-                box-shadow: 0 0 40px 15px rgba(255, 223, 0, 0.8);
-            }
-
-            100% {
-                box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.6);
-            }
-        }
-
-        @keyframes sunMove {
-            0% {
-                left: -10%;
-                top: 10%;
-            }
-
-            50% {
-                left: 50%;
-                top: 20%;
-            }
-
-            100% {
-                left: 110%;
-                top: 10%;
-            }
-        }
-
-        .moon {
-            position: fixed;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle at 20% 50%, transparent 45%, #EEE 45%, #EEE 100%);
-            border-radius: 50%;
-            z-index: 1000;
-            animation: moonMove 30s linear infinite alternate, moonGlow 3s ease-in-out infinite alternate;
-        }
-
-        .moon::before {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle at 30% 50%, #EEE 40%, #AAA 100%);
-            border-radius: 50%;
-            top: 0;
-            left: 0;
-        }
-
-        @keyframes moonGlow {
-            0% {
-                box-shadow: 0 0 15px 5px rgba(238, 238, 238, 0.6);
-            }
-
-            50% {
-                box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.8);
-            }
-
-            100% {
-                box-shadow: 0 0 15px 5px rgba(238, 238, 238, 0.6);
-            }
-        }
-
-        @keyframes moonMove {
-            0% {
-                left: 110%;
-                top: 30%;
-            }
-
-            50% {
-                left: 50%;
-                top: 15%;
-            }
-
-            100% {
-                left: -10%;
-                top: 30%;
-            }
-        }
-
-        /* ------------------ Logo Arc Animation ------------------ */
-        .moving-logo {
-            position: fixed;
-            width: 80px;
-            height: auto;
-            z-index: 1001;
-            animation: logoArc 30s linear infinite, logoGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes logoArc {
-            0% {
-                transform: translate(-10vw, 0) translateY(0);
-            }
-
-            25% {
-                transform: translate(25vw, 0) translateY(-50px);
-            }
-
-            50% {
-                transform: translate(50vw, 0) translateY(-100px);
-            }
-
-            75% {
-                transform: translate(75vw, 0) translateY(-50px);
-            }
-
-            100% {
-                transform: translate(110vw, 0) translateY(0);
-            }
-        }
-
-        @keyframes logoGlow {
-            0%,
-            100% {
-                box-shadow: 0 0 5px 2px rgba(0, 127, 255, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 0 15px 6px rgba(0, 127, 255, 0.8);
-            }
-        }
-
-        /* ------------------ Responsive ------------------ */
         @media (max-width: 768px) {
             .logo-container {
                 flex-wrap: nowrap;
@@ -516,77 +328,34 @@
             .next {
                 font-size: 28px;
             }
-
-            .star {
-                width: 2px;
-                height: 2px;
-            }
-
-            .sun,
-            .moon {
-                width: 40px;
-                height: 40px;
-            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="logo-container">
-            <img src="logoMod.png" alt="Echelon Logo" class="logo moving-logo" />
+        <div class="logo-container"> <img src="logoMod.png" alt="Echelon Logo" class="logo" />
             <h1>Echelon Day Care</h1>
         </div>
     </header>
+    <div class="starfield" aria-hidden="true"></div>
 
-    <!-- Animated Sky Elements -->
-    <div class="stars-container" id="starsContainer"></div>
-    <div class="sun"></div>
-    <div class="moon"></div>
-
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="Gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
+    <nav> <a href="home.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="Gallery.html">Gallery</a> <a href="contact.html">Contact</a> </nav>
     <section class="hero">
         <h1>Guiding Young Minds Through Play and Structure</h1>
-        <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for learning.</p>
-        <a href="services.html#waiting-list" class="cta-btn">Enroll Now</a>
+        <p>We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for learning.</p> <a href="services.html#waiting-list" class="cta-btn">Enroll Now</a>
     </section>
-
     <section class="gallery">
         <h2>Gallery Preview</h2>
-        <div class="gallery-grid">
-            <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-            <img src="2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-            <img src="3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
-            <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(3)" />
-            <img src="5.jpg" alt="Gallery Image 5" onclick="openModal(4)" />
-            <img src="6.jpg" alt="Gallery Image 6" onclick="openModal(5)" />
-        </div>
+        <div class="gallery-grid"> <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(0)" /> <img src="2.jpg" alt="Gallery Image 2" onclick="openModal(1)" /> <img src="3.jpg" alt="Gallery Image 3" onclick="openModal(2)" /> <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(3)" /> <img src="5.jpg" alt="Gallery Image 5" onclick="openModal(4)" /> <img src="6.jpg" alt="Gallery Image 6" onclick="openModal(5)" /> </div>
     </section>
-
     <section class="stats">
         <div class="stat-box">1000+ Happy Families</div>
         <div class="stat-box">30+ Years Experience</div>
         <div class="stat-box">4.9★ Parent Rating</div>
-    </section>
-
-    <!-- Modal -->
-    <div id="imageModal" class="modal" onclick="clickOutside(event)">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
-        <img class="modal-content" id="modalImg" />
-        <span class="next" onclick="changeImage(1)">&#10095;</span>
-    </div>
-
-    <!-- ------------------ Scripts ------------------ -->
+    </section> <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="clickOutside(event)"> <span class="close" onclick="closeModal()">&times;</span> <span class="prev" onclick="changeImage(-1)">&#10094;</span> <img class="modal-content" id="modalImg" /> <span class="next" onclick="changeImage(1)">&#10095;</span> </div>
     <script>
-        // ------------------ Gallery Modal ------------------
         const imageList = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
         let currentIndex = 0;
 
@@ -613,8 +382,7 @@
                 closeModal();
             }
         }
-
-        document.addEventListener("keydown", function (event) {
+        document.addEventListener("keydown", function(event) {
             const modal = document.getElementById("imageModal");
             if (modal.style.display === "flex") {
                 if (event.key === "ArrowLeft") {
@@ -626,37 +394,78 @@
                 }
             }
         });
-
-        // ------------------ Stars Generation ------------------
-        const starsContainer = document.getElementById("starsContainer");
-        const numStars = 80;
-
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement("div");
-            star.classList.add("star");
-            star.style.width = Math.random() * 2 + 1 + "px";
-            star.style.height = star.style.width;
-            star.style.top = Math.random() * 100 + "%";
-            star.style.left = Math.random() * 100 + "%";
-            star.style.animationDuration = 1 + Math.random() * 3 + "s";
-            starsContainer.appendChild(star);
-        }
-
-        // ------------------ Shooting Stars ------------------
-        function createShootingStar() {
-            const shootingStar = document.createElement("div");
-            shootingStar.classList.add("shooting-star");
-            shootingStar.style.top = Math.random() * 50 + "vh";
-            shootingStar.style.left = "-50px";
-            shootingStar.style.animationDuration = 1 + Math.random() * 2 + "s";
-            starsContainer.appendChild(shootingStar);
-            setTimeout(() => {
-                starsContainer.removeChild(shootingStar);
-            }, 2000);
-        }
-
-        setInterval(createShootingStar, 3000);
     </script>
+    <script>
+  (function () {
+    const container = document.querySelector('.starfield');
+    if (!container) return;
+
+    // Tune these:
+    const STAR_COUNT_DESKTOP = 50;   // more stars for desktop
+    const STAR_COUNT_MOBILE  = 28;   // fewer stars for mobile
+    const MIN_SIZE = 14;             // px (large stars)
+    const MAX_SIZE = 28;             // px
+    const MIN_DUR  = 6;              // seconds
+    const MAX_DUR  = 12;             // seconds
+    const MAX_DRIFT = 120;           // px horizontal drift while falling
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const count = isMobile ? STAR_COUNT_MOBILE : STAR_COUNT_DESKTOP;
+
+    const heroRect = container.getBoundingClientRect();
+
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+
+      const size = rand(MIN_SIZE, MAX_SIZE);
+      const left = Math.random() * 100;                 // % across hero width
+      const delay = -(Math.random() * MAX_DUR);         // negative = already mid-fall
+      const dur = rand(MIN_DUR, MAX_DUR);
+      const drift = (Math.random() * 2 - 1) * MAX_DRIFT; // left/right
+
+      star.style.setProperty('--size', size + 'px');
+      star.style.left = left + '%';
+      star.style.setProperty('--delay', `${delay}s`);
+      star.style.setProperty('--dur', `${dur}s`);
+      star.style.setProperty('--drift', `${drift}px`);
+
+      container.appendChild(star);
+    }
+
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Rebuild stars on resize (debounced) to fit new hero size
+    let t;
+    window.addEventListener('resize', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        container.innerHTML = '';
+        (function rebuild(){ // simple rebuild with same settings
+          const isMobile = window.matchMedia('(max-width: 768px)').matches;
+          const count = isMobile ? STAR_COUNT_MOBILE : STAR_COUNT_DESKTOP;
+          for (let i = 0; i < count; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = rand(MIN_SIZE, MAX_SIZE);
+            const left = Math.random() * 100;
+            const delay = -(Math.random() * MAX_DUR);
+            const dur = rand(MIN_DUR, MAX_DUR);
+            const drift = (Math.random() * 2 - 1) * MAX_DRIFT;
+            star.style.setProperty('--size', size + 'px');
+            star.style.left = left + '%';
+            star.style.setProperty('--delay', `${delay}s`);
+            star.style.setProperty('--dur', `${dur}s`);
+            star.style.setProperty('--drift', `${drift}px`);
+            container.appendChild(star);
+          }
+        })();
+      }, 200);
+    });
+  })();
+</script>
 </body>
 
 </html>
