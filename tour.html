@@ -66,6 +66,7 @@
     }
 
     .video-wrap {
+      position: relative; /* Needed for play button */
       background: #000;
       border-radius: 12px;
       overflow: hidden;
@@ -78,7 +79,8 @@
       height: auto;
       display: block;
     }
-  .play-button {
+
+    .play-button {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -106,6 +108,7 @@
       border-bottom: 12px solid transparent;
       margin-left: 5px;
     }
+
     @media (max-width: 768px) {
       .logo-container {
         justify-content: center;
@@ -135,25 +138,37 @@
   </div>
 </header>
 
- <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="Gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-        <a href="tour.html">Virtual Tour</a>
-    </nav>
+<nav>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="tour.html">Virtual Tour</a>
+</nav>
 
 <main>
   <h2>Virtual Tour</h2>
 
   <div class="video-wrap">
-    <video controls playsinline>
+    <video id="tourVideo" poster="videos/tour-poster.jpg">
       <source src="videos/test.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <div class="play-button" id="playButton"></div>
   </div>
 </main>
+
+<script>
+  const video = document.getElementById('tourVideo');
+  const playButton = document.getElementById('playButton');
+
+  playButton.addEventListener('click', () => {
+    playButton.style.display = 'none';
+    video.play();
+    video.setAttribute('controls', 'true');
+  });
+</script>
 
 </body>
 </html>
