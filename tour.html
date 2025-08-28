@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Virtual Tour - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --brand:#007FFF;
+      --ink:#003366;
+      --card:#ffffff;
+      --shadow:0 8px 24px rgba(0,0,0,.15);
+    }
+    body{
+      font-family: Arial, sans-serif;
+      background:#e6f0ff;
+      color:var(--ink);
+      margin:0;
+    }
+    header{background:var(--brand);color:#fff;padding:20px}
+    .logo-container{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+    .logo{width:110px;height:auto}
+    .logo-container h1{margin:0;font-size:2rem}
+    nav{background:#cce0ff;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:10px 0}
+    nav a{color:#003366;text-decoration:none;font-weight:bold}
+
+    main{max-width:1100px;margin:30px auto 60px;padding:0 16px}
+    h2{margin:10px 0 18px;color:#0059b3;font-size:2rem;text-align:center}
+
+    /* Video stage */
+    .tour-wrap{
+      position:relative;
+      background:#000;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .tour-video{width:100%;height:auto;display:block;background:#000}
+    .hotspot{
+      position:absolute;
+      transform:translate(-50%,-50%);
+      border:none;
+      background:#fff;
+      border-radius:999px;
+      font-size:20px;
+      padding:6px 10px;
+      cursor:pointer;
+      box-shadow:0 4px 16px rgba(0,0,0,.25);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .hotspot:focus-visible{outline:3px solid #ffd24d}
+    .hotspot:hover{transform:translate(-50%,-50%) scale(1.06)}
+    .hotspot[data-hidden="true"]{display:none}
+
+    /* Info card */
+    .info-card{
+      position:absolute;
+      min-width:220px;
+      max-width:280px;
+      background:var(--card);
+      color:var(--ink);
+      border-radius:12px;
+      padding:14px 14px 12px;
+      box-shadow:var(--shadow);
+      transform:translate(-50%,-105%);
+      z-index:5;
+    }
+    .info-card h3{margin:0 0 6px;font-size:1.05rem;color:#0059b3}
+    .info-card p{margin:0 0 8px;font-size:.95rem;line-height:1.35}
+    .info-close{
+      position:absolute;top:6px;right:8px;
+      border:none;background:transparent;color:#666;font-size:20px;cursor:pointer
+    }
+
+    /* Timeline markers (optional) */
+    .timeline{display:flex;gap:8px;align-items:center;margin:16px 2px 0;flex-wrap:wrap;justify-content:center}
+    .marker{
+      border:1px solid #99c2ff;background:#fff;color:#0059b3;border-radius:999px;
+      padding:6px 10px;font-size:.9rem;cursor:pointer
+    }
+    .marker:hover{background:#eef5ff}
+
+    /* Small helper row */
+    .row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .hint{font-size:.9rem;color:#335}
+    .back{font-size:.95rem}
+    .back a{color:#0059b3;font-weight:bold;text-decoration:none}
+    .back a:hover{text-decoration:underline}
+
+    @media (max-width:640px){
+      .info-card{max-width:78vw}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
+  </div>
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+  <h2>Virtual Tour</h2>
+
+  <div class="tour-wrap" id="tourWrap" aria-label="Interactive video tour">
+    <video
+      id="tourVideo"
+      class="tour-video"
+      src="videos/tour.mp4"
+      poster="videos/tour-poster.jpg"
+      controls
+      playsinline
+    ></video>
+    <!-- Hotspots will be injected here -->
+  </div>
+
+  <div class="row">
+    <div class="hint">💡 Tap the pins in the video to learn about each area.</div>
+    <div class="back"><a href="Gallery.html">← Back to Gallery</a></div>
+  </div>
+
+  <!-- Optional quick-jump timeline -->
+  <div class="timeline" id="timeline"></div>
+</main>
+
+<script>
+/*
+  🔧 Configure your hotspots here.
+  Each hotspot:
+    - timeStart / timeEnd (in seconds): when it should be visible
+    - x, y: position in % relative to the video (0–100). Tweak by trial.
+    - emoji: the pin shown on screen
+    - title, text: info card content
+*/
+const HOTSPOTS = [
+  {
+    id: 'reading',
+    timeStart: 2, timeEnd: 12,
+    x: 28, y: 62,
+    emoji: '📚',
+    title: 'Reading Corner',
+    text: 'Cozy books, soft seating, and daily story time to spark imagination.'
+  },
+  {
+    id: 'play',
+    timeStart: 8, timeEnd: 22,
+    x: 66, y: 58,
+    emoji: '🧩',
+    title: 'Play & Learn',
+    text: 'STEM toys and puzzles that build problem-solving and fine motor skills.'
+  },
+  {
+    id: 'snack',
+    timeStart: 18, timeEnd: 34,
+    x: 48, y: 30,
+    emoji: '🍎',
+    title: 'Snack Table',
+    text: 'Healthy snacks with allergy-aware options and good table manners.'
+  }
+];
+
+// Build hotspots + timeline
+const wrap = document.getElementById('tourWrap');
+const video = document.getElementById('tourVideo');
+const timeline = document.getElementById('timeline');
+
+const els = HOTSPOTS.map(h => {
+  const btn = document.createElement('button');
+  btn.className = 'hotspot';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', h.title);
+  btn.dataset.id = h.id;
+  btn.style.left = h.x + '%';
+  btn.style.top = h.y + '%';
+  btn.textContent = h.emoji;
+  btn.hidden = true;
+  btn.dataset.hidden = 'true';
+  wrap.appendChild(btn);
+
+  // Info card (initially not in DOM)
+  btn.addEventListener('click', () => {
+    showCard(btn, h);
+  });
+
+  // Timeline button
+  const mk = document.createElement('button');
+  mk.className = 'marker';
+  mk.type = 'button';
+  mk.textContent = h.emoji + ' ' + h.title;
+  mk.title = `Jump to ${h.timeStart}s`;
+  mk.addEventListener('click', () => {
+    video.currentTime = h.timeStart + 0.01;
+    video.play();
+  });
+  timeline.appendChild(mk);
+
+  return { cfg: h, btn, card: null };
+});
+
+// Show/hide by time
+video.addEventListener('timeupdate', () => {
+  const t = video.currentTime;
+  els.forEach(({cfg, btn}) => {
+    const on = t >= cfg.timeStart && t <= cfg.timeEnd;
+    btn.hidden = !on;
+    btn.dataset.hidden = on ? 'false' : 'true';
+  });
+});
+
+// Close card on click outside
+document.addEventListener('click', (e) => {
+  // if click is not inside a card or a hotspot, close any card
+  if (!e.target.closest('.info-card') && !e.target.closest('.hotspot')) {
+    closeCards();
+  }
+});
+
+// Keyboard: Esc closes card
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCards();
+});
+
+function showCard(anchorBtn, cfg){
+  closeCards();
+  // Pause video while reading
+  video.pause();
+
+  const card = document.createElement('div');
+  card.className = 'info-card';
+  card.style.left = anchorBtn.style.left;
+  card.style.top = anchorBtn.style.top;
+
+  card.innerHTML = `
+    <button class="info-close" aria-label="Close info" title="Close">&times;</button>
+    <h3>${cfg.title}</h3>
+    <p>${cfg.text}</p>
+    <button type="button" class="marker" style="margin-top:6px">Keep Watching ▶</button>
+  `;
+
+  const close = () => card.remove();
+  card.querySelector('.info-close').addEventListener('click', close);
+  card.querySelector('.marker').addEventListener('click', () => { card.remove(); video.play(); });
+
+  wrap.appendChild(card);
+
+  // Keep a reference so we can close later
+  const el = els.find(e => e.cfg.id === cfg.id);
+  if (el) el.card = card;
+}
+
+function closeCards(){
+  els.forEach(e => {
+    if (e.card && e.card.remove) e.card.remove();
+    e.card = null;
+  });
+}
+</script>
+</body>
+</html>
