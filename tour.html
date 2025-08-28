@@ -1,34 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Virtual Tour - Echelon Day Care</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #e6f0ff;
-      color: #003366;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      color: #003366;
       text-align: center;
     }
-    h1 {
-      margin-bottom: 20px;
+
+    header {
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
     }
-    video {
-      width: 90%;
-      max-width: 800px;
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 110px;
+      height: auto;
+    }
+
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    main {
+      margin: 30px auto;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #0059b3;
+    }
+
+    .video-wrap {
+      margin-top: 20px;
+      background: #000;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+      nav a {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 2em;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Virtual Tour</h1>
-  <video controls playsinline>
-    <source src="videos/test.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
+  </div>
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+  <h2>Virtual Tour</h2>
+
+  <div class="video-wrap">
+    <video controls playsinline>
+      <source src="videos/tour.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+</main>
+
 </body>
 </html>
