@@ -2,13 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Video Test</title>
+  <title>Virtual Tour - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f0ff;
+      color: #003366;
+      margin: 0;
+    }
+    header {
+      background: #007FFF;
+      color: white;
+      padding: 20px;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo {
+      width: 110px;
+      height: auto;
+    }
+    .logo-container h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      background: #cce0ff;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 1100px;
+      margin: 30px auto 60px auto;
+      padding: 0 16px;
+    }
+    h2 {
+      text-align: center;
+      color: #0059b3;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Video container */
+    .tour-wrap {
+      position: relative;
+      max-width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    }
+    .tour-video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Hotspots */
+    .hotspot {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border-radius: 50%;
+      font-size: 20px;
+      padding: 6px 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      transition: transform .15s ease;
+      display: none;
+      z-index: 2;
+    }
+    .hotspot:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Info card */
+    .info-card {
+      position: absolute;
+      min-width: 220px;
+      max-width: 280px;
+      background: #fff;
+      color: #003366;
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+      transform: translate(-50%, -120%);
+      z-index: 3;
+    }
+    .info-card h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: #0059b3;
+    }
+    .info-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+    .info-close {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      border: none;
+      background: transparent;
+      font-size: 18px;
+      cursor: pointer;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-  <h2>Virtual Tour Test</h2>
-  <video width="640" controls>
-    <source src="videos/test.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo">
+    <h1>Echelon Day Care</h1>
+  </div>
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+  <h2>Virtual Tour</h2>
+  <div class="tour-wrap" id="tourWrap">
+    <video id="tourVideo" class="tour-video" src="videos/tour.mp4" controls playsinline></video>
+  </div>
+</main>
+
+<script>
+  const HOTSPOTS = [
+    { id:'reading', timeStart:2, timeEnd:12, x:28, y:62, emoji:'📚', title:'Reading Corner', text:'Cozy books and storytime.' },
+    { id:'play', timeStart:8, timeEnd:22, x:66, y:58, emoji:'🧩', title:'Play & Learn', text:'STEM toys and puzzles.' },
+    { id:'snack', timeStart:18, timeEnd:34, x:48, y:30, emoji:'🍎', title:'Snack Table', text:'Healthy snacks and allergy-aware options.' }
+  ];
+
+  const wrap = document.getElementById('tourWrap');
+  const video = document.getElementById('tourVideo');
+
+  const els = HOTSPOTS.map(h => {
+    const btn = document.createElement('button');
+    btn.className = 'hotspot';
+    btn.textContent = h.emoji;
+    btn.style.left = h.x + '%';
+    btn.style.top = h.y + '%';
+    wrap.appendChild(btn);
+
+    btn.addEventListener('click', () => showCard(btn, h));
+    return {cfg:h, btn, card:null};
+  });
+
+  video.addEventListener('timeupdate', () => {
+    const t = video.currentTime;
+    els.forEach(e => {
+      const on = t >= e.cfg.timeStart && t <= e.cfg.timeEnd;
+      e.btn.style.display = on ? 'block' : 'none';
+    });
+  });
+
+  function showCard(btn, cfg){
+    closeCards();
+    video.pause();
+    const card = document.createElement('div');
+    card.className = 'info-card';
+    card.style.left = btn.style.left;
+    card.style.top = btn.style.top;
+    card.innerHTML = `
+      <button class="info-close">&times;</button>
+      <h3>${cfg.title}</h3>
+      <p>${cfg.text}</p>
+    `;
+    card.querySelector('.info-close').addEventListener('click', () => { card.remove(); video.play(); });
+    wrap.appendChild(card);
+
+    const el = els.find(e => e.cfg.id === cfg.id);
+    if(el) el.card = card;
+  }
+
+  function closeCards(){
+    els.forEach(e => {
+      if(e.card) e.card.remove();
+      e.card = null;
+    });
+  }
+</script>
 </body>
 </html>
