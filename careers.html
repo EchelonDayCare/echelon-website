@@ -1,362 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <title>Careers - Echelon Day Care</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{
-      --brand:#007FFF;
-      --accent:#cce0ff;
-      --text:#003366;
-      --muted:#556b85;
-      --card-bg:#ffffff;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
     }
-    html,body{ margin:0; padding:0; font-family:Arial, sans-serif; background:#e6f0ff; color:var(--text); }
 
-    /* Header & nav (same look as Code 1) */
-    header{ background:var(--brand); color:#fff; padding:20px; }
-    .logo-container{ display:flex; align-items:center; gap:15px; max-width:1100px; margin:0 auto; }
-    .logo{ width:110px; height:auto; }
-    .logo-container h1{ font-size:2.6rem; margin:0; line-height:1; }
-
-    nav{ background:var(--accent); padding:10px 0; display:flex; justify-content:center; gap:14px; border-bottom:1px solid rgba(0,0,0,0.03); }
-    nav a{ color:var(--text); text-decoration:none; font-weight:700; font-size:1rem; padding:6px 8px; }
-
-    /* Page container */
-    .container{ max-width:1100px; margin:22px auto; padding:0 20px; }
-
-    /* Banner */
-    .hire-banner{
-      background: linear-gradient(90deg, rgba(0,127,255,0.08), #ffffff);
-      border-left:5px solid var(--brand);
-      padding:18px 20px;
-      border-radius:8px;
-      display:flex;
-      align-items:center;
-      gap:16px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.04);
+    header {
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
     }
-    .hire-banner .icon{ font-size:28px; color:var(--brand); }
-    .hire-banner h2{ margin:0; font-size:1.4rem; }
-    .hire-banner p{ margin:0; color:var(--muted); }
 
-    /* Jobs grid */
-    .jobs-area{ margin-top:18px; display:grid; grid-template-columns: 1fr 340px; gap:20px; align-items:start; }
-    .jobs-list{ display:flex; flex-direction:column; gap:14px; }
-    .job-card{
-      background:var(--card-bg);
-      border-radius:8px;
-      padding:14px;
-      box-shadow:0 6px 14px rgba(3,60,100,0.04);
-      border-left:5px solid var(--brand);
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
-    .job-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-    .job-title{ font-weight:800; font-size:1.05rem; margin:0; color:var(--text); }
-    .job-meta{ color:var(--muted); font-size:0.92rem; margin-top:8px; }
-    .job-short{ margin:12px 0; color:#213547; line-height:1.45; }
-    .job-actions{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
 
-    .tag{ background:#f2f8ff; color:var(--brand); padding:6px 9px; border-radius:14px; font-weight:700; font-size:0.85rem; }
+    .logo {
+      width: 110px;
+      height: auto;
+    }
 
-    .btn{ background:var(--brand); color:#fff; border:none; padding:9px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
-    .btn.ghost{ background:transparent; color:var(--brand); border:1px solid rgba(0,127,255,0.12); }
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
 
-    details summary{ list-style:none; cursor:pointer; font-weight:700; color:var(--brand); }
-    details summary::after{ content:"▼"; float:right; color:var(--muted); font-weight:400; }
-    details[open] summary::after{ content:"▲"; }
+    nav {
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
 
-    /* Sidebar (contact & quick info) */
-    .sidebar{ background:#fff; padding:16px; border-radius:8px; box-shadow:0 6px 14px rgba(3,60,100,0.04); }
-    .side-title{ font-weight:800; margin:0 0 8px 0; }
-    .side-text{ color:var(--muted); font-size:0.95rem; margin:0 0 12px 0; }
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-    /* Apply modal */
-    .modal-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; z-index:1200; }
-    .modal{ width:100%; max-width:720px; background:#fff; border-radius:10px; padding:18px; box-shadow:0 12px 40px rgba(0,0,0,0.25); }
-    .close-x{ background:transparent; border:none; font-size:20px; cursor:pointer; }
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-    .form-row{ display:flex; gap:12px; flex-wrap:wrap; margin:10px 0; }
-    label{ display:block; font-size:0.9rem; color:var(--muted); margin-bottom:6px; }
-    input[type="text"], input[type="email"], select, textarea { width:100%; padding:10px 12px; border-radius:8px; border:1px solid #dbeafc; font-size:0.95rem; }
-    textarea{ min-height:100px; resize:vertical; }
+    /* Reuse the "program" style from Code 1 for the main heading block */
+    .program {
+      background-color: #ffffff;
+      border-left: 5px solid #007FFF;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
 
-    .file-preview{ font-size:0.9rem; color:var(--muted); margin-top:6px; }
+    .program h2 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.8em;
+    }
 
-    .notice{ font-size:0.9rem; color:var(--muted); margin-top:8px; }
-    .success{ color:#2d9a4a; font-weight:700; }
+    .program h2 i {
+      margin-right: 12px;
+      color: #007FFF;
+    }
 
-    /* small screens */
-    @media (max-width:900px){
-      .jobs-area{ grid-template-columns: 1fr; }
-      .logo-container h1{ font-size:1.8rem; }
+    .program p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+      }
+
+      .logo {
+        width: 70px;
+      }
+
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header & nav (same style as Code 1) -->
-  <header>
-    <div class="logo-container">
-      <img src="logoMod.png" alt="Echelon Logo" class="logo" />
-      <div>
-        <h1>Echelon Day Care</h1>
-        <div style="color:#f1f7ff; opacity:0.95; font-size:0.95rem;">Caring for little hearts and curious minds</div>
-      </div>
-    </div>
-  </header>
-
-  <nav aria-label="Main navigation">
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="Gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="tour.html">Virtual Tour</a>
-    <a href="careers.html" aria-current="page">Careers</a>
-  </nav>
-
-  <main class="container" id="main">
-    <!-- Prominent banner above the job list -->
-    <section class="hire-banner" aria-labelledby="hiring-title">
-      <div class="icon"><i class="fas fa-bullhorn"></i></div>
-      <div>
-        <h2 id="hiring-title">Currently hiring for below roles</h2>
-        <p>We’re actively recruiting for these positions. Click Apply to submit your application.</p>
-      </div>
-    </section>
-
-    <!-- Jobs area: left = list, right = sidebar -->
-    <section class="jobs-area" aria-labelledby="open-roles">
-      <div>
-        <h3 id="open-roles" style="margin:18px 0 12px 0;">Open Positions</h3>
-
-        <div class="jobs-list" id="jobsList" aria-live="polite">
-          <!-- job cards inserted here by JS -->
-        </div>
-      </div>
-
-      <aside class="sidebar" aria-label="Recruiting information">
-        <h4 class="side-title">Quick info</h4>
-        <p class="side-text">Location: Vancouver<br/>Working hours: Varies by role<br/>Competitive pay & professional development</p>
-        <div style="display:flex; gap:8px; margin-top:10px;">
-          <a class="btn" href="mailto:careers@echelon.example">Email Careers</a>
-          <a class="btn ghost" href="contact.html">Contact</a>
-        </div>
-      </aside>
-    </section>
-  </main>
-
-  <!-- Apply Modal (hidden) -->
-  <div id="applyModalRoot" style="display:none;" aria-hidden="true">
-    <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
-      <div class="modal" role="document">
-        <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <h3 id="applyTitle">Apply for role</h3>
-          <button class="close-x" id="closeApplyBtn" aria-label="Close">✕</button>
-        </header>
-
-        <form id="applyForm" novalidate>
-          <input type="hidden" id="jobId" name="jobId" />
-          <div class="form-row">
-            <div style="flex:1">
-              <label for="fullName">Full name</label>
-              <input id="fullName" name="fullName" type="text" required />
-            </div>
-            <div style="width:180px">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="text" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div style="flex:1">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-            <div style="width:180px">
-              <label for="appliedType">Role Type</label>
-              <select id="appliedType" name="appliedType">
-                <option>Full-time</option>
-                <option>Part-time</option>
-                <option>Contract</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div style="flex:1">
-              <label for="cover">Cover note</label>
-              <textarea id="cover" name="cover" placeholder="Short note (why you are a good fit)"></textarea>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div style="flex:1">
-              <label for="resume">Resume (PDF or DOCX)</label>
-              <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" />
-              <div class="file-preview" id="resumePreview"></div>
-            </div>
-          </div>
-
-          <div style="display:flex; gap:10px; align-items:center; margin-top:12px;">
-            <button class="btn" type="submit">Submit application</button>
-            <button class="btn ghost" type="button" id="saveDraftBtn">Save draft</button>
-            <div id="formMessage" style="margin-left:auto"></div>
-          </div>
-
-          <div class="notice" style="margin-top:12px">By applying you agree to our <a href="privacy.html">privacy policy</a>.</div>
-        </form>
-      </div>
-    </div>
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
   </div>
+</header>
 
-  <script>
-    /* ---------- JOBS data (two entries as requested) ---------- */
-    const JOBS = [
-      {
-        id: 'J001',
-        title: 'Lead Early Years Teacher',
-        dept: 'Teaching',
-        type: 'Full-time',
-        location: 'Vancouver',
-        short: 'Plan and deliver early childhood curriculum for children aged 3–5.',
-        details: 'We are looking for a nurturing Lead Teacher with minimum 3 years experience in early years. Responsibilities include lesson planning, parent communication and child assessments. Valid daycare certification required.'
-      },
-      {
-        id: 'J002',
-        title: 'Assistant Teacher - Toddlers',
-        dept: 'Teaching',
-        type: 'Part-time',
-        location: 'Vancouver',
-        short: 'Support lead teachers with toddler group activities and care.',
-        details: 'Assist with daily routines, play-based learning, and maintain safe learning environment. Good observation skills and CPR/First Aid preferred.'
-      }
-    ];
+<nav>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="tour.html">Virtual Tour</a>
+  <a href="careers.html">Careers</a>
+</nav>
 
-    /* ---------- Render jobs ---------- */
-    const jobsList = document.getElementById('jobsList');
+<div class="content">
+  <div class="program">
+    <h2><i class="fas fa-briefcase"></i> Careers at Echelon Day Care</h2>
+    <p>
+      We are always happy to connect with passionate educators and support staff who love working with children.
+      If you’d like to be considered for future opportunities at Echelon Day Care, please contact us or
+      drop in your resume.
+    </p>
+    <p>
+      You can email us at <strong>careers@echelon.example</strong> or call the center office during business hours
+      to learn about any current openings.
+    </p>
+  </div>
+</div>
 
-    function renderJobs(list){
-      jobsList.innerHTML = '';
-      list.forEach(job => {
-        const card = document.createElement('article');
-        card.className = 'job-card';
-        card.innerHTML = `
-          <div class="job-head">
-            <div>
-              <div class="job-title">${job.title}</div>
-              <div class="job-meta">${job.location} • <span class="tag">${job.dept}</span> • ${job.type}</div>
-            </div>
-            <div style="text-align:right">
-              <button class="btn" data-jobid="${job.id}" aria-haspopup="dialog">Apply</button>
-            </div>
-          </div>
-          <p class="job-short">${job.short}</p>
-          <details>
-            <summary>View details</summary>
-            <p style="margin-top:8px;color:#213547">${job.details}</p>
-            <div style="margin-top:10px;" class="job-actions">
-              <button class="btn" data-jobid="${job.id}" aria-haspopup="dialog">Apply for this role</button>
-              <a class="btn ghost" href="mailto:careers@echelon.example">Refer a friend</a>
-            </div>
-          </details>
-        `;
-        jobsList.appendChild(card);
-      });
-    }
-
-    renderJobs(JOBS);
-
-    /* ---------- Apply modal handling ---------- */
-    const applyModalRoot = document.getElementById('applyModalRoot');
-    const applyForm = document.getElementById('applyForm');
-    const closeApplyBtn = document.getElementById('closeApplyBtn');
-    const resumeInput = document.getElementById('resume');
-    const resumePreview = document.getElementById('resumePreview');
-    let activeJobId = null;
-
-    function openApplyModal(jobId){
-      activeJobId = jobId;
-      applyModalRoot.style.display = 'block';
-      applyModalRoot.setAttribute('aria-hidden','false');
-      document.getElementById('jobId').value = jobId;
-      const j = JOBS.find(x=>x.id===jobId);
-      document.getElementById('applyTitle').textContent = `Apply — ${j.title}`;
-      applyForm.reset();
-      resumePreview.textContent = '';
-      setTimeout(()=> document.getElementById('fullName').focus(),50);
-    }
-
-    function closeApplyModal(){
-      applyModalRoot.style.display = 'none';
-      applyModalRoot.setAttribute('aria-hidden','true');
-    }
-
-    // Delegate apply buttons
-    document.body.addEventListener('click', (e)=>{
-      const btn = e.target.closest('button[data-jobid]');
-      if(btn){
-        openApplyModal(btn.getAttribute('data-jobid'));
-      }
-      if(e.target.closest('.close-x')) closeApplyModal();
-      // click outside modal to close (only if clicking backdrop)
-      if(e.target.classList && e.target.classList.contains('modal-backdrop')) closeApplyModal();
-    });
-
-    closeApplyBtn.addEventListener('click', closeApplyModal);
-
-    // resume preview
-    resumeInput.addEventListener('change', (ev)=>{
-      const f = ev.target.files[0];
-      if(!f) { resumePreview.textContent=''; return; }
-      resumePreview.textContent = `${f.name} • ${(f.size/1024|0)} KB`;
-    });
-
-    // fake submit
-    applyForm.addEventListener('submit', (ev)=>{
-      ev.preventDefault();
-      const formData = new FormData(applyForm);
-      if(!formData.get('fullName') || !formData.get('email')){
-        document.getElementById('formMessage').innerHTML = '<span style="color:#e45756">Please provide name and email.</span>';
-        return;
-      }
-      document.getElementById('formMessage').innerHTML = '<span class="success">Sending…</span>';
-      setTimeout(()=>{
-        document.getElementById('formMessage').innerHTML = '<span class="success">Application submitted — thank you!</span>';
-        setTimeout(()=> {
-          closeApplyModal();
-          document.getElementById('formMessage').textContent = '';
-        }, 1400);
-      }, 900);
-    });
-
-    // Save draft
-    document.getElementById('saveDraftBtn').addEventListener('click', ()=>{
-      const data = { name: document.getElementById('fullName').value, email: document.getElementById('email').value, cover: document.getElementById('cover').value };
-      localStorage.setItem('careersDraft', JSON.stringify(data));
-      alert('Draft saved locally in your browser.');
-    });
-
-    // Load draft (optional)
-    window.addEventListener('load', ()=>{
-      const d = localStorage.getItem('careersDraft');
-      if(d){
-        try{
-          const parsed = JSON.parse(d);
-          if(parsed.name) document.getElementById('fullName').value = parsed.name;
-          if(parsed.email) document.getElementById('email').value = parsed.email;
-          if(parsed.cover) document.getElementById('cover').value = parsed.cover;
-        }catch(e){}
-      }
-    });
-
-    // keyboard
-    document.addEventListener('keydown', (e)=>{
-      if(e.key==='Escape' && applyModalRoot.style.display==='block') closeApplyModal();
-    });
-
-  </script>
 </body>
 </html>
