@@ -119,6 +119,77 @@
         transform: translateY(0);
       }
     }
+
+    /* ---------- ADDED: Hiring banner & job list styles (no other changes) ---------- */
+    .hire-banner {
+      background: linear-gradient(90deg, rgba(0,127,255,0.06), #ffffff);
+      border-left: 5px solid #007FFF;
+      padding: 16px 18px;
+      border-radius: 8px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .hire-banner .hb-icon {
+      font-size: 28px;
+      color: #007FFF;
+      width: 42px;
+      height: 42px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .jobs-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .job-card {
+      background: #fff;
+      border-left: 4px solid #007FFF;
+      padding: 14px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    }
+
+    .job-title {
+      font-weight:700;
+      margin:0;
+      font-size:1.05rem;
+      color:#003366;
+    }
+
+    .job-meta {
+      color: #556b85;
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .job-short {
+      margin:10px 0;
+      color:#213547;
+    }
+
+    .apply-instruction {
+      margin-top:8px;
+      font-weight:700;
+    }
+
+    .apply-email {
+      color:#007FFF;
+      text-decoration:none;
+    }
+
+    /* small screens */
+    @media (max-width:480px) {
+      .hire-banner { flex-direction:column; align-items:flex-start; gap:8px; }
+    }
+    /* ---------- end added ---------- */
   </style>
 </head>
 <body>
@@ -141,6 +212,43 @@
 </nav>
 
 <div class="content">
+
+  <!-- ADDED: Hiring banner -->
+  <div class="hire-banner" role="region" aria-label="Hiring banner">
+    <div class="hb-icon" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
+    <div>
+      <div style="font-weight:800; font-size:1.1rem;">Currently hiring for below roles</div>
+      <div style="color:#556b85; margin-top:6px;">Interested candidates — please email your CV to <a class="apply-email" href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a></div>
+    </div>
+  </div>
+
+  <!-- ADDED: Job openings (two) -->
+  <div class="jobs-list" aria-live="polite" aria-label="Job openings">
+    <div class="job-card" id="job-J001">
+      <div class="job-title">Lead Early Years Teacher</div>
+      <div class="job-meta">Teaching • Full-time • Vancouver</div>
+      <div class="job-short">Plan and deliver early childhood curriculum for children aged 3–5.</div>
+      <div class="job-details" style="color:#213547;">
+        We are looking for a nurturing Lead Teacher with minimum 3 years experience in early years.
+        Responsibilities include lesson planning, parent communication and child assessments.
+        Valid daycare certification required.
+      </div>
+      <div class="apply-instruction">To apply: email your CV and cover letter to <a class="apply-email" href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a></div>
+    </div>
+
+    <div class="job-card" id="job-J002">
+      <div class="job-title">Assistant Teacher - Toddlers</div>
+      <div class="job-meta">Teaching • Part-time • Vancouver</div>
+      <div class="job-short">Support lead teachers with toddler group activities and care.</div>
+      <div class="job-details" style="color:#213547;">
+        Assist with daily routines, play-based learning, and maintain safe learning environment.
+        Good observation skills and CPR/First Aid preferred.
+      </div>
+      <div class="apply-instruction">To apply: email your CV and availability to <a class="apply-email" href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a></div>
+    </div>
+  </div>
+
+  <!-- ORIGINAL program block (unchanged) -->
   <div class="program">
     <h2><i class="fas fa-briefcase"></i> Careers at Echelon Day Care</h2>
     <p>
