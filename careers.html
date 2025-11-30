@@ -1,122 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <title>Careers - Echelon Day Care</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Minimal styles for top banner + headings */
-    :root {
-      --brand: #007FFF;
-      --accent: #cce0ff;
-      --text: #003366;
-      --bg: #e6f0ff;
-    }
-
-    html,body{
-      margin:0;
-      padding:0;
+    body {
       font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
     }
 
     header {
-      background-color: var(--brand);
-      color: #fff;
-      padding: 18px 20px;
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
     }
 
     .logo-container {
-      display:flex;
-      align-items:center;
-      gap:14px;
-      max-width:1100px;
-      margin:0 auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     .logo {
-      width:110px;
-      height:auto;
-      display:block;
+      width: 110px;
+      height: auto;
     }
 
-    header h1 {
-      margin:0;
-      font-size:1.8rem;
-      line-height:1;
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
     }
 
     nav {
-      background: var(--accent);
-      padding:10px 0;
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      border-bottom: 1px solid rgba(0,0,0,0.03);
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
     }
 
-    nav a{
-      color:var(--text);
-      text-decoration:none;
-      font-weight:700;
-      font-size:1rem;
-      padding:6px 8px;
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
 
-    /* page heading area (keeps top heading) */
-    .page-heading {
-      max-width:1100px;
-      margin:22px auto;
-      padding:0 20px;
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    .page-heading h2 {
-      margin:0 0 8px 0;
-      font-size:1.6rem;
-      color:var(--text);
+    /* Reuse the "program" style from Code 1 for the main heading block */
+    .program {
+      background-color: #ffffff;
+      border-left: 5px solid #007FFF;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease-in-out;
     }
 
-    .page-heading p {
-      margin:0;
-      color: #556b85;
+    .program h2 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.8em;
     }
 
-    @media (max-width:768px){
-      .logo { width:70px; }
-      header h1 { font-size:1.2rem; }
-      nav { padding:8px 0; gap:8px; }
-      nav a { font-size:0.9rem; }
+    .program h2 i {
+      margin-right: 12px;
+      color: #007FFF;
+    }
+
+    .program p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+      }
+
+      .logo {
+        width: 70px;
+      }
+
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-container">
-      <img src="logoMod.png" alt="Echelon Logo" class="logo" />
-      <div>
-        <h1>Echelon Day Care</h1>
-        <div style="font-size:0.9rem; opacity:0.95;">Caring for little hearts and curious minds</div>
-      </div>
-    </div>
-  </header>
-
-  <nav aria-label="Main navigation">
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="Gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="tour.html">Virtual Tour</a>
-    <a href="careers.html" aria-current="page">Careers</a>
-  </nav>
-
-  <div class="page-heading">
-    <h2>Careers at Echelon Day Care</h2>
-    <p>Explore opportunities to join our team — inspiring, safe and nurturing environment for children.</p>
+<header>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
   </div>
+</header>
+
+<nav>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="tour.html">Virtual Tour</a>
+  <a href="careers.html">Careers</a>
+</nav>
+
+<div class="content">
+  <div class="program">
+    <h2><i class="fas fa-briefcase"></i> Careers at Echelon Day Care</h2>
+    <p>
+      We are always happy to connect with passionate educators and support staff who love working with children.
+      If you’d like to be considered for future opportunities at Echelon Day Care, please contact us or
+      drop in your resume.
+    </p>
+    <p>
+      You can email us at <strong>careers@echelon.example</strong> or call the center office during business hours
+      to learn about any current openings.
+    </p>
+  </div>
+</div>
 
 </body>
 </html>
