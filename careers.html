@@ -1,129 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<title>Echelon Day Care — Careers</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<style>
-    /* Basic page styles — aligned with your existing theme */
-    :root{
-        --brand:#007FFF;
-        --accent:#cce0ff;
-        --text:#003366;
-        --card-bg:#ffffff;
-        --muted:#7a8aa6;
-        --success:#2d9a4a;
-        --danger:#e45756;
+  <meta charset="UTF-8" />
+  <title>Services - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
     }
-    body{
-        font-family: Arial, sans-serif;
-        margin:0;
-        color:var(--text);
-        background: linear-gradient(180deg,#e6f0ff 0%, #f7fbff 100%);
-        -webkit-font-smoothing:antialiased;
-        -moz-osx-font-smoothing:grayscale;
+
+    header {
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
     }
-    header{
-        background:var(--brand);
-        color:#fff;
-        padding:18px 20px;
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
-    .logo-container{ display:flex; align-items:center; gap:14px; }
-    .logo { width:72px; height:auto; display:block; }
-    header h1{ font-size:1.6rem; margin:0; }
-    nav{ background:var(--accent); padding:10px 0; display:flex; justify-content:center; gap:18px; position:sticky; top:0; z-index:5}
-    nav a { color:var(--text); text-decoration:none; font-weight:700; }
-    .container{ max-width:1100px; margin:28px auto; padding:0 20px; }
 
-    /* Page top */
-    .hero-careers{
-        display:flex; gap:20px; align-items:center; background: linear-gradient(90deg, rgba(0,127,255,0.08), rgba(255,255,255,0.6));
-        border-radius:12px; padding:28px; box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    .logo {
+      width: 110px;
+      height: auto;
     }
-    .hero-careers h2{ margin:0 0 8px 0; font-size:1.8rem; color:var(--text); }
-    .hero-careers p{ margin:0; color:var(--muted); max-width:800px; line-height:1.45 }
 
-    /* Controls */
-    .controls { display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 12px; align-items:center; }
-    .select, .search {
-        padding:8px 12px; border-radius:8px; border:1px solid #d8e6ff; background:#fff;
-        min-width:160px;
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
     }
-    .search { flex:1; max-width:420px; }
 
-    /* Grid of jobs */
-    .jobs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; margin-top:12px; }
-    .job-card {
-        background:var(--card-bg); border-radius:10px; padding:16px; box-shadow:0 6px 12px rgba(3,60,100,0.04);
-        border:1px solid rgba(0,0,0,0.03);
+    nav {
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
     }
-    .job-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-    .job-title{ font-size:1.05rem; margin:0; color:var(--text); }
-    .meta{ color:var(--muted); font-size:0.9rem; margin-top:6px; }
-    .tag { padding:6px 9px; font-size:0.8rem; border-radius:14px; background:#f2f8ff; color:var(--brand); font-weight:700; }
 
-    .job-desc{ margin:12px 0 8px; color:#2a3f53; line-height:1.4; }
-    .job-actions{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-
-    .btn {
-        background:var(--brand); color:#fff; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; font-weight:700;
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
-    .btn.ghost { background:transparent; color:var(--brand); border:1px solid rgba(0,127,255,0.12); font-weight:700; }
 
-    details summary { list-style:none; cursor:pointer; font-weight:700; color:var(--brand); }
-    details[open] summary::after { content:"▲"; float:right; color:var(--muted); font-weight:400; }
-    details summary::after { content:"▼"; float:right; color:var(--muted); font-weight:400; }
-
-    /* Apply modal */
-    .modal-backdrop {
-        position:fixed; inset:0; background:rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; z-index:1200;
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-    .modal {
-        background:#fff; width:100%; max-width:760px; border-radius:10px; padding:18px; box-shadow:0 12px 40px rgba(0,0,0,0.25);
+
+    .program {
+      background-color: #ffffff;
+      border-left: 5px solid #007FFF;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease-in-out;
     }
-    .modal header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
-    .modal h3{ margin:0; }
-    .close-x{ background:transparent; border:none; font-size:18px; cursor:pointer; }
 
-    .form-row{ display:flex; gap:12px; margin:10px 0; flex-wrap:wrap; }
-    label{ display:block; font-size:0.9rem; color:var(--muted); margin-bottom:6px; }
-    input[type="text"], input[type="email"], select, textarea {
-        width:100%; padding:10px 12px; border-radius:8px; border:1px solid #dbeafc; font-size:0.95rem;
+    .program h2 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.8em;
     }
-    textarea{ min-height:110px; resize:vertical; }
 
-    .small{ max-width:220px; }
-    .file-preview{ font-size:0.9rem; color:var(--muted); margin-top:6px; }
-
-    .notice { font-size:0.9rem; color:var(--muted); margin-top:8px; }
-    .success { color:var(--success); font-weight:700; }
-
-    /* Footer-like contact */
-    .careers-footer{ margin-top:24px; padding:18px; background:linear-gradient(180deg,#f8fbff,#ffffff); border-radius:10px; }
-
-    /* Accessibility focus */
-    button:focus, input:focus, select:focus, textarea:focus, a:focus { outline:3px solid rgba(0,127,255,0.15); outline-offset:2px; }
-
-    /* Responsive tweaks */
-    @media (max-width:640px){
-        .hero-careers{ flex-direction:column; align-items:flex-start; gap:12px; }
-        .form-row{ flex-direction:column; }
+    .program h2 i {
+      margin-right: 12px;
+      color: #007FFF;
     }
-</style>
+
+    .program p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .pdf-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #007FFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .pdf-link:hover {
+      background-color: #005fcc;
+    }
+
+    /* Waiting list container */
+    #waiting-list {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      margin-top: 40px;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    /* Title */
+    #waiting-list h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #003366;
+      border-bottom: 3px solid #007FFF;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    /* Iframe wrapper */
+    .form-wrapper {
+      border: 3px solid #007FFF;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f8fbff;
+    }
+
+    /* Force iframe to behave nicely */
+    #waiting-list iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      height: 1400px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+      }
+
+      .logo {
+        width: 70px;
+      }
+
+      .logo-container h1 {
+        font-size: 1.6em;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      #waiting-list iframe {
+        height: 1200px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <div class="container logo-container">
-        <img src="logoMod.png" alt="Echelon Day Care logo" class="logo" />
-        <div>
-            <h1>Echelon Day Care</h1>
-            <div style="font-size:0.9rem;color:#f1f7ff;opacity:0.9">Join our team — make a difference for children</div>
-        </div>
-    </div>
+  <div class="logo-container">
+    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <h1>Echelon Day Care</h1>
+  </div>
 </header>
-
-
+ 
  <nav>
         <a href="home.html">Home</a>
         <a href="about.html">About</a>
@@ -133,307 +193,47 @@
         <a href="tour.html">Virtual Tour</a>
         <a href="careers.html">Careers</a>
 </nav>
+    
+<div class="content">
+  <!-- Daycare Program Section -->
+  <div class="program">
+    <h2><i class="fas fa-child"></i> Daycare Program (Ages 30 months to 5 years)</h2>
+    <p>
+      Our daycare program nurtures the curiosity and creativity of children aged 30 months to 5 years.
+      We focus on structured learning through play-based activities that prepare kids
+      for kindergarten. The program encourages early literacy, numeracy, problem-solving,
+      and social-emotional development. Our experienced educators ensure a warm, inclusive,
+      and engaging environment that fosters confidence and independence in every child.
+    </p>
+    <p>
+      Children enjoy music, art, outdoor play, and story time every day. Small group sizes allow
+      for personalized attention and a calm, supportive setting.
+    </p>
+    <a class="pdf-link" href="Echelon_Preschool_Brochure.pdf" target="_blank">
+      📄 Download Program Brochure (PDF)
+    </a>
+  </div>
 
-<main class="container" id="main">
-    <section class="hero-careers" aria-labelledby="careers-heading">
-        <div>
-            <h2 id="careers-heading">Work with us — Careers at Echelon Day Care</h2>
-            <p>We’re building a caring, safe, and creative environment for young children. Browse open roles below and apply directly through the site.</p>
-        </div>
-        <div style="margin-left:auto; text-align:right;">
-            <div style="font-weight:700;color:var(--brand)">Why join us?</div>
-            <div style="color:var(--muted);font-size:0.95rem">Competitive pay • Professional development • Flexible hours</div>
-        </div>
-    </section>
-
-    <!-- Filters -->
-    <div class="controls" role="region" aria-label="Job filters">
-        <input class="search" id="searchInput" placeholder="Search roles, skills, locations..." aria-label="Search roles" />
-        <select class="select" id="deptFilter" aria-label="Filter by department">
-            <option value="">All departments</option>
-            <option value="Teaching">Teaching</option>
-            <option value="Admin">Administration</option>
-            <option value="Support">Support</option>
-        </select>
-        <select class="select" id="typeFilter" aria-label="Filter by type">
-            <option value="">All types</option>
-            <option value="Full-time">Full-time</option>
-            <option value="Part-time">Part-time</option>
-            <option value="Contract">Contract</option>
-        </select>
-        <button class="btn" id="clearFilters">Clear</button>
+  <!-- Waiting List Section -->
+  <section id="waiting-list">
+    <h2>WAITING LIST</h2>
+    <div class="form-wrapper">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSciq7seUngH91eAjrwOtO3NUf_IgbYi6Cu8LH4b32SANCewoQ/viewform?embedded=true&usp=pp_url&rm=embedded"
+        width="100%" 
+        height="1400" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        loading="lazy"
+        allow="fullscreen"
+      >
+        Loading…
+      </iframe>
     </div>
+  </section>
 
-    <!-- Jobs grid -->
-    <section aria-labelledby="open-roles">
-        <h3 id="open-roles" style="margin:6px 0 8px">Open Roles</h3>
-        <div class="jobs-grid" id="jobsGrid" aria-live="polite"></div>
-    </section>
-
-    <!-- FAQ / Info -->
-    <section style="margin-top:20px;">
-        <h3>Hiring process & FAQ</h3>
-        <details>
-            <summary>How do I apply?</summary>
-            <p class="notice">Click the <strong>Apply</strong> button on any role to open the application form. We accept resumes (PDF/DOCX) and a short cover note. You will see an on-screen confirmation after submission.</p>
-        </details>
-        <details>
-            <summary>What happens after I apply?</summary>
-            <p class="notice">Our HR team reviews applications weekly. If your skills match, we’ll invite you to a short interview. We aim to respond within two weeks.</p>
-        </details>
-    </section>
-
-    <div class="careers-footer">
-        <strong>Not seeing a role that fits?</strong>
-        <div style="color:var(--muted)">Send a speculative application to <a href="mailto:careers@echelon.example">careers@echelon.example</a></div>
-    </div>
-</main>
-
-<!-- Apply Modal template (hidden by default) -->
-<div id="applyModal" aria-hidden="true" style="display:none;">
-    <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
-        <div class="modal" role="document">
-            <header>
-                <h3 id="applyTitle">Apply for role</h3>
-                <button class="close-x" id="closeModalBtn" aria-label="Close application form">✕</button>
-            </header>
-
-            <form id="applyForm" novalidate>
-                <input type="hidden" id="jobId" name="jobId" />
-                <div class="form-row">
-                    <div style="flex:1">
-                        <label for="fullName">Full name</label>
-                        <input id="fullName" name="fullName" type="text" required />
-                    </div>
-                    <div style="width:220px">
-                        <label for="phone">Phone</label>
-                        <input id="phone" name="phone" type="text" />
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div style="flex:1">
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email" required />
-                    </div>
-                    <div style="width:180px">
-                        <label for="type">Role Type</label>
-                        <select id="appliedType" name="appliedType">
-                            <option>Full-time</option>
-                            <option>Part-time</option>
-                            <option>Contract</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div style="flex:1">
-                        <label for="cover">Cover note</label>
-                        <textarea id="cover" name="cover" placeholder="Short note (why you are a good fit)"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div style="flex:1">
-                        <label for="resume">Resume (PDF or DOCX)</label>
-                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" />
-                        <div class="file-preview" id="resumePreview"></div>
-                    </div>
-                </div>
-
-                <div style="display:flex; gap:10px; align-items:center; margin-top:12px;">
-                    <button class="btn" type="submit">Submit application</button>
-                    <button class="btn ghost" type="button" id="saveDraft">Save draft</button>
-                    <div id="formMessage" style="margin-left:auto"></div>
-                </div>
-
-                <div class="notice" style="margin-top:12px">By applying you agree to our <a href="privacy.html">privacy policy</a>.</div>
-            </form>
-        </div>
-    </div>
 </div>
 
-<script>
-/* ------------------- Sample jobs dataset ------------------- */
-const JOBS = [
-  {
-    id: 'J001',
-    title: 'Lead Early Childhood Educator',
-    dept: 'Teaching',
-    type: 'Full-time',
-    location: 'Vancouver',
-    short: 'Plan and deliver early childhood curriculum for children aged 3–5.',
-    details: 'We are looking for a nurturing Lead Teacher with minimum 3 years experience in early years. Responsibilities include lesson planning, parent communication and child assessments. Valid daycare certification required.'
-  },
-  {
-    id: 'J002',
-    title: 'Assistant Teacher - Toddlers',
-    dept: 'Teaching',
-    type: 'Part-time',
-    location: 'Vancouver',
-    short: 'Support lead teachers with toddler group activities and care.',
-    details: 'Assist with daily routines, play-based learning, and maintain safe learning environment. Good observation skills and CPR/First Aid preferred.'
-  },
-];
-
-/* ---------- render job cards ---------- */
-const jobsGrid = document.getElementById('jobsGrid');
-function renderJobs(list){
-  jobsGrid.innerHTML = '';
-  if(list.length===0){
-    jobsGrid.innerHTML = '<div style="color:var(--muted);">No matching roles found.</div>';
-    return;
-  }
-  list.forEach(job => {
-    const card = document.createElement('article');
-    card.className = 'job-card';
-    card.setAttribute('tabindex','0');
-    card.innerHTML = `
-      <div class="job-head">
-        <div>
-          <div class="job-title">${job.title}</div>
-          <div class="meta">${job.location} • <span class="tag">${job.dept}</span> • ${job.type}</div>
-        </div>
-        <div style="text-align:right">
-          <button class="btn" data-jobid="${job.id}" aria-haspopup="dialog">Apply</button>
-        </div>
-      </div>
-      <p class="job-desc">${job.short}</p>
-      <details>
-        <summary>View details</summary>
-        <p style="margin-top:8px;color:#333">${job.details}</p>
-        <div style="margin-top:10px;" class="job-actions">
-          <button class="btn" data-jobid="${job.id}" aria-haspopup="dialog">Apply for this role</button>
-          <button class="btn ghost" data-email="careers@echelon.example">Refer a friend</button>
-        </div>
-      </details>
-    `;
-    jobsGrid.appendChild(card);
-  });
-}
-renderJobs(JOBS);
-
-/* ---------- Filters & search ---------- */
-const deptFilter = document.getElementById('deptFilter');
-const typeFilter = document.getElementById('typeFilter');
-const searchInput = document.getElementById('searchInput');
-const clearFilters = document.getElementById('clearFilters');
-
-function applyFilters(){
-  const dept = deptFilter.value;
-  const type = typeFilter.value;
-  const q = searchInput.value.trim().toLowerCase();
-  const filtered = JOBS.filter(j=>{
-    const matchesDept = dept? j.dept===dept : true;
-    const matchesType = type? j.type===type : true;
-    const matchesQ = q? (j.title.toLowerCase().includes(q) || j.short.toLowerCase().includes(q) || j.details.toLowerCase().includes(q)) : true;
-    return matchesDept && matchesType && matchesQ;
-  });
-  renderJobs(filtered);
-}
-deptFilter.addEventListener('change', applyFilters);
-typeFilter.addEventListener('change', applyFilters);
-searchInput.addEventListener('input', () => { setTimeout(applyFilters, 150); });
-clearFilters.addEventListener('click', () => { deptFilter.value=''; typeFilter.value=''; searchInput.value=''; applyFilters(); });
-
-/* ---------- Apply modal handling ---------- */
-const applyModalRoot = document.getElementById('applyModal');
-const applyForm = document.getElementById('applyForm');
-const closeModalBtn = document.getElementById('closeModalBtn');
-let activeJobId = null;
-
-function openApplyModal(jobId){
-  activeJobId = jobId;
-  applyModalRoot.style.display = 'block';
-  applyModalRoot.setAttribute('aria-hidden','false');
-  document.getElementById('jobId').value = jobId;
-  const j = JOBS.find(x=>x.id===jobId);
-  document.getElementById('applyTitle').textContent = `Apply — ${j.title}`;
-  // reset form
-  applyForm.reset();
-  document.getElementById('resumePreview').textContent = '';
-  // focus first field for accessibility
-  setTimeout(()=> document.getElementById('fullName').focus(),50);
-}
-function closeApplyModal(){
-  applyModalRoot.style.display = 'none';
-  applyModalRoot.setAttribute('aria-hidden','true');
-}
-
-/* delegate apply buttons */
-document.body.addEventListener('click', (e)=>{
-  const btn = e.target.closest('button[data-jobid]');
-  if(btn){
-    const id = btn.getAttribute('data-jobid');
-    openApplyModal(id);
-  }
-  if(e.target.closest('.close-x') || e.target.closest('#applyModal .modal-backdrop') && e.target === document.querySelector('.modal-backdrop') ){
-    closeApplyModal();
-  }
-});
-
-/* close button */
-closeModalBtn.addEventListener('click', closeApplyModal);
-
-/* file preview */
-const resumeInput = document.getElementById('resume');
-const resumePreview = document.getElementById('resumePreview');
-resumeInput.addEventListener('change', (ev)=>{
-  const f = ev.target.files[0];
-  if(!f) { resumePreview.textContent=''; return; }
-  resumePreview.textContent = `${f.name} • ${(f.size/1024|0)} KB`;
-});
-
-/* fake submit (client-side) — replace with real endpoint later */
-applyForm.addEventListener('submit', (ev)=>{
-  ev.preventDefault();
-  const formData = new FormData(applyForm);
-  // basic validation
-  if(!formData.get('fullName') || !formData.get('email')){
-    document.getElementById('formMessage').innerHTML = '<span style="color:var(--danger)">Please provide name and email.</span>';
-    return;
-  }
-  // show a friendly confirmation
-  document.getElementById('formMessage').innerHTML = '<span class="success">Sending…</span>';
-  // Simulate upload delay
-  setTimeout(()=>{
-    document.getElementById('formMessage').innerHTML = '<span class="success">Application submitted — thank you!</span>';
-    // you can hook real submission here (fetch POST to your server)
-    setTimeout(()=> {
-      closeApplyModal();
-      document.getElementById('formMessage').textContent = '';
-    }, 1500);
-  }, 900);
-});
-
-/* Save draft (localStorage) */
-document.getElementById('saveDraft').addEventListener('click', ()=>{
-  const data = {
-    name: document.getElementById('fullName').value,
-    email: document.getElementById('email').value,
-    cover: document.getElementById('cover').value
-  };
-  localStorage.setItem('careersDraft', JSON.stringify(data));
-  alert('Draft saved locally in your browser.');
-});
-/* Load any draft automatically */
-window.addEventListener('load', ()=>{
-  const d = localStorage.getItem('careersDraft');
-  if(d){
-    try{
-      const parsed = JSON.parse(d);
-      if(parsed.name) document.getElementById('fullName').value = parsed.name;
-      if(parsed.email) document.getElementById('email').value = parsed.email;
-      if(parsed.cover) document.getElementById('cover').value = parsed.cover;
-    }catch(e){}
-  }
-});
-
-/* close modal on Escape */
-document.addEventListener('keydown', (e)=>{
-  if(e.key==='Escape' && applyModalRoot.style.display==='block') closeApplyModal();
-});
-
-</script>
 </body>
 </html>
