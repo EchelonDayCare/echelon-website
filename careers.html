@@ -59,13 +59,13 @@
       box-shadow:0 4px 12px rgba(0,0,0,0.12);
     }
 
-    /* Header - aligned with home.html for site-wide consistency */
+    /* Header - left aligned to match other pages */
     header {
       background-color: #007FFF;
       color: white;
       padding: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start; /* left aligned */
       align-items: center;
     }
 
@@ -73,8 +73,9 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      /* do not center the container; keep it left aligned like other pages */
       max-width: var(--max-width);
-      margin: 0 auto;
+      margin: 0; /* keep left alignment consistent */
       flex-wrap:wrap;
     }
 
@@ -89,6 +90,7 @@
       margin: 0;
       font-weight: 800;
       letter-spacing: -0.01em;
+      color: white;
     }
 
     nav {
@@ -307,7 +309,7 @@
     /* Responsive tweaks */
     @media (max-width:720px){
       .logo { width:64px; }
-      .logo-container { justify-content:center; text-align:center; }
+      .logo-container { justify-content:flex-start; text-align:left; }
       .hero { flex-direction:column; align-items:flex-start; }
     }
   </style>
@@ -320,7 +322,7 @@
       <img src="logoMod.png" alt="Echelon Day Care logo" class="logo" />
       <div>
         <h1 class="brand-title">Echelon Day Care</h1>
-        <div style="font-size:0.85rem; color:rgba(255,255,255,0.95); font-weight:600;">Caring · Learning · Growing</div>
+        <!-- tagline removed to match other pages -->
       </div>
     </div>
   </header>
