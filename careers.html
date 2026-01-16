@@ -34,6 +34,7 @@
       padding: 0;
       color: var(--brand-strong);
       -webkit-font-smoothing:antialiased;
+      position: relative;
     }
 
     /* Skip link for accessibility */
@@ -58,24 +59,27 @@
       box-shadow:0 4px 12px rgba(0,0,0,0.12);
     }
 
+    /* Header - aligned with home.html for site-wide consistency */
     header {
-      background-color: var(--brand);
+      background-color: #007FFF;
       color: white;
-      padding: 18px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 15px;
       max-width: var(--max-width);
       margin: 0 auto;
       flex-wrap:wrap;
     }
 
     .logo {
-      width: 88px;
+      width: 110px;
       height: auto;
       display:block;
     }
@@ -88,20 +92,19 @@
     }
 
     nav {
-      background-color: #cce7ff;
+      background-color: #cce0ff;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      padding: 8px 12px;
-      gap:8px;
+      padding: 10px 0;
     }
 
     nav a {
-      margin: 4px 12px;
-      color: var(--brand-strong);
+      margin: 5px 15px;
+      color: #003366;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
       padding:6px 8px;
       border-radius:6px;
     }
@@ -535,7 +538,6 @@
     // Modal & email-only form handling
     const backdrop = document.getElementById('modal-backdrop');
     const modalTitle = document.getElementById('modal-title');
-    const applyForm = document.getElementById('apply-form');
     const emailFallbackBtn = document.getElementById('email-fallback');
     const modalClose = document.getElementById('modal-close');
     let activeJob = null;
