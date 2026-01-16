@@ -294,7 +294,7 @@
     .close-btn { background:transparent; border:none; font-size:1.1rem; color:var(--muted); cursor:pointer; }
 
     .form-row { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
-    .form-row input[type="text"], .form-row input[type="email"], .form-row textarea, .form-row input[type="file"]{
+    .form-row input[type="text"], .form-row input[type="email"], .form-row textarea {
       padding:8px 10px; border-radius:8px; border:1px solid #d6e6ff; min-width:180px; width:100%;
     }
     .form-row textarea { min-height:100px; resize:vertical; }
@@ -338,7 +338,7 @@
       <div class="hb-icon" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
       <div>
         <h2 id="hiring-heading">We're hiring — join the Echelon family</h2>
-        <p>Interested candidates: email your resume to <a class="apply-email" href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a> or use the "Apply" button on a posting to send a quick application.</p>
+        <p>Interested candidates: email your resume to <a class="apply-email" href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a> or use the "Apply" button on a posting to open the application dialog.</p>
       </div>
     </section>
 
@@ -392,7 +392,7 @@
         <button class="close-btn" id="modal-close" aria-label="Close dialog">&times;</button>
       </header>
 
-      <div id="modal-desc" style="margin-top:10px;color:var(--muted);">Fill the form below or click "Send by email" to open your mail client prefilled with the job reference.</div>
+      <div id="modal-desc" style="margin-top:10px;color:var(--muted);">Fill the form below and click "Send by email" to open your email client prefilled with the job reference. Attach your resume manually before sending.</div>
 
       <form id="apply-form" style="margin-top:12px;">
         <div class="form-row">
@@ -405,20 +405,17 @@
         <div class="form-row" style="margin-top:8px;">
           <textarea id="app-cover" name="cover" placeholder="Short message / cover note (optional)"></textarea>
         </div>
-        <div class="form-row" style="margin-top:8px;">
-          <input type="file" id="app-resume" name="resume" accept=".pdf,.doc,.docx" aria-label="Upload resume (PDF or Word)">
-        </div>
 
         <div class="form-row" style="margin-top:12px; justify-content:flex-end;">
-          <button type="submit" class="apply-btn">Send application</button>
+          <!-- Only the email fallback option is available -->
           <button type="button" id="email-fallback" class="apply-btn" style="background:#0b69d1;">Send by email</button>
         </div>
-        <div class="notice" id="form-note">Note: Resume uploads require a server endpoint. Replace the placeholder Formspree endpoint in the script if you want in-browser posting. Otherwise use "Send by email".</div>
+        <div class="notice" id="form-note">Note: This will open your email client with a pre-filled message. Please attach your resume manually before sending.</div>
       </form>
     </div>
   </div>
 
-  <!-- JS: dynamic jobs, filtering, modal + form fallback -->
+  <!-- JS: dynamic jobs, filtering, modal + email fallback -->
   <script>
     // Jobs data: keep this array up-to-date. Each entry will render as a card and in JSON-LD.
     const jobs = [
@@ -429,7 +426,7 @@
         type: "Full-time",
         location: "Vancouver",
         short: "Plan and deliver early childhood curriculum for children aged 3–5.",
-        details: "We are looking for a nurturing Lead Teacher with minimum 2 years experience in early childhood education. Responsibilities include lesson planning, parent communication and child assessments. Valid ECE certification required.",
+        details: "We are looking for a nurturing Lead Teacher with minimum 2 years experience in early childhood education. Responsibilities include lesson planning, parent communication and child assessment.",
         datePosted: "2026-01-16"
       },
       {
@@ -479,13 +476,13 @@
           <div class="job-details">${escapeHtml(job.details)}</div>
           <div class="apply-row" aria-hidden="false">
             <button class="apply-btn" data-jobid="${escapeHtml(job.id)}" aria-label="Apply for ${escapeHtml(job.title)}">Apply</button>
-            <a class="apply-email" href="mailto:echelondaycare@hotmail.com?subject=${encodeURIComponent('Application for ' + job.title + ' (' + job.id + ')')}" aria-label="Email application for ${escapeHtml(job.title)}">Email resume</a>
+            <a class="apply-email" href="mailto:echelondaycare@hotmail.com?subject=${encodeURIComponent('Application for ' + job.title + ' (' + job.id + ')')}" aria-label="Email application for ${escapeHtml(job.title)}">Email</a>
           </div>
         `;
         container.appendChild(card);
       });
 
-      // Hook up the apply buttons
+      // Hook up the apply buttons (handled via delegation below as well)
       container.querySelectorAll('.apply-btn').forEach(btn => {
         btn.addEventListener('click', e => openApplyModal(e.currentTarget.dataset.jobid));
       });
@@ -535,14 +532,7 @@
       });
     });
 
-    /*
-      Modal & form handling:
-      - The sample form attempts to POST to a Formspree endpoint if you set one.
-      - By default, submission falls back to a "mailto:" that opens the user's email client with subject/body filled.
-      - For real resume uploads, replace `FORM_ENDPOINT` with your server endpoint or a Formspree project endpoint.
-    */
-    const FORM_ENDPOINT = ''; // <-- Replace with 'https://formspree.io/f/your-id' or your server endpoint to enable direct posting.
-
+    // Modal & email-only form handling
     const backdrop = document.getElementById('modal-backdrop');
     const modalTitle = document.getElementById('modal-title');
     const applyForm = document.getElementById('apply-form');
@@ -559,7 +549,6 @@
       document.getElementById('app-name').value = '';
       document.getElementById('app-email').value = '';
       document.getElementById('app-phone').value = '';
-      document.getElementById('app-resume').value = '';
       backdrop.style.display = 'flex';
       backdrop.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
@@ -602,71 +591,36 @@
       backdrop.addEventListener('click', ()=> node.removeEventListener('keydown', handle), {once:true});
     }
 
-    // Apply form submit: try to send to FORM_ENDPOINT if set, otherwise open mailto
-    applyForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    // Email fallback button: gather fields and open mail client with prefilled subject/body
+    emailFallbackBtn.addEventListener('click', () => {
       const name = document.getElementById('app-name').value.trim();
       const email = document.getElementById('app-email').value.trim();
       const phone = document.getElementById('app-phone').value.trim();
       const cover = document.getElementById('app-cover').value.trim();
-      const resume = document.getElementById('app-resume').files[0];
 
       if(!name || !email){
         alert('Please provide your name and email.');
         return;
       }
 
-      // If no endpoint configured, fallback to mailto
-      if(!FORM_ENDPOINT){
-        sendMailFallback({name,email,phone,cover,job:activeJob, resume});
-        return;
-      }
-
-      // Attempt to send via fetch to form endpoint (must support CORS)
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('phone', phone);
-      formData.append('cover', cover);
-      formData.append('jobId', activeJob.id);
-      formData.append('jobTitle', activeJob.title);
-      if(resume) formData.append('resume', resume);
-
-      try {
-        const resp = await fetch(FORM_ENDPOINT, {method:'POST', body: formData});
-        if(resp.ok){
-          alert('Application sent successfully. Thank you!');
-          closeModal();
-        } else {
-          // fallback to mailto
-          sendMailFallback({name,email,phone,cover,job:activeJob, resume});
-        }
-      } catch(err){
-        sendMailFallback({name,email,phone,cover,job:activeJob, resume});
-      }
-    });
-
-    emailFallbackBtn.addEventListener('click', () => {
-      const name = document.getElementById('app-name').value.trim();
-      const email = document.getElementById('app-email').value.trim();
-      const phone = document.getElementById('app-phone').value.trim();
-      const cover = document.getElementById('app-cover').value.trim();
-      const resume = document.getElementById('app-resume').files[0];
-      sendMailFallback({name,email,phone,cover,job:activeJob, resume});
+      sendMailFallback({name,email,phone,cover,job:activeJob});
     });
 
     // Construct a mailto fallback: open user's mail client with prefilled subject and body.
-    function sendMailFallback({name,email,phone,cover,job,resume}){
+    function sendMailFallback({name,email,phone,cover,job}){
       const subject = `Application for ${job.title} (${job.id})`;
-      let body = `Hello Echelon team,%0D%0A%0D%0AI would like to apply for ${job.title} (${job.id}).%0D%0A%0D%0A`;
-      if(name) body += `Name: ${name}%0D%0A`;
-      if(email) body += `Email: ${email}%0D%0A`;
-      if(phone) body += `Phone: ${phone}%0D%0A`;
-      body += `%0D%0A${encodeURIComponent(cover)}%0D%0A%0D%0A`;
-      body += `Please find my resume attached (attach manually if required).%0D%0A%0D%0AThanks,%0D%0A${encodeURIComponent(name)}`;
+      let body = `Hello Echelon team,
 
-      // mailto
-      const mailto = `mailto:echelondaycare@hotmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+I would like to apply for ${job.title} (${job.id}).
+
+`;
+      if(name) body += `Name: ${name}\n`;
+      if(email) body += `Email: ${email}\n`;
+      if(phone) body += `Phone: ${phone}\n`;
+      if(cover) body += `\n${cover}\n\n`;
+      body += `Please find my resume attached (attach manually if required).\n\nThanks,\n${name}`;
+
+      const mailto = `mailto:echelondaycare@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
       closeModal();
     }
