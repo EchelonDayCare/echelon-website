@@ -20,6 +20,9 @@
             background-color: #007FFF;
             color: white;
             padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo-container {
@@ -37,6 +40,25 @@
         .logo-container h1 {
             font-size: 3.5em;
             margin: 0;
+        }
+
+        /* New hire link styling */
+        .hire-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 10px 16px;
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: background 0.2s ease, transform 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .hire-link:hover,
+        .hire-link:focus {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-2px);
         }
 
         nav {
@@ -379,6 +401,11 @@
             .next {
                 font-size: 28px;
             }
+
+            /* Hide the top-right hiring link on smaller screens to preserve header layout */
+            .hire-link {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -389,6 +416,7 @@
             <img src="logoMod.png" alt="Echelon Logo" class="logo" />
             <h1>Echelon Day Care</h1>
         </div>
+        <a href="careers.html" class="hire-link" aria-label="We are hiring - Careers at Echelon Day Care">We are hiring</a>
     </header>
     <div class="starfield" aria-hidden="true"></div>
 
