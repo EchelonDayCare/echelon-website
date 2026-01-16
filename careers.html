@@ -27,8 +27,9 @@
       --max-width:1000px;
     }
     html,body{height:100%;}
+    /* match site-wide pages: use Arial, sans-serif for consistency */
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: var(--bg);
       margin: 0;
       padding: 0;
@@ -65,7 +66,7 @@
       color: white;
       padding: 20px;
       display: flex;
-      justify-content: flex-start; /* left aligned */
+      justify-content: flex-start;
       align-items: center;
     }
 
@@ -73,9 +74,9 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      /* do not center the container; keep it left aligned like other pages */
+      /* keep left alignment consistent with other pages */
       max-width: var(--max-width);
-      margin: 0; /* keep left alignment consistent */
+      margin: 0;
       flex-wrap:wrap;
     }
 
@@ -85,12 +86,14 @@
       display:block;
     }
 
+    /* Make the header/title font consistent with other pages (matches home.html) */
     .brand-title {
-      font-size: clamp(1.2rem, 3.5vw, 2rem);
+      font-size: 3.5em;
       margin: 0;
       font-weight: 800;
       letter-spacing: -0.01em;
       color: white;
+      line-height: 1;
     }
 
     nav {
@@ -310,6 +313,7 @@
     @media (max-width:720px){
       .logo { width:64px; }
       .logo-container { justify-content:flex-start; text-align:left; }
+      .brand-title { font-size: 1.6rem; } /* scale down on mobile for better fit */
       .hero { flex-direction:column; align-items:flex-start; }
     }
   </style>
@@ -322,7 +326,7 @@
       <img src="logoMod.png" alt="Echelon Day Care logo" class="logo" />
       <div>
         <h1 class="brand-title">Echelon Day Care</h1>
-        <!-- tagline removed to match other pages -->
+        <!-- tagline intentionally removed to match other pages -->
       </div>
     </div>
   </header>
