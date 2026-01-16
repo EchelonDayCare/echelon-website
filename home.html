@@ -42,12 +42,12 @@
             margin: 0;
         }
 
-        /* Updated: Prominent hiring link (3x larger and stands out) */
+        /* Updated: Prominent hiring link (3x larger on desktop) */
         .hire-link {
             color: #002244;
             text-decoration: none;
             font-weight: 800;
-            font-size: 3rem; /* ~3x larger */
+            font-size: 3rem; /* ~3x larger on desktop */
             background: linear-gradient(90deg, #fff59d 0%, #ffd54f 50%, #ffc107 100%);
             padding: 10px 24px;
             border-radius: 34px;
@@ -415,9 +415,32 @@
                 font-size: 28px;
             }
 
-            /* Hide the top-right hiring link on smaller screens to preserve header layout */
+            /* Show a compact hire button on mobile: smaller, tighter padding, no heavy shadow */
             .hire-link {
-                display: none;
+                display: inline-block;
+                font-size: 0.95rem; /* compact readable size */
+                padding: 6px 10px;
+                border-radius: 18px;
+                box-shadow: none;
+                background: linear-gradient(90deg, #fff9d6 0%, #ffe49b 50%, #ffd27a 100%);
+                border: 1px solid rgba(0,0,0,0.06);
+                transform: none;
+            }
+
+            /* Reduce header padding so everything fits */
+            header {
+                padding: 12px 14px;
+            }
+
+            /* Slightly reduce the h1 size further on very small phones */
+            @media (max-width: 420px) {
+                .logo-container h1 {
+                    font-size: 1.2em;
+                }
+                .hire-link {
+                    font-size: 0.9rem;
+                    padding: 5px 8px;
+                }
             }
         }
     </style>
@@ -429,7 +452,7 @@
             <img src="logoMod.png" alt="Echelon Logo" class="logo" />
             <h1>Echelon Day Care</h1>
         </div>
-        <a href="careers.html" class="hire-link" aria-label="We are hiring - Careers at Echelon Day Care">Work With Us</a>
+        <a href="careers.html" class="hire-link" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
     </header>
     <div class="starfield" aria-hidden="true"></div>
 
