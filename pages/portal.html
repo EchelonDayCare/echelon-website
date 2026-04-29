@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Parent Portal - Echelon Day Care</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in to the Echelon Day Care parent portal for daily updates, attendance, photos, messaging and online billing." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+    }
+
+    header {
+      background-color: #007FFF;
+      color: white;
+      padding: 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 110px;
+      height: auto;
+    }
+
+    .logo-container h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #cce0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 5px 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 1040px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 { color: #007FFF; }
+
+    .lead {
+      font-size: 1.15rem;
+      line-height: 1.55;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 25px 0 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary {
+      background-color: #007FFF;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 127, 255, 0.35);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      background-color: white;
+      color: #007FFF;
+      border: 2px solid #007FFF;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .feature {
+      padding: 20px;
+      border: 1px solid #cce0ff;
+      border-radius: 10px;
+      background-color: #f4f9ff;
+    }
+
+    .feature .icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .feature h4 {
+      margin: 0 0 8px;
+      color: #005bb5;
+      font-size: 1.1rem;
+    }
+
+    .feature p { margin: 0; font-size: 0.97rem; line-height: 1.45; }
+
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .role {
+      padding: 18px;
+      border-left: 4px solid #007FFF;
+      background-color: #f4f9ff;
+      border-radius: 6px;
+    }
+
+    .role h4 { margin: 0 0 6px; color: #005bb5; }
+    .role p { margin: 0; font-size: 0.95rem; }
+
+    .demo-box {
+      background-color: #fff8e1;
+      border: 1px solid #ffd54f;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 25px 0;
+    }
+
+    .demo-box h3 { margin-top: 0; color: #b07c00; }
+
+    .demo-box code {
+      background-color: rgba(0, 0, 0, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .demo-box ul { margin: 10px 0 0; }
+
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #007FFF;
+      color: white;
+      padding: 20px 10px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container h1 { font-size: 1.6em; }
+      .logo { width: 40px; }
+      nav a { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img class="logo" src="../assets/img/logoMod.png" alt="Echelon Logo" />
+      <h1>Echelon Day Care</h1>
+    </div>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="tour.html">Virtual Tour</a>
+    <a href="careers.html">Careers</a>
+    <a href="portal.html">Parent Portal</a>
+  </nav>
+
+  <main>
+    <h2>Echelon Parent Portal</h2>
+    <p class="lead">
+      Stay connected with your child's day from anywhere. Our secure online portal gives families
+      real-time updates, photos, attendance check-ins, two-way messaging with educators, and
+      easy online billing — all in one place.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://portal.echelondaycare.com" rel="noopener">Sign In to the Portal</a>
+      <a class="btn btn-secondary" href="contact.html">Request Access</a>
+    </div>
+    <p class="note">Educators and administrators sign in here too. New parents will receive an invitation email after enrollment.</p>
+
+    <h3>What you can do</h3>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="icon" aria-hidden="true">📋</span>
+        <h4>Daily Activity Feed</h4>
+        <p>See meals, naps, learning moments, and milestones logged by your child's educators throughout the day.</p>
+      </div>
+      <div class="feature">
+        <span class="icon" aria-hidden="true">✅</span>
+        <h4>Attendance &amp; Check-in</h4>
+        <p>Track sign-in and pickup times, and view your child's attendance history at a glance.</p>
+      </div>
+      <div class="feature">
+        <span class="icon" aria-hidden="true">📸</span>
+        <h4>Photos &amp; Updates</h4>
+        <p>Receive moments captured during the day, shared securely with your family.</p>
+      </div>
+      <div class="feature">
+        <span class="icon" aria-hidden="true">💬</span>
+        <h4>Two-Way Messaging</h4>
+        <p>Message your child's classroom directly — share notes, ask questions, get quick replies.</p>
+      </div>
+      <div class="feature">
+        <span class="icon" aria-hidden="true">💳</span>
+        <h4>Online Billing</h4>
+        <p>View invoices, pay tuition online, and download statements anytime.</p>
+      </div>
+      <div class="feature">
+        <span class="icon" aria-hidden="true">🔒</span>
+        <h4>Private &amp; Secure</h4>
+        <p>Role-based access keeps each family's information visible only to authorized guardians and staff.</p>
+      </div>
+    </div>
+
+    <h3>Built for everyone at Echelon</h3>
+    <div class="roles">
+      <div class="role">
+        <h4>For Parents &amp; Guardians</h4>
+        <p>Daily updates on your child, secure messaging, photo feed, and tuition payments.</p>
+      </div>
+      <div class="role">
+        <h4>For Educators</h4>
+        <p>Quick check-ins, activity logging, photo sharing, and direct family communication.</p>
+      </div>
+      <div class="role">
+        <h4>For Administrators</h4>
+        <p>Manage staff, classrooms, enrollments, invoices, and program-wide reporting.</p>
+      </div>
+    </div>
+
+    <div class="demo-box">
+      <h3>Try the demo</h3>
+      <p>While we finish onboarding all families, you can preview the portal with these demo accounts (password: <code>password</code>):</p>
+      <ul>
+        <li>Administrator — <code>admin@echelondaycare.com</code></li>
+        <li>Educator — <code>teacher1@echelondaycare.com</code></li>
+        <li>Parent — <code>parent1@echelondaycare.com</code></li>
+      </ul>
+      <p class="note">Demo data resets periodically. Real family accounts use private credentials issued by the daycare.</p>
+    </div>
+
+    <h3>Need help?</h3>
+    <p>
+      Lost your invitation email or having trouble signing in? Reach out to the daycare office at
+      <a href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a> or call
+      <a href="tel:+16048744010">+1 604-874-4010</a> and we'll get you set up.
+    </p>
+  </main>
+
+  <footer>
+    &copy; Echelon Day Care · 575 W 8th Ave, Vancouver, BC · +1 604-874-4010
+  </footer>
+
+</body>
+</html>
