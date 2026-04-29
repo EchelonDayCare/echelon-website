@@ -9,7 +9,7 @@
   <meta property="og:title" content="Careers - Echelon Day Care">
   <meta property="og:description" content="Explore current job openings at Echelon Day Care and apply online.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="logoMod.png">
+  <meta property="og:image" content="../assets/img/logoMod.png">
 
   <!-- Preconnect for CDN -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -86,7 +86,7 @@
       display:block;
     }
 
-    /* Make the header/title font consistent with other pages (matches home.html) */
+    /* Make the header/title font consistent with other pages (matches ../index.html) */
     .brand-title {
       font-size: 3.5em;
       margin: 0;
@@ -323,7 +323,7 @@
 
   <header>
     <div class="logo-container">
-      <img src="logoMod.png" alt="Echelon Day Care logo" class="logo" />
+      <img src="../assets/img/logoMod.png" alt="Echelon Day Care logo" class="logo" />
       <div>
         <h1 class="brand-title">Echelon Day Care</h1>
         <!-- tagline intentionally removed to match other pages -->
@@ -332,7 +332,7 @@
   </header>
 
   <nav aria-label="Primary navigation">
-    <a href="home.html">Home</a>
+    <a href="../index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="Gallery.html">Gallery</a>
@@ -657,7 +657,7 @@ I would like to apply for ${job.title} (${job.id}).
           "@type": "Organization",
           "name": "Echelon Day Care",
           "sameAs": window.location.origin || "https://example.com",
-          "logo": new URL('logoMod.png', window.location.href).href
+          "logo": new URL('../assets/img/logoMod.png', window.location.href).href
         },
         "jobLocation": {
           "@type": "Place",

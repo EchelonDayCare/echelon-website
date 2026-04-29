@@ -273,13 +273,13 @@
 
 <header>
   <div class="logo-container">
-    <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+    <img src="../assets/img/logoMod.png" alt="Echelon Logo" class="logo" />
     <h1>Echelon Day Care</h1>
   </div>
 </header>
 
 <nav>
-  <a href="home.html">Home</a>
+  <a href="../index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
   <a href="Gallery.html">Gallery</a>
@@ -290,7 +290,7 @@
 <!-- Breadcrumb -->
   <!--
 <div class="breadcrumb">
-  <a href="home.html">Home</a> &gt; Gallery
+  <a href="../index.html">Home</a> &gt; Gallery
 </div>
 -->
 <main>
@@ -335,7 +335,7 @@
     item.className = 'gallery-item';
 
     const img = document.createElement('img');
-    img.src = "images/Photo (" + i + ").jpg";
+    img.src = "../assets/img/gallery/Photo (" + i + ").jpg";
     img.alt = "Photo " + i;
     img.dataset.index = i - 1;
 
@@ -357,7 +357,7 @@
 
   function updateModal() {
     const imgNum = currentIndex + 1;
-    modalImg.src = "images/Photo (" + imgNum + ").jpg";
+    modalImg.src = "../assets/img/gallery/Photo (" + imgNum + ").jpg";
     modalImg.alt = "Photo " + imgNum;
     modalCaption.textContent = "Photo " + imgNum;
   }

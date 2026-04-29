@@ -97,7 +97,7 @@
 
         .hero {
             position: relative;
-            background-image: url('hero-bg.jpg');
+            background-image: url('../assets/img/hero-bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -449,7 +449,7 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="logoMod.png" alt="Echelon Logo" class="logo" />
+            <img src="../assets/img/logoMod.png" alt="Echelon Logo" class="logo" />
             <h1>Echelon Day Care</h1>
         </div>
         <a href="careers.html" class="hire-link" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
@@ -460,7 +460,7 @@
     <div class="global-starfield" aria-hidden="true"></div>
 
     <nav>
-        <a href="home.html">Home</a>
+        <a href="../index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="Gallery.html">Gallery</a>
@@ -477,12 +477,12 @@
     <section class="gallery">
         <h2>Gallery Preview</h2>
         <div class="gallery-grid">
-            <img src="1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-            <img src="2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-            <img src="3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
-            <img src="4.jpg" alt="Gallery Image 4" onclick="openModal(3)" />
-            <img src="5.jpg" alt="Gallery Image 5" onclick="openModal(4)" />
-            <img src="6.jpg" alt="Gallery Image 6" onclick="openModal(5)" />
+            <img src="../assets/img/1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
+            <img src="../assets/img/2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
+            <img src="../assets/img/3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
+            <img src="../assets/img/4.jpg" alt="Gallery Image 4" onclick="openModal(3)" />
+            <img src="../assets/img/5.jpg" alt="Gallery Image 5" onclick="openModal(4)" />
+            <img src="../assets/img/6.jpg" alt="Gallery Image 6" onclick="openModal(5)" />
         </div>
     </section>
 
@@ -501,7 +501,7 @@
     </div>
 
     <script>
-        const imageList = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+        const imageList = ["../assets/img/1.jpg", "../assets/img/2.jpg", "../assets/img/3.jpg", "../assets/img/4.jpg", "../assets/img/5.jpg", "../assets/img/6.jpg"];
         let currentIndex = 0;
 
         function openModal(index) {
