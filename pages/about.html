@@ -153,13 +153,13 @@
 
   <header>
     <div class="logo-container">
-      <img class="logo" src="logoMod.png" alt="Echelon Logo" />
+      <img class="logo" src="../assets/img/logoMod.png" alt="Echelon Logo" />
       <h1>Echelon Day Care</h1>
     </div>
   </header>
 
    <nav>
-        <a href="home.html">Home</a>
+        <a href="../index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="Gallery.html">Gallery</a>
@@ -205,9 +205,9 @@
     </ul>
 
     <div class="gallery-grid">
-      <img src="photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-      <img src="photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-      <img src="photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
+      <img src="../assets/img/photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
+      <img src="../assets/img/photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
+      <img src="../assets/img/photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
     </div>
 
     <div class="modal" id="imageModal" onclick="closeModal()">
@@ -216,7 +216,7 @@
   </main>
 
   <script>
-    const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+    const images = ["../assets/img/photo1.jpg", "../assets/img/photo2.jpg", "../assets/img/photo3.jpg"];
     let currentImageIndex = 0;
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
