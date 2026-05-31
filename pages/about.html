@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us · Echelon Day Care</title>
   <meta name="description" content="Learn about Echelon Day Care — our vision, mission, team and values. A safe, inclusive, play-based daycare in Vancouver, BC." />
-  <meta name="theme-color" content="#007FFF" />
+  <meta name="theme-color" content="#2e7dd1" />
   <link rel="icon" href="../assets/img/logoMod.png" type="image/png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="About Us · Echelon Day Care" />
@@ -26,12 +26,12 @@ main {
     }
 
     h2, h3 {
-      color: #007FFF;
+      color: #2e7dd1;
     }
 
     .highlight {
       font-weight: bold;
-      color: #005bb5;
+      color: #1d5fa3;
     }
 
     ul {
@@ -51,7 +51,7 @@ main {
       height: 180px;
       object-fit: cover;
       border-radius: 10px;
-      border: 4px solid #007FFF;
+      border: 4px solid #2e7dd1;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: transform 0.3s ease;
@@ -96,8 +96,9 @@ main {
     <h1>Echelon Day Care</h1>
   </div>
   <a class="hire-link" href="careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
 </header>
-<nav aria-label="Primary">
+<nav id="primary-nav" class="primary-nav" aria-label="Primary">
   <a href="../index.html">Home</a>
   <a href="about.html" aria-current="page">About</a>
   <a href="services.html">Services</a>
@@ -143,9 +144,9 @@ main {
     </ul>
 
     <div class="gallery-grid">
-      <img src="../assets/img/photo1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-      <img src="../assets/img/photo2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-      <img src="../assets/img/photo3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
+      <img src="../assets/img/photo1.jpg" alt="Echelon Day Care classroom" onclick="openModal(0)" />
+      <img src="../assets/img/photo2.jpg" alt="Children at play" onclick="openModal(1)" />
+      <img src="../assets/img/photo3.jpg" alt="Educators and children together" onclick="openModal(2)" />
     </div>
 
     <div class="modal" id="imageModal" onclick="closeModal()">
@@ -186,7 +187,7 @@ main {
 <footer>
   <div class="footer-inner">
     <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
-    <div>575 W 8th Ave, Vancouver, BC &middot; +1 604-874-4010 &middot; <a href="contact.html">Contact</a></div>
+    <div>575 W 8th Ave, Vancouver, BC &middot; <a href="tel:+16048744010">+1 604-874-4010</a> &middot; <a href="contact.html">Contact</a></div>
   </div>
 </footer>
 <script>
@@ -195,5 +196,6 @@ main {
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
+  <script src="../assets/js/site.js" defer></script>
 </body>
 </html>

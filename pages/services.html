@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services · Echelon Day Care</title>
   <meta name="description" content="Echelon Day Care programs for ages 30 months to 5 years. Play-based learning, kindergarten readiness, and an online waiting list form." />
-  <meta name="theme-color" content="#007FFF" />
+  <meta name="theme-color" content="#2e7dd1" />
   <link rel="icon" href="../assets/img/logoMod.png" type="image/png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Services · Echelon Day Care" />
@@ -24,7 +24,7 @@
 
     .program {
       background-color: #ffffff;
-      border-left: 5px solid #007FFF;
+      border-left: 5px solid #2e7dd1;
       padding: 20px;
       margin-bottom: 30px;
       border-radius: 8px;
@@ -41,7 +41,7 @@
 
     .program h2 i {
       margin-right: 12px;
-      color: #007FFF;
+      color: #2e7dd1;
     }
 
     .program p {
@@ -53,7 +53,7 @@
       display: inline-block;
       margin-top: 15px;
       padding: 10px 15px;
-      background-color: #007FFF;
+      background-color: #2e7dd1;
       color: white;
       text-decoration: none;
       border-radius: 5px;
@@ -61,7 +61,7 @@
     }
 
     .pdf-link:hover {
-      background-color: #005fcc;
+      background-color: #1d5fa3;
     }
 
     /* Waiting list container */
@@ -79,15 +79,15 @@
       text-align: center;
       font-size: 2em;
       margin-bottom: 20px;
-      color: #003366;
-      border-bottom: 3px solid #007FFF;
+      color: #16456f;
+      border-bottom: 3px solid #2e7dd1;
       display: inline-block;
       padding-bottom: 6px;
     }
 
     /* Iframe wrapper */
     .form-wrapper {
-      border: 3px solid #007FFF;
+      border: 3px solid #2e7dd1;
       border-radius: 12px;
       overflow: hidden;
       background: #f8fbff;
@@ -127,8 +127,9 @@
     <h1>Echelon Day Care</h1>
   </div>
   <a class="hire-link" href="careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
 </header>
-<nav aria-label="Primary">
+<nav id="primary-nav" class="primary-nav" aria-label="Primary">
   <a href="../index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html" aria-current="page">Services</a>
@@ -180,7 +181,7 @@
 <footer>
   <div class="footer-inner">
     <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
-    <div>575 W 8th Ave, Vancouver, BC &middot; +1 604-874-4010 &middot; <a href="contact.html">Contact</a></div>
+    <div>575 W 8th Ave, Vancouver, BC &middot; <a href="tel:+16048744010">+1 604-874-4010</a> &middot; <a href="contact.html">Contact</a></div>
   </div>
 </footer>
 <script>
@@ -189,5 +190,6 @@
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
+  <script src="../assets/js/site.js" defer></script>
 </body>
 </html>

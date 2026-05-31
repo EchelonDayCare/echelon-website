@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Echelon Day Care</title>
   <meta name="description" content="Echelon Day Care in Vancouver, BC — a licensed daycare for ages 30 months to 5 years. Play-based learning, qualified educators, and a warm, inclusive home away from home." />
-  <meta name="theme-color" content="#007FFF" />
+  <meta name="theme-color" content="#2e7dd1" />
   <link rel="icon" href="assets/img/logoMod.png" type="image/png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Echelon Day Care" />
@@ -79,7 +79,7 @@ section {
 
         .feature-box,
         .stat-box {
-            background-color: #cce0ff;
+            background-color: #d7e7f7;
             padding: 20px;
             margin: 10px;
             border-radius: 8px;
@@ -98,7 +98,7 @@ section {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            border: 4px solid #007FFF;
+            border: 4px solid #2e7dd1;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -259,9 +259,9 @@ section {
             font-weight: 600;
             border-radius: 50px;
             text-decoration: none;
-            color: #003366;
+            color: #16456f;
             background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
-            border: 2px solid #003366;
+            border: 2px solid #16456f;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease-in-out;
             position: relative;
@@ -335,8 +335,9 @@ section {
     <h1>Echelon Day Care</h1>
   </div>
   <a class="hire-link" href="pages/careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
 </header>
-<nav aria-label="Primary">
+<nav id="primary-nav" class="primary-nav" aria-label="Primary">
   <a href="index.html" aria-current="page">Home</a>
   <a href="pages/about.html">About</a>
   <a href="pages/services.html">Services</a>
@@ -359,12 +360,12 @@ section {
     <section class="gallery">
         <h2>Gallery Preview</h2>
         <div class="gallery-grid">
-            <img src="assets/img/1.jpg" alt="Gallery Image 1" onclick="openModal(0)" />
-            <img src="assets/img/2.jpg" alt="Gallery Image 2" onclick="openModal(1)" />
-            <img src="assets/img/3.jpg" alt="Gallery Image 3" onclick="openModal(2)" />
-            <img src="assets/img/4.jpg" alt="Gallery Image 4" onclick="openModal(3)" />
-            <img src="assets/img/5.jpg" alt="Gallery Image 5" onclick="openModal(4)" />
-            <img src="assets/img/6.jpg" alt="Gallery Image 6" onclick="openModal(5)" />
+            <img src="assets/img/1.jpg" alt="Children enjoying story time at Echelon Day Care" onclick="openModal(0)" />
+            <img src="assets/img/2.jpg" alt="Outdoor play in the Echelon Day Care yard" onclick="openModal(1)" />
+            <img src="assets/img/3.jpg" alt="Art and craft time at Echelon Day Care" onclick="openModal(2)" />
+            <img src="assets/img/4.jpg" alt="Snack break with the educators" onclick="openModal(3)" />
+            <img src="assets/img/5.jpg" alt="Music and movement activity" onclick="openModal(4)" />
+            <img src="assets/img/6.jpg" alt="Small-group learning at Echelon Day Care" onclick="openModal(5)" />
         </div>
     </section>
 
@@ -488,7 +489,7 @@ section {
 <footer>
   <div class="footer-inner">
     <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
-    <div>575 W 8th Ave, Vancouver, BC &middot; +1 604-874-4010 &middot; <a href="pages/contact.html">Contact</a></div>
+    <div>575 W 8th Ave, Vancouver, BC &middot; <a href="tel:+16048744010">+1 604-874-4010</a> &middot; <a href="pages/contact.html">Contact</a></div>
   </div>
 </footer>
 <script>
@@ -497,5 +498,6 @@ section {
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
+  <script src="assets/js/site.js" defer></script>
 </body>
 </html>

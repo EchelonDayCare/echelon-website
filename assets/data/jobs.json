@@ -1,0 +1,22 @@
+[
+  {
+    "id": "J001",
+    "title": "Early Childhood Educator",
+    "category": "Teaching",
+    "type": "Full-time",
+    "location": "Vancouver",
+    "short": "Plan and deliver early childhood curriculum for children aged 3–5.",
+    "details": "We are looking for a nurturing Lead Teacher with minimum 2 years experience in early childhood education. Responsibilities include lesson planning, parent communication and child assessment.",
+    "datePosted": "2026-01-16"
+  },
+  {
+    "id": "J002",
+    "title": "Childcare Assistant",
+    "category": "Support",
+    "type": "Part-time",
+    "location": "Vancouver",
+    "short": "Support Lead Teachers with daily care routines and classroom activities.",
+    "details": "Assist with supervision, meal times and play-based learning. Good communication and a caring manner required. Early childhood coursework or equivalent experience preferred.",
+    "datePosted": "2026-01-10"
+  }
+]

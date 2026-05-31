@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Virtual Tour · Echelon Day Care</title>
   <meta name="description" content="Take a virtual tour of Echelon Day Care's classrooms and play spaces." />
-  <meta name="theme-color" content="#007FFF" />
+  <meta name="theme-color" content="#2e7dd1" />
   <link rel="icon" href="../assets/img/logoMod.png" type="image/png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Virtual Tour · Echelon Day Care" />
@@ -24,7 +24,7 @@ main {
 
     h2 {
       margin: 10px 0 18px;
-      color: #0059b3;
+      color: #1d5fa3;
       font-size: 2rem;
       text-align: center;
     }
@@ -85,8 +85,9 @@ main {
     <h1>Echelon Day Care</h1>
   </div>
   <a class="hire-link" href="careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
 </header>
-<nav aria-label="Primary">
+<nav id="primary-nav" class="primary-nav" aria-label="Primary">
   <a href="../index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
@@ -120,7 +121,7 @@ main {
 <footer>
   <div class="footer-inner">
     <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
-    <div>575 W 8th Ave, Vancouver, BC &middot; +1 604-874-4010 &middot; <a href="contact.html">Contact</a></div>
+    <div>575 W 8th Ave, Vancouver, BC &middot; <a href="tel:+16048744010">+1 604-874-4010</a> &middot; <a href="contact.html">Contact</a></div>
   </div>
 </footer>
 <script>
@@ -129,5 +130,6 @@ main {
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
+  <script src="../assets/js/site.js" defer></script>
 </body>
 </html>
