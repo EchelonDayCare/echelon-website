@@ -276,18 +276,38 @@
   const totalImages = 50;
   let currentIndex = 0;
 
+  // Generic but warm captions cycled across all 50 photos so each opens with
+  // something meaningful instead of "Photo 17". Replace this list with real
+  // captions when you have them.
+  const captionPool = [
+    "Hands-on learning",
+    "Outdoor play",
+    "Story time",
+    "Creative play",
+    "Snack time",
+    "Group activities",
+    "Arts & crafts",
+    "Music & movement",
+    "Exploring nature",
+    "Building together",
+    "Imagination at work",
+    "Quiet learning corner"
+  ];
+  const captionFor = i => captionPool[(i - 1) % captionPool.length];
+
   for (let i = 1; i <= totalImages; i++) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
 
+    const cap = captionFor(i);
     const img = document.createElement('img');
     img.src = "../assets/img/gallery/Photo (" + i + ").jpg";
-    img.alt = "Photo " + i;
+    img.alt = "Echelon Day Care moment: " + cap;
     img.dataset.index = i - 1;
 
     const overlay = document.createElement('div');
     overlay.className = 'caption-overlay';
-    overlay.textContent = "Photo " + i;
+    overlay.textContent = cap;
 
     item.appendChild(img);
     item.appendChild(overlay);
@@ -303,9 +323,10 @@
 
   function updateModal() {
     const imgNum = currentIndex + 1;
+    const cap = captionFor(imgNum);
     modalImg.src = "../assets/img/gallery/Photo (" + imgNum + ").jpg";
-    modalImg.alt = "Photo " + imgNum;
-    modalCaption.textContent = "Photo " + imgNum;
+    modalImg.alt = "Echelon Day Care moment: " + cap;
+    modalCaption.textContent = cap;
   }
 
   function closeModal() {
