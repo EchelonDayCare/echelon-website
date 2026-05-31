@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery · Echelon Day Care</title>
   <meta name="description" content="Photo gallery from Echelon Day Care — see our classrooms, activities and the children at play." />
-  <meta name="theme-color" content="#007FFF" />
+  <meta name="theme-color" content="#2e7dd1" />
   <link rel="icon" href="../assets/img/logoMod.png" type="image/png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Gallery · Echelon Day Care" />
@@ -33,14 +33,14 @@
     }
     .breadcrumb a {
       text-decoration: none;
-      color: #007FFF;
+      color: #2e7dd1;
     }
 
     h2 {
       text-align: center;
       margin-bottom: 20px;
       font-size: 2.5rem;
-      color: #0059b3;
+      color: #1d5fa3;
     }
 
     /* Search Bar */
@@ -52,7 +52,7 @@
     .search-container input {
       padding: 10px;
       width: 250px;
-      border: 2px solid #007FFF;
+      border: 2px solid #2e7dd1;
       border-radius: 6px;
       font-size: 1rem;
     }
@@ -222,8 +222,9 @@
     <h1>Echelon Day Care</h1>
   </div>
   <a class="hire-link" href="careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
 </header>
-<nav aria-label="Primary">
+<nav id="primary-nav" class="primary-nav" aria-label="Primary">
   <a href="../index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
@@ -367,7 +368,7 @@
 <footer>
   <div class="footer-inner">
     <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
-    <div>575 W 8th Ave, Vancouver, BC &middot; +1 604-874-4010 &middot; <a href="contact.html">Contact</a></div>
+    <div>575 W 8th Ave, Vancouver, BC &middot; <a href="tel:+16048744010">+1 604-874-4010</a> &middot; <a href="contact.html">Contact</a></div>
   </div>
 </footer>
 <script>
@@ -376,5 +377,6 @@
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
+  <script src="../assets/js/site.js" defer></script>
 </body>
 </html>

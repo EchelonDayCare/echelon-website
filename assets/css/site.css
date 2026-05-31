@@ -4,106 +4,133 @@
    footer, .logo, .hire-link, etc.) to avoid collisions with page CSS.
 */
 
+:root {
+  /* Softer, warmer palette — still recognisably "Echelon blue" but
+     less saturated so the site reads as a child-friendly daycare. */
+  --c-brand:        #2e7dd1;   /* primary blue (was #007FFF) */
+  --c-brand-strong: #16456f;   /* deep ink */
+  --c-brand-soft:   #d7e7f7;   /* nav bg (was #cce0ff) */
+  --c-bg:           #f3f6fb;   /* page bg (was #e6f0ff) */
+  --c-ink:          #16456f;
+  --c-muted:        #5a6c80;
+  --c-surface:      #ffffff;
+  --c-warm-accent:  #f6b352;   /* mellower amber for CTAs */
+}
+
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #e6f0ff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background-color: var(--c-bg);
   margin: 0;
   padding: 0;
-  color: #003366;
+  color: var(--c-ink);
 }
 
 /* ---- Header ---------------------------------------------------------- */
 header {
-  background-color: #007FFF;
+  background-color: var(--c-brand);
   color: white;
-  padding: 20px;
+  padding: 18px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 12px;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .logo {
-  width: 110px;
+  width: 64px;
   height: auto;
 }
 
 .logo-container h1 {
-  font-size: 3.5em;
+  font-size: 1.8em;
   margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-/* "Work With Us" prominent header link (originally only on index) */
+/* "Work With Us" — toned down from the previous neon-yellow shouting */
 .hire-link {
-  color: #002244;
+  color: #16456f;
+  background: #f6e7c6;
   text-decoration: none;
-  font-weight: 800;
-  font-size: 3rem;
-  background: linear-gradient(90deg, #fff59d 0%, #ffd54f 50%, #ffc107 100%);
-  padding: 10px 24px;
-  border-radius: 34px;
-  border: 2px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 26px rgba(255, 193, 7, 0.28),
-              0 0 18px rgba(255, 235, 59, 0.18) inset;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e0c992;
+  transition: background 0.18s ease, transform 0.18s ease;
   white-space: nowrap;
   display: inline-block;
-  line-height: 1;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-.hire-link:focus {
-  outline: 3px solid rgba(255, 235, 59, 0.45);
-  outline-offset: 4px;
-  border-radius: 30px;
+  line-height: 1.2;
 }
 .hire-link:hover,
-.hire-link:active {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 14px 40px rgba(255, 193, 7, 0.36),
-              0 0 40px rgba(255, 235, 59, 0.28) inset;
-  filter: saturate(1.05);
+.hire-link:focus {
+  background: #f0d999;
+  transform: translateY(-1px);
+}
+.hire-link:focus {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---- Mobile nav toggle (hidden on desktop) -------------------------- */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
 }
 
 /* ---- Nav ------------------------------------------------------------- */
-nav {
-  background-color: #cce0ff;
+nav.primary-nav {
+  background-color: var(--c-brand-soft);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 10px 0;
 }
 
-nav a {
+nav.primary-nav a {
   margin: 5px 15px;
-  color: #003366;
+  color: var(--c-brand-strong);
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.05rem;
   padding-bottom: 2px;
+  border-bottom: 3px solid transparent;
 }
 
-nav a:hover { text-decoration: underline; }
+nav.primary-nav a:hover,
+nav.primary-nav a:focus-visible {
+  color: var(--c-brand);
+  border-bottom-color: var(--c-brand);
+}
 
-nav a[aria-current="page"] {
-  color: #007FFF;
-  border-bottom: 3px solid #007FFF;
+nav.primary-nav a[aria-current="page"] {
+  color: var(--c-brand);
+  border-bottom-color: var(--c-brand);
 }
 
 /* ---- Footer ---------------------------------------------------------- */
 footer {
-  background-color: #007FFF;
+  background-color: var(--c-brand);
   color: white;
-  padding: 25px 15px;
+  padding: 28px 18px;
   margin-top: 60px;
 }
 
@@ -114,7 +141,7 @@ footer .footer-inner {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   font-size: 0.95rem;
   text-align: left;
 }
@@ -138,33 +165,49 @@ footer a {
   width: auto;
   height: auto;
   padding: 8px 12px;
-  background: #003366;
+  background: var(--c-brand-strong);
   color: #fff;
   z-index: 10000;
 }
 
 /* ---- Mobile ---------------------------------------------------------- */
 @media (max-width: 768px) {
-  header { padding: 12px 14px; }
-  .logo-container {
+  header {
+    padding: 12px 14px;
     flex-wrap: nowrap;
-    justify-content: center;
-    text-align: center;
-    flex-direction: row;
   }
-  .logo { width: 40px; }
-  .logo-container h1 { font-size: 1.6em; }
-  nav a { font-size: 1rem; }
+  .logo-container {
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 10px;
+  }
+  .logo { width: 36px; }
+  .logo-container h1 { font-size: 1.15em; }
 
-  .hire-link {
-    display: inline-block;
-    font-size: 0.95rem;
-    padding: 6px 10px;
-    border-radius: 18px;
-    box-shadow: none;
-    background: linear-gradient(90deg, #fff9d6 0%, #ffe49b 50%, #ffd27a 100%);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transform: none;
+  /* Hide hire-link on mobile; the hamburger menu has its own Careers
+     link, so the additional in-header CTA just adds clutter. */
+  .hire-link { display: none; }
+
+  /* Show the hamburger and turn the nav into a slide-down panel. */
+  .nav-toggle { display: inline-block; }
+
+  nav.primary-nav {
+    display: none;
+    flex-direction: column;
+    padding: 6px 0 12px;
+  }
+  nav.primary-nav.open { display: flex; }
+  nav.primary-nav a {
+    margin: 0;
+    padding: 12px 18px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  nav.primary-nav a:last-child { border-bottom: 0; }
+  nav.primary-nav a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.5);
   }
 
   footer .footer-inner {
@@ -173,7 +216,20 @@ footer a {
   }
 }
 
-@media (max-width: 420px) {
-  .logo-container h1 { font-size: 1.2em; }
-  .hire-link { font-size: 0.9rem; padding: 5px 8px; }
+/* ---- Reduce-motion preference --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  /* Hide decorative falling animations entirely. */
+  .star,
+  .global-star,
+  .flower,
+  .starfield,
+  .global-starfield { display: none !important; }
 }

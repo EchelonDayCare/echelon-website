@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Careers · Echelon Day Care</title>
   <meta name="description" content="Careers at Echelon Day Care — view open positions, learn how to apply and submit your resume." />
-  <meta name="theme-color" content="#007FFF" />
+  <meta name="theme-color" content="#2e7dd1" />
   <link rel="icon" href="../assets/img/logoMod.png" type="image/png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Careers · Echelon Day Care" />
@@ -17,10 +17,10 @@
   <link rel="stylesheet" href="../assets/css/site.css" />
   <style>
 :root{
-      --brand:#007FFF;
-      --brand-strong:#003366;
+      --brand:#2e7dd1;
+      --brand-strong:#16456f;
       --muted:#556b85;
-      --bg:#e6f0ff;
+      --bg:#f3f6fb;
       --card:#ffffff;
       --radius:8px;
       --max-width:1000px;
@@ -234,8 +234,9 @@ nav a:focus,
     <h1>Echelon Day Care</h1>
   </div>
   <a class="hire-link" href="careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
 </header>
-<nav aria-label="Primary">
+<nav id="primary-nav" class="primary-nav" aria-label="Primary">
   <a href="../index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
@@ -284,7 +285,7 @@ nav a:focus,
       </p>
       <p style="margin-top:8px;">
         Email: <strong><a class="apply-email" href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a></strong>
-        &nbsp;|&nbsp; Phone: <strong>+1 604-874-4010</strong>
+        &nbsp;|&nbsp; Phone: <strong><a href="tel:+16048744010">+1 604-874-4010</a></strong>
       </p>
     </aside>
   </main>
@@ -322,29 +323,9 @@ nav a:focus,
 
   <!-- JS: dynamic jobs, filtering, modal + email fallback -->
   <script>
-    // Jobs data: keep this array up-to-date. Each entry will render as a card and in JSON-LD.
-    const jobs = [
-      {
-        id: "J001",
-        title: "Early Childhood Educator",
-        category: "Teaching",
-        type: "Full-time",
-        location: "Vancouver",
-        short: "Plan and deliver early childhood curriculum for children aged 3–5.",
-        details: "We are looking for a nurturing Lead Teacher with minimum 2 years experience in early childhood education. Responsibilities include lesson planning, parent communication and child assessment.",
-        datePosted: "2026-01-16"
-      },
-      {
-        id: "J002",
-        title: "Childcare Assistant",
-        category: "Support",
-        type: "Part-time",
-        location: "Vancouver",
-        short: "Support Lead Teachers with daily care routines and classroom activities.",
-        details: "Assist with supervision, meal times and play-based learning. Good communication and a caring manner required. Early childhood coursework or equivalent experience preferred.",
-        datePosted: "2026-01-10"
-      }
-    ];
+    // Jobs are loaded from ../assets/data/jobs.json (single source of truth).
+    // To add/edit/remove jobs, only edit that JSON file.
+    let jobs = [];
 
     // Populate filter options (locations)
     function populateFilters(){
@@ -414,9 +395,22 @@ nav a:focus,
 
     // Hook up filters
     document.addEventListener('DOMContentLoaded', () => {
-      populateFilters();
-      renderJobs(jobs);
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Load jobs from JSON, then render. Falls back to empty list on error.
+      fetch('../assets/data/jobs.json', {cache: 'no-cache'})
+        .then(r => r.ok ? r.json() : Promise.reject(new Error('Failed to load jobs.json: ' + r.status)))
+        .then(data => {
+          jobs = Array.isArray(data) ? data : [];
+          populateFilters();
+          renderJobs(jobs);
+          renderJobStructuredData();
+        })
+        .catch(err => {
+          console.error(err);
+          const c = document.getElementById('jobs-list');
+          if (c) c.innerHTML = '<div style="padding:18px;background:#fff;border-radius:8px;border-left:4px solid var(--brand);">Job listings are temporarily unavailable. Please email <a href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a>.</div>';
+        });
 
       ['job-search','filter-location','filter-type'].forEach(id => {
         document.getElementById(id).addEventListener('input', () => renderJobs(getFilteredJobs()));
@@ -539,9 +533,9 @@ I would like to apply for ${job.title} (${job.id}).
 
     /**
      * Generate JSON-LD structured data for jobs for SEO.
-     * If you add/remove jobs in the `jobs` array, the script will generate corresponding JobPosting objects.
+     * Called after jobs.json loads.
      */
-    (function renderJobStructuredData(){
+    function renderJobStructuredData(){
       const jobPostings = jobs.map(j => ({
         "@context": "https://schema.org",
         "@type": "JobPosting",
@@ -570,13 +564,13 @@ I would like to apply for ${job.title} (${job.id}).
       script.type = 'application/ld+json';
       script.textContent = JSON.stringify(jobPostings.length === 1 ? jobPostings[0] : {"@graph": jobPostings}, null, 2);
       document.head.appendChild(script);
-    })();
+    }
 
   </script>
 <footer>
   <div class="footer-inner">
     <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
-    <div>575 W 8th Ave, Vancouver, BC &middot; +1 604-874-4010 &middot; <a href="contact.html">Contact</a></div>
+    <div>575 W 8th Ave, Vancouver, BC &middot; <a href="tel:+16048744010">+1 604-874-4010</a> &middot; <a href="contact.html">Contact</a></div>
   </div>
 </footer>
 <script>
@@ -585,5 +579,6 @@ I would like to apply for ${job.title} (${job.id}).
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
+  <script src="../assets/js/site.js" defer></script>
 </body>
 </html>
