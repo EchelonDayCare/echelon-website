@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact · Echelon Day Care</title>
-  <meta name="description" content="Contact Echelon Day Care at 575 W 8th Ave, Vancouver, BC. Phone <a href="tel:+16048744010">+1 604-874-4010</a> or echelondaycare@hotmail.com." />
+  <meta name="description" content="Contact Echelon Day Care at 575 W 8th Ave, Vancouver, BC V5Z 1M9. Phone +1 604-874-4010 or email echelondaycare@hotmail.com." />
   <meta name="theme-color" content="#2e7dd1" />
   <link rel="icon" href="../assets/img/logoMod.png" type="image/png" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact · Echelon Day Care" />
-  <meta property="og:description" content="Contact Echelon Day Care at 575 W 8th Ave, Vancouver, BC. Phone <a href="tel:+16048744010">+1 604-874-4010</a> or echelondaycare@hotmail.com." />
+  <meta property="og:description" content="Contact Echelon Day Care at 575 W 8th Ave, Vancouver, BC V5Z 1M9. Phone +1 604-874-4010 or email echelondaycare@hotmail.com." />
   <meta property="og:image" content="../assets/img/logoMod.png" />
   <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=202605301832" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=202605301836" />
   <style>
 .contact-section {
       padding: 40px 20px;
@@ -62,6 +62,20 @@
       color: #1d5fa3;
     }
 
+    .map-wrap {
+      margin-top: 30px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.12);
+    }
+
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 360px;
+      border: 0;
+    }
+
     @media (max-width: 768px) {
 .contact-section {
         padding: 20px;
@@ -74,6 +88,8 @@
       .contact-details {
         font-size: 1em;
       }
+
+      .map-wrap iframe { height: 260px; }
     }
   </style>
 </head>
@@ -99,17 +115,25 @@
 <section id="main-content" class="contact-section">
   <h2>Contact Us</h2>
   <div class="contact-details">
-    <p><i class="fas fa-map-marker-alt"></i>575 W 8th Ave, Vancouver, V5Z 1M9 </p>
-    <p><i class="fas fa-phone"></i><a href="tel:+16048744010">+1 604-874-4010</a></p>
-    <p><i class="fas fa-globe-americas"></i>British Columbia, Canada</p>
-    <p><i class="fas fa-envelope"></i><a href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a></p>
+    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i>575 W 8th Ave, Vancouver, BC V5Z 1M9</p>
+    <p><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+16048744010">+1 604-874-4010</a></p>
+    <p><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a></p>
   </div>
 
   <div class="social-icons">
-  <a href="https://www.facebook.com/echelon.daycare.5" target="_blank" aria-label="Facebook">
-    <i class="fab fa-facebook"></i>
+  <a href="https://www.facebook.com/echelon.daycare.5" target="_blank" rel="noopener" aria-label="Echelon Day Care on Facebook">
+    <i class="fab fa-facebook" aria-hidden="true"></i>
   </a>
 </div>
+
+  <div class="map-wrap" aria-label="Map showing Echelon Day Care location">
+    <iframe
+      title="Map of 575 W 8th Ave, Vancouver, BC"
+      src="https://www.google.com/maps?q=575+W+8th+Ave,+Vancouver,+BC+V5Z+1M9&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen></iframe>
+  </div>
 
 </section>
 <footer>
@@ -124,6 +148,6 @@
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
-  <script src="../assets/js/site.js?v=202605301832" defer></script>
+  <script src="../assets/js/site.js?v=202605301836" defer></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=202605301832" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=202605301836" />
   <style>
 main {
       max-width: 1100px;
@@ -44,38 +44,14 @@ main {
       display: block;
     }
 
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background 0.3s ease;
+    .tour-intro {
+      max-width: 800px;
+      margin: 0 auto 10px;
+      text-align: center;
+      color: var(--c-muted, #5a6c80);
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
-    .play-button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-    .play-button::before {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border-left: 20px solid white;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      margin-left: 5px;
-    }
-
-    @media (max-width: 768px) {
-}
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -98,26 +74,22 @@ main {
 </nav>
 <main id="main-content">
   <h2>Virtual Tour</h2>
+  <p class="tour-intro">Take a quick walk-through of our classrooms, play spaces and outdoor area. Press play to start the tour.</p>
 
   <div class="video-wrap">
-    <video id="tourVideo">
+    <video
+      id="tourVideo"
+      controls
+      preload="metadata"
+      playsinline
+      poster="../assets/video/tour-poster.jpg"
+      aria-label="Virtual tour of Echelon Day Care">
       <source src="../assets/video/test.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      Your browser does not support embedded video. <a href="../assets/video/test.mp4">Download the tour video</a> instead.
     </video>
-    <div class="play-button" id="playButton"></div>
   </div>
 </main>
 
-<script>
-  const video = document.getElementById('tourVideo');
-  const playButton = document.getElementById('playButton');
-
-  playButton.addEventListener('click', () => {
-    playButton.style.display = 'none';
-    video.play();
-    video.setAttribute('controls', 'true');
-  });
-</script>
 <footer>
   <div class="footer-inner">
     <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
@@ -130,6 +102,6 @@ main {
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
-  <script src="../assets/js/site.js?v=202605301832" defer></script>
+  <script src="../assets/js/site.js?v=202605301836" defer></script>
 </body>
 </html>
