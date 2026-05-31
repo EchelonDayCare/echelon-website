@@ -233,3 +233,87 @@ footer a {
   .starfield,
   .global-starfield { display: none !important; }
 }
+
+
+/* ---- Frequently Asked Questions ------------------------------------ */
+.faq-section {
+  max-width: 900px;
+  margin: 60px auto 20px;
+  padding: 0 20px;
+}
+.faq-section h2 {
+  text-align: center;
+  color: var(--c-brand-strong);
+  font-size: 1.8em;
+  margin-bottom: 24px;
+}
+.faq-item {
+  background: var(--c-surface);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(22, 69, 111, 0.06);
+  border-left: 4px solid var(--c-brand);
+}
+.faq-item summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--c-brand-strong);
+  font-size: 1.05rem;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  font-weight: 700;
+  color: var(--c-brand);
+  transition: transform 0.18s ease;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.faq-item[open] summary::after {
+  content: "−";
+}
+.faq-item p {
+  margin: 12px 0 0;
+  line-height: 1.6;
+  color: var(--c-ink);
+}
+
+/* ---- Sticky 'Call us' button (mobile only) ------------------------- */
+.sticky-call {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  background: var(--c-brand);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  z-index: 100;
+  display: none;
+  font-size: 1rem;
+}
+.sticky-call:hover, .sticky-call:focus { background: var(--c-brand-strong); outline: 3px solid #fff; outline-offset: 2px; }
+@media (max-width: 768px) {
+  .sticky-call { display: inline-block; }
+}
+
+/* ---- Accessibility: visible focus ---------------------------------- */
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 3px solid var(--c-brand);
+  outline-offset: 2px;
+}
+
+/* ---- Print --------------------------------------------------------- */
+@media print {
+  header, nav.primary-nav, footer, .sticky-call, .nav-toggle, .hire-link,
+  .starfield, .global-starfield, .flower { display: none !important; }
+  body { background: #fff; color: #000; }
+  a { color: #000; text-decoration: underline; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #444; }
+}
