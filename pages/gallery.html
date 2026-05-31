@@ -2,77 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gallery - Echelon Day Care</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery · Echelon Day Care</title>
+  <meta name="description" content="Photo gallery from Echelon Day Care — see our classrooms, activities and the children at play." />
+  <meta name="theme-color" content="#007FFF" />
+  <link rel="icon" href="../assets/img/logoMod.png" type="image/png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gallery · Echelon Day Care" />
+  <meta property="og:description" content="Photo gallery from Echelon Day Care — see our classrooms, activities and the children at play." />
+  <meta property="og:image" content="../assets/img/logoMod.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f0ff;
-      margin: 0;
-      padding: 0;
-      color: #003366;
-      overflow-x: hidden; /* prevent horizontal scroll due to falling flowers */
-    }
-
-    header {
-      background-color: #007FFF;
-      color: white;
-      padding: 20px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      width: 110px;
-      height: auto;
-    }
-
-    .logo-container h1 {
-      font-size: 3.5em;
-      margin: 0;
-    }
-
-    nav {
-      background-color: #cce0ff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
-    }
-
-    nav a {
-      margin: 5px 15px;
-      color: #003366;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    @media (max-width: 768px) {
-      .logo-container {
-        flex-wrap: nowrap;
-        justify-content: center;
-        text-align: center;
-        flex-direction: row;
-      }
-
-      .logo {
-        width: 40px;
-      }
-
-      .logo-container h1 {
-        font-size: 1.6em;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-    }
+@media (max-width: 768px) {
+}
 
     main {
       max-width: 1200px;
@@ -270,19 +215,19 @@
   </style>
 </head>
 <body>
-
+  <a class="skip-link" href="#main-content">Skip to content</a>
 <header>
   <div class="logo-container">
-    <img src="../assets/img/logoMod.png" alt="Echelon Logo" class="logo" />
+    <img class="logo" src="../assets/img/logoMod.png" alt="Echelon Day Care logo" />
     <h1>Echelon Day Care</h1>
   </div>
+  <a class="hire-link" href="careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
 </header>
-
-<nav>
+<nav aria-label="Primary">
   <a href="../index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
-  <a href="Gallery.html">Gallery</a>
+  <a href="gallery.html" aria-current="page">Gallery</a>
   <a href="contact.html">Contact</a>
   <a href="tour.html">Virtual Tour</a>
   <a href="careers.html">Careers</a>
@@ -293,7 +238,7 @@
   <a href="../index.html">Home</a> &gt; Gallery
 </div>
 -->
-<main>
+<main id="main-content">
   <h2>Photo Gallery</h2>
 
   <!-- Search Bar -->
@@ -419,6 +364,17 @@
 
   setInterval(createFlower, 300);
 </script>
-
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
+    <div>575 W 8th Ave, Vancouver, BC &middot; +1 604-874-4010 &middot; <a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
 </body>
 </html>

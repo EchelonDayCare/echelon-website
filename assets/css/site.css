@@ -1,0 +1,179 @@
+/* Echelon Day Care — shared site-wide styles
+   Used by every page. Page-specific styles still live inline.
+   Keep selectors here scoped to layout primitives (body, header, nav,
+   footer, .logo, .hire-link, etc.) to avoid collisions with page CSS.
+*/
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6f0ff;
+  margin: 0;
+  padding: 0;
+  color: #003366;
+}
+
+/* ---- Header ---------------------------------------------------------- */
+header {
+  background-color: #007FFF;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 110px;
+  height: auto;
+}
+
+.logo-container h1 {
+  font-size: 3.5em;
+  margin: 0;
+}
+
+/* "Work With Us" prominent header link (originally only on index) */
+.hire-link {
+  color: #002244;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 3rem;
+  background: linear-gradient(90deg, #fff59d 0%, #ffd54f 50%, #ffc107 100%);
+  padding: 10px 24px;
+  border-radius: 34px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 26px rgba(255, 193, 7, 0.28),
+              0 0 18px rgba(255, 235, 59, 0.18) inset;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.hire-link:focus {
+  outline: 3px solid rgba(255, 235, 59, 0.45);
+  outline-offset: 4px;
+  border-radius: 30px;
+}
+.hire-link:hover,
+.hire-link:active {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 14px 40px rgba(255, 193, 7, 0.36),
+              0 0 40px rgba(255, 235, 59, 0.28) inset;
+  filter: saturate(1.05);
+}
+
+/* ---- Nav ------------------------------------------------------------- */
+nav {
+  background-color: #cce0ff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+nav a {
+  margin: 5px 15px;
+  color: #003366;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-bottom: 2px;
+}
+
+nav a:hover { text-decoration: underline; }
+
+nav a[aria-current="page"] {
+  color: #007FFF;
+  border-bottom: 3px solid #007FFF;
+}
+
+/* ---- Footer ---------------------------------------------------------- */
+footer {
+  background-color: #007FFF;
+  color: white;
+  padding: 25px 15px;
+  margin-top: 60px;
+}
+
+footer .footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ---- Accessibility skip link ---------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #003366;
+  color: #fff;
+  z-index: 10000;
+}
+
+/* ---- Mobile ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  header { padding: 12px 14px; }
+  .logo-container {
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+  }
+  .logo { width: 40px; }
+  .logo-container h1 { font-size: 1.6em; }
+  nav a { font-size: 1rem; }
+
+  .hire-link {
+    display: inline-block;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    border-radius: 18px;
+    box-shadow: none;
+    background: linear-gradient(90deg, #fff9d6 0%, #ffe49b 50%, #ffd27a 100%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transform: none;
+  }
+
+  footer .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo-container h1 { font-size: 1.2em; }
+  .hire-link { font-size: 0.9rem; padding: 5px 8px; }
+}
