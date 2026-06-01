@@ -12,7 +12,7 @@
   <meta property="og:description" content="Echelon Day Care is a licensed Vancouver, BC daycare for ages 30 months to 5 years. Play-based learning and qualified educators." />
   <meta property="og:image" content="https://echelondaycare.com/assets/img/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="assets/css/site.min.css?v=202605312026" />
+  <link rel="stylesheet" href="assets/css/site.min.css?v=202605312030" />
   <style>
 /* All your previous CSS from before */
 /* Updated: Prominent hiring link (3x larger on desktop) */
@@ -347,10 +347,16 @@ section {
       "latitude": 49.2641,
       "longitude": -123.1186
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Vancouver"
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Vancouver" },
+      { "@type": "Neighborhood", "name": "Mount Pleasant, Vancouver" },
+      { "@type": "Neighborhood", "name": "Fairview, Vancouver" },
+      { "@type": "Neighborhood", "name": "Cambie Village, Vancouver" },
+      { "@type": "Neighborhood", "name": "South Granville, Vancouver" },
+      { "@type": "Neighborhood", "name": "Olympic Village, Vancouver" },
+      { "@type": "Neighborhood", "name": "False Creek, Vancouver" },
+      { "@type": "Neighborhood", "name": "Kitsilano, Vancouver" }
+    ],
     "sameAs": [
       "https://www.facebook.com/echelon.daycare.5"
     ]
@@ -620,7 +626,7 @@ section {
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
-  <script src="assets/js/site.js?v=202605312026" defer></script>
+  <script src="assets/js/site.js?v=202605312030" defer></script>
 <a class="sticky-call" href="tel:+16048744010" aria-label="Call Echelon Day Care at 604-874-4010"><span aria-hidden="true">📞</span>&nbsp;Call us</a>
 </body>
 </html>
