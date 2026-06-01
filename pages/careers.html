@@ -12,9 +12,7 @@
   <meta property="og:description" content="Careers at Echelon Day Care in Vancouver, BC — view open Early Childhood Educator and Childcare Assistant positions and apply online." />
   <meta property="og:image" content="https://echelondaycare.com/assets/img/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/site.css?v=202605302048" />
+  <link rel="stylesheet" href="../assets/css/site.min.css?v=202605312026" />
   <style>
 :root{
       --brand:#2e7dd1;
@@ -261,6 +259,27 @@ nav a:focus,
   <link rel="apple-touch-icon" href="https://echelondaycare.com/assets/img/favicon-180.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="https://echelondaycare.com/assets/img/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="https://echelondaycare.com/assets/img/favicon-16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://echelondaycare.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Careers",
+      "item": "https://echelondaycare.com/pages/careers.html"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -284,7 +303,7 @@ nav a:focus,
 <main id="main-content" class="container" tabindex="-1">
     <!-- Hiring banner -->
     <section class="hero" aria-labelledby="hiring-heading" role="region" aria-label="Hiring information">
-      <div class="hb-icon" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
+      <div class="hb-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M21 8h-3l-2-3a1 1 0 0 0-.7-.4l-8 1.5a1 1 0 0 0-.7.5l-3 5.3a1 1 0 0 0 .4 1.4l1.7.9V18a1 1 0 0 0 .8 1l4 .8a1 1 0 0 0 1-.5l1.2-2.2 6.4 1.2a1 1 0 0 0 1.2-.8L22 9a1 1 0 0 0-1-1zM8.5 17.7l-2.8-.6v-2.9l3.2 1.7-.4 1.8z"/></svg></div>
       <div>
         <h2 id="hiring-heading">We're hiring — join the Echelon family</h2>
         <p>Interested candidates: email your resume to <a class="apply-email" href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a> or use the "Apply" button on a posting to open the application dialog.</p>
@@ -314,7 +333,7 @@ nav a:focus,
 
     <!-- Program block (keeps original information) -->
     <aside class="program" aria-label="Careers information">
-      <h3><i class="fas fa-briefcase" aria-hidden="true"></i> Careers at Echelon Day Care</h3>
+      <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.15em;margin-right:6px;"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm-8-2h0v0zm2 2h-4V5h4v2z"/></svg> Careers at Echelon Day Care</h3>
       <p>
         We welcome passionate educators and support staff. If you'd like to be considered for future opportunities,
         please contact us or drop in your resume.
@@ -388,7 +407,7 @@ nav a:focus,
         card.className = 'job-card';
         card.setAttribute('tabindex', '0');
         card.innerHTML = `
-          <div class="job-title"><span class="job-icon"><i class="fas fa-child" aria-hidden="true"></i></span>${escapeHtml(job.title)}</div>
+          <div class="job-title"><span class="job-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M15 7H9a2 2 0 0 0-2 2v6h2v7h2v-4h2v4h2v-7h2V9a2 2 0 0 0-2-2z"/></svg></span>${escapeHtml(job.title)}</div>
           <div class="job-meta">
             <span class="job-badge">${escapeHtml(job.type)}</span>
             <span style="margin-left:6px;">${escapeHtml(job.category)}</span>
@@ -615,7 +634,7 @@ I would like to apply for ${job.title} (${job.id}).
     if (y) y.textContent = new Date().getFullYear();
   })();
 </script>
-  <script src="../assets/js/site.js?v=202605302048" defer></script>
+  <script src="../assets/js/site.js?v=202605312026" defer></script>
 <a class="sticky-call" href="tel:+16048744010" aria-label="Call Echelon Day Care at 604-874-4010"><span aria-hidden="true">📞</span>&nbsp;Call us</a>
 </body>
 </html>

@@ -1,0 +1,30 @@
+{
+  "name": "Echelon Day Care",
+  "short_name": "Echelon Daycare",
+  "description": "Licensed daycare and preschool in Vancouver, BC for ages 30 months to 5 years.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#2e7dd1",
+  "lang": "en-CA",
+  "icons": [
+    {
+      "src": "/assets/img/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/logoMod.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
