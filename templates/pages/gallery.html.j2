@@ -242,12 +242,12 @@
 
   // CMS-managed items rendered by the app's Website module. When empty,
   // fall back to the legacy 50-photo pattern under assets/img/gallery/.
-  const cmsItems = {% endraw %}{{ gallery.get("items", []) | tojson }}{% raw %};
+  const cmsItems = {% endraw %}{{ gallery.items | default([]) | tojson }}{% raw %};
 
   // Generic but warm captions cycled across legacy photos so each opens with
   // something meaningful instead of "Photo 17". Ignored for CMS items when
   // they carry their own caption.
-  const captionPool = {% endraw %}{{ gallery.get("caption_pool", ["Photo"]) | tojson }}{% raw %};
+  const captionPool = {% endraw %}{{ gallery.caption_pool | default(["Photo"]) | tojson }}{% raw %};
   const captionFor = i => captionPool[(i - 1) % captionPool.length];
 
   // Build entries: { avif, webp, jpg, caption, alt }
@@ -270,7 +270,7 @@
       });
     }
   } else {
-    const totalImages = {% endraw %}{{ gallery.get("total_images", 50) | tojson }}{% raw %};
+    const totalImages = {% endraw %}{{ gallery.total_images | default(50) | tojson }}{% raw %};
     for (let i = 1; i <= totalImages; i++) {
       const cap = captionFor(i);
       entries.push({
