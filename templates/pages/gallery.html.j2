@@ -240,54 +240,82 @@
   const prevArrow = document.getElementById('prev-arrow');
   const nextArrow = document.getElementById('next-arrow');
 
-  const totalImages = 50;
-  let currentIndex = 0;
+  // CMS-managed items rendered by the app's Website module. When empty,
+  // fall back to the legacy 50-photo pattern under assets/img/gallery/.
+  const cmsItems = {{ gallery.get("items", []) | tojson }};
 
-  // Generic but warm captions cycled across all 50 photos so each opens with
-  // something meaningful instead of "Photo 17". Replace this list with real
-  // captions when you have them.
-  const captionPool = [
-    "Hands-on learning",
-    "Outdoor play",
-    "Story time",
-    "Creative play",
-    "Snack time",
-    "Group activities",
-    "Arts & crafts",
-    "Music & movement",
-    "Exploring nature",
-    "Building together",
-    "Imagination at work",
-    "Quiet learning corner"
-  ];
+  // Generic but warm captions cycled across legacy photos so each opens with
+  // something meaningful instead of "Photo 17". Ignored for CMS items when
+  // they carry their own caption.
+  const captionPool = {{ gallery.get("caption_pool", ["Photo"]) | tojson }};
   const captionFor = i => captionPool[(i - 1) % captionPool.length];
 
-  for (let i = 1; i <= totalImages; i++) {
+  // Build entries: { avif, webp, jpg, caption, alt }
+  const entries = [];
+  if (cmsItems.length > 0) {
+    for (const it of cmsItems) {
+      const variantOf = (fmt, w) => {
+        const v = (it.variants || []).find(v => v.format === fmt && v.width === w);
+        return v ? ("../assets/img/gallery/" + v.filename) : null;
+      };
+      const pick = (fmt) => variantOf(fmt, 800) || variantOf(fmt, 1600) || variantOf(fmt, 400);
+      const cap = it.caption || captionFor(entries.length + 1);
+      const alt = it.alt || ("Echelon Day Care moment: " + cap);
+      entries.push({
+        avif: pick("avif"),
+        webp: pick("webp"),
+        jpg: pick("jpg"),
+        caption: cap,
+        alt: alt,
+      });
+    }
+  } else {
+    const totalImages = {{ gallery.get("total_images", 50) | tojson }};
+    for (let i = 1; i <= totalImages; i++) {
+      const cap = captionFor(i);
+      entries.push({
+        avif: "../assets/img/gallery/Photo (" + i + ").avif",
+        webp: "../assets/img/gallery/Photo (" + i + ").webp",
+        jpg:  "../assets/img/gallery/Photo (" + i + ").jpg",
+        caption: cap,
+        alt: "Echelon Day Care moment: " + cap,
+      });
+    }
+  }
+
+  let currentIndex = 0;
+  const totalImages = entries.length;
+
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
     const item = document.createElement('div');
     item.className = 'gallery-item';
 
-    const cap = captionFor(i);
     // <picture> serves AVIF (smallest), then WebP, then JPG fallback.
     const pic = document.createElement('picture');
-    const avifSrc = document.createElement('source');
-    avifSrc.srcset = "../assets/img/gallery/Photo (" + i + ").avif";
-    avifSrc.type = "image/avif";
-    pic.appendChild(avifSrc);
-    const source = document.createElement('source');
-    source.srcset = "../assets/img/gallery/Photo (" + i + ").webp";
-    source.type = "image/webp";
-    pic.appendChild(source);
+    if (e.avif) {
+      const avifSrc = document.createElement('source');
+      avifSrc.srcset = e.avif;
+      avifSrc.type = "image/avif";
+      pic.appendChild(avifSrc);
+    }
+    if (e.webp) {
+      const source = document.createElement('source');
+      source.srcset = e.webp;
+      source.type = "image/webp";
+      pic.appendChild(source);
+    }
     const img = document.createElement('img');
-    img.src = "../assets/img/gallery/Photo (" + i + ").jpg";
+    img.src = e.jpg;
     img.loading = "lazy";
     img.decoding = "async";
-    img.alt = "Echelon Day Care moment: " + cap;
-    img.dataset.index = i - 1;
+    img.alt = e.alt;
+    img.dataset.index = i;
     pic.appendChild(img);
 
     const overlay = document.createElement('div');
     overlay.className = 'caption-overlay';
-    overlay.textContent = cap;
+    overlay.textContent = e.caption;
 
     item.appendChild(pic);
     item.appendChild(overlay);
@@ -302,11 +330,11 @@
   }
 
   function updateModal() {
-    const imgNum = currentIndex + 1;
-    const cap = captionFor(imgNum);
-    modalImg.src = "../assets/img/gallery/Photo (" + imgNum + ").jpg";
-    modalImg.alt = "Echelon Day Care moment: " + cap;
-    modalCaption.textContent = cap;
+    const e = entries[currentIndex];
+    if (!e) return;
+    modalImg.src = e.jpg;
+    modalImg.alt = e.alt;
+    modalCaption.textContent = e.caption;
   }
 
   function closeModal() {
