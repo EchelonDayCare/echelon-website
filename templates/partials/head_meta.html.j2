@@ -1,0 +1,17 @@
+{#- head_meta.html.j2: SEO/meta head content -#}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}" />
+{% if seo.robots is defined %}<meta name="robots" content="{{ seo.robots }}" />
+{% endif %}
+{% if include_theme_color|default(true) %}<meta name="theme-color" content="{{ site.brand.theme_color }}" />
+{% endif %}
+{% if include_og|default(true) %}<link rel="icon" href="{{ asset_prefix }}{{ site.assets.logo }}" type="image/png" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ seo.og_title }}" />
+<meta property="og:description" content="{{ seo.og_description }}" />
+<meta property="og:image" content="{{ site.urls.og_image_absolute }}" />
+<meta name="twitter:card" content="summary_large_image" />
+{% else %}<link rel="icon" href="{{ asset_prefix }}{{ site.assets.logo }}" type="image/png" />
+{% endif %}

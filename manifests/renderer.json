@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "template_version": "1.0.0",
+  "content_schema_versions": {
+    "site": 1,
+    "home": 1,
+    "about": 1,
+    "services": 1,
+    "gallery": 1,
+    "contact": 1,
+    "tour": 1,
+    "careers": 1,
+    "seo": 1
+  },
+  "image_recipe_version": 1
+}

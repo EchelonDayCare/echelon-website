@@ -1,0 +1,22 @@
+{#- base.html.j2: base template for standard pages -#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "partials/head_meta.html.j2" %}
+<link rel="stylesheet" href="{{ asset_prefix }}{{ site.assets.css }}?v={{ site.cache_bust }}" />
+{% block page_head %}{% endblock %}
+{% block childcare_schema -%}
+<script type="application/ld+json">
+{{ childcare_schema | tojson(indent=2) }}
+</script>
+{%- endblock %}
+{% include "partials/head_extras.html.j2" %}
+{% block extra_schemas %}{% endblock %}
+</head>
+<body>
+{% include "partials/header.html.j2" %}
+{% block body %}{% endblock %}
+{% block faq_schema %}{% endblock %}
+{% include "partials/footer.html.j2" %}
+</body>
+</html>

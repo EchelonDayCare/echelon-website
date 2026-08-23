@@ -1,0 +1,15 @@
+{#- footer.html.j2: shared footer + year script + site.js + sticky-call -#}
+<footer>
+<div class="footer-inner">
+<div>&copy; <span id="year"></span> {{ site.footer.copyright_holder }}. {{ site.footer.rights }}</div>
+<div>{{ site.address.footer_display }} &middot; <a href="{{ site.phone.tel_href }}">{{ site.phone.display }}</a> &middot; <a href="{{ contact_href }}">{{ site.footer.contact_link_label }}</a></div>
+</div>
+</footer>
+<script>
+{% raw %}(function(){
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();{% endraw %}
+</script>
+<script src="{{ asset_prefix }}{{ site.assets.js }}?v={{ site.cache_bust }}" defer></script>
+<a class="sticky-call" href="{{ site.phone.tel_href }}" aria-label="{{ site.sticky_call.aria_label }}"><span aria-hidden="true">&#128222;</span>&nbsp;{{ site.sticky_call.label }}</a>

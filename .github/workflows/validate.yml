@@ -1,0 +1,26 @@
+name: content-render-validation
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  content-render-validation:
+    name: content-render-validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install jinja2 beautifulsoup4 lxml
+
+      - name: Validate rendered content matches committed HTML
+        run: python scripts/validate.py

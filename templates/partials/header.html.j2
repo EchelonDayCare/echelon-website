@@ -1,0 +1,11 @@
+{#- header.html.j2: shared page header (skip-link + <header> + primary <nav>) -#}
+<a class="skip-link" href="#main-content">{{ site.a11y.skip_to_content }}</a>
+<header>
+<div class="logo-container">
+<img class="logo" src="{{ asset_prefix }}{{ site.assets.logo }}" alt="{{ site.assets.logo_alt }}" />
+<h1>{{ site.name }}</h1>
+</div>
+<a class="hire-link" href="{{ careers_href }}" aria-label="{{ site.hire_link.aria_label }}">{{ site.hire_link.label }}</a>
+<button class="nav-toggle" type="button" aria-label="{{ site.a11y.nav_toggle_aria_label }}" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
+</header>
+{% include "partials/nav.html.j2" %}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "hero_banner": {
+    "heading_id": "hiring-heading",
+    "heading": "We're hiring — join the Echelon family",
+    "prefix": "Interested candidates: email your resume to ",
+    "email_link_text": "echelondaycare@hotmail.com",
+    "suffix": " or use the \"Apply\" button on a posting to open the application dialog."
+  },
+  "filters": {
+    "search_label": "Search jobs",
+    "search_placeholder": "Search jobs or keywords…",
+    "search_aria_label": "Search jobs by title or keywords",
+    "location_aria_label": "Filter by location",
+    "location_all_label": "All locations",
+    "type_aria_label": "Filter by employment type",
+    "type_all_label": "All types",
+    "type_options": ["Full-time", "Part-time", "Casual"],
+    "clear_button_label": "Clear",
+    "clear_button_title": "Clear filters"
+  },
+  "jobs_list_aria_label": "Job openings",
+  "info_box": {
+    "heading": "Careers at Echelon Day Care",
+    "paragraph_intro": "\n        We welcome passionate educators and support staff. If you'd like to be considered for future opportunities,\n        please contact us or drop in your resume.\n      ",
+    "email_prefix": "Email: ",
+    "phone_prefix": " Phone: "
+  },
+  "apply_modal": {
+    "title": "Apply for role",
+    "close_aria_label": "Close dialog",
+    "description": "Fill the form below and click \"Send by email\" to open your email client prefilled with the job reference. Attach your resume manually before sending.",
+    "name_placeholder": "Full name",
+    "name_aria_label": "Your full name",
+    "email_placeholder": "Email address",
+    "email_aria_label": "Your email address",
+    "phone_placeholder": "Phone (optional)",
+    "phone_aria_label": "Phone number",
+    "cover_placeholder": "Short message / cover note (optional)",
+    "send_button_label": "Send by email",
+    "notice": "Note: This will open your email client with a pre-filled message. Please attach your resume manually before sending."
+  },
+  "jobs": [
+    {
+      "id": "J001",
+      "title": "Early Childhood Educator",
+      "category": "Teaching",
+      "type": "Full-time",
+      "location": "Vancouver",
+      "short": "Plan and deliver early childhood curriculum for children aged 3–5.",
+      "details": "We are looking for a nurturing Lead Teacher with minimum 2 years experience in early childhood education. Responsibilities include lesson planning, parent communication and child assessment.",
+      "datePosted": "2026-01-16"
+    },
+    {
+      "id": "J002",
+      "title": "Childcare Assistant",
+      "category": "Support",
+      "type": "Part-time",
+      "location": "Vancouver",
+      "short": "Support Lead Teachers with daily care routines and classroom activities.",
+      "details": "Assist with supervision, meal times and play-based learning. Good communication and a caring manner required. Early childhood coursework or equivalent experience preferred.",
+      "datePosted": "2026-01-10"
+    }
+  ]
+}

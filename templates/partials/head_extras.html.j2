@@ -1,0 +1,10 @@
+{#- head_extras.html.j2: canonical, favicons, manifest, breadcrumb JSON-LD -#}
+<link rel="canonical" href="{{ seo.canonical_url }}" />
+<link rel="apple-touch-icon" href="{{ site.urls.favicon_180_absolute }}" />
+<link rel="icon" type="image/png" sizes="32x32" href="{{ site.urls.favicon_32_absolute }}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{ site.urls.favicon_16_absolute }}" />
+<link rel="manifest" href="{{ site.assets.webmanifest }}" />
+{% if breadcrumb_schema is defined %}<script type="application/ld+json">
+{{ breadcrumb_schema | tojson(indent=2) }}
+</script>
+{% endif %}

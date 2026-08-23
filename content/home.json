@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "hero": {
+    "heading": "Guiding Young Minds Through Play and Structure",
+    "subtext": "We nurture each child's emotional well-being, creativity, physical abilities, language skills, and love for learning.",
+    "cta_label": "Enroll Now",
+    "cta_href": "pages/services.html#waiting-list"
+  },
+  "gallery_preview": {
+    "heading": "Gallery Preview",
+    "items": [
+      { "id": "home_g1", "src": "assets/img/1.jpg", "alt": "Children enjoying story time at Echelon Day Care" },
+      { "id": "home_g2", "src": "assets/img/2.jpg", "alt": "Outdoor play in the Echelon Day Care yard" },
+      { "id": "home_g3", "src": "assets/img/3.jpg", "alt": "Art and craft time at Echelon Day Care" },
+      { "id": "home_g4", "src": "assets/img/4.jpg", "alt": "Snack break with the educators" },
+      { "id": "home_g5", "src": "assets/img/5.jpg", "alt": "Music and movement activity" },
+      { "id": "home_g6", "src": "assets/img/6.jpg", "alt": "Small-group learning at Echelon Day Care" }
+    ]
+  },
+  "stats": [
+    "1000+ Happy Families",
+    "30+ Years Experience",
+    "4.9★ Parent Rating"
+  ],
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "id": "faq_ages",
+        "question": "What ages does Echelon Day Care accept?",
+        "answer": "We accept children from 30 months to 5 years old. Our programs prepare children for a smooth transition to kindergarten."
+      },
+      {
+        "id": "faq_location",
+        "question": "Where are you located?",
+        "answer": "We are at 575 W 8th Ave, Vancouver, BC V5Z 1M9. You can find us on the embedded map on our Contact page."
+      },
+      {
+        "id": "faq_waiting_list",
+        "question": "How do I join the waiting list?",
+        "answer": "Fill out the online waiting list form on our Services page and we will get back to you as soon as a spot opens."
+      },
+      {
+        "id": "faq_licensed",
+        "question": "Is Echelon Day Care licensed?",
+        "answer": "Yes, Echelon Day Care is a licensed childcare provider operating in Vancouver, British Columbia."
+      },
+      {
+        "id": "faq_typical_day",
+        "question": "What does a typical day look like?",
+        "answer": "Our day is play-based and structured with circle time, indoor learning centres, outdoor play, art, music, story time and rest periods. Our Virtual Tour page shows the spaces where this happens."
+      },
+      {
+        "id": "faq_contact",
+        "question": "How can I get in touch?",
+        "answer": "Call or text +1 604-874-4010, email echelondaycare@hotmail.com, or use the contact form. We typically respond within one business day."
+      }
+    ]
+  }
+}
