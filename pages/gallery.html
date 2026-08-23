@@ -338,12 +338,12 @@
 
   // CMS-managed items rendered by the app's Website module. When empty,
   // fall back to the legacy 50-photo pattern under assets/img/gallery/.
-  const cmsItems = {{ gallery.get("items", []) | tojson }};
+  const cmsItems = [];
 
   // Generic but warm captions cycled across legacy photos so each opens with
   // something meaningful instead of "Photo 17". Ignored for CMS items when
   // they carry their own caption.
-  const captionPool = {{ gallery.get("caption_pool", ["Photo"]) | tojson }};
+  const captionPool = ["Hands-on learning", "Outdoor play", "Story time", "Creative play", "Snack time", "Group activities", "Arts \u0026 crafts", "Music \u0026 movement", "Exploring nature", "Building together", "Imagination at work", "Quiet learning corner"];
   const captionFor = i => captionPool[(i - 1) % captionPool.length];
 
   // Build entries: { avif, webp, jpg, caption, alt }
@@ -366,7 +366,7 @@
       });
     }
   } else {
-    const totalImages = {{ gallery.get("total_images", 50) | tojson }};
+    const totalImages = 50;
     for (let i = 1; i <= totalImages; i++) {
       const cap = captionFor(i);
       entries.push({
