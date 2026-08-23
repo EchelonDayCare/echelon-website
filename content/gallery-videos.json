@@ -2,13 +2,5 @@
   "schema_version": 1,
   "heading": "Videos",
   "intro": "",
-  "videos": [
-    {
-      "id": "V001",
-      "title": "Asia Portfolio Dashboard",
-      "description": "A quick look at an Asia portfolio management dashboard interface.",
-      "src": "assets/video/gallery/mtt-asia-portfolio-management-dashboard-demo.mp4",
-      "poster": "assets/video/gallery/mtt-asia-portfolio-management-dashboard-demo-poster.jpg"
-    }
-  ]
+  "videos": []
 }
