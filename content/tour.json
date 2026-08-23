@@ -9,6 +9,13 @@
       "description": "A tour of our main classrooms and play spaces.",
       "src": "assets/video/tour.mp4",
       "poster": "assets/video/tour-poster.jpg"
+    },
+    {
+      "id": "V002",
+      "title": "Portfolio Management Dashboard",
+      "description": "Take a look at the Asia portfolio management dashboard in action.",
+      "src": "assets/video/mtt-asia-portfolio-management-dashboard-demo-2.mp4",
+      "poster": "assets/video/mtt-asia-portfolio-management-dashboard-demo-2-poster.jpg"
     }
   ],
   "video_aria_label": "Virtual tour of Echelon Day Care",
