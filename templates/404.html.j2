@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ seo.title }}</title>
+<meta name="robots" content="{{ seo.robots }}" />
+<meta name="description" content="{{ seo.description }}" />
+<link rel="icon" href="/{{ site.assets.logo }}" type="image/png" />
+<link rel="stylesheet" href="/{{ site.assets.css }}" />
+<style>
+{% raw %}    .nf { max-width: 640px; margin: 80px auto; padding: 32px; text-align: center; background: #fff; border-radius: 12px; box-shadow: 0 4px 16px rgba(22, 69, 111, 0.08); }
+    .nf h1 { font-size: 4rem; color: var(--c-brand); margin: 0; }
+    .nf p { font-size: 1.1rem; line-height: 1.6; color: var(--c-ink); }
+    .nf .cta { display: inline-block; margin-top: 20px; padding: 12px 24px; background: var(--c-brand); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; }
+    .nf .cta:hover { background: var(--c-brand-strong); }{% endraw %}
+</style>
+<link rel="manifest" href="{{ site.assets.webmanifest }}" />
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img class="logo" src="/{{ site.assets.logo }}" alt="{{ site.assets.logo_alt }}" />
+<h1>{{ site.name }}</h1>
+</div>
+</header>
+<main class="nf">
+<h1>404</h1>
+<p>We could not find the page you were looking for.</p>
+<p>If you typed the address, check it for typos. Otherwise, head back to the home page or get in touch.</p>
+<a class="cta" href="/">Back to home</a>
+&nbsp;
+<a class="cta" href="/pages/contact.html">Contact us</a>
+</main>
+</body>
+</html>

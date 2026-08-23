@@ -1,0 +1,141 @@
+{% extends "base.html.j2" %}
+{% block page_head %}
+<style>
+{% raw %}.content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .program {
+      background-color: #ffffff;
+      border-left: 5px solid #2e7dd1;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .program h2 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.8em;
+    }
+
+    .program h2 i {
+      margin-right: 12px;
+      color: #2e7dd1;
+    }
+
+    .program p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .pdf-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #2e7dd1;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .pdf-link:hover {
+      background-color: #1d5fa3;
+    }
+
+    /* Waiting list container */
+    #waiting-list {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      margin-top: 40px;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    /* Title */
+    #waiting-list h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #16456f;
+      border-bottom: 3px solid #2e7dd1;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    /* Iframe wrapper */
+    .form-wrapper {
+      border: 3px solid #2e7dd1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f8fbff;
+    }
+
+    /* Force iframe to behave nicely */
+    #waiting-list iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      height: 1400px;
+    }
+
+    @media (max-width: 768px) {
+#waiting-list iframe {
+        height: 1200px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }{% endraw %}
+</style>
+{% endblock %}
+{% block extra_schemas %}
+<script type="application/ld+json">
+{{ service_schema | tojson(indent=2) }}
+</script>
+{% endblock %}
+{% block body %}
+<div class="content">
+<!-- Daycare Program Section -->
+<div class="program">
+<h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M15 7H9a2 2 0 0 0-2 2v6h2v7h2v-4h2v4h2v-7h2V9a2 2 0 0 0-2-2z"/></svg> {{ services.daycare_program.heading }}</h2>
+{% for p in services.daycare_program.paragraphs %}<p>{{ p }}</p>
+{% endfor %}<a class="pdf-link" href="{{ asset_prefix }}{{ services.daycare_program.brochure_path }}" target="_blank">{{ services.daycare_program.brochure_link_label }}</a>
+</div>
+
+<!-- Waiting List Section -->
+<section id="main-content" id="waiting-list">
+<h2>{{ services.waiting_list.heading }}</h2>
+<div class="form-wrapper">
+<iframe
+src="{{ services.waiting_list.form_url }}"
+width="100%"
+height="{{ services.waiting_list.form_height }}"
+frameborder="0"
+marginheight="0"
+marginwidth="0"
+loading="lazy"
+allow="fullscreen"
+>
+{{ services.waiting_list.form_placeholder_text }}
+</iframe>
+</div>
+</section>
+
+</div>
+{% endblock %}

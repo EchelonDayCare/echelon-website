@@ -1,0 +1,532 @@
+{% extends "base.html.j2" %}
+{% block page_head %}
+<style>
+{% raw %}:root{
+      --brand:#2e7dd1;
+      --brand-strong:#16456f;
+      --muted:#556b85;
+      --bg:#f3f6fb;
+      --card:#ffffff;
+      --radius:8px;
+      --max-width:1000px;
+    }
+    html,body{height:100%;}
+    /* match site-wide pages: use Arial, sans-serif for consistency */
+/* Skip link for accessibility */
+/* Header - left aligned to match other pages */
+/* Make the header/title font consistent with other pages (matches ../index.html) */
+    .brand-title {
+      font-size: 3.5em;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: white;
+      line-height: 1;
+    }
+nav a:focus,
+.container {
+      padding: 28px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto 48px;
+    }
+
+    .hero {
+      display:flex;
+      gap:16px;
+      align-items:center;
+      background: linear-gradient(90deg, rgba(0,127,255,0.04), #fff);
+      border-left: 6px solid var(--brand);
+      padding:16px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      margin-bottom:18px;
+    }
+    .hb-icon {
+      font-size:28px;
+      color:var(--brand);
+      width:52px;
+      height:52px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,127,255,0.06);
+      border-radius:10px;
+    }
+    .hero h2{margin:0;font-size:1.05rem;font-weight:800;}
+    .hero p{margin:4px 0 0; color:var(--muted);}
+
+    /* Filters / search bar */
+    .filters {
+      display:flex;
+      gap:10px;
+      margin:18px 0;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .filters input[type="search"],
+    .filters select {
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid #d6e6ff;
+      background:#fff;
+      min-width:180px;
+    }
+    .filters .btn {
+      background:var(--brand);
+      color:#fff;
+      border:none;
+      padding:9px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .filters .btn:focus,
+    .filters .btn:hover { box-shadow: 0 6px 12px rgba(0,127,255,0.12); }
+
+    /* Jobs list */
+    .jobs-list {
+      display: grid;
+      gap:14px;
+      margin-bottom: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .job-card {
+      background: var(--card);
+      border-left: 4px solid var(--brand);
+      padding: 14px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .job-card:focus-within,
+    .job-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+    }
+
+    .job-title {
+      font-weight:800;
+      margin:0;
+      font-size:1.05rem;
+      color:var(--brand-strong);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .job-title .job-icon { color:var(--brand); font-size:0.95rem; }
+
+    .job-meta {
+      color: var(--muted);
+      font-size:0.9rem;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .job-badge {
+      background: rgba(0,127,255,0.08);
+      border: 1px solid rgba(0,127,255,0.06);
+      color:var(--brand);
+      padding:4px 8px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.82rem;
+    }
+    .job-short {
+      margin:6px 0;
+      color:#213547;
+      font-size:0.98rem;
+    }
+    .job-details { color:#334556; font-size:0.95rem; }
+
+    .apply-row { display:flex; gap:10px; align-items:center; margin-top:auto; flex-wrap:wrap; }
+    .apply-btn {
+      background: var(--brand);
+      color:#fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:800;
+    }
+    .apply-email {
+      color:var(--brand);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .apply-btn:focus, .apply-btn:hover { box-shadow: 0 8px 18px rgba(0,127,255,0.12); }
+
+    /* Program block preserved and polished */
+    .program {
+      background-color: #ffffff;
+      border-left: 5px solid var(--brand);
+      padding: 18px;
+      margin-top: 22px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    .program h3 { margin-top:0; display:flex; align-items:center; gap:10px; font-size:1.15rem; }
+    .program p { color:var(--muted); line-height:1.5; }
+.footer-inner { max-width:var(--max-width); margin:0 auto; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; }
+
+    /* Modal */
+    .modal-backdrop {
+      position:fixed;
+      inset:0;
+      background: rgba(3,6,23,0.45);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:10000;
+      padding:20px;
+    }
+    .modal {
+      background:#fff;
+      border-radius:12px;
+      width:100%;
+      max-width:720px;
+      padding:18px;
+      box-shadow: 0 20px 60px rgba(2,20,40,0.4);
+    }
+    .modal header { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .modal h3 { margin:0; font-size:1.05rem; }
+    .close-btn { background:transparent; border:none; font-size:1.1rem; color:var(--muted); cursor:pointer; }
+
+    .form-row { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+    .form-row input[type="text"], .form-row input[type="email"], .form-row textarea {
+      padding:8px 10px; border-radius:8px; border:1px solid #d6e6ff; min-width:180px; width:100%;
+    }
+    .form-row textarea { min-height:100px; resize:vertical; }
+
+    .notice { margin-top:12px; color:var(--muted); font-size:0.9rem; }
+
+    /* Responsive tweaks */
+    @media (max-width:720px){
+.brand-title { font-size: 1.6rem; } /* scale down on mobile for better fit */
+      .hero { flex-direction:column; align-items:flex-start; }
+    }{% endraw %}
+</style>
+{% endblock %}
+{% block body %}
+<main id="main-content" class="container" tabindex="-1">
+<!-- Hiring banner -->
+<section class="hero" aria-labelledby="{{ careers.hero_banner.heading_id }}" role="region" aria-label="Hiring information">
+<div class="hb-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M21 8h-3l-2-3a1 1 0 0 0-.7-.4l-8 1.5a1 1 0 0 0-.7.5l-3 5.3a1 1 0 0 0 .4 1.4l1.7.9V18a1 1 0 0 0 .8 1l4 .8a1 1 0 0 0 1-.5l1.2-2.2 6.4 1.2a1 1 0 0 0 1.2-.8L22 9a1 1 0 0 0-1-1zM8.5 17.7l-2.8-.6v-2.9l3.2 1.7-.4 1.8z"/></svg></div>
+<div>
+<h2 id="{{ careers.hero_banner.heading_id }}">{{ careers.hero_banner.heading }}</h2>
+<p>{{ careers.hero_banner.prefix }}<a class="apply-email" href="mailto:{{ site.email }}">{{ careers.hero_banner.email_link_text }}</a>{{ careers.hero_banner.suffix }}</p>
+</div>
+</section>
+
+<!-- Filters & search -->
+<div class="filters" aria-hidden="false">
+<label for="job-search" class="sr-only" style="position:absolute;left:-9999px;">{{ careers.filters.search_label }}</label>
+<input id="job-search" type="search" placeholder="{{ careers.filters.search_placeholder }}" aria-label="{{ careers.filters.search_aria_label }}">
+<select id="filter-location" aria-label="{{ careers.filters.location_aria_label }}">
+<option value="">{{ careers.filters.location_all_label }}</option>
+</select>
+<select id="filter-type" aria-label="{{ careers.filters.type_aria_label }}">
+<option value="">{{ careers.filters.type_all_label }}</option>
+{% for t in careers.filters.type_options %}<option value="{{ t }}">{{ t }}</option>
+{% endfor %}</select>
+<button id="clear-filters" class="btn" title="{{ careers.filters.clear_button_title }}">{{ careers.filters.clear_button_label }}</button>
+</div>
+
+<!-- Jobs list (rendered via JS) -->
+<section class="jobs-list" id="jobs-list" aria-live="polite" aria-label="{{ careers.jobs_list_aria_label }}">
+<!-- JS will populate job cards here -->
+</section>
+
+<!-- Program block (keeps original information) -->
+<aside class="program" aria-label="Careers information">
+<h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.15em;margin-right:6px;"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm-8-2h0v0zm2 2h-4V5h4v2z"/></svg> {{ careers.info_box.heading }}</h3>
+<p>{{ careers.info_box.paragraph_intro }}</p>
+<p style="margin-top:8px;">
+{{ careers.info_box.email_prefix }}<strong><a class="apply-email" href="mailto:{{ site.email }}">{{ site.email }}</a></strong>
+&nbsp;|&nbsp;{{ careers.info_box.phone_prefix }}<strong><a href="{{ site.phone.tel_href }}">{{ site.phone.display }}</a></strong>
+</p>
+</aside>
+</main>
+
+<!-- Accessible application modal -->
+<div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+<header>
+<h3 id="modal-title">{{ careers.apply_modal.title }}</h3>
+<button class="close-btn" id="modal-close" aria-label="{{ careers.apply_modal.close_aria_label }}">&times;</button>
+</header>
+
+<div id="modal-desc" style="margin-top:10px;color:var(--muted);">{{ careers.apply_modal.description }}</div>
+
+<form id="apply-form" style="margin-top:12px;">
+<div class="form-row">
+<input type="text" id="app-name" name="name" placeholder="{{ careers.apply_modal.name_placeholder }}" required aria-label="{{ careers.apply_modal.name_aria_label }}">
+<input type="email" id="app-email" name="email" placeholder="{{ careers.apply_modal.email_placeholder }}" required aria-label="{{ careers.apply_modal.email_aria_label }}">
+</div>
+<div class="form-row" style="margin-top:8px;">
+<input type="text" id="app-phone" name="phone" placeholder="{{ careers.apply_modal.phone_placeholder }}" aria-label="{{ careers.apply_modal.phone_aria_label }}">
+</div>
+<div class="form-row" style="margin-top:8px;">
+<textarea id="app-cover" name="cover" placeholder="{{ careers.apply_modal.cover_placeholder }}"></textarea>
+</div>
+
+<div class="form-row" style="margin-top:12px; justify-content:flex-end;">
+<!-- Only the email fallback option is available -->
+<button type="button" id="email-fallback" class="apply-btn" style="background:#0b69d1;">{{ careers.apply_modal.send_button_label }}</button>
+</div>
+<div class="notice" id="form-note">{{ careers.apply_modal.notice }}</div>
+</form>
+</div>
+</div>
+
+<!-- JS: dynamic jobs, filtering, modal + email fallback -->
+<script>
+{% raw %}    // Jobs are loaded from ../assets/data/jobs.json (single source of truth).
+    // To add/edit/remove jobs, only edit that JSON file.
+    let jobs = [];
+
+    // Populate filter options (locations)
+    function populateFilters(){
+      const locSet = new Set(jobs.map(j => j.location));
+      const locSelect = document.getElementById('filter-location');
+      locSet.forEach(loc => {
+        const opt = document.createElement('option');
+        opt.value = loc;
+        opt.textContent = loc;
+        locSelect.appendChild(opt);
+      });
+    }
+
+    // Render jobs to the DOM
+    function renderJobs(list){
+      const container = document.getElementById('jobs-list');
+      container.innerHTML = '';
+      if(!list.length){
+        container.innerHTML = '<div style="padding:18px;background:#fff;border-radius:8px;border-left:4px solid var(--brand);">No jobs found.</div>';
+        return;
+      }
+      list.forEach(job => {
+        const card = document.createElement('article');
+        card.className = 'job-card';
+        card.setAttribute('tabindex', '0');
+        card.innerHTML = `
+          <div class="job-title"><span class="job-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M15 7H9a2 2 0 0 0-2 2v6h2v7h2v-4h2v4h2v-7h2V9a2 2 0 0 0-2-2z"/></svg></span>${escapeHtml(job.title)}</div>
+          <div class="job-meta">
+            <span class="job-badge">${escapeHtml(job.type)}</span>
+            <span style="margin-left:6px;">${escapeHtml(job.category)}</span>
+            <span style="margin-left:auto;color:var(--muted);font-weight:700;">${escapeHtml(job.location)}</span>
+          </div>
+          <div class="job-short">${escapeHtml(job.short)}</div>
+          <div class="job-details">${escapeHtml(job.details)}</div>
+          <div class="apply-row" aria-hidden="false">
+            <button class="apply-btn" data-jobid="${escapeHtml(job.id)}" aria-label="Apply for ${escapeHtml(job.title)}">Apply</button>
+            <a class="apply-email" href="mailto:echelondaycare@hotmail.com?subject=${encodeURIComponent('Application for ' + job.title + ' (' + job.id + ')')}" aria-label="Email application for ${escapeHtml(job.title)}">Email</a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      // Hook up the apply buttons (handled via delegation below as well)
+      container.querySelectorAll('.apply-btn').forEach(btn => {
+        btn.addEventListener('click', e => openApplyModal(e.currentTarget.dataset.jobid));
+      });
+    }
+
+    // Simple HTML escape
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    }
+
+    // Filtering logic
+    function getFilteredJobs(){
+      const q = document.getElementById('job-search').value.trim().toLowerCase();
+      const loc = document.getElementById('filter-location').value;
+      const type = document.getElementById('filter-type').value;
+      return jobs.filter(j => {
+        const matchesQuery = !q || (j.title + ' ' + j.short + ' ' + j.details).toLowerCase().includes(q);
+        const matchesLoc = !loc || j.location === loc;
+        const matchesType = !type || j.type === type;
+        return matchesQuery && matchesLoc && matchesType;
+      });
+    }
+
+    // Hook up filters
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Load jobs from JSON, then render. Falls back to empty list on error.
+      fetch('../assets/data/jobs.json', {cache: 'no-cache'})
+        .then(r => r.ok ? r.json() : Promise.reject(new Error('Failed to load jobs.json: ' + r.status)))
+        .then(data => {
+          jobs = Array.isArray(data) ? data : [];
+          populateFilters();
+          renderJobs(jobs);
+          renderJobStructuredData();
+        })
+        .catch(err => {
+          console.error(err);
+          const c = document.getElementById('jobs-list');
+          if (c) c.innerHTML = '<div style="padding:18px;background:#fff;border-radius:8px;border-left:4px solid var(--brand);">Job listings are temporarily unavailable. Please email <a href="mailto:echelondaycare@hotmail.com">echelondaycare@hotmail.com</a>.</div>';
+        });
+
+      ['job-search','filter-location','filter-type'].forEach(id => {
+        document.getElementById(id).addEventListener('input', () => renderJobs(getFilteredJobs()));
+      });
+      document.getElementById('clear-filters').addEventListener('click', () => {
+        document.getElementById('job-search').value = '';
+        document.getElementById('filter-location').value = '';
+        document.getElementById('filter-type').value = '';
+        renderJobs(jobs);
+      });
+
+      // Keyboard shortcut: press "/" to focus search
+      document.addEventListener('keydown', (e) => {
+        if(e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA'){
+          e.preventDefault();
+          document.getElementById('job-search').focus();
+        }
+      });
+    });
+
+    // Modal & email-only form handling
+    const backdrop = document.getElementById('modal-backdrop');
+    const modalTitle = document.getElementById('modal-title');
+    const emailFallbackBtn = document.getElementById('email-fallback');
+    const modalClose = document.getElementById('modal-close');
+    let activeJob = null;
+    let lastTrigger = null;
+
+    function openApplyModal(jobId, triggerEl){
+      activeJob = jobs.find(j => j.id === jobId);
+      if(!activeJob) return;
+      modalTitle.textContent = `Apply: ${activeJob.title} (${activeJob.id})`;
+      document.getElementById('app-cover').value = `Applying for ${activeJob.title} (${activeJob.id}).\n\n`;
+      document.getElementById('app-name').value = '';
+      document.getElementById('app-email').value = '';
+      document.getElementById('app-phone').value = '';
+      backdrop.style.display = 'flex';
+      backdrop.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      // remember trigger to return focus on close
+      lastTrigger = triggerEl || document.activeElement;
+      // focus first field
+      setTimeout(()=>document.getElementById('app-name').focus(), 50);
+      trapFocus(backdrop);
+    }
+
+    function closeModal(){
+      backdrop.style.display = 'none';
+      backdrop.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      if(lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+    }
+
+    // Close handlers
+    modalClose.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e)=> {
+      if(e.target === backdrop) closeModal();
+    });
+    document.addEventListener('keydown',(e)=> {
+      if(e.key === 'Escape' && backdrop.style.display === 'flex') closeModal();
+    });
+
+    // Focus trap (simple)
+    function trapFocus(node){
+      const focusable = node.querySelectorAll('a[href], button:not([disabled]), input, textarea, select');
+      if(!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      function handle(e){
+        if(e.key !== 'Tab') return;
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+      node.addEventListener('keydown', handle);
+      // remove listener on close
+      modalClose.addEventListener('click', ()=> node.removeEventListener('keydown', handle), {once:true});
+      backdrop.addEventListener('click', ()=> node.removeEventListener('keydown', handle), {once:true});
+    }
+
+    // Email fallback button: gather fields and open mail client with prefilled subject/body
+    emailFallbackBtn.addEventListener('click', () => {
+      const name = document.getElementById('app-name').value.trim();
+      const email = document.getElementById('app-email').value.trim();
+      const phone = document.getElementById('app-phone').value.trim();
+      const cover = document.getElementById('app-cover').value.trim();
+
+      if(!name || !email){
+        alert('Please provide your name and email.');
+        return;
+      }
+
+      sendMailFallback({name,email,phone,cover,job:activeJob});
+    });
+
+    // Construct a mailto fallback: open user's mail client with prefilled subject and body.
+    function sendMailFallback({name,email,phone,cover,job}){
+      const subject = `Application for ${job.title} (${job.id})`;
+      let body = `Hello Echelon team,
+
+I would like to apply for ${job.title} (${job.id}).
+
+`;
+      if(name) body += `Name: ${name}\n`;
+      if(email) body += `Email: ${email}\n`;
+      if(phone) body += `Phone: ${phone}\n`;
+      if(cover) body += `\n${cover}\n\n`;
+      body += `Please find my resume attached (attach manually if required).\n\nThanks,\n${name}`;
+
+      const mailto = `mailto:echelondaycare@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      closeModal();
+    }
+
+    // Wire up apply buttons rendered on initial load: use event delegation in case of dynamic re-rendering
+    document.body.addEventListener('click', (e) => {
+      const btn = e.target.closest('.apply-btn');
+      if(!btn) return;
+      const id = btn.dataset.jobid;
+      openApplyModal(id, btn);
+    });
+
+    /**
+     * Generate JSON-LD structured data for jobs for SEO.
+     * Called after jobs.json loads.
+     */
+    function renderJobStructuredData(){
+      const jobPostings = jobs.map(j => ({
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "title": j.title,
+        "description": j.details,
+        "datePosted": j.datePosted,
+        "employmentType": j.type.toUpperCase().replace(/-/g,'_'),
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "Echelon Day Care",
+          "sameAs": window.location.origin || "https://example.com",
+          "logo": new URL('../assets/img/logoMod.png', window.location.href).href
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": j.location,
+            "addressRegion": "BC",
+            "addressCountry": "CA"
+          }
+        }
+      }));
+      // Insert JSON-LD into the document for search engines
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(jobPostings.length === 1 ? jobPostings[0] : {"@graph": jobPostings}, null, 2);
+      document.head.appendChild(script);
+    }
+{% endraw %}
+</script>
+{% endblock %}

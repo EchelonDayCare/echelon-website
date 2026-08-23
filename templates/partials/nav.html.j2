@@ -1,0 +1,6 @@
+{#- nav.html.j2: primary nav; expects `nav_items` list of {label, href, active} -#}
+<nav id="primary-nav" class="primary-nav" aria-label="{{ site.a11y.primary_nav_label }}">
+{% for item in nav_items -%}
+<a href="{{ item.href }}"{% if item.active %} aria-current="page"{% endif %}>{{ item.label }}</a>
+{% endfor -%}
+</nav>
