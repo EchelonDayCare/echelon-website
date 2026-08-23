@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "daycare_program": {
+    "heading": "Daycare Program (Ages 30 months to 5 years)",
+    "paragraphs": [
+      "\n      Our daycare program nurtures the curiosity and creativity of children aged 30 months to 5 years.\n      We focus on structured learning through play-based activities that prepare kids\n      for kindergarten. The program encourages early literacy, numeracy, problem-solving,\n      and social-emotional development. Our experienced educators ensure a warm, inclusive,\n      and engaging environment that fosters confidence and independence in every child.\n    ",
+      "\n      Children enjoy music, art, outdoor play, and story time every day. Small group sizes allow\n      for personalized attention and a calm, supportive setting.\n    "
+    ],
+    "brochure_path": "assets/docs/Echelon_Preschool_Brochure.pdf",
+    "brochure_link_label": "\n      \ud83d\udcc4 Download Program Brochure (PDF)\n    "
+  },
+  "waiting_list": {
+    "heading": "WAITING LIST",
+    "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSciq7seUngH91eAjrwOtO3NUf_IgbYi6Cu8LH4b32SANCewoQ/viewform?embedded=true&usp=pp_url&rm=embedded",
+    "form_placeholder_text": "Loading\u2026",
+    "form_height": "1400"
+  },
+  "service_schema": {
+    "service_type": "Licensed daycare program (ages 30 months to 5 years)",
+    "name": "Daycare Program",
+    "audience_min_age": 2.5,
+    "audience_max_age": 5,
+    "description": "Play-based learning, kindergarten readiness, music, art, outdoor play and small-group activities for ages 30 months to 5 years."
+  }
+}

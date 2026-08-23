@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "page_heading": "Photo Gallery",
+  "search_placeholder": "Search photos...",
+  "total_images": 50,
+  "photo_path_pattern": "assets/img/gallery/Photo ({i}).{ext}",
+  "caption_pool": [
+    "Hands-on learning",
+    "Outdoor play",
+    "Story time",
+    "Creative play",
+    "Snack time",
+    "Group activities",
+    "Arts & crafts",
+    "Music & movement",
+    "Exploring nature",
+    "Building together",
+    "Imagination at work",
+    "Quiet learning corner"
+  ],
+  "photos": []
+}

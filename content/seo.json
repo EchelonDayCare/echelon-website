@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "pages": {
+    "index": {
+      "path": "index.html",
+      "title": "Echelon Day Care — Vancouver Daycare & Preschool",
+      "description": "Echelon Day Care is a licensed Vancouver, BC daycare for ages 30 months to 5 years. Play-based learning and qualified educators.",
+      "og_title": "Echelon Day Care — Vancouver Daycare & Preschool",
+      "og_description": "Echelon Day Care is a licensed Vancouver, BC daycare for ages 30 months to 5 years. Play-based learning and qualified educators.",
+      "canonical_url": "https://echelondaycare.com/",
+      "breadcrumb": []
+    },
+    "about": {
+      "path": "pages/about.html",
+      "title": "About Echelon Day Care — Vancouver, BC Daycare",
+      "description": "Learn about Echelon Day Care — our vision, mission and values. A safe, inclusive, play-based licensed daycare in Vancouver, BC for ages 30 months to 5 years.",
+      "og_title": "About Echelon Day Care — Vancouver, BC Daycare",
+      "og_description": "Learn about Echelon Day Care — our vision, mission and values. A safe, inclusive, play-based licensed daycare in Vancouver, BC for ages 30 months to 5 years.",
+      "canonical_url": "https://echelondaycare.com/pages/about.html",
+      "breadcrumb": [
+        { "name": "Home", "item": "https://echelondaycare.com/" },
+        { "name": "About", "item": "https://echelondaycare.com/pages/about.html" }
+      ]
+    },
+    "services": {
+      "path": "pages/services.html",
+      "title": "Programs & Waiting List — Echelon Day Care, Vancouver",
+      "description": "Echelon Day Care programs for ages 30 months to 5 years in Vancouver, BC. Play-based learning, kindergarten readiness, and an online waiting list form.",
+      "og_title": "Programs & Waiting List — Echelon Day Care, Vancouver",
+      "og_description": "Echelon Day Care programs for ages 30 months to 5 years in Vancouver, BC. Play-based learning, kindergarten readiness, and an online waiting list form.",
+      "canonical_url": "https://echelondaycare.com/pages/services.html",
+      "breadcrumb": [
+        { "name": "Home", "item": "https://echelondaycare.com/" },
+        { "name": "Programs", "item": "https://echelondaycare.com/pages/services.html" }
+      ]
+    },
+    "gallery": {
+      "path": "pages/gallery.html",
+      "title": "Photo Gallery — Echelon Day Care, Vancouver",
+      "description": "Photo gallery from Echelon Day Care in Vancouver, BC — see our classrooms, activities, outdoor play and the children in action.",
+      "og_title": "Photo Gallery — Echelon Day Care, Vancouver",
+      "og_description": "Photo gallery from Echelon Day Care in Vancouver, BC — see our classrooms, activities, outdoor play and the children in action.",
+      "canonical_url": "https://echelondaycare.com/pages/gallery.html",
+      "breadcrumb": [
+        { "name": "Home", "item": "https://echelondaycare.com/" },
+        { "name": "Gallery", "item": "https://echelondaycare.com/pages/gallery.html" }
+      ]
+    },
+    "contact": {
+      "path": "pages/contact.html",
+      "title": "Contact Echelon Day Care — 604-874-4010, Vancouver BC",
+      "description": "Contact Echelon Day Care at 575 W 8th Ave, Vancouver, BC V5Z 1M9. Phone +1 604-874-4010 or email echelondaycare@hotmail.com.",
+      "og_title": "Contact Echelon Day Care — 604-874-4010, Vancouver BC",
+      "og_description": "Contact Echelon Day Care at 575 W 8th Ave, Vancouver, BC V5Z 1M9. Phone +1 604-874-4010 or email echelondaycare@hotmail.com.",
+      "canonical_url": "https://echelondaycare.com/pages/contact.html",
+      "breadcrumb": [
+        { "name": "Home", "item": "https://echelondaycare.com/" },
+        { "name": "Contact", "item": "https://echelondaycare.com/pages/contact.html" }
+      ]
+    },
+    "tour": {
+      "path": "pages/tour.html",
+      "title": "Virtual Tour — Echelon Day Care, Vancouver BC",
+      "description": "Take a virtual walk-through of Echelon Day Care's classrooms, play spaces and outdoor area in Vancouver, BC.",
+      "og_title": "Virtual Tour — Echelon Day Care, Vancouver BC",
+      "og_description": "Take a virtual walk-through of Echelon Day Care's classrooms, play spaces and outdoor area in Vancouver, BC.",
+      "canonical_url": "https://echelondaycare.com/pages/tour.html",
+      "breadcrumb": [
+        { "name": "Home", "item": "https://echelondaycare.com/" },
+        { "name": "Virtual Tour", "item": "https://echelondaycare.com/pages/tour.html" }
+      ]
+    },
+    "careers": {
+      "path": "pages/careers.html",
+      "title": "Careers — Echelon Day Care, Vancouver BC",
+      "description": "Careers at Echelon Day Care in Vancouver, BC — view open Early Childhood Educator and Childcare Assistant positions and apply online.",
+      "og_title": "Careers — Echelon Day Care, Vancouver BC",
+      "og_description": "Careers at Echelon Day Care in Vancouver, BC — view open Early Childhood Educator and Childcare Assistant positions and apply online.",
+      "canonical_url": "https://echelondaycare.com/pages/careers.html",
+      "breadcrumb": [
+        { "name": "Home", "item": "https://echelondaycare.com/" },
+        { "name": "Careers", "item": "https://echelondaycare.com/pages/careers.html" }
+      ]
+    },
+    "not_found": {
+      "path": "404.html",
+      "title": "Page not found · Echelon Day Care",
+      "description": "Page not found. Head back to the Echelon Day Care home page or get in touch.",
+      "robots": "noindex"
+    }
+  },
+  "sitemap_urls": [
+    { "loc": "https://echelondaycare.com/",                   "changefreq": "monthly", "priority": "1.0" },
+    { "loc": "https://echelondaycare.com/pages/about.html",   "changefreq": "monthly", "priority": "0.8" },
+    { "loc": "https://echelondaycare.com/pages/services.html","changefreq": "monthly", "priority": "0.9" },
+    { "loc": "https://echelondaycare.com/pages/gallery.html", "changefreq": "monthly", "priority": "0.7" },
+    { "loc": "https://echelondaycare.com/pages/contact.html", "changefreq": "monthly", "priority": "0.9" },
+    { "loc": "https://echelondaycare.com/pages/tour.html",    "changefreq": "monthly", "priority": "0.6" },
+    { "loc": "https://echelondaycare.com/pages/careers.html", "changefreq": "weekly",  "priority": "0.7" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "heading": "About Echelon Day Care",
+  "intro_html": "\n      Welcome to <span class=\"highlight\">Echelon Day Care</span> — where nurturing care meets joyful learning!\n      We are a dedicated team of early childhood educators passionate about creating a safe, stimulating,\n      and inclusive environment for children to grow and thrive.\n    ",
+  "vision": {
+    "heading": "Our Vision",
+    "paragraph": "\n      To build a foundation of lifelong learning by fostering creativity, confidence, and kindness\n      in every child we care for.\n    "
+  },
+  "mission": {
+    "heading": "Our Mission",
+    "bullets": [
+      "Provide a secure and loving environment for all children.",
+      "Encourage curiosity through hands-on learning and play.",
+      "Support each child\u2019s social, emotional, physical, and cognitive development."
+    ]
+  },
+  "team": {
+    "heading": "Our Team",
+    "paragraph": "\n      Led by experienced educators and caregivers, our staff is trained in child safety, CPR,\n      early childhood development, and emotional intelligence. We take pride in forming strong\n      partnerships with parents and guardians.\n    "
+  },
+  "why_choose_us": {
+    "heading": "Why Choose Us?",
+    "bullets": [
+      "Bright, clean, and engaging facilities.",
+      "Daily learning through stories, music, art, and play.",
+      "Balanced indoor, outdoor and nap time.",
+      "Regular updates and photo sharing with parents."
+    ]
+  },
+  "image_grid": [
+    { "id": "about_p1", "src": "assets/img/photo1.jpg", "alt": "Echelon Day Care classroom" },
+    { "id": "about_p2", "src": "assets/img/photo2.jpg", "alt": "Children at play" },
+    { "id": "about_p3", "src": "assets/img/photo3.jpg", "alt": "Educators and children together" }
+  ],
+  "neighborhoods": {
+    "heading": "Neighbourhoods we serve",
+    "heading_id": "areas-heading",
+    "paragraph_html": "Our centre is at 575 W 8th Ave in <strong>Mount Pleasant</strong>, on the border of <strong>Fairview</strong> and <strong>Cambie Village</strong>. We welcome families from across central Vancouver, including <strong>South Granville</strong>, <strong>Olympic Village</strong>, <strong>False Creek</strong>, <strong>Kitsilano</strong>, <strong>South Cambie</strong>, and <strong>Riley Park</strong>. We're a short drive or bus ride from the Broadway corridor, the Canada Line (Broadway&ndash;City Hall and Olympic Village stations), and Vancouver General Hospital."
+  }
+}
