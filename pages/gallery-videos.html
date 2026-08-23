@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Videos - Echelon Day Care, Vancouver</title>
+<meta name="description" content="Short video clips from Echelon Day Care in Vancouver, BC." />
+
+<meta name="theme-color" content="#2e7dd1" />
+
+<link rel="icon" href="..&#x2f;assets&#x2f;img&#x2f;logoMod.png" type="image/png" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Videos - Echelon Day Care, Vancouver" />
+<meta property="og:description" content="Short video clips from Echelon Day Care." />
+<meta property="og:image" content="https:&#x2f;&#x2f;echelondaycare.com&#x2f;assets&#x2f;img&#x2f;og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="stylesheet" href="..&#x2f;assets&#x2f;css&#x2f;site.min.css?v=202606010606" />
+
+<style>
+main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    h2 {
+      margin: 10px 0 18px;
+      color: #1d5fa3;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .video-wrap {
+      position: relative;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      margin: 20px auto;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tour-intro {
+      max-width: 800px;
+      margin: 0 auto 10px;
+      text-align: center;
+      color: var(--c-muted, #5a6c80);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .now-playing {
+      max-width: 900px;
+      margin: 14px auto 6px;
+      text-align: center;
+    }
+
+    .now-playing h3 {
+      margin: 0 0 4px;
+      color: #1d5fa3;
+      font-size: 1.25rem;
+    }
+
+    .now-playing p {
+      margin: 0;
+      color: var(--c-muted, #5a6c80);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .playlist {
+      max-width: 1100px;
+      margin: 22px auto 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .playlist button {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+      padding: 6px;
+      border: 2px solid transparent;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.15s ease-out, border-color 0.15s ease-out, box-shadow 0.15s ease-out;
+      text-align: left;
+      font: inherit;
+    }
+
+    .playlist button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .playlist button.is-active {
+      border-color: #1d5fa3;
+      box-shadow: 0 4px 12px rgba(29,95,163,0.28);
+    }
+
+    .playlist .thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #0f172a center/cover no-repeat;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .playlist .thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%);
+      pointer-events: none;
+    }
+
+    .playlist .play-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      z-index: 1;
+      transition: transform 0.15s ease-out;
+    }
+
+    .playlist button:hover .play-badge {
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+
+    .playlist .play-badge svg {
+      width: 20px;
+      height: 20px;
+      color: #1d5fa3;
+    }
+
+    .playlist .video-title {
+      font-weight: 600;
+      color: #1d3557;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ChildCare",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CA",
+    "addressLocality": "Vancouver",
+    "addressRegion": "BC",
+    "postalCode": "V5Z 1M9",
+    "streetAddress": "575 W 8th Ave"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Vancouver"
+  },
+  "email": "echelondaycare@hotmail.com",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.2641,
+    "longitude": -123.1186
+  },
+  "image": "https://echelondaycare.com/assets/img/logoMod.png",
+  "logo": "https://echelondaycare.com/assets/img/logoMod.png",
+  "name": "Echelon Day Care",
+  "sameAs": [
+    "https://www.facebook.com/echelon.daycare.5"
+  ],
+  "telephone": "+1-604-874-4010",
+  "url": "https://echelondaycare.com/"
+}
+</script>
+<link rel="canonical" href="https:&#x2f;&#x2f;echelondaycare.com&#x2f;pages&#x2f;gallery-videos.html" />
+<link rel="apple-touch-icon" href="https:&#x2f;&#x2f;echelondaycare.com&#x2f;assets&#x2f;img&#x2f;favicon-180.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https:&#x2f;&#x2f;echelondaycare.com&#x2f;assets&#x2f;img&#x2f;favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https:&#x2f;&#x2f;echelondaycare.com&#x2f;assets&#x2f;img&#x2f;favicon-16.png" />
+<link rel="manifest" href="&#x2f;site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "item": "https://echelondaycare.com/",
+      "name": "Home",
+      "position": 1
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://echelondaycare.com/pages/gallery.html",
+      "name": "Gallery",
+      "position": 2
+    },
+    {
+      "@type": "ListItem",
+      "item": "https://echelondaycare.com/pages/gallery-videos.html",
+      "name": "Videos",
+      "position": 3
+    }
+  ]
+}
+</script>
+
+
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header>
+<div class="logo-container">
+<img class="logo" src="..&#x2f;assets&#x2f;img&#x2f;logoMod.png" alt="Echelon Day Care logo" />
+<h1>Echelon Day Care</h1>
+</div>
+<a class="hire-link" href="careers.html" aria-label="Work With Us — Careers at Echelon Day Care">Work With Us</a>
+<button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggle>&#9776;</button>
+</header>
+<nav id="primary-nav" class="primary-nav" aria-label="Primary">
+<a href="..&#x2f;index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="gallery.html" aria-current="page">Gallery</a>
+<a href="contact.html">Contact</a>
+<a href="tour.html">Virtual Tour</a>
+<a href="careers.html">Careers</a>
+</nav>
+
+<main id="main-content">
+<p class="breadcrumb" style="margin: 0 0 8px; font-size: 0.9rem; color: #666;"><a href="gallery.html" style="text-decoration: none; color: #2e7dd1;">← Back to Gallery</a></p>
+<h2>Videos</h2>
+
+
+
+
+
+
+<div class="video-wrap">
+<video
+id="galVideo"
+controls
+preload="metadata"
+playsinline
+poster="..&#x2f;assets&#x2f;video&#x2f;gallery&#x2f;mtt-asia-portfolio-management-dashboard-demo-poster.jpg"
+aria-label="Videos video player">
+<source id="galSource" src="..&#x2f;assets&#x2f;video&#x2f;gallery&#x2f;mtt-asia-portfolio-management-dashboard-demo.mp4" type="video/mp4">
+Your browser does not support HTML5 video. <a id="galFallback" href="..&#x2f;assets&#x2f;video&#x2f;gallery&#x2f;mtt-asia-portfolio-management-dashboard-demo.mp4">Download this video</a> instead.
+</video>
+</div>
+
+<div class="now-playing">
+<h3 id="galNowTitle">Asia Portfolio Dashboard</h3>
+<p id="galNowDesc">A quick look at an Asia portfolio management dashboard interface.</p>
+</div>
+
+
+
+
+</main>
+
+
+<footer>
+<div class="footer-inner">
+<div>&copy; <span id="year"></span> Echelon Day Care. All rights reserved.</div>
+<div>575 W 8th Ave, Vancouver, BC V5Z 1M9, Canada &middot; <a href="tel:+16048744010">+1 604-874-4010</a> &middot; <a href="contact.html">Contact</a></div>
+</div>
+</footer>
+<script>
+(function(){
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
+<script src="..&#x2f;assets&#x2f;js&#x2f;site.js?v=202606010606" defer></script>
+<a class="sticky-call" href="tel:+16048744010" aria-label="Call Echelon Day Care at 604-874-4010"><span aria-hidden="true">&#128222;</span>&nbsp;Call us</a>
+</body>
+</html>
