@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "name": "Echelon Day Care",
+  "name": "Echelon Day Care tester",
   "tagline": "Echelon Day Care",
   "brand": {
     "brand_color": "#2e7dd1",
@@ -35,14 +35,38 @@
     "https://www.facebook.com/echelon.daycare.5"
   ],
   "area_served": [
-    { "type": "City", "name": "Vancouver" },
-    { "type": "Neighborhood", "name": "Mount Pleasant, Vancouver" },
-    { "type": "Neighborhood", "name": "Fairview, Vancouver" },
-    { "type": "Neighborhood", "name": "Cambie Village, Vancouver" },
-    { "type": "Neighborhood", "name": "South Granville, Vancouver" },
-    { "type": "Neighborhood", "name": "Olympic Village, Vancouver" },
-    { "type": "Neighborhood", "name": "False Creek, Vancouver" },
-    { "type": "Neighborhood", "name": "Kitsilano, Vancouver" }
+    {
+      "type": "City",
+      "name": "Vancouver"
+    },
+    {
+      "type": "Neighborhood",
+      "name": "Mount Pleasant, Vancouver"
+    },
+    {
+      "type": "Neighborhood",
+      "name": "Fairview, Vancouver"
+    },
+    {
+      "type": "Neighborhood",
+      "name": "Cambie Village, Vancouver"
+    },
+    {
+      "type": "Neighborhood",
+      "name": "South Granville, Vancouver"
+    },
+    {
+      "type": "Neighborhood",
+      "name": "Olympic Village, Vancouver"
+    },
+    {
+      "type": "Neighborhood",
+      "name": "False Creek, Vancouver"
+    },
+    {
+      "type": "Neighborhood",
+      "name": "Kitsilano, Vancouver"
+    }
   ],
   "hire_link": {
     "label": "Work With Us",
@@ -53,13 +77,41 @@
     "aria_label": "Call Echelon Day Care at 604-874-4010"
   },
   "nav": [
-    { "label": "Home", "path": "index.html", "key": "home" },
-    { "label": "About", "path": "pages/about.html", "key": "about" },
-    { "label": "Services", "path": "pages/services.html", "key": "services" },
-    { "label": "Gallery", "path": "pages/gallery.html", "key": "gallery" },
-    { "label": "Contact", "path": "pages/contact.html", "key": "contact" },
-    { "label": "Virtual Tour", "path": "pages/tour.html", "key": "tour" },
-    { "label": "Careers", "path": "pages/careers.html", "key": "careers" }
+    {
+      "label": "Home",
+      "path": "index.html",
+      "key": "home"
+    },
+    {
+      "label": "About",
+      "path": "pages/about.html",
+      "key": "about"
+    },
+    {
+      "label": "Services",
+      "path": "pages/services.html",
+      "key": "services"
+    },
+    {
+      "label": "Gallery",
+      "path": "pages/gallery.html",
+      "key": "gallery"
+    },
+    {
+      "label": "Contact",
+      "path": "pages/contact.html",
+      "key": "contact"
+    },
+    {
+      "label": "Virtual Tour",
+      "path": "pages/tour.html",
+      "key": "tour"
+    },
+    {
+      "label": "Careers",
+      "path": "pages/careers.html",
+      "key": "careers"
+    }
   ],
   "assets": {
     "logo": "assets/img/logoMod.png",
