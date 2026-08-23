@@ -1,381 +1,107 @@
 {% extends "base.html.j2" %}
 {% block page_head %}
 <style>
-{% raw %}@media (max-width: 768px) {
-}
-
-    main {
-      max-width: 1200px;
-      margin: 30px auto 60px auto;
-      padding: 0 15px;
+{% raw %}main {
+      max-width: 1000px;
+      margin: 40px auto 60px auto;
+      padding: 0 20px;
     }
-
-    /* Breadcrumb */
-    .breadcrumb {
-      font-size: 0.9rem;
-      margin: 10px 15px;
-      color: #666;
-    }
-    .breadcrumb a {
-      text-decoration: none;
-      color: #2e7dd1;
-    }
-
     h2 {
       text-align: center;
-      margin-bottom: 20px;
-      font-size: 2.5rem;
       color: #1d5fa3;
+      font-size: 2.4rem;
+      margin: 0 0 12px;
     }
-
-    /* Search Bar */
-    .search-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 25px;
+    .gallery-intro {
+      text-align: center;
+      color: #5a6c80;
+      font-size: 1.05rem;
+      margin: 0 auto 32px;
+      max-width: 640px;
     }
-    .search-container input {
-      padding: 10px;
-      width: 250px;
-      border: 2px solid #2e7dd1;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .gallery {
+    .gallery-choice-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin: 20px 0;
     }
-
-    .gallery-item {
-      position: relative;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
+    .gallery-choice {
       display: block;
+      position: relative;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 51, 102, 0.12);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
     }
-
-    /* Hover caption overlay */
-    .caption-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      font-size: 1rem;
+    .gallery-choice:hover, .gallery-choice:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 51, 102, 0.2);
+      outline: none;
     }
-    .gallery-item:hover .caption-overlay {
-      opacity: 1;
-    }
-
-    @media (max-width: 600px) {
-      .gallery-item img {
-        height: 120px;
-      }
-    }
-
-    /* Modal styles */
-    #modal {
-      position: fixed;
-      display: flex;
-      opacity: 0;
-      pointer-events: none;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      transition: opacity 0.4s ease;
-    }
-
-    #modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    #modal img {
-      max-width: 90vw;
-      max-height: 80vh;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      user-select: none;
-    }
-
-    #modal .caption {
-      margin-top: 15px;
-      color: #fff;
-      font-size: 1.2rem;
-      text-align: center;
-    }
-
-    /* Navigation arrows */
-    .nav-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 3rem;
+    .gallery-choice .card-cover {
+      height: 180px;
+      background: linear-gradient(135deg, #2e7dd1, #1d5fa3);
+      display: grid;
+      place-items: center;
       color: white;
-      background: rgba(0,0,0,0.4);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
-      cursor: pointer;
-      user-select: none;
-      z-index: 1001;
-      transition: background 0.3s;
     }
-    .nav-arrow:hover {
-      background: rgba(0,0,0,0.7);
+    .gallery-choice .card-cover svg {
+      width: 68px;
+      height: 68px;
+      opacity: 0.95;
     }
-    #prev-arrow {
-      left: 20px;
+    .gallery-choice .card-body {
+      padding: 20px 22px 24px;
     }
-    #next-arrow {
-      right: 20px;
+    .gallery-choice h3 {
+      margin: 0 0 6px;
+      color: #1d3557;
+      font-size: 1.3rem;
     }
-
-    /* Close button */
-    #close-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 2.5rem;
-      color: white;
-      background: rgba(0,0,0,0.4);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      cursor: pointer;
-      user-select: none;
-      z-index: 1001;
-      transition: background 0.3s;
+    .gallery-choice p {
+      margin: 0;
+      color: #5a6c80;
+      font-size: 0.98rem;
+      line-height: 1.5;
     }
-    #close-btn:hover {
-      background: rgba(0,0,0,0.7);
+    .gallery-choice .arrow {
+      display: inline-block;
+      margin-top: 10px;
+      color: #2e7dd1;
+      font-weight: 600;
+      font-size: 0.95rem;
     }
-
-    /* Flower animation */
-    .flower {
-      position: fixed;
-      top: -50px;
-      font-size: 2rem;
-      animation: fall linear infinite;
-      z-index: 500; /* behind modal and nav */
-      pointer-events: none; /* doesn't block clicks */
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }{% endraw %}
+{% endraw %}
 </style>
 {% endblock %}
 {% block body %}
-<!-- Breadcrumb -->
-<!--
-<div class="breadcrumb">
-<a href="../index.html">Home</a> &gt; Gallery
-</div>
--->
 <main id="main-content">
-<h2>{{ gallery.page_heading }}</h2>
-
-<!-- Search Bar -->
-<div class="search-container">
-<input type="text" id="search" placeholder="{{ gallery.search_placeholder }}" />
+<h2>Gallery</h2>
+<p class="gallery-intro">Take a peek inside — browse photos of daily life at the centre, or watch short video clips of our programs.</p>
+<div class="gallery-choice-grid">
+<a class="gallery-choice" href="gallery-photos.html">
+<div class="card-cover" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
 </div>
-
-<div class="gallery" id="gallery">
-<!-- Gallery items inserted by JS -->
+<div class="card-body">
+<h3>Photos</h3>
+<p>Snapshots of classrooms, playtime, art projects, and events.</p>
+<span class="arrow">Browse photos →</span>
+</div>
+</a>
+<a class="gallery-choice" href="gallery-videos.html">
+<div class="card-cover" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+</div>
+<div class="card-body">
+<h3>Videos</h3>
+<p>Short clips of programs, celebrations, and everyday moments.</p>
+<span class="arrow">Watch videos →</span>
+</div>
+</a>
 </div>
 </main>
-
-<!-- Modal Structure -->
-<div id="modal" tabindex="-1" aria-modal="true" role="dialog">
-<div id="close-btn" title="Close">&times;</div>
-<div id="prev-arrow" class="nav-arrow" title="Previous">&#8592;</div>
-<img id="modal-img" src="" alt="" />
-<div class="caption" id="modal-caption"></div>
-<div id="next-arrow" class="nav-arrow" title="Next">&#8594;</div>
-</div>
-
-<script>
-{% raw %}  // ---------------------------
-  // GALLERY SCRIPT
-  // ---------------------------
-  const gallery = document.getElementById('gallery');
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modal-img');
-  const modalCaption = document.getElementById('modal-caption');
-  const closeBtn = document.getElementById('close-btn');
-  const prevArrow = document.getElementById('prev-arrow');
-  const nextArrow = document.getElementById('next-arrow');
-
-  // CMS-managed items rendered by the app's Website module. When empty,
-  // the gallery is truly empty — no legacy fallback.
-  const cmsItems = {% endraw %}{{ gallery["items"] | default([]) | tojson }}{% raw %};
-
-  // Generic warm captions used when a CMS item doesn't carry its own.
-  const captionPool = {% endraw %}{{ gallery.caption_pool | default(["Photo"]) | tojson }}{% raw %};
-  const captionFor = i => captionPool[(i - 1) % captionPool.length];
-
-  // Build entries: { avif, webp, jpg, caption, alt }
-  const entries = [];
-  for (const it of cmsItems) {
-    const variantOf = (fmt, w) => {
-      const v = (it.variants || []).find(v => v.format === fmt && v.width === w);
-      return v ? ("../assets/img/gallery/" + v.filename) : null;
-    };
-    const pick = (fmt) => variantOf(fmt, 800) || variantOf(fmt, 1600) || variantOf(fmt, 400);
-    const cap = it.caption || captionFor(entries.length + 1);
-    const alt = it.alt || ("Echelon Day Care moment: " + cap);
-    entries.push({
-      avif: pick("avif"),
-      webp: pick("webp"),
-      jpg: pick("jpg"),
-      caption: cap,
-      alt: alt,
-    });
-  }
-
-  let currentIndex = 0;
-  const totalImages = entries.length;
-
-  for (let i = 0; i < entries.length; i++) {
-    const e = entries[i];
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-
-    // <picture> serves AVIF (smallest), then WebP, then JPG fallback.
-    const pic = document.createElement('picture');
-    if (e.avif) {
-      const avifSrc = document.createElement('source');
-      avifSrc.srcset = e.avif;
-      avifSrc.type = "image/avif";
-      pic.appendChild(avifSrc);
-    }
-    if (e.webp) {
-      const source = document.createElement('source');
-      source.srcset = e.webp;
-      source.type = "image/webp";
-      pic.appendChild(source);
-    }
-    const img = document.createElement('img');
-    img.src = e.jpg;
-    img.loading = "lazy";
-    img.decoding = "async";
-    img.alt = e.alt;
-    img.dataset.index = i;
-    pic.appendChild(img);
-
-    const overlay = document.createElement('div');
-    overlay.className = 'caption-overlay';
-    overlay.textContent = e.caption;
-
-    item.appendChild(pic);
-    item.appendChild(overlay);
-    gallery.appendChild(item);
-  }
-
-  function openModal(index) {
-    currentIndex = index;
-    modal.classList.add('active');
-    updateModal();
-    modal.focus();
-  }
-
-  function updateModal() {
-    const e = entries[currentIndex];
-    if (!e) return;
-    modalImg.src = e.jpg;
-    modalImg.alt = e.alt;
-    modalCaption.textContent = e.caption;
-  }
-
-  function closeModal() {
-    modal.classList.remove('active');
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateModal();
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-    updateModal();
-  }
-
-  gallery.addEventListener('click', (e) => {
-    if (e.target.tagName === 'IMG') {
-      const idx = parseInt(e.target.dataset.index, 10);
-      openModal(idx);
-    }
-  });
-
-  closeBtn.addEventListener('click', closeModal);
-  nextArrow.addEventListener('click', showNext);
-  prevArrow.addEventListener('click', showPrev);
-
-  document.addEventListener('keydown', (e) => {
-    if (!modal.classList.contains('active')) return;
-    if (e.key === 'ArrowRight') showNext();
-    else if (e.key === 'ArrowLeft') showPrev();
-    else if (e.key === 'Escape') closeModal();
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  // ---------------------------
-  // FALLING FLOWERS SCRIPT
-  // ---------------------------
-  const flowers = ["🌸","🌼","🌻","🌺","🌷","💐","🌹"];
-
-  function createFlower() {
-    const flower = document.createElement("div");
-    flower.classList.add("flower");
-    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-    
-    flower.style.left = Math.random() * 100 + "vw";
-    const duration = Math.random() * 3 + 3; // 3 to 6 seconds
-    flower.style.animationDuration = duration + "s";
-    
-    document.body.appendChild(flower);
-    
-    setTimeout(() => flower.remove(), duration * 1000);
-  }
-
-  setInterval(createFlower, 300);{% endraw %}
-</script>
 {% endblock %}

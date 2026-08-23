@@ -146,37 +146,37 @@
 {% endblock %}
 {% block body %}
 <main id="main-content">
-<h2>{{ tour.heading }}</h2>
-<p class="tour-intro">{{ tour.intro }}</p>
+<p class="breadcrumb" style="margin: 0 0 8px; font-size: 0.9rem; color: #666;"><a href="gallery.html" style="text-decoration: none; color: #2e7dd1;">← Back to Gallery</a></p>
+<h2>{{ gallery_videos.heading }}</h2>
+{% if gallery_videos.intro %}<p class="tour-intro">{{ gallery_videos.intro }}</p>{% endif %}
 
-{% set video_list = tour.videos if tour.videos is defined and tour.videos else [] %}
-{% if not video_list and tour.video_src %}
-  {% set video_list = [ { "id": "V001", "title": tour.heading, "description": "", "src": tour.video_src, "poster": tour.video_poster } ] %}
-{% endif %}
+{% set video_list = gallery_videos.videos if gallery_videos.videos is defined and gallery_videos.videos else [] %}
 {% set first = video_list[0] if video_list else none %}
 
+{% if first %}
 <div class="video-wrap">
 <video
-id="tourVideo"
+id="galVideo"
 controls
 preload="metadata"
 playsinline
-{% if first %}poster="{{ asset_prefix }}{{ first.poster }}"{% endif %}
-aria-label="{{ tour.video_aria_label }}">
-{% if first %}<source id="tourSource" src="{{ asset_prefix }}{{ first.src }}" type="video/mp4">{% endif %}
-{{ tour.video_fallback_text }} {% if first %}<a id="tourFallback" href="{{ asset_prefix }}{{ first.src }}">{{ tour.video_fallback_link_label }}</a> instead.{% endif %}
+poster="{{ asset_prefix }}{{ first.poster }}"
+aria-label="{{ gallery_videos.heading }} video player">
+<source id="galSource" src="{{ asset_prefix }}{{ first.src }}" type="video/mp4">
+Your browser does not support HTML5 video. <a id="galFallback" href="{{ asset_prefix }}{{ first.src }}">Download this video</a> instead.
 </video>
 </div>
 
-{% if first %}
 <div class="now-playing">
-<h3 id="tourNowTitle">{{ first.title }}</h3>
-<p id="tourNowDesc">{{ first.description }}</p>
+<h3 id="galNowTitle">{{ first.title }}</h3>
+<p id="galNowDesc">{{ first.description }}</p>
 </div>
+{% else %}
+<p style="text-align: center; color: #5a6c80; margin: 40px auto; max-width: 500px;">No videos yet. Check back soon!</p>
 {% endif %}
 
 {% if video_list|length > 1 %}
-<ul class="playlist" role="list" aria-label="Available tour videos">
+<ul class="playlist" role="list" aria-label="Available gallery videos">
 {% for v in video_list %}
 <li>
 <button type="button" data-src="{{ asset_prefix }}{{ v.src }}" data-poster="{{ asset_prefix }}{{ v.poster }}" data-title="{{ v.title|e }}" data-desc="{{ v.description|default('')|e }}" class="{% if loop.first %}is-active{% endif %}" aria-label="Play {{ v.title }}">
@@ -190,11 +190,11 @@ aria-label="{{ tour.video_aria_label }}">
 </ul>
 <script>
 {% raw %}(function(){
-  var video = document.getElementById('tourVideo');
-  var source = document.getElementById('tourSource');
-  var fallback = document.getElementById('tourFallback');
-  var titleEl = document.getElementById('tourNowTitle');
-  var descEl  = document.getElementById('tourNowDesc');
+  var video = document.getElementById('galVideo');
+  var source = document.getElementById('galSource');
+  var fallback = document.getElementById('galFallback');
+  var titleEl = document.getElementById('galNowTitle');
+  var descEl  = document.getElementById('galNowDesc');
   var buttons = document.querySelectorAll('.playlist button');
   buttons.forEach(function(btn){
     btn.addEventListener('click', function(){
