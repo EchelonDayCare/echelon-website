@@ -1,9 +1,16 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "heading": "Virtual Tour",
-  "intro": "Take a quick walk-through of our classrooms, play spaces and outdoor area. Press play to start the tour.",
-  "video_src": "assets/video/tour.mp4",
-  "video_poster": "assets/video/tour-poster.jpg",
+  "intro": "Take a quick walk-through of our classrooms, play spaces and outdoor area. Press play to start the tour. If you are considering an in-person visit, we are usually best able to welcome tours during quieter parts of the day, so please contact us to arrange a suitable time.",
+  "videos": [
+    {
+      "id": "V001",
+      "title": "Classroom walk-through",
+      "description": "A tour of our main classrooms and play spaces.",
+      "src": "assets/video/tour.mp4",
+      "poster": "assets/video/tour-poster.jpg"
+    }
+  ],
   "video_aria_label": "Virtual tour of Echelon Day Care",
   "video_fallback_text": "Your browser does not support embedded video.",
   "video_fallback_link_label": "Download the tour video"
