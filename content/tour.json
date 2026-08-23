@@ -9,6 +9,13 @@
       "description": "A tour of our main classrooms and play spaces.",
       "src": "assets/video/tour.mp4",
       "poster": "assets/video/tour-poster.jpg"
+    },
+    {
+      "id": "V002",
+      "title": "Graduation Reel 2026",
+      "description": "A warm look back at this year’s graduation moments and celebrations.",
+      "src": "assets/video/graduation-year-reel-2026.mp4",
+      "poster": "assets/video/graduation-year-reel-2026-poster.jpg"
     }
   ],
   "video_aria_label": "Virtual tour of Echelon Day Care",

@@ -270,6 +270,56 @@ Your browser does not support embedded video. <a id="tourFallback" href="..&#x2f
 
 
 
+<ul class="playlist" role="list" aria-label="Available tour videos">
+
+<li>
+<button type="button" data-src="..&#x2f;assets&#x2f;video&#x2f;tour.mp4" data-poster="..&#x2f;assets&#x2f;video&#x2f;tour-poster.jpg" data-title="Classroom walk-through" data-desc="A tour of our main classrooms and play spaces." class="is-active" aria-label="Play Classroom walk-through">
+<div class="thumb" style="background-image:url('..&#x2f;assets&#x2f;video&#x2f;tour-poster.jpg');">
+<span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+</div>
+<span class="video-title">Classroom walk-through</span>
+</button>
+</li>
+
+<li>
+<button type="button" data-src="..&#x2f;assets&#x2f;video&#x2f;graduation-year-reel-2026.mp4" data-poster="..&#x2f;assets&#x2f;video&#x2f;graduation-year-reel-2026-poster.jpg" data-title="Graduation Reel 2026" data-desc="A warm look back at this year’s graduation moments and celebrations." class="" aria-label="Play Graduation Reel 2026">
+<div class="thumb" style="background-image:url('..&#x2f;assets&#x2f;video&#x2f;graduation-year-reel-2026-poster.jpg');">
+<span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+</div>
+<span class="video-title">Graduation Reel 2026</span>
+</button>
+</li>
+
+</ul>
+<script>
+(function(){
+  var video = document.getElementById('tourVideo');
+  var source = document.getElementById('tourSource');
+  var fallback = document.getElementById('tourFallback');
+  var titleEl = document.getElementById('tourNowTitle');
+  var descEl  = document.getElementById('tourNowDesc');
+  var buttons = document.querySelectorAll('.playlist button');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var src = btn.getAttribute('data-src');
+      var poster = btn.getAttribute('data-poster');
+      var title = btn.getAttribute('data-title') || '';
+      var desc  = btn.getAttribute('data-desc') || '';
+      if (source) source.setAttribute('src', src);
+      if (fallback) fallback.setAttribute('href', src);
+      if (poster) video.setAttribute('poster', poster);
+      if (titleEl) titleEl.textContent = title;
+      if (descEl) descEl.textContent = desc;
+      buttons.forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      video.load();
+      var p = video.play();
+      if (p && p.catch) p.catch(function(){});
+    });
+  });
+})();
+</script>
+
 
 </main>
 
