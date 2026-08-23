@@ -15,7 +15,11 @@
     "location_all_label": "All locations",
     "type_aria_label": "Filter by employment type",
     "type_all_label": "All types",
-    "type_options": ["Full-time", "Part-time", "Casual"],
+    "type_options": [
+      "Full-time",
+      "Part-time",
+      "Casual"
+    ],
     "clear_button_label": "Clear",
     "clear_button_title": "Clear filters"
   },
@@ -60,6 +64,16 @@
       "short": "Support Lead Teachers with daily care routines and classroom activities.",
       "details": "Assist with supervision, meal times and play-based learning. Good communication and a caring manner required. Early childhood coursework or equivalent experience preferred.",
       "datePosted": "2026-01-10"
+    },
+    {
+      "id": "J003",
+      "title": "Cleaner",
+      "category": "Support",
+      "type": "Part-time",
+      "location": "Vancouver",
+      "short": "Help keep our daycare clean, safe, and welcoming on weekdays.",
+      "details": "We are hiring a part-time Cleaner for weekday shifts. Responsibilities include cleaning classrooms, washrooms, common areas, and helping maintain a safe, sanitary environment for children and staff. Reliability, attention to detail, and a strong work ethic are required.",
+      "datePosted": "2026-08-23"
     }
   ]
 }
