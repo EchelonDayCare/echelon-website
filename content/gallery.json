@@ -20,176 +20,60 @@
   ],
   "items": [
     {
-      "media_id": 46,
-      "base_hash": "f53310ec0bfb433a",
-      "source_filename": "photo3.jpg",
+      "media_id": 1,
+      "base_hash": "0333d7afdf53373f",
+      "source_filename": "WhatsApp Image 2026-08-21 at 20.49.59.jpeg",
       "caption": null,
       "alt": null,
       "focal_x": null,
       "focal_y": null,
-      "width": 1299,
-      "height": 1018,
+      "width": 1536,
+      "height": 2048,
       "variants": [
         {
           "width": 400,
           "format": "avif",
-          "filename": "02c3821ff61bafe5-w400.avif"
+          "filename": "5776c199c0a56a8b-w400.avif"
         },
         {
           "width": 400,
           "format": "jpg",
-          "filename": "54debc358a0f6b7f-w400.jpg"
+          "filename": "554fdf8da8926df1-w400.jpg"
         },
         {
           "width": 400,
           "format": "webp",
-          "filename": "9963cf20a9e94266-w400.webp"
+          "filename": "4649e97b2f127662-w400.webp"
         },
         {
           "width": 800,
           "format": "avif",
-          "filename": "d0d58840f502c837-w800.avif"
+          "filename": "36971162a7b55cdf-w800.avif"
         },
         {
           "width": 800,
           "format": "jpg",
-          "filename": "638307e2616cc3f2-w800.jpg"
+          "filename": "617b0c8ffcb3b1ee-w800.jpg"
         },
         {
           "width": 800,
           "format": "webp",
-          "filename": "94cbaa671eb5228b-w800.webp"
+          "filename": "cd708e73ca94baaf-w800.webp"
         },
         {
           "width": 1600,
           "format": "avif",
-          "filename": "a14981494518aeb8-w1600.avif"
+          "filename": "281ce9a5292423c4-w1600.avif"
         },
         {
           "width": 1600,
           "format": "jpg",
-          "filename": "43a630179ebf3708-w1600.jpg"
+          "filename": "f4df33ab96934c60-w1600.jpg"
         },
         {
           "width": 1600,
           "format": "webp",
-          "filename": "965d848edbf2799b-w1600.webp"
-        }
-      ]
-    },
-    {
-      "media_id": 47,
-      "base_hash": "bcba8c7a52168f04",
-      "source_filename": "photo1.jpg",
-      "caption": null,
-      "alt": null,
-      "focal_x": null,
-      "focal_y": null,
-      "width": 523,
-      "height": 391,
-      "variants": [
-        {
-          "width": 400,
-          "format": "avif",
-          "filename": "3e915b682b518686-w400.avif"
-        },
-        {
-          "width": 400,
-          "format": "jpg",
-          "filename": "e5d22558365b1c92-w400.jpg"
-        },
-        {
-          "width": 400,
-          "format": "webp",
-          "filename": "5b19120a85065383-w400.webp"
-        },
-        {
-          "width": 800,
-          "format": "avif",
-          "filename": "9984322c1df50e1e-w800.avif"
-        },
-        {
-          "width": 800,
-          "format": "jpg",
-          "filename": "dc7bc7701043067f-w800.jpg"
-        },
-        {
-          "width": 800,
-          "format": "webp",
-          "filename": "e6b0ac1ad507533c-w800.webp"
-        },
-        {
-          "width": 1600,
-          "format": "avif",
-          "filename": "768d7db1d3baf932-w1600.avif"
-        },
-        {
-          "width": 1600,
-          "format": "jpg",
-          "filename": "37a589e4d0aa4646-w1600.jpg"
-        },
-        {
-          "width": 1600,
-          "format": "webp",
-          "filename": "e461de5e19b3967b-w1600.webp"
-        }
-      ]
-    },
-    {
-      "media_id": 48,
-      "base_hash": "1c0bce5010829e29",
-      "source_filename": "photo2.jpg",
-      "caption": null,
-      "alt": null,
-      "focal_x": null,
-      "focal_y": null,
-      "width": 523,
-      "height": 391,
-      "variants": [
-        {
-          "width": 400,
-          "format": "avif",
-          "filename": "e7c48dc54d211fc2-w400.avif"
-        },
-        {
-          "width": 400,
-          "format": "jpg",
-          "filename": "ad7bfd1067f9b0e2-w400.jpg"
-        },
-        {
-          "width": 400,
-          "format": "webp",
-          "filename": "74480198bab11ccd-w400.webp"
-        },
-        {
-          "width": 800,
-          "format": "avif",
-          "filename": "5d9468a405062cd2-w800.avif"
-        },
-        {
-          "width": 800,
-          "format": "jpg",
-          "filename": "bfec0db6f55f0360-w800.jpg"
-        },
-        {
-          "width": 800,
-          "format": "webp",
-          "filename": "2e57e1fded51402a-w800.webp"
-        },
-        {
-          "width": 1600,
-          "format": "avif",
-          "filename": "6fd28d7456b362f2-w1600.avif"
-        },
-        {
-          "width": 1600,
-          "format": "jpg",
-          "filename": "e4c6539c0974c210-w1600.jpg"
-        },
-        {
-          "width": 1600,
-          "format": "webp",
-          "filename": "bc3b83bdbe4c4e3d-w1600.webp"
+          "filename": "ccd3d192921ce9e6-w1600.webp"
         }
       ]
     }

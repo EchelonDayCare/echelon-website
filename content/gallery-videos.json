@@ -2,5 +2,13 @@
   "schema_version": 1,
   "heading": "Videos",
   "intro": "",
-  "videos": []
+  "videos": [
+    {
+      "id": "V001",
+      "title": "Graduation Year Reel",
+      "description": "A joyful look back at special moments from the graduating class of 2026.",
+      "src": "assets/video/gallery/graduation-year-reel-2026.mp4",
+      "poster": "assets/video/gallery/graduation-year-reel-2026-poster.jpg"
+    }
+  ]
 }

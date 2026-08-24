@@ -256,7 +256,23 @@ main {
 
 
 
-<p style="text-align: center; color: #5a6c80; margin: 40px auto; max-width: 500px;">No videos yet. Check back soon!</p>
+<div class="video-wrap">
+<video
+id="galVideo"
+controls
+preload="metadata"
+playsinline
+poster="..&#x2f;assets&#x2f;video&#x2f;gallery&#x2f;graduation-year-reel-2026-poster.jpg"
+aria-label="Videos video player">
+<source id="galSource" src="..&#x2f;assets&#x2f;video&#x2f;gallery&#x2f;graduation-year-reel-2026.mp4" type="video/mp4">
+Your browser does not support HTML5 video. <a id="galFallback" href="..&#x2f;assets&#x2f;video&#x2f;gallery&#x2f;graduation-year-reel-2026.mp4">Download this video</a> instead.
+</video>
+</div>
+
+<div class="now-playing">
+<h3 id="galNowTitle">Graduation Year Reel</h3>
+<p id="galNowDesc">A joyful look back at special moments from the graduating class of 2026.</p>
+</div>
 
 
 
