@@ -76,6 +76,64 @@
           "filename": "ccd3d192921ce9e6-w1600.webp"
         }
       ]
+    },
+    {
+      "media_id": 49,
+      "base_hash": "69bd75a33bda2872",
+      "source_filename": "Navigator1.png",
+      "caption": null,
+      "alt": null,
+      "focal_x": null,
+      "focal_y": null,
+      "width": 342,
+      "height": 340,
+      "variants": [
+        {
+          "width": 400,
+          "format": "avif",
+          "filename": "79d6fee23947d01d-w400.avif"
+        },
+        {
+          "width": 400,
+          "format": "jpg",
+          "filename": "461cdf4581c01889-w400.jpg"
+        },
+        {
+          "width": 400,
+          "format": "webp",
+          "filename": "99e629d33e54f44d-w400.webp"
+        },
+        {
+          "width": 800,
+          "format": "avif",
+          "filename": "27121599d3a9c9dd-w800.avif"
+        },
+        {
+          "width": 800,
+          "format": "jpg",
+          "filename": "84ef92ae497ce924-w800.jpg"
+        },
+        {
+          "width": 800,
+          "format": "webp",
+          "filename": "b80b8175a22c1742-w800.webp"
+        },
+        {
+          "width": 1600,
+          "format": "avif",
+          "filename": "bc6f22067931deef-w1600.avif"
+        },
+        {
+          "width": 1600,
+          "format": "jpg",
+          "filename": "93e99596e7ce131f-w1600.jpg"
+        },
+        {
+          "width": 1600,
+          "format": "webp",
+          "filename": "b6b7019a7b13368f-w1600.webp"
+        }
+      ]
     }
   ]
 }

@@ -94,6 +94,13 @@
 {% for b in about.why_choose_us.bullets %}<li>{{ b }}</li>
 {% endfor %}</ul>
 
+{% if about.custom_sections %}{% for sec in about.custom_sections %}
+<h3>{{ sec.heading }}</h3>
+{% if sec.type == "bullets" %}<ul>
+{% for b in sec.bullets %}<li>{{ b }}</li>
+{% endfor %}</ul>{% else %}<p>{{ sec.paragraph|safe }}</p>{% endif %}
+{% endfor %}{% endif %}
+
 <div class="gallery-grid">
 {% for img in about.image_grid %}<img src="{{ asset_prefix }}{{ img.src }}" alt="{{ img.alt }}" onclick="openModal({{ loop.index0 }})" />
 {% endfor %}</div>
